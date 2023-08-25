@@ -6,6 +6,11 @@
 	linkcolor=black]
 {hyperref}
 
+%\usepackage{wasysym}
+\usepackage[english]{babel}
+\usepackage{tikz}
+\pagestyle{empty}
+%\usepackage[margin=0in,paperwidth=596pt,paperheight=842pt]{geometry}
 \usepackage[all]{hypcap}
 
 \usepackage{graphicx}
@@ -164,38 +169,113 @@ Diese sechs ML Verfahren sind:\\
 
 \newpage
 
-\section{Lernen von Entscheidungsbäumen / "Decision Tree" Learning}
+\section{Lernen von Entscheidungsbäumen / "Decision Tree" (DT) Learning}
+
+
+\textbf{Entscheidungsbaum-Algorithmen} sind weit verbreitete Methoden im maschinellen Lernen, die zur \textbf{Klassifikation und Regression} verwendet werden.\\
+
+\subsection{Mathematik bei Entscheidungsbäumen}
+
+Es gibt verschiedene mathematische Verfahren und Techniken, die bei der Konstruktion und Optimierung von Entscheidungsbäumen eingesetzt werden. Hier sind einige davon:\\
+
+\textbf{1. Entropie und Informationsgewinn:}\\
+Die Entropie ist ein Maß für die Unordnung oder Unsicherheit in einem Datensatz. Beim Konstruieren eines Entscheidungsbaums wird der Informationsgewinn verwendet, um festzustellen, wie gut eine Funktion (Attribut) den Datensatz in Bezug auf die Zielvariable aufteilt. Der Informationsgewinn wird oft in Form von Entropieänderungen zwischen den ursprünglichen und den aufgeteilten Datensätzen gemessen.
+
+\textbf{2. Gini-Index:}\\
+Der Gini-Index misst die Wahrscheinlichkeit, dass eine zufällig ausgewählte Instanz falsch klassifiziert wird, wenn sie zufällig nach den Klassenverteilungen in einem Teilbaum ausgewählt wird. Ein niedriger Gini-Index deutet auf eine homogene Verteilung der Klassen hin.\\
+
+\textbf{3. Reduktion des quadratischen Fehlers (Regression):}\\
+Bei Entscheidungsbäumen für Regression werden mathematische Kriterien wie die Reduktion des quadratischen Fehlers verwendet, um die besten Aufteilungen der Daten zu finden, die zu einer geringeren Varianz der Zielvariablen führen.\\
+
+\textbf{3. Cost-Complexity-Pruning:}\\
+Nach dem Konstruieren eines Entscheidungsbaums können zu viele Verzweigungen zu Overfitting führen. Das Cost-Complexity-Pruning verwendet eine Kostenfunktion, um die Qualität eines Baums in Bezug auf seine Komplexität zu bewerten. Durch Entfernen von Verzweigungen, die nur geringfügig zur Verbesserung der Modellgenauigkeit beitragen, kann die Generalisierungsfähigkeit des Baums verbessert werden.\\
+
+\textbf{4. CART (Classification and Regression Trees):}\\
+Der CART-Algorithmus verwendet eine rekursive Zweig- und Bindemethode, um einen Baum zu erstellen. Er sucht nach der besten Spaltung eines Datensatzes anhand des Gini-Index (für Klassifikation) oder der Reduzierung des quadratischen Fehlers (für Regression).\\
+
+\textbf{5. Random Forests und Boosting:}\\
+Diese Ansätze basieren auf Entscheidungsbäumen, werden jedoch durch die Kombination mehrerer Bäume oder das Hinzufügen von Gewichten zu den Instanzen verbessert. Sie nutzen mathematische Methoden, um die Vorhersagegenauigkeit und Robustheit zu erhöhen.\\
+
+\textbf{5. Hyperparameter-Optimierung:}\\
+Die Wahl der Hyperparameter, wie beispielsweise die maximale Tiefe des Baums oder die Mindestanzahl der Instanzen in einem Blatt, beeinflusst die Leistung des Entscheidungsbaums. Mathematische Verfahren wie Rastersuche oder Bayes'sche Optimierung können verwendet werden, um die besten Hyperparameter für das Modell zu finden.\\[0.2cm]
+
+\textbf{Zusammenfassung}:
+Diese Verfahren sind alle Teil des Prozesses der Konstruktion, Anpassung und Optimierung von Entscheidungsbäumen im maschinellen Lernen. Die Wahl des geeigneten Verfahrens hängt von der Art des Problems und den Daten ab, mit denen Sie arbeiten.\\
+
+
+\subsection{DT-Verfahren mit Gini-Index- oder Entropie-Verfahren}
+
+
 ********************************************************************\\ ab hier bis Ende der Section sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
 ********************************************************************\\
 
-\subsection{Motivation}
 
-\subsection{Mathemaische Grundlagen}
 
-\subsection{Übungen zum Kapitel 5}
+\subsection{Mathematische Grundlagen GINI- und Entropie-Verfahren }
 
-\subsection{Motivation}
 
-\subsection{Mathemaische Grundlagen}
+\subsection{Beispiele für GINI-Verfahren}
+
+\hspace*{-1.8cm}
+\includegraphics[width=595.4401pt,height=841.32pt]{latexImage_f093f131e1ba361d5f674df0ed2570f1.png}
+
+\hspace*{-1.8cm}
+\includegraphics[width=595.4401pt,height=841.32pt]{latexImage_763b10c1e5a667e05d9d13d585345751.png}
+
+\subsubsection{Beispiele für Entropie-Verfahren}
+
+
+
+\subsection{GINI-Index "Production Maintenance"}
+
+\subsection{Mathematische Grundlagen}
 
 ********************************************************************\\ ab hier bis Ende der Section sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
 ********************************************************************\\
-
-\subsection{Übungen zu Kapitel 4}
-********************************************************************\\ ab hier bis Ende der ÜBUNGEN sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
-********************************************************************\\
-
-\subsubsection{Übung 4.1}
-
-\subsubsection{Übung 4.2}
-
-\subsubsection{Übung 4.3}
-
-\subsubsection{Übung 4.4}
-
 
 \newpage
 
+
+\subsection{Übungen zu Kapitel 3}
+********************************************************************\\ ab hier bis Ende der ÜBUNGEN sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
+********************************************************************\\
+
+\subsubsection{Übung 3.1}
+\begin{figure}[htp]
+  \centering
+  \hspace*{-1.5cm} 
+  \includegraphics[width=1.2\textwidth]{DT-Homework(1+2)}
+  \caption{DT-Homework(1+2)}
+\label{fig:DT_Learning1}
+\end{figure}
+
+\subsubsection{Übung 3.2}
+
+\subsubsection{Übung 3.3}
+
+\begin{figure}[htp]
+  \centering
+  \hspace*{-1.5cm} 
+  \includegraphics[width=1.2\textwidth]{DT-Homework(3+4)}
+  \caption{DT-Homework(3+4)}
+\label{fig:DT_Learning2}
+\end{figure}
+
+\subsubsection{Übung 3.4}
+
+
+\subsubsection{Übung 3.5}
+
+\begin{figure}[bp]
+  \centering
+  \hspace*{-1.5cm} 
+  \includegraphics[width=1.2\textwidth]{DT-Homework5}
+  \caption{DT-Homework5}
+\label{fig:DT_Learning2}
+\end{figure}
+
+
+\newpage
 
 \section{Lineare Regression (LR) in ML }
 
@@ -738,8 +818,9 @@ Naive-Bayes-Klassifikatoren sind einfach zu implementieren, schnell und können 
 \includegraphics{Bayes-Beispiel03}
 \end{center}
 
+\newpage
 
-\subsection{Übungen zum Kapitel 6}
+\subsection{Übungen zum Kapitel 5}
 
 ********************************************************************\\ ab hier bis Ende der Übungen sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
 ********************************************************************\\
@@ -747,7 +828,7 @@ Naive-Bayes-Klassifikatoren sind einfach zu implementieren, schnell und können 
 
 
 
-\subsubsection{Übung 6.1 - Bsp. einer Bayes-Texklassifikation}
+\subsubsection{Übung 5.1 - Bsp. einer Bayes-Texklassifikation}
 
 Analog dem Beispiel aus obigen Kapitel soll die Bayes- Textklassifikation für einen weiteren Zielsatz mit den gleichen \textbf{"gelabelten" Trainingsdaten} durchgeführt werden. Wir suchen jetzt eine Klassifikation für den Zielsatz \textbf{"Hermann plays a TT match"}:\\   
 
@@ -758,11 +839,11 @@ Analog dem Beispiel aus obigen Kapitel soll die Bayes- Textklassifikation für e
 \textbf{Zusatzfrage:} Wie verändert sich das Ergebnis wenn ich als Zielsatz: \textbf{"Hermann plays a very clean game"} eingebe? 
 
 
-\subsubsection{Übung 6.2 - Bayes-Textklassifikation in Python}
+\subsubsection{Übung 5.2 - Bayes-Textklassifikation in Python}
 
 Definiere einen Algorithmus in Python (benutze Jupyter Notebook) um obige Berechnung zu automatisieren. Tipp: Vergleich analoge Beispiele in \textbf{[HVö-5]} - \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\
 
-\subsubsection{Übung 6.3}:
+\subsubsection{Übung 5.3}:
 *** Weitere Kapitel Texte *** 
 
 \newpage
@@ -838,9 +919,14 @@ Jetzt wenden wir den Kernel-Trick an, um die Daten in $\mathbb{R}^3$ zu transfor
  $\Phi:\mathbb{R}^2 \rightarrow\mathbb{R}^3$ definiert durch  $\Phi(x_1,x_2) = (x_1,x_2, x_1^2 + x_2^2)$. 
 \end{center} 
 Die transformierten Punkte A' = $\Phi(A)$ ....E' = $\Phi(A)$ werden dann berechnet als: {\color{red}{Klasse +1: A'(1,1,2), B'(-1,1,2)}} und {\color{blue}{Klasse -1: C'(2,1,5), D'(1,-2,5) und E'(-2,1,5)}}. Die roten Punkte liegen dabei alle auf der Höhe z=2 und die blauen Punkte auf z=5. Siehe dazu den folgenden Python Plot:\\[0.2cm]
-\begin{center}
-\includegraphics{Kernel-Hyperebene-Bild}\\[0.2cm]
-\end{center}
+\newpage
+\begin{figure}[ht]
+  \centering
+  \hspace*{-0.5cm} 
+  \includegraphics[width=0.9\textwidth]{Kernel-Hyperebene-Bild}
+  \caption{Hyperebenen zum Kernel-Trick Beispiel}
+  \label{fig:SVM_Ebenen}
+\end{figure}
 
 Ein bewegtes Bild davon liegt in der Referenz \textbf{[HVö-5]:} \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/hyperebenen_animation.gif}\\[0.2cm]
 
@@ -850,18 +936,21 @@ Durch eine "Zurücktransformation" erhält man den \textbf{Kreis: $x_1^2+x_2^2=3
   \centering
   \hspace*{-0.1cm} 
   \includegraphics[width=1.1\textwidth]{SVM-Kreisbild-Python}
-  \caption{Python Code und Kernel-Trick Kreisbild} \label{fig:SVM_Kreis}
+  \caption{Python Code und Kernel-Trick Kreisbild}       
+  \label{fig:SVM_Kreis}
 \end{figure}
 
 \newpage
-.................
+
 \subsection{Übungen zum Kapitel 6}
 .....\\
 \subsubsection{Übung 6.1 - .......}
 TEXT\\
 \subsubsection{Übung 6.2 - .......}
 
-\subsubsection{Übung 6.3 - .......}
+\subsubsection{Übung 6.3 - Python Code zu Hyperebenen}
+Schreiben Sie den Python Code zur Generierung der zwei Hyperebenen im 2-dim. Beispiel zum Kernel-Trick. Animieren Sie die Grafik, so dass sie sich dreht. 
+
 \newpage
 
 \section{Neuronale Faltungsnetzwerke "Convolutional Neural Networks" (CNN)}
@@ -1192,19 +1281,13 @@ Für eine Lösung vergleiche:\\
 \subsection{Lösungshinweise zu Übungen Kapitel 5}
 
 \subsubsection{Lösungshinweise zu Übung 5.1}
-.....\\
-\subsubsection{Lösungshinweise zu Übung 5.2}
-....\\
-\subsection{Lösungshinweise zu Übungen Kapitel 6}
-
-\subsubsection{Lösungshinweise zu Übung 6.1}
-
 \begin{center} 
 \includegraphics[width=1.1\textwidth]{Naive-Bayes-Ueb61_Hinweis}
 \end{center}
-\textbf{Zusatzfrage:} Das Ergebnis dreht sich rum wenn Sie als Zielsatz \textbf{"Hermann plays a very clean game"} eingeben.
+\textbf{Zusatzfrage:} Das Ergebnis dreht sich rum wenn Sie als Zielsatz \textbf{"Hermann plays a very clean game"} eingeben.\\
 
-\subsubsection{Lösungshinweise zu Übung 6.2}
+\subsubsection{Lösungshinweise zu Übung 5.2}
+....\\
 
 Die letzten Python Codeblöcke sehen Sie im folg Screenshot: 
 
@@ -1214,6 +1297,36 @@ Die letzten Python Codeblöcke sehen Sie im folg Screenshot:
 \end{center}
 
 \hspace*{-1.8cm} Weitere Hilfe unter \textbf{[HVö-5]} \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\
+
+
+\subsection{Lösungshinweise zu Übungen Kapitel 6}
+
+\subsubsection{Lösungshinweise zu Übung 6.1}
+
+................
+
+\subsubsection{Lösungshinweise zu Übung 6.2}
+
+
+\subsubsection{Lösungshinweise zu Übung 6.3}
+
+\begin{figure}[htp]
+  \centering
+  \hspace*{-0.5cm} 
+  \includegraphics[width=0.9\textwidth]{Kernel-Hyperebene-Code-Bild1}
+  \caption{Codeblock(1+2) zum Kernel-Trick Beispiel}
+  \label{fig:SVM_Ebenen}
+\end{figure}
+
+\begin{figure}[htp]
+  \centering
+  \hspace*{-0.5cm} 
+  \includegraphics[width=0.9\textwidth]{Kernel-Hyperebene-Code-Bild2}
+  \caption{Codeblock(3) zum Kernel-Trick Beispiel}
+  \label{fig:SVM_Ebenen}
+\end{figure}
+
+\newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 7}
 .....\\
