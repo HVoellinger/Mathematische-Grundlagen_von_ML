@@ -66,7 +66,7 @@
    \end{center}
    
 \begin{center}
-{\color{red}{Diese Version V0.6 (Datum: 25.8.2023) ist nicht final.}}\\(Beachte: ************ Kommentare *********) \\
+{\color{red}{Diese Version V0.6 (Datum: 27.8.2023) ist nicht final.}}\\(Beachte: ************ Kommentare *********) \\
 Aktuelle Versionen findet man in meinem GitHub:\\
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.6.pdf} \\
 \vspace{0.4cm}
@@ -147,19 +147,19 @@ Diese sechs ML Verfahren sind:\\
 %\item[3. text]
 %\end{enumerate}
 
-1. Entscheidungsbäume und GINI Index (Statistik) \\
+1. Mathematik zum k-Means-Algorithmus ("Euklidische Distanz")\\
 
-2. Lineare Regression und "Best Fit" Verfahren der Analysis (AN)\\
+2. Entscheidungsbäume und GINI Index (Statistik)\\
 
-3. Text-Klassifikation mit Bayes-Verfahren (Bedingte Wahrscheinlichkeiten)\\
+3. Lineare Regression und "Best Fit" Verfahren der Analysis (AN)\\
+
+4. Text-Klassifikation mit Bayes-Verfahren (Bedingte Wahrscheinlichkeiten)\\
  
-4. Verfahren der "Support Vector Machines" (SVM)\\
+5. Verfahren der "Support Vector Machines" (SVM)\\
 
-5. Neuronale Netzwerke und Backpropagation via "Absteigende Gradienten"\\
+6. Neuronale Netzwerke und Backpropagation via "Absteigende Gradienten"\\[0.2cm]
 
-6. Mathematik und grosse Sprachmodelle "Large Language Models" (LLMs))
-\\
-\\Am Ende kommt noch ein Kapitel "Anhang" in den fünf weitere ML-Verfahren der Vollständigkeit halber eher kurz erläutert werden. Diese sind:\\
+Am Ende kommt noch ein Kapitel \textbf{Anhang} in den sechs weitere ML-Verfahren der Vollständigkeit halber eher kurz erläutert werden. Diese sind:\\
 
 1. Empfehlungssysteme "Recommender Systems" (LinAlgebra)\\
 
@@ -170,6 +170,86 @@ Diese sechs ML Verfahren sind:\\
 4. Singulärwertzerlegung "Singular Value Decomposition" (SVD)\\
  
 5. Mathematische Verfahren im NLP, i.e. "Latent Semantic Analysis/Indexing (LSI)"?\\
+
+6. Mathematik und grosse Sprachmodelle "Large Language Models" (LLMs))
+
+\newpage
+
+\section{Mathematik zum "k-Means-Algorithmus"}
+
+Ein \textbf{k-Means-Algorithmus}ist ein Verfahren der Euklidischen Geometrie. Dabei wird aus einer Menge von ähnlichen Objekten eine vorher bekannte Anzahl von k Gruppen ("Clustern") gebildet.\\
+Der Algorithmus ist eine der am häufigsten verwendeten Techniken zur Gruppierung von Objekten, da er schnell die Zentren der Cluster findet. Dabei bevorzugt der Algorithmus Gruppen mit geringer Varianz und ähnlicher Größe.\\
+Der Algorithmus hat starke Ähnlichkeiten mit dem "Erwartungs-Maximierungs-Algorithmus (EM-Algorithmus)" und zeichnet sich durch seine Einfachheit aus.\\
+Erweiterungen sind der $"k-Median-Algorithmus"$ und der $"k-Means++ Algorithmus" $.\\
+
+\subsection{Problemstellung und Mathematik}
+
+Ziel von k-Means ist es einen den Datensatz so in $k$ Partitionen zu teilen, dass die Summe der quadrierten Abweichungen von den Cluster-Schwerpunkten minimal ist. Mathematisch entspricht dies der Optimierung der Funktion:\\[0.2cm]
+$ J = \sum_{i=1}^{k}  \sum_{\mathbf x_j \in S_{i}} {\| \mathbf x_j - \boldsymbol \mu_i \|^2}$ mit den Datenpunkten $ \mathbf x_j $ und den "Schwerpunkten" $ \boldsymbol \mu_i $ der Cluster $ S_i$.\\[0.2cm]
+Diese Zielfunktion basiert auf der \textbf{Methode der kleinsten Quadrate} und man spricht auch von "Clustering durch Varianzminimierung", da die Summe der Varianzen der Cluster minimiert wird.\\
+Da zudem $ \| \mathbf x_j - \boldsymbol \mu_i \|^2 $ die quadrierte "Euklidische Distanz" ist, ordnet k-Means effektiv jedes Objekt dem nächstgelegenen (nach Euklidischer Distanz) Clusterschwerpunkt zu.\\ 
+
+\begin{figure}[htp]
+  \centering
+  \hspace*{-0.1cm} 
+  \includegraphics[width=0.7\textwidth]{k-Means-Konvergenz-Iteration0}
+  \caption{k-Means-Konvergenz-Iteration0}
+  \label{fig:k-Means-Iteration0}
+\end{figure}
+
+Um eine Animation einer 3-Means-Konvergenz mit 15 Iterationen zu sehen können sie auf folgenden Link aufrufen:\\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/k-Means-Konvergenz-Animation.gif}\\
+
+\subsection{k-Means Algorithmen}
+
+Da die Suche nach der optimalen Lösung schwer ist, wird im Normalfall ein approximativer Algorithmus verwendet wie die \textbf{ Heuristiken von Lloyd oder MacQueen}. Da die Problemstellung von k abhängig ist, muss dieser Parameter vom Benutzer festgelegt werden\\
+
+\subsubsection{Lloyd-Algorithmus}
+
+Der am häufigsten verwendete k-Means-Algorithmus ist der \textbf{Lloyd-Algorithmus}, der oft als "der k-Means-Algorithmus" bezeichnet wird, obwohl Lloyd diesen Namen nicht verwendet hat. Lloyds Algorithmus besteht aus drei Schritten:\\[0.2cm]
+\textbf{1. Initialisierung:} Wähle $k$ zufällige Mittelwerte ("Means"): $ \mathbf m_1^{(1)}, \ldots, \mathbf m_k^{(1)} $ aus dem Datensatz.\\
+\textbf{2. Zuordnung:} Jedes Datenobjekt wird demjenigen Cluster zugeordnet, bei dem die Cluster-Varianz am wenigsten erhöht wird.
+\begin{center}
+$ S_i^{(t)} = \left\{ \mathbf x_j : \big\| \mathbf x_j - \mathbf m^{(t)}_i \big\|^2 \leq \big\| \mathbf x_j - \mathbf m^{(t)}_{i^*} \big\|^2 \text{ für alle }i^*=1,\ldots,k \right\}$\\[0.2cm]
+\end{center}
+\textbf{3. Aktualisieren:} Berechne die Mittelpunkte der Cluster neu.
+\begin{center}
+$ \mathbf m_i^{(t+1)} = \frac{1}{|S_i^{(t)}|} \sum_{\mathbf x_j \in S_{i}^{(t)}} \mathbf x_j  $ \\
+\end{center}
+Die Schritte 2–3 werden dabei so lange wiederholt, bis sich die Zuordnungen nicht mehr ändern.
+
+\subsubsection{MacQueen'sLloyd-Algorithmus} 
+
+MacQueen führte mit dem Begriff k-Means einen anderen Algorithmus ein:
+\\[0.3cm]1. Wähle die ersten $k$ Elemente als Clusterzentren.\\
+2. Weise jedes neue Element dem Cluster zu, bei dem sich die Varianz am wenigsten erhöht, und aktualisiere das Clusterzentrum.
+\\[0.3cm]Während es ursprünglich – vermutlich – nicht vorgesehen war, kann man auch diesen Algorithmus iterieren, um ein besseres Ergebnis zu erhalten.
+
+\subsection{Python Programm zum k-Means-Clustering}
+
+\begin{center}
+\hspace*{-1.0cm}   
+\includegraphics[width=0.8\textwidth]{K-Means-Python-Bild1}
+\hspace*{-1.0cm}   
+\includegraphics[width=0.8\textwidth]{K-Means-Python-Bild2}
+\hspace*{-1.0cm} 
+\includegraphics[width=0.8\textwidth]{K-Means-Python-Bild3}
+\hspace*{-1.0cm} 
+\includegraphics[width=0.8\textwidth]{K-Means-Python-Bild4}
+\end{center}
+
+\subsection{k-Means-Clustering für IRIS Blumen}
+
+
+\newpage
+\subsection{Übungen zum Kapitel 3}
+.....\\
+\subsubsection{Übung 3.1 - nnn1}
+TEXT\\
+\subsubsection{Übung 3.2 - nnn2}
+.....\\
+\subsubsection{Übung 3.3 - ...............}
+
 
 \newpage
 
@@ -209,11 +289,24 @@ Diese Verfahren sind alle Teil des Prozesses der Konstruktion, Anpassung und Opt
 
 \subsection{DT-Verfahren mit Gini-Index- oder Entropie-Verfahren}
 
+\subsubsection{Gini}
+
+
+\subsubsection{Entropie}
 
 ********************************************************************\\ ab hier bis Ende der Section sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
-********************************************************************\\
+*******************************************************************\\
 
-
+\begin{center}
+\hspace*{-3.0cm}   
+\includegraphics[width=1.4\textwidth]{DT-Entropie-Bild1}
+\hspace*{-2.5cm}   
+\includegraphics[width=1.4\textwidth]{DT-Entropie-Bild2}
+\hspace*{-2.5cm} 
+\includegraphics[width=1.4\textwidth]{DT-Entropie-Bild3}
+\hspace*{-2.5cm} 
+\includegraphics[width=1.4\textwidth]{DT-Entropie-Bild4}
+\end{center}
 
 \subsection{Mathematische Grundlagen GINI- und Entropie-Verfahren }
 
@@ -240,11 +333,11 @@ Diese Verfahren sind alle Teil des Prozesses der Konstruktion, Anpassung und Opt
 \newpage
 
 
-\subsection{Übungen zu Kapitel 3}
+\subsection{Übungen zu Kapitel 4}
 ********************************************************************\\ ab hier bis Ende der ÜBUNGEN sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
 ********************************************************************\\
 
-\subsubsection{Übung 3.1}
+\subsubsection{Übung 4.1}
 \begin{figure}[htp]
   \centering
   \hspace*{-1.5cm} 
@@ -253,9 +346,9 @@ Diese Verfahren sind alle Teil des Prozesses der Konstruktion, Anpassung und Opt
 \label{fig:DT_Learning1}
 \end{figure}
 
-\subsubsection{Übung 3.2}
+\subsubsection{Übung 4.2}
 
-\subsubsection{Übung 3.3}
+\subsubsection{Übung 4.3}
 
 \begin{figure}[htp]
   \centering
@@ -265,10 +358,11 @@ Diese Verfahren sind alle Teil des Prozesses der Konstruktion, Anpassung und Opt
 \label{fig:DT_Learning2}
 \end{figure}
 
-\subsubsection{Übung 3.4}
+\subsubsection{Übung 4.4}
 
 
-\subsubsection{Übung 3.5}
+\subsubsection{Übung 4
+.5}
 
 \begin{figure}[bp]
   \centering
@@ -824,7 +918,7 @@ Naive-Bayes-Klassifikatoren sind einfach zu implementieren, schnell und können 
 
 \newpage
 
-\subsection{Übungen zum Kapitel 5}
+\subsection{Übungen zum Kapitel 6}
 
 ********************************************************************\\ ab hier bis Ende der Übungen sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
 ********************************************************************\\
@@ -832,7 +926,7 @@ Naive-Bayes-Klassifikatoren sind einfach zu implementieren, schnell und können 
 
 
 
-\subsubsection{Übung 5.1 - Bsp. einer Bayes-Texklassifikation}
+\subsubsection{Übung 6.1 - Bsp. einer Bayes-Texklassifikation}
 
 Analog dem Beispiel aus obigen Kapitel soll die Bayes- Textklassifikation für einen weiteren Zielsatz mit den gleichen \textbf{"gelabelten" Trainingsdaten} durchgeführt werden. Wir suchen jetzt eine Klassifikation für den Zielsatz \textbf{"Hermann plays a TT match"}:\\   
 
@@ -843,11 +937,11 @@ Analog dem Beispiel aus obigen Kapitel soll die Bayes- Textklassifikation für e
 \textbf{Zusatzfrage:} Wie verändert sich das Ergebnis wenn ich als Zielsatz: \textbf{"Hermann plays a very clean game"} eingebe? 
 
 
-\subsubsection{Übung 5.2 - Bayes-Textklassifikation in Python}
+\subsubsection{Übung 6.2 - Bayes-Textklassifikation in Python}
 
 Definiere einen Algorithmus in Python (benutze Jupyter Notebook) um obige Berechnung zu automatisieren. Tipp: Vergleich analoge Beispiele in \textbf{[HVö-5]} - \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\
 
-\subsubsection{Übung 5.3}:
+\subsubsection{Übung 6.3}:
 *** Weitere Kapitel Texte *** 
 
 \newpage
@@ -946,13 +1040,13 @@ Durch eine "Zurücktransformation" erhält man den \textbf{Kreis: $x_1^2+x_2^2=3
 
 \newpage
 
-\subsection{Übungen zum Kapitel 6}
+\subsection{Übungen zum Kapitel 7}
 .....\\
-\subsubsection{Übung 6.1 - .......}
+\subsubsection{Übung 7.1 - .......}
 TEXT\\
-\subsubsection{Übung 6.2 - .......}
+\subsubsection{Übung 7.2 - .......}
 
-\subsubsection{Übung 6.3 - Python Code zu Hyperebenen}
+\subsubsection{Übung 7.3 - Python Code zu Hyperebenen}
 Schreiben Sie den Python Code zur Generierung der zwei Hyperebenen im 2-dim. Beispiel zum Kernel-Trick. Animieren Sie die Grafik, so dass sie sich dreht. 
 
 \newpage
@@ -1096,81 +1190,24 @@ In ähnlicher Weise werden die Gradienten berechnet und die Gewichte und Verzerr
 Dieser Prozess des Vorwärtsdurchlaufs, der Verlustberechnung und des Rückwärtsdurchlaufs wird iterativ über den gesamten Trainingsdatensatz wiederholt, um die Gewichte und Verzerrungen zu aktualisieren, bis das Netzwerk lernt, genaue Vorhersagen zu treffen.\\[0.2cm]
 
 Weitere Details unter folgenden \textbf{Referenzen:} [BackP-Exam] und [BackP-Scikit]  
-\\
-\subsection{Übungen zum Kapitel 7}
-
-
-
-
-
-
-
-
-.....\\
-\subsubsection{Übung 7.1 - CNN Architekur}
-TEXT\\
-\subsubsection{Übung 7.2 - Beispiel Backpropagation}
-.....\\
-\subsubsection{Übung 7.3 - ...............}
-
 \newpage
 
-\section{Mathematik und grosse Sprachmodelle "Large Language Models" (LLMs)}
-\
-
-\subsection{Einsatz von Mathematik in LLMs}
-
-Insgesamt beruht die Funktionsweise von LLMs auf einer Kombination verschiedener mathematischer Konzepte und Techniken. Die Modelle werden trainiert, um Muster in großen Textkorpora zu erkennen und Texte zu generieren, die auf den erlernten statistischen Zusammenhängen basieren. \\ Mathematik ermöglicht es, diese komplexen Modelle zu verstehen, zu entwickeln und weiterzuentwickeln. \\
-Mathematik spielt eine zentrale Rolle bei der Funktionsweise von großen Sprachmodellen wie den "Large Language Models" (LLMs) wie GPT-3.5. \\
-Hier sind einige Schlüsselaspekte, wie Mathematik in Bezug auf LLMs relevant ist:\\
-
-\textbf{1. Lineare Algebra:} LLMs verarbeiten Textdaten in Form von Matrizen. Die zugrunde liegenden Berechnungen involvieren Operationen wie Matrixmultiplikation, Addition, Subtraktion und Skalierung. Lineare Algebra ist daher entscheidend, um die Transformationen und Berechnungen in den Modellen zu verstehen.\\
-
-\textbf{2. Tensorrechnung:} LLMs verwenden oft Tensoren, die eine Erweiterung von Matrizen auf höhere Dimensionen darstellen. Die meisten Daten in LLMs werden in Form von Tensoren dargestellt, und die Manipulation dieser Tensoren durch mathematische Operationen ist entscheidend für die Generierung von Text.\\
-
-\textbf{3. Wahrscheinlichkeit und Statistik:} Wahrscheinlichkeitstheorie und Statistik sind unverzichtbar, um die Unsicherheit in Textdaten zu modellieren. LLMs verwenden oft Methoden wie Bayes'sche Wahrscheinlichkeit und Maximum-Likelihood-Schätzungen, um die Wahrscheinlichkeit von Wörtern oder Sätzen zu bestimmen.\\
-
-\textbf{4. Optimierung:} Die Trainingsphasen von LLMs sind Optimierungsprobleme, bei denen das Modell so angepasst wird, dass es die beste Leistung erzielt. Hier kommen mathematische Optimierungsverfahren wie Gradientenabstieg zum Einsatz, um die Modellparameter zu optimieren.\\
-
-\textbf{5. Neuronale Netzwerke:} LLMs verwenden tiefe neuronale Netzwerke, um komplexe Muster in den Daten zu erfassen. Die Mathematik hinter neuronalen Netzwerken umfasst Aktivierungsfunktionen, Gewichtungen, Verknüpfungen und Schichten, die zusammenarbeiten, um Eingabedaten in sinnvolle Ausgaben zu transformieren.\\
-
-\textbf{6. Informationstheorie:} Die Theorie der Information ist relevant, um zu verstehen, wie effektiv Informationen in einem LLM codiert und übertragen werden. Konzepte wie Entropie, Kullback-Leibler-Divergenz und Informationsgewinn sind hier von Bedeutung.\\
-
-\textbf{7. Convolutions und Pooling:} In manchen LLM-Architekturen kommen Faltungen und Pooling-Operationen zum Einsatz, um räumliche Muster in den Daten zu erfassen. Diese Operationen basieren auf mathematischen Konzepten aus der Signalverarbeitung.\\
-
-\textbf{8. Aufmerksamkeitsmechanismen:} Aufmerksamkeitsmechanismen sind zentral für LLMs. Mathematische Modelle von Aufmerksamkeit ermöglichen es dem Modell, relevante Teile des Textes zu identifizieren und sich darauf zu konzentrieren.\\
-
-\textbf{9. Rekursive und iterative Prozesse:} In einigen Textgenerationsaufgaben verwenden LLMs rekursive oder iterative Prozesse. Mathematische Konzepte wie Rekursion und Iteration sind hier von Bedeutung.\\
-
-.....\\
-\subsection{ChatGPT}
-
-\textit{Es schreibt Gedichte, Raptexte, es besteht Zertifizierungen von Softwareherstellern, absolviert MBA-Prüfungen, kann Referate und Reiseberichte schreiben, die Stringtheorie erklären und Computerspiele programmieren. Es schreibt Aufsätze basierend auf Fakten, erfindet manches vollkommen frei und halluziniert gelegentlich. \\
-Beim Weltwirtschaftsforum in Davos sprechen führende CEOs leidenschaftlich darüber, und Google hat ernsthaft Angst davor.}\\
-
-
-Die Rede ist natürlich von ChatGPT, einem Dialogsystem, das die Errungenschaften der generativen Künstlichen Intelligenz auf einfachste Weise der breiten Öffentlichkeit zugänglich macht und damit wie ein Schaufenster in die Zukunft wirkt. \\
-Mit ChatGPT wird das bereits seit längerem existierende GPT-3 (bzw.
-genau genommen GPT-3.5) plötzlich für jedermann nutzbar und erfährt ein gewaltiges Medienecho.
-
-\begin{center}
-\includegraphics{ChatGPT-Text1} 
-\end{center}
-
-TEXT\\
-\subsection{Weitere Beispiele}
-.....\\
 \subsection{Übungen zum Kapitel 8}
+
 .....\\
-\subsubsection{Übung 8.1 - .......}
+\subsubsection{Übung 8.1 - CNN Architekur}
 TEXT\\
-\subsubsection{Übung 8.2 - ......}
+\subsubsection{Übung 8.2 - Beispiel Backpropagation}
 .....\\
+\subsubsection{Übung 8.3 - ...............}
+
 \newpage
+
 
 \section{Anhänge}
 
-In den Anhängen werden einige weitere Verfahren des Maschinellen Lernens der Vollständigkeit halber erwähnt - ohne zu sehr in die inhaltlich Tiefe zu gehen. Zukünftig können jedoch diesem Themen in einer erweiterten Version des Skriptes durchaus nochmals aufgegriffen werden.  
+In den Anhängen werden einige weitere Verfahren des Maschinellen Lernens der Vollständigkeit halber erwähnt - ohne zu sehr in die inhaltlich Tiefe zu gehen. Zukünftig können jedoch diesem Themen in einer erweiterten Version des Skriptes durchaus nochmals aufgegriffen werden.  \\[0.2cm]
+
 
 \subsection{Empfehlungssysteme "Recommender Systems" (LinAlgebra)}
 Die mathematischen Grundlagen von Recommender Systems (auch als Empfehlungssysteme bezeichnet) hängen von der spezifischen Art des Empfehlungssystems ab. Es gibt verschiedene Ansätze und Modelle, die in Recommender Systems verwendet werden, um Empfehlungen für Benutzer zu generieren.\\
@@ -1257,6 +1294,50 @@ Verfahren wie das LSI sind insbesondere für die Suche auf großen Datenmengen w
 So ist Pferd zum Beispiel ein Konzept, das Begriffe wie Mähre, Klepper oder Gaul umfasst. Somit ist dieses Verfahren zum Beispiel dazu geeignet, aus sehr vielen Dokumenten (wie sie sich beispielsweise im Internet finden lassen), diejenigen herauszufinden, die sich thematisch mit 'Autos' befassen, auch wenn in ihnen das Wort Auto nicht explizit vorkommt.\\
  Des Weiteren kann LSI dabei helfen, Artikel, in denen es wirklich um Autos geht, von denen zu unterscheiden, in denen nur das Wort Auto erwähnt wird (wie zum Beispiel bei Seiten, auf denen ein Auto als Gewinn angepriesen wird.\\
 Die \textbf{Singulärwertzerlegung} (siehe Kapitel 9.4) ist der Kern der "Latent Semantic Analysis", eines Verfahrens des Information Retrieval, das hilft, in großen Textkollektionen latente Konzepte aufzudecken, anhand derer dann z. B. unterschiedlich bezeichnete Informationen zum gleichen Thema gefunden werden können.\\
+
+
+\subsection{Mathematik und grosse Sprachmodelle "Large Language Models" (LLMs)}
+
+\subsubsection{Einsatz von Mathematik in LLMs}
+
+Insgesamt beruht die Funktionsweise von LLMs auf einer Kombination verschiedener mathematischer Konzepte und Techniken. Die Modelle werden trainiert, um Muster in großen Textkorpora zu erkennen und Texte zu generieren, die auf den erlernten statistischen Zusammenhängen basieren. \\ Mathematik ermöglicht es, diese komplexen Modelle zu verstehen, zu entwickeln und weiterzuentwickeln. \\
+Mathematik spielt eine zentrale Rolle bei der Funktionsweise von großen Sprachmodellen wie den "Large Language Models" (LLMs) wie GPT-3.5. \\
+Hier sind einige Schlüsselaspekte, wie Mathematik in Bezug auf LLMs relevant ist:\\
+
+\textbf{1. Lineare Algebra:} LLMs verarbeiten Textdaten in Form von Matrizen. Die zugrunde liegenden Berechnungen involvieren Operationen wie Matrixmultiplikation, Addition, Subtraktion und Skalierung. Lineare Algebra ist daher entscheidend, um die Transformationen und Berechnungen in den Modellen zu verstehen.\\
+
+\textbf{2. Tensorrechnung:} LLMs verwenden oft Tensoren, die eine Erweiterung von Matrizen auf höhere Dimensionen darstellen. Die meisten Daten in LLMs werden in Form von Tensoren dargestellt, und die Manipulation dieser Tensoren durch mathematische Operationen ist entscheidend für die Generierung von Text.\\
+
+\textbf{3. Wahrscheinlichkeit und Statistik:} Wahrscheinlichkeitstheorie und Statistik sind unverzichtbar, um die Unsicherheit in Textdaten zu modellieren. LLMs verwenden oft Methoden wie Bayes'sche Wahrscheinlichkeit und Maximum-Likelihood-Schätzungen, um die Wahrscheinlichkeit von Wörtern oder Sätzen zu bestimmen.\\
+
+\textbf{4. Optimierung:} Die Trainingsphasen von LLMs sind Optimierungsprobleme, bei denen das Modell so angepasst wird, dass es die beste Leistung erzielt. Hier kommen mathematische Optimierungsverfahren wie Gradientenabstieg zum Einsatz, um die Modellparameter zu optimieren.\\
+
+\textbf{5. Neuronale Netzwerke:} LLMs verwenden tiefe neuronale Netzwerke, um komplexe Muster in den Daten zu erfassen. Die Mathematik hinter neuronalen Netzwerken umfasst Aktivierungsfunktionen, Gewichtungen, Verknüpfungen und Schichten, die zusammenarbeiten, um Eingabedaten in sinnvolle Ausgaben zu transformieren.\\
+
+\textbf{6. Informationstheorie:} Die Theorie der Information ist relevant, um zu verstehen, wie effektiv Informationen in einem LLM codiert und übertragen werden. Konzepte wie Entropie, Kullback-Leibler-Divergenz und Informationsgewinn sind hier von Bedeutung.\\
+
+\textbf{7. Convolutions und Pooling:} In manchen LLM-Architekturen kommen Faltungen und Pooling-Operationen zum Einsatz, um räumliche Muster in den Daten zu erfassen. Diese Operationen basieren auf mathematischen Konzepten aus der Signalverarbeitung.\\
+
+\textbf{8. Aufmerksamkeitsmechanismen:} Aufmerksamkeitsmechanismen sind zentral für LLMs. Mathematische Modelle von Aufmerksamkeit ermöglichen es dem Modell, relevante Teile des Textes zu identifizieren und sich darauf zu konzentrieren.\\
+
+\textbf{9. Rekursive und iterative Prozesse:} In einigen Textgenerationsaufgaben verwenden LLMs rekursive oder iterative Prozesse. Mathematische Konzepte wie Rekursion und Iteration sind hier von Bedeutung.\\
+
+.....\\
+\subsubsection{ChatGPT}
+
+\textit{Es schreibt Gedichte, Raptexte, es besteht Zertifizierungen von Softwareherstellern, absolviert MBA-Prüfungen, kann Referate und Reiseberichte schreiben, die Stringtheorie erklären und Computerspiele programmieren. Es schreibt Aufsätze basierend auf Fakten, erfindet manches vollkommen frei und halluziniert gelegentlich. \\
+Beim Weltwirtschaftsforum in Davos sprechen führende CEOs leidenschaftlich darüber, und Google hat ernsthaft Angst davor.}\\
+
+
+Die Rede ist natürlich von ChatGPT, einem Dialogsystem, das die Errungenschaften der generativen Künstlichen Intelligenz auf einfachste Weise der breiten Öffentlichkeit zugänglich macht und damit wie ein Schaufenster in die Zukunft wirkt. \\
+Mit ChatGPT wird das bereits seit längerem existierende GPT-3 (bzw.
+genau genommen GPT-3.5) plötzlich für jedermann nutzbar und erfährt ein gewaltiges Medienecho.
+
+\begin{center}
+\includegraphics{ChatGPT-Text1} 
+\end{center}
+
+\newpage
 
 \newpage
 
