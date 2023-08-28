@@ -66,8 +66,9 @@
    \end{center}
    
 \begin{center}
-{\color{red}{Diese Version V0.6 (Datum: 27.8.2023) ist nicht final.}}\\(Beachte: ************ Kommentare *********) \\
-Aktuelle Versionen findet man in meinem GitHub:\\
+Diese Version V0.6 (Datum: 28.8.2023) ist nicht final!!! \\
+{\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
+Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.6.pdf} \\
 \vspace{0.4cm}
 \begin{large}
@@ -227,6 +228,11 @@ MacQueen führte mit dem Begriff k-Means einen anderen Algorithmus ein:
 
 \subsection{Python Programm zum k-Means-Clustering}
 
+{\color{red}{***********************************************************************\\ 
+Ab hier bis Ende der Section sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen...\\
+************************************************************************}}\\[0.2cm]
+
+
 \begin{center}
 \hspace*{-1.0cm}   
 \includegraphics[width=0.8\textwidth]{K-Means-Python-Bild1}
@@ -241,7 +247,38 @@ MacQueen führte mit dem Begriff k-Means einen anderen Algorithmus ein:
 \subsection{k-Means-Clustering für IRIS Blumen}
 
 
+Der in diesem Beispiel verwendete Datensatz ist der berühmte IRIS-Datensatz. Er besteht aus 150 Einträgen der Irisblume, die jeweils durch vier Merkmale beschrieben werden: Kelchblattlänge, Kelchblattbreite, Blütenblattlänge und
+Blütenblattbreite. \\
+Zusätzlich ist der spezifische Typ der Irisblume angegeben. Es gibt drei Arten
+der Schwertlilienpflanze: Iris Setosa, Iris Versicolor und Iris Virginica. Jede Art ist mit mit 50 Einträgen im Datensatz vertreten. Die Merkmale sind in Zentimetern angegeben. Die Abbildung unten zeigt wie die Daten im Datenrahmen dargestellt werden. Der Datensatz wurde erstmals von Ronald Fisher, einem britischen Biologen, in einem Aufsatz aus dem Jahr 1936 vorgestellt. Er ist eines der am häufigsten verwendeten Beispiele für statistischen Klassifizierung-Algorithmen beim Maschinellen Lernen. \\
+Die Abbildung unten zeigt die ersten fünf Einträge des Datensatzes. Der Datensatz ist in der Python-Bibliothek scikit-learn enthalten.\\ 
+
+\begin{figure}[htp]
+  \centering
+  \hspace*{-0.1cm} 
+  \includegraphics[width=0.7\textwidth]{IRIS-Dataset-First_Entries}
+  \caption{Die ersten 5 Entries im IRIS Datensatz}
+  \label{fig:Iris_DS}
+\end{figure}
+
+Siehe Lösungen in meinem Github:\\[0.2cm] 
+
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/k-means-HVoe.pdf} \\
+
+
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/k-means-HVoe.tex}\\
+
+Die Konfusion-Matrix zeigt, dass alle 50 setosa-Blüten richtig klassifiziert  wurden. 48 versicolor-Blüten wurden richtig klassifiziert, aber 14 wurden falsch erkannt). 36 virginica-Blüten wurden richtig beschriftet und 2 virginica-Blüten wurden fälschlicherweise als virginica-Blüten klassifiziert.\\
+Insgesamt funktionieren  Clustering und Klassifizierung mit k-Means im IRIS-Datensatz gut. Mit einer Genauigkeit von 89% ist der Algorithmus ein gutes Hilfsmittel, um ein Modell für die Vorhersage der genauen Art der Irisblüte zu erstellen.\\
+Wie die Konfusion-Matrix zeigt, ist die Klassifikation zu 100% genau
+für die Setosa-Blüten und über 94 % für die Versicolor-Arten. Es scheitert nur bei der genauen Virginica-Blüten mit einer Genauigkeit von "nur" 77 %.\\
+Das Modell von k-Means kann jedoch noch weiter verbessert werden, wie andere  Implementierungen wie k-means++ zeigen. Es verbessert außerdem die Wahl der anfänglichen Zentren.
+
 \newpage
+
+{\color{red}{***********************************************************************\\ 
+Ab hier bis Ende der Übungen sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen...\\
+************************************************************************}}\\[0.2cm]
 \subsection{Übungen zum Kapitel 3}
 .....\\
 \subsubsection{Übung 3.1 - nnn1}
@@ -286,16 +323,79 @@ Die Wahl der Hyperparameter, wie beispielsweise die maximale Tiefe des Baums ode
 \textbf{Zusammenfassung}:
 Diese Verfahren sind alle Teil des Prozesses der Konstruktion, Anpassung und Optimierung von Entscheidungsbäumen im maschinellen Lernen. Die Wahl des geeigneten Verfahrens hängt von der Art des Problems und den Daten ab, mit denen Sie arbeiten.\\
 
-
-\subsection{DT-Verfahren mit Gini-Index- oder Entropie-Verfahren}
-
-\subsubsection{Gini}
+\subsection{Mathematische Grundlagen GINI- und Entropie-Verfahren }
 
 
-\subsubsection{Entropie}
+\subsubsection{Gini-Index Verfahren}
 
-********************************************************************\\ ab hier bis Ende der Section sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
-*******************************************************************\\
+
+\subsubsection{Entropie: ID3-Verfahren}
+
+
+\textbf{Iterative Dichotomiser3 (ID3)} ist ein Algorithmus, der zur Entscheidungsfindung bei Entscheidungsbäumen eingesetzt wird.\\
+Der australische Forscher [[J. Ross Quinlan]] publizierte diesen Algorithmus erstmals im Jahr 1986. ID3 war in seinen ersten Jahren sehr einflussreich. Er findet auch heute noch in einigen Produkten Verwendung. ID3 gilt als Vorgänger des [C4.5]-Algorithmus.\\
+
+ID3 wird verwendet, wenn bei großer Datenmenge viele verschiedene Attribute von Bedeutung sind und deshalb ein Entscheidungsbaum ohne große Berechnungen generiert werden soll. Somit entstehen meist einfache Entscheidungsbäume. Es kann aber nicht garantiert werden, dass keine besseren Bäume möglich wären.\\[0.2cm]
+
+\textbf{Mathematischer Algorithmus} \\[0.2cm]
+Die Basisstruktur von ID3 ist iterativ. Es werden zu jedem noch nicht benutzten Attribut Entropien bezüglich der Trainingsmenge berechnet. Das Attribut mit dem höchsten Informationsgewinn (Englisch: \textit{Information Gain IG}) bzw. der kleinsten Entropie, wird gewählt und daraus ein neuer Baum-Knoten generiert.\\
+Das Verfahren terminiert, wenn alle Trainingsinstanzen klassifiziert wurden, d.h. wenn jedem Blattknoten eine Klassifikation zugeordnet ist.\\[0.1cm]
+Der Informationstheoretische Verständnis des Begriffes \textbf     {Entropie} geht auf [Claude Elwood Shannon] zurück und existiert seit etwa 1948. In diesem Jahr veröffentlichte Shannon seine fundamentale Arbeit "A Mathematical Theory of Communication"\\[0.1cm]
+\url{http://math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf}
+ und prägte damit die moderne Informationstheorie.\\
+Die Entropie wird üblicherweise mit einem großen griechischen Eta  \text{H} bezeichnet. Claude Elwood Shannon definierte die Entropie $ \mathrm{H} $ einer diskreten, gedächtnislosen Quelle (diskreten Zufallsvariable) $ X $ über einem endlichen, aus Zeichen bestehenden Alphabet $ Z=\{z_1, z_2, \dots, z_m\}$ wie folgt: \\
+Zunächst ordnet man jeder Wahrscheinlichkeit $ p $ eines Ereignisses seinen Informationsgehalt $ I(z) = -\log_2 p_z $ zu. Dann ist die \textbf{Entropie eines Zeichens} definiert als der Erwartungswert des Informationsgehalts: \
+\begin{center}
+$ \mathrm{H_1} = E[I]= \sum_{z\in Z} p_z I(z) = - \sum_{z\in Z} p_z \log_2 p_z $.\\
+\end{center}
+Sei $ z \in Z $, dann ist $ p_z = P(X=z) $ die Wahrscheinlichkeit, mit der das Zeichen $ z $ des Alphabets auftritt, oder gleichwertig:\\ 
+\begin{center}
+$ \qquad \mathrm{H_1} = - \sum_{i=1}^{m} p_i \log_2 p_i $ mit $ p_i = p_{z_i} $ 
+\end{center}
+Dabei wird $ 0\cdot\log_2 0=0 $ gesetzt (entsprechend dem Grenzwert $  \lim_{x \rightarrow 0} x \log_2 x $. Summanden mit verschwindender Wahrscheinlichkeit tragen daher aufgrund der Definition nicht zur Summe bei.\\
+Die Entropie $ \mathrm{H_n} $ für Wörter $ w $ der Länge $ n $ ergibt sich durch:
+\begin{center}
+$ \mathrm{H_n} = -\sum_{w \in Z^n} p_w \log_2 p_w $
+\end{center}
+wobei $ p_w  = P(X=w)$ die Wahrscheinlichkeit ist, mit der das Wort $  w $ auftritt. \\
+Die Entropie $ \mathrm{H} $ ist dann der Grenzwert der Folge $ n\to \infty $ davon:
+$ (2)\qquad \mathrm{H} = \lim_{n\to \infty} \frac {\mathrm{H_n}}{n} $.
+Wenn die einzelnen Zeichen stochastisch voneinander unabhängig sind, dann gilt $ \mathrm{H_n} = n \mathrm{H_1} $ für alle $ n $, also $ \mathrm{H} = \mathrm{H_1} $. Vergleiche auch Blockentropie:\\
+\url{https://de.wikipedia.org/wiki/Bedingte_Entropie#Blockentropie}.\\[0.1cm]
+
+\textbf{Auswahl der Attribute ("Merkmale"):}\\[0.2cm]
+Sei $ T $ die Menge der Trainingsbeispiele mit ihrer jeweiligen Klassifizierung, $ a \in A $ das zu prüfende Attribut aus der Menge der verfügbaren Attribute, $ V(a) $ die Menge der möglichen Attributwerte von $ a $ und $ T_ v$ die Untermenge von $ T $, für die das Attribut $ a $ den Wert $ v $ annimmt. Der Informationsgewinn, der durch Auswahl des Attributs $ a $ erzielt wird, errechnet sich dann als Differenz der Entropie von $ T $ und der erwarteten durchschnittlichen Entropie von $ T $ bei Fixierung von $ a $:\\[0.2cm]
+\begin{center}
+$ IG(T, a) = \operatorname{Entropie}(T) - \sum_{v \in V(a)} \dfrac{|T_v|}{|T|} \operatorname{Entropie} (T_v) $. \\
+\end{center}
+Schließlich wählt man ein Attribut mit dem größtmöglichen Gewinn aus der Menge 
+\begin{center} 
+$\lbrace a_{next} \in A | IG(T, a_{next}) = \max_{a \in A}(IG(T, a)) \rbrace $ 
+\end{center}
+als das nächste Attribut.\\[0.2cm]
+Diese Wahl führt zur Bevorzugung von Attributen mit vielen Wahlmöglichkeiten und damit zu einem breiten Baum. Um dem entgegenzuwirken kann eine Normalisierung über die Anzahl der Wahlmöglichkeiten durchgeführt werden.\\
+Siehe auch folgenden Weblink:\\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Homework_H4.5-DecTree_ID3_Praesentation.pdf}\\[0.2cm]
+
+
+\subsection{Beispiele für Gini-Index- und Entropie-Verfahren }
+
+
+\subsubsection{Beispiele für Gini-Index Verfahren}
+
+{\color{red}{***********************************************************************\\ 
+Ab hier bis Ende der Section sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen...\\
+************************************************************************}}\\[0.2cm]
+
+
+
+\hspace*{-1.8cm}
+\includegraphics[width=595.4401pt,height=841.32pt]{latexImage_f093f131e1ba361d5f674df0ed2570f1.png}
+
+\hspace*{-1.8cm}
+\includegraphics[width=595.4401pt,height=841.32pt]{latexImage_763b10c1e5a667e05d9d13d585345751.png}
+
+\subsubsection{Beispiel für Entropie-Verfahren}
 
 \begin{center}
 \hspace*{-3.0cm}   
@@ -308,34 +408,26 @@ Diese Verfahren sind alle Teil des Prozesses der Konstruktion, Anpassung und Opt
 \includegraphics[width=1.4\textwidth]{DT-Entropie-Bild4}
 \end{center}
 
-\subsection{Mathematische Grundlagen GINI- und Entropie-Verfahren }
 
-
-\subsection{Beispiele für GINI-Verfahren}
-
-\hspace*{-1.8cm}
-\includegraphics[width=595.4401pt,height=841.32pt]{latexImage_f093f131e1ba361d5f674df0ed2570f1.png}
-
-\hspace*{-1.8cm}
-\includegraphics[width=595.4401pt,height=841.32pt]{latexImage_763b10c1e5a667e05d9d13d585345751.png}
-
-\subsubsection{Beispiele für Entropie-Verfahren}
-
-
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Homework_H4.5-DecTree_ID3.pdf}
 
 \subsection{GINI-Index "Production Maintenance"}
 
-\subsection{Mathematische Grundlagen}
 
-********************************************************************\\ ab hier bis Ende der Section sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
-********************************************************************\\
+{\color{red}{***********************************************************************\\ 
+Ab hier bis Ende Subsection sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen...\\
+************************************************************************}}\\[0.2cm]
+
+
 
 \newpage
 
 
 \subsection{Übungen zu Kapitel 4}
-********************************************************************\\ ab hier bis Ende der ÜBUNGEN sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
-********************************************************************\\
+{\color{red}{***********************************************************************\\ 
+Ab hier bis Ende der Übungen sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen...\\
+************************************************************************}}\\[0.2cm]
+
 
 \subsubsection{Übung 4.1}
 \begin{figure}[htp]
@@ -380,19 +472,23 @@ Diese Verfahren sind alle Teil des Prozesses der Konstruktion, Anpassung und Opt
 \subsection{Allgemeine Einführung in Regressionsmodelle}
 
 Ein \textbf{Regressionsmodell im Machine Learning} ist ein statistisches Modell, das dazu verwendet wird, die Beziehung zwischen einer abhängigen (oder Ziel-) Variable ("Target") und einer oder mehreren unabhängigen (oder erklärenden) Variablen (Features") zu analysieren und zu beschreiben. Das Hauptziel der Regression besteht darin, Vorhersagen für die abhängige Variable zu treffen, basierend auf den Werten der unabhängigen Variablen.\\
-Die Grundidee hinter einem Regression ist es, eine Funktion zu finden, die die bestmögliche Anpassung an die gegebenen Daten bietet. Je nach Art der Daten und der Beziehung zwischen den Variablen gibt es verschiedene Arten von Regressionsmodellen, darunter:\\ \\
+Die Grundidee hinter einem Regression ist es, eine Funktion zu finden, die die bestmögliche Anpassung an die gegebenen Daten bietet. Je nach Art der Daten und der Beziehung zwischen den Variablen gibt es verschiedene Arten von Regressionsmodellen, darunter:\\[0.2cm] 
 
-1. \textbf{Lineare Regression}: Hierbei handelt es sich um das einfachste Regressionsmodell, bei dem versucht wird, eine lineare Beziehung zwischen den unabhängigen und abhängigen Variablen zu finden.\\ \\
-2. \textbf{Polynominale - oder auch Multidim. Regression}: Diese erweitert die lineare Regression, indem sie Polynome höheren Grades verwendet, um komplexere Beziehungen zwischen den Variablen zu modellieren.\\\\
-3. \textbf{Logistische Regression}: Obwohl der Name "Regression" enthält, wird die logistische Regression hauptsächlich für Klassifikation Probleme verwendet, bei denen die abhängige Variable diskrete Werte annimmt. Sie wird verwendet, um die Wahrscheinlichkeit zu schätzen, dass eine bestimmte Klasse in einem binären oder mehrklassigen Klassifikationsproblem auftritt.\\ \\
-4. \textbf{Ridge Regression und Lasso Regression}: Diese Varianten der linearen Regression dienen dazu, mit möglicherweise hochdimensionalen Datensätzen umzugehen und Overfitting zu reduzieren, indem sie Regularisierungstechniken verwenden.\\ \\
+1. \textbf{Lineare Regression}: Hierbei handelt es sich um das einfachste Regressionsmodell, bei dem versucht wird, eine lineare Beziehung zwischen den unabhängigen und abhängigen Variablen zu finden.\\[0.2cm]
+ 
+2. \textbf{Polynominale - oder auch Multidim. Regression}: Diese erweitert die lineare Regression, indem sie Polynome höheren Grades verwendet, um komplexere Beziehungen zwischen den Variablen zu modellieren.\\[0.2cm]
+
+3. \textbf{Logistische Regression}: Obwohl der Name "Regression" enthält, wird die logistische Regression hauptsächlich für Klassifikation Probleme verwendet, bei denen die abhängige Variable diskrete Werte annimmt. Sie wird verwendet, um die Wahrscheinlichkeit zu schätzen, dass eine bestimmte Klasse in einem binären oder mehrklassigen Klassifikationsproblem auftritt.\\[0.2cm]
+ 
+4. \textbf{Ridge Regression und Lasso Regression}: Diese Varianten der linearen Regression dienen dazu, mit möglicherweise hochdimensionalen Datensätzen umzugehen und Overfitting zu reduzieren, indem sie Regularisierungstechniken verwenden.\\[0.2cm] 
+
 5. \textbf{Nichtlineare Regression}: Für komplexere Zusammenhänge zwischen den Variablen werden nichtlineare Regressionsmodelle verwendet, die nichtlineare Funktionen verwenden, um die Daten besser anzupassen.\\[0.2cm]
 
-6. \textbf{Zeitreihenregression}: Diese Art der Regression wird verwendet, um Zeitreihendaten zu modellieren, bei denen die abhängige Variable über einen Zeitverlauf hinweg beobachtet wird.\\ \\
-Die Auswahl des geeigneten Regressionsmodells hängt von der Natur der Daten, der Art der Beziehung zwischen den Variablen und den Zielen der Analyse ab.\\Die Modellierung und Auswertung von Regressionsmodellen sind grundlegende Techniken im Bereich des maschinellen Lernens und werden in einer Vielzahl von Anwendungen eingesetzt, von der Vorhersage von Aktienkursen bis zur medizinischen Diagnose.\\[0.2cm] 
+6. \textbf{Zeitreihenregression}: Diese Art der Regression wird verwendet, um Zeitreihendaten zu modellieren, bei denen die abhängige Variable über einen Zeitverlauf hinweg beobachtet wird.\\[0.2cm]
 
+\textbf{Zusammenfassung}: Die Auswahl des geeigneten Regressionsmodells hängt von der Natur der Daten, der Art der Beziehung zwischen den Variablen und den Zielen der Analyse ab.\\Die Modellierung und Auswertung von Regressionsmodellen sind grundlegende Techniken im Bereich des maschinellen Lernens und werden in einer Vielzahl von Anwendungen eingesetzt, von der Vorhersage von Aktienkursen bis zur medizinischen Diagnose.\\[0.2cm] 
 
-******* Beispiel von Latex Syntax für eine Tabelle  *******
+{\color{red}{******* Beispiel von Latex Syntax für eine Tabelle und ein Matrix  *******}}\\[0.2cm]
 
 
 \begin{table}[h] % Tabelle wird hier eingefügt, wenn möglich
@@ -407,35 +503,39 @@ Die Auswahl des geeigneten Regressionsmodells hängt von der Natur der Daten, de
   \caption{Eine Tabelle mit Positionsangabe "h".}
   \label{tab:tabelle_h}
 \end{table}
-******* Ende Beispiel von Latex Syntax für eine Tabelle  *******\\
 
-****** Beispiel von Latex Syntax für eine Matrixe  *******\\
 
-Berechnen Sie die Determinante der Matrix
+Berechnen Sie die Determinante der Matrix:
+\\[0.1cm]
+\begin{center}
+\hspace*{0.1cm}
+
+$ A := \left(
+   \begin{array}{llll}
+     1 & 2 & 3 & 4 \\
+     2 & 3 & 4 & 1 \\ 
+     3 & 4 & 1 & 2 \\ 
+     4 & 1 & 2 & 3 \\ 
+   \end{array}
+   \right) $ 
+%\caption{Darstellung einer 4x4 Matrix}
+%\label{tab:Matrix_4x4)}
 \\[0.3cm]
-\hspace*{0.6cm}
-
-$A := \left(
-  \begin{array}{llll}
-    1 & 2 & 3 & 4 \\
-    2 & 3 & 4 & 1 \\ 
-    3 & 4 & 1 & 2 \\ 
-    4 & 1 & 2 & 3 \\ 
-  \end{array}
-\right) $ \\
-
-****** Ende Beispiel von Latex Syntax für eine Matrix  *******\\
+\end{center} 
+{\color{red}{******* Ende Beispiel von Latex Syntax für eine Tabelle und eine Matrix *******}}\\[0.2cm] 
  
 
 \subsection{Motivation und Beispiele der Linearen Regression}
 
- 
-In unserem Skript fokussieren wir uns auf die Linearen Regressionen (LR).
+In unserem Skript fokussieren wir uns auf die \textbf{Lineare Regressionen (LR)}.
 Das LR Modell geht von einer linearen Beziehung zwischen den Variablen aus, was bedeutet, dass Änderungen in den unabhängigen Variablen ("Features") mit konstanten Veränderungen in der abhängigen Variable (Target") einhergehen.\\
 Die lineare Regression nutzt eine Methode, die als \textbf{"Methode der kleinsten Quadrate"} bezeichnet wird, um die besten Schätzwerte für die Koeffizienten zu finden. Diese Methode minimiert die quadratischen Abweichungen zwischen den beobachteten Werten und den vom Modell vorhergesagten Werten. \\
 Sei k die Anzahl der unabhängigen Variablen dann sprechen wir bei k = 1 von einer {\color{blue}{"Einfachen (simple) Linearen Regression" (sLR)}} und bei $k\geqslant 2.$ von einer {\color{blue}{"Multidimensionalen (multiplen) Linearen Regression"(mLR)}}.\\
-Eine Trainingsmenge von m Datenpunkten $\lbrace P_j \rbrace$ in $\mathbb{R}^{k+1} $ wird dargestellt als Vektor: $ \lbrace(x_{ij},y_j) \rbrace$,  wobei $1 \leq i \leq k $ und $1 \leq j \leq m $. \\
-Die ersten k Komponenten $\lbrace x_{ij} \rbrace $ pro Datenvektor sind die Komponenten der unabhängigen Variablen ("Features") und die letzte Komponente $ \lbrace(y_j)\rbrace $ ist die Komponente der abhängigen Variable ("Target" oder auch "Label").\\  Mit anderen Worten sollen aus den k Eigenschaften $\lbrace x_{ij} \rbrace$ eine Aussage über die Zieleigenschaft $\lbrace y_j \rbrace$ gemacht werden.   
+Eine Trainingsmenge von n Datenpunkten $\lbrace P_j \rbrace$ in $\mathbb{R}^{k+1} $ wird dargestellt als Vektor: 
+\begin{center}
+$ \lbrace(x_{ij},y_j) \rbrace$,  wobei $1 \leq i \leq k $ und $1 \leq j \leq n $.\\
+\end{center} 
+Die ersten k Komponenten $\lbrace x_{ij} \rbrace $ pro Datenvektor sind die Komponenten der unabhängigen Variablen ("Features") und die letzte Komponente $ \lbrace(y_j)\rbrace $ ist die Komponente der abhängigen Variable ("Target" oder auch "Label").\\  Mit anderen Worten (aus fachlicher Sicht) sollen aus den k Eigenschaften $\lbrace x_{ij} \rbrace$ eine Aussage über die Zieleigenschaft $\lbrace y_j \rbrace$ gemacht werden.   
 
 \subsubsection{Beispiele von LR Lösungen für k=1, k=2}
 
@@ -452,84 +552,103 @@ Die ersten zwei Fälle lassen sich visualisieren:\\
 \begin{center}
 \includegraphics{ML5-MovingPicture_mLR}\
 \end{center} 
+Ein bewegtes Bild davon liegt in der Referenz [HVö-5]: 
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/ML5-QYuIc.gif}
 .....\\
-
-********************* test *********\\
-
-Berechnen Sie die Determinante der Matrix
-\\[0.3cm]
-\hspace*{0.6cm}
-
-$A := \left(
-  \begin{array}{llll}
-    1 & 2 & 3 & 4 \\
-    2 & 3 & 4 & 1 \\ 
-    3 & 4 & 1 & 2 \\ 
-    4 & 1 & 2 & 3 \\ 
-  \end{array}
-\right) $ \\
-
-************************ end test *********\\
 
 
 \subsection{Kennzahlen  $ R^2 $ und $ adj.{R^2} $ }
 
-Für die Definition der \textit{simple Linear Regression (sLR)} und \textit{multiple Linear Regression (mLR)} brauchen wir einige Kennzahlen für die Datenpunkte(i.e."Beobachtungspunkte") aus der Trainingsmenge (\textit{observation points}).\\
-Diese Kennzahlen sind \textit{Sum of Squares Total (SST), Sum of Squares Error (SSE)} und \textit{Sum of Squares Regression (SSR)}.\\ 
+Für die Definition der \textbf{simple Linear Regression (sLR)} und \textbf{multiple Linear Regression (mLR)} brauchen wir einige Kennzahlen für die Datenpunkte (i.e."Beobachtungspunkte") aus der Trainingsmenge (\textit{observation points}).\\
+Diese Kennzahlen sind \textbf{Sum of Squares Total (SST), Sum of Squares Error (SSE)} und \textbf{Sum of Squares Regression (SSR)}.\\ 
 
 \subsubsection{Definition der sLR Kennzahl $ R^2 $}
 
-Die Definition der Kennzahl $R^2$ benutzt SST und SSE. SSR wird für die eigentliche Definition von $R^2$ nicht genutzt. Wir brauchen diese Kennzahl aber später im Kapitel: \\
-$ \texttt{Definiere} f_i = f(x_i) \texttt{ und } \overline{y} = 1/n\sum\limits_{i=1}^n \Bigl(y_i \Bigr)\texttt{ (wobei n = Anzahl der Beobachtungen)}$
- 
-SST, SSE und SSR sind gegeben durch die folgenden Definitionen (D-4.x). Ohne Verlust der Allgemeinheit (o.A.) können wir dabei annehmen das SST größer als Null ist:
+Die Definition der Kennzahl $R^2$ benutzt die Kennzahlen SST und SSE). SSR wird für die eigentliche Definition von $R^2$ nicht genutzt. Wir brauchen diese Kennzahl aber später im Kapitel. Definiere der Einfachheit halber: 
+\begin{center}
+$ f_i = f(x_i)$ und $\overline{y} = \frac{1}{n} \sum\limits_{i=1}^n \Bigl(y_i \Bigr) $,   wobei n = (Anzahl der Beobachtungen)
+\end{center} 
+SST, SSE und SSR sind gegeben durch die folgenden Definitionen. Ohne Verlust der Allgemeinheit (o.A.) können wir dabei annehmen das SST größer als Null ist:
 \begin{center}
 $ \texttt{(D-4.1): Sum of Squares Total (SST) := } \sum\limits_{i=1}^n \Bigl(y_i - \overline{y})\Bigr)^2 $ 
 $ \texttt{(D-4.2): Sum of Squares Error (SSE) := } \sum\limits_{i=1}^n \Bigl(y_i - f_i\Bigr)^2 $
 $ \texttt{(D-4.3): Sum of Squares Regression (SSR) := } \sum\limits_{i=1}^n \Bigl(f_i - \overline{y})\Bigr)^2 $  
 \end{center}
 
-Für die Definition von R² brauchen wir Sum of Squares Error (SSE) und Sum of Squares Total (SST). Die Definition von R² ist gegeben durch die Differenz von 1 und dem Quotienten SSE/SST- Wir nennen R² in Deutsch auch "Bestimmtheitsgrad":\\
-
+Für die Definition von R² brauchen wir Sum of Squares Error (SSE) und Sum of Squares Total (SST). Die Definition von R² ist gegeben durch die Differenz von 1 und dem Quotienten SSE/SST. Wir nennen R² in Deutsch auch "Bestimmtheitsgrad":\\
 \begin{center}
 \texttt{(D-4.4):}
 \begin{Large}  
-\textbf{$ R^2 := 1 - \frac{SSE}{SST} $} \\[0.2 cm]
+\textbf{$ R^2 := 1 - \frac{SSE}{SST} $} \\[0.8 cm]
 \end{Large}   
 \end{center}
 
-********************************************************************\\ hier Bild mit SSE; SSR und SST einfügen\\
-********************************************************************\\
+\textbf{Sprechweise:} Wir sagen eine Gerade ist eine \textbf{"optimale"} (sLR)-Gerade wenn R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "sLR-Gerade".\\[0.2 cm]
 
-\textbf{Sprechweise:} Wir sagen eine Gerade ist eine \textbf{"optimale"} (sLR)-Gerade wenn R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "sLR-Gerade".\\
+\textbf{Anmerkung:} Wir sehen später das für  optimale sLR-Geraden eine andere Formel für R² auch gültig ist. Diese Formel benutzt die Kennzahl SSR.\\[0.2 cm]
 
-\textbf{Anmerkung:} Wir sehen später das für  optimale sLR-Geraden eine andere Formel für R² auch gültig ist. Diese Formel benutzt die Kennzahl SSR.\\
-********************************************************************\\ ab hier bis Ende der subsection sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
-********************************************************************
+Im folgenden Bild sehen wir die Kennzahlen {\color{blue}{SSE}} und {\color{red}{SST}} geometrisch mit 4 Beobachtungspunkten. Sehr gut sind die Größen der Quadrate für {\color{blue}{SSE}} und {\color{red}{SST}} zu erkennen. Man bekommt zudem auch ein guten Eindruck von den Faktor 
+\begin{large}
+$ \frac{\color{blue}{SSE}}{\color{red}{SST}} $\\[6.8 cm]
+\end{large}
 
-\begin{center}
-\includegraphics{Motivation-sLR} 
-\end{center} 
+\begin{figure}[htp]
+\hspace*{-2.0cm}   
+\includegraphics[width=1.0\textwidth]{SSE_SST-Definition}
+  \caption{Geometrische Darstellung von {\color{blue}{SSE}} und {\color{red}{SST}}}
+  \label{fig:SSE-SST-1}
+\end{figure}
+
 
 \subsubsection{Eigenschaften und Theoreme zu $R^2$ } 
 
-Nun wollen wir die ersten offensichtlichen mathematische Aussagen zu R² machen \\
-
+Nun wollen wir die ersten offensichtlichen mathematische Aussagen zu R² machen. \\
+Zur leichteren Schreibweise nutze ich die folgenden Notationen:\\
 \begin{center}
-\includegraphics{ML5-sLR-R²-Th5_1-new}
+sum(xi):= $ \sum\limits_{i=1}^n(x_i) $ und Mean(x) = $ \overline{x} := \frac{1}{n} \cdot \sum\limits_{i=1}^n(x_i) $\\[0.2cm]
 \end{center}
+Wir beginnen mit einigen einfachen mathematischen Aussagen ("Theoreme", "Propositionen", "Korollare", etc. ) über die Eigenschaften der Kennzahl $R^2$.\\[0.2cm]
+\textbf{Anmerkung:} ohne Einschränkung der Allgemeinheit ("OE") können wir annehmen, dass $SST > 0$ ist.\\[0.2cm] 
 
-Zur leichteren Schreibweise nutze ich die folgenden Notationen:
-sum(xi):= $\sum\limits_{i=1}^n(x_i)$ und Mean(x)=$\overline{x}$:=1/n*sum(xi).\\
-Manchmal ist es notwendig das die optimale sLR-Gerade durch den Ursprung (a=0) geht. In diesem Fall erhalten wir die folgende Aussage:\\
-
-\textbf{Korollar(K-4.1)}: “sLR ohne Achsenabschnitt(a =0)”: Aus a=0 folgt $ b = {\dfrac{\overline{x \cdot y}}{\overline{x^2}}}$  \\                                          
-
+\textbf{Theorem (Th-4.1)}: “Eigenschaften von $R^2$”\\[0.2cm]
+Es gelten die folgenden Aussagen:\\[0.3cm]
+(i)  $ \quad\quad 0 \leqslant R^2 \leqslant 1\quad\quad\quad\quad $   "Begrenzung"\\[0.2cm]                                       
+(ii) $ R^2 = 0 \Leftrightarrow SSE = SST \quad $                      "Minimum"\\[0.2cm]                                       
+(iii) $ R^2² = 1 \Leftrightarrow SSE = 0 \quad\quad $                 "Maximum"\\[0.4cm]                                       
 \textbf{Beweis:}
-y=b*x $\Rightarrow$ R²=1-SSE/SST= 1-(1/SST)*sum(yi-b*xi)². Da die SLR-Gerade optimal ist, gilt die Ableitung von R nach b = 0.\\
-$\Rightarrow$ 0 = dR²/db = -2*sum[(yi -b*xi)*(xi)]=-2*sum[xi*yi-b*xi²] \\
-$\Rightarrow$ sum[xi*yi] =b*sum[xi²] $\Rightarrow$ b= sum[xi*yi]/sum($x_i)^2$ = n*Mean(x*y)/n*Mean(x²) \\ $\Rightarrow$  b=Mean(x*y)/Mean(x²).                                                                                                 \\ q.e.d.\\
-Wir brauchen für später auch noch weitere hilfreiche Formeln über Summen und Mittelwerte. Diese werden für die Berechnung der “optimalen” Koeffizienten a, b (siehe: “Least Square Fit” (LSF) Methode):\\                                                                                                                                      
+Der Beweis dieser Aussagen ist trivial. Um aber das mathematische Kalkül einzuüben führen wir hier die mathematische Beweisargumentation explizit aus:\\[0.2cm]
+ad (i): per Definition gilt $ SST \geqslant SSE \Leftrightarrow 1 \geqslant \frac{SSE}{SST} \Leftrightarrow 1- \frac{SSE}{SST} \geqslant 0 \Leftrightarrow R^2\geqslant 0 $\\[0.2cm]                                       
+per Definition gilt $ \frac{SSE}{SST} \geqslant 0 \Leftrightarrow 0 \geqslant -\frac{SSE}{SST} \Leftrightarrow 1 \geqslant 1- \frac{SSE}{SST} \frac{SSE}{SST} R^2 \leqslant 1 $ \\[0.3cm]                                       
+ad (ii): $ SSE = SST \Leftrightarrow \frac{SSE}{SST} = 1 \Leftrightarrow 1 - \frac{SSE}{SST} = 0 \Leftrightarrow R^2 = 0 $ \\[0.2cm]                                                                           
+ad (iii): $SSE = 0 \Leftrightarrow \frac{SSE}{SST} = 0 \Leftrightarrow  1 + \frac{SSE}{SST} = 1 \Leftrightarrow  1 = 1 -  \frac{SSE}{SST} \Leftrightarrow  R^2 = 1 $ q.e.d. \\[0.3cm] 
+
+Manchmal ist es notwendig das die optimale sLR-Gerade durch den Ursprung (a=0) geht. In diesem Fall erhalten wir die folgende Aussage:\\
+\\[0.2cm]
+\textbf{Korollar(K-4.1)}: “opt. sLR ohne Achsenabschnitt(b =0)”\\
+\begin{center}
+\begin{large}
+Aus $ b=0 \Rightarrow m = {\dfrac{\overline{x \cdot y}}{\overline{x^2}}}$  \\[0.2cm]                                          
+\end{large}
+\end{center}
+\textbf{Beweis:}\\
+$ b = 0 \Rightarrow y = m \cdot x$\\
+Da die sSLR-Gerade optimal ist, gilt die Ableitung von $R^2$ nach m = 0. Berechne nun diese. Da die Ableitung von SST konstant ist und die Gleichung später = 0 gesetzt wird, gilt: 
+\begin{center}
+\begin{large}
+$ 0 =\frac{\partial}{\partial m} (1-\frac{SSE}{SST}) = \frac{\partial (SSE)}{\partial m} = \frac{\partial [\sum\limits_{i=1}^n [(y_i - m \cdot x_i)^2]}{\partial m} = 2 \cdot \sum(y_i \cdot x_i - m \cdot (x_i)^2) $ 
+\end{large}
+\end{center}
+daraus folgt:
+\begin{center}
+\begin{large}
+$ \sum(y_i \cdot x_i) =  m \cdot \sum(x_i)^2) \Rightarrow m = \frac{\sum(y_i \cdot x_i }{\sum(x_i)^2)} \Rightarrow m = \frac{\overline{x \cdot y}}{\overline{x^2}} \quad $ q.e.d.     \\[0.6cm] 
+\end{large}
+\end{center} 
+
+Wir brauchen für später auch noch weitere hilfreiche Formeln über Summen und Mittelwerte. Diese werden für die Berechnung der “optimalen” Koeffizienten $b$ und $m$ gebraucht (siehe: “Least Square Fit” (LSF) Methode):\\[0.8cm]
+{\color{red}{***********************************************************************\\ 
+Ab hier bis Ende der subsection sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen...\\
+************************************************************************}}\\[0.2cm]                                                                                                                                      
                                                                                                                                      
 \textbf{Proposition (P-4.1)}:
 Easily you can proof, that the following equations are valid (definiere M(x):=Mean(xi))\\
@@ -545,8 +664,6 @@ Easily you can proof, that the following equations are valid (definiere M(x):=Me
 (iii) analog: sum[(xi-M(x))*(yi-M(y))]= sum[xi*yi- M(x)*yi– xi*M(y)+ M(x)*M(y)]     (durch Ausmultiplizieren aller Faktoren)\\         
   = sum(xi*yi)– n*M(x)*M(y)- n*M(x)*M(y)+ n*M(x)*M(y) = sum(xi*yi*)-n*M(x)*M(y)\\q.e.d.\\
   
-
-*** Weitere Kapitel Texte *** 
 
 \subsubsection{Definition der mLR-Kennzahl adj.R²}
 
@@ -580,19 +697,10 @@ Bezeichnen wir n = Anzahl der Beobachtungen (Datenpunke) und k = Anzahl der unab
 Das adj.R² berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktoren") im Modell und passt das gewöhnliche R² an, um zu verhindern, dass es aufgrund von Überanpassung (Overfitting) zu optimistisch wird. Ein höheres adj.R² zeigt an, dass ein größerer Anteil der Variabilität im abhängigen Wert von den unabhängigen Variablen im Modell erklärt wird, wobei jedoch die Anzahl der Prädiktoren berücksichtigt wird. Zusammenfassend ergibt sich folgende Übersicht:\\
 
 \begin{center}
-\includegraphics{Adj.R²-Definition}\
+\includegraphics{Adj.R²-Definition}\\
 \end{center}
 
 \textbf{Sprechweise:} Wir sagen eine Hyperebene ist eine \textbf{"optimale"} (mLR)- Hyperebene wenn adj.R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "mLR-Hyperebene".\\ 
-
-*******************************************************************\\ ab hier bis Ende der subsubsection sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen \\
-*******************************************************************\\
-
-
-\begin{center}
-\includegraphics{mLR-Definition}
-\end{center}
-
 
 \subsection{Mathematische Berechnungen zu adj.R²}
 
@@ -609,7 +717,10 @@ wobei $ \mathbf{w} \in {\mathbb{R}^k}$ und $ {b\in\mathbb{R}} $.
 \\[0.2cm]
 hier bezeichnet der Ausdruck $\mathbf{x}^\top \cdot \mathbf{w}$ das Matrix Produkt des Vektors $\mathbf{x}^\top$, welcher eine $1$-zu-$n$ Matrix ist, mit dem Vektor $\mathbf{w}$.  \\
 
-*************** ab hier weiter nach Deutsch übersetzen ************\\
+{\color{red}{***********************************************************************\\ 
+Ab hier weiter nach Deutsch übersetzen.......\\
+************************************************************************}}\\[0.2cm]
+
  
 Alternatively, this expression could be interpreted as the dot product of the vector $\mathbf{x}$ and the vector $\mathbf{w}$.
 At this point you might wonder why it is useful to introduce matrix notation here.  The reason is
@@ -695,28 +806,126 @@ $X \cdot \mathbf{w} - \mathbf{y} = \left(
 $
 \\[0.2cm]
 Taking the square of the vector $X \cdot \mathbf{w} - \mathbf{y}$ we discover that we can rewrite equation (\ref{eq:squared-error-2}) as follows:
+
 \begin{equation}
   \label{eq:squared-error-3}
   \mathtt{MSE}(\mathbf{w}) = \frac{1}{m-1} \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr)^\top \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr).
 \end{equation}\\
 
-********************************************************************\\ Um das minimale MSE(w) zu bekommen, sagt uns die Mathematik (Analysis I), müssen wir den "Gradienten" der Funktion MSE(w)" null setzen. Die folgenden Berechnungen sind hier noch zu ergänzen. Nützlich dazu ist die Matrizenrechnung aus der Linearen Algebra.\\ ********************************************************************\\ 
+{\color{red}{********************************************************************************\\ Um das minimale MSE(w) zu bekommen, sagt uns die Mathematik (Analysis I), müssen wir den "Gradienten" der Funktion MSE(w)" null setzen. Die folgenden Berechnungen sind hier noch zu ergänzen. Nützlich dazu ist die Matrizenrechnung aus der Linearen Algebra.\\ *******************************************************************************}}\\ 
 
 
 \subsection{"Least Square Fit"(LSF) Verfahren für LR}
 
+Mit den LSF Verfahren oder in Deutsch "Methode der kleinsten Quadrate" lassen sich nun die optimale sLR-Gerade (k=1) und im Fall (k=2) die optimale mLR-Ebene berechnen. Wir nutzen das das "Max-Min" Kriterium der Analysis.\\
+Wir berechnen dazu explizit die Ableitung der Funktion R² nach ihren Veränderlichen in den Fälle (k=1)und (k=2): 
+\subsubsection{Detailberechnung für mLR(k=1)}
+
+Sei die optimale Regression-Gerade gegeben durch $ y = b + m \cdot x $ dann ist R² eine Funktion in den Veränderlichen b und m: R² = R²(b, m). Somit muss für ein Maximum gelten (Analysis I): \\
 \begin{center}
-\includegraphics{LSF-Blatt1}\\
+\begin{Large} 
+$  dR^2 = \frac{\partial R^2}{\partial b} \cdot db + \frac{\partial R^2}{\partial m} \cdot dm = 0 \Longleftrightarrow  \frac{\partial R^2}{\partial b} = \frac{\partial R^2}{\partial m} = 0 $
+\end{Large}
 \end{center}
 
-\subsubsection{Detailberechnung für sLR (k=1)}
+Wir rechnen als erstes  die \textbf{Ableitung nach $b$}:\\
+ 
+\begin{center}
+\begin{large} 
+$ \frac{\partial R^2}{\partial b} = \frac{\partial [ 1 - \frac {SSE}{SST}]}{\partial b} =  \frac{\partial 1}{\partial b} - \frac{\partial [\frac{1}{SST}]}{\partial b} \cdot \frac{\partial SSE}{\partial b} = 0 -  \frac{\partial [\frac{1}{SST}]}{\partial b} \cdot \frac{\partial SSE}{\partial b} $ 
+\end{large}
+\end{center}
+ 
+Da diese Gleichung = 0 gesetzt wird und $ \frac{\partial [\frac{1}{SST}]}{\partial b} = const. $ ist, kann diese Ableitung vernachlässigt werden. Somit erhält man: \\ 
 
 \begin{center}
-\includegraphics{ML5-LeastSqFit-sLR-1}\\
+\begin{large} 
+$ 0 = \frac{\partial SSE}{\partial b} = \frac{\partial [\sum\limits_{i=1}^n [(y_i - b -m \cdot x_i)^2]}{\partial b} = 2 \cdot \sum\ (y_i - b - m \cdot  x_i) $
+\end{large}
+\end{center}
+
+Durch Benutzung der Definition des Mittelwertes und Kürzen der 2 erhält man: 
+ 
+\begin{center}
+$ 0 = n \cdot \bar{y} - n \cdot b -n \cdot m \cdot \bar{x} \Rightarrow 0 = \bar{y} - b  -m \cdot \bar{x} \Rightarrow b = \bar{y} -m \cdot \bar{x} $ (*)
+\end{center}
+
+Analog berechnen wir die \textbf{Ableitung nach $m$}:\\
+ 
+\begin{center}
+\begin{large} 
+$ \frac{\partial R^2}{\partial m} = \frac{\partial [ 1 - \frac {SSE}{SST}]}{\partial m} =  \frac{\partial 1}{\partial m} - \frac{\partial [\frac{1}{SST}]}{\partial m} \cdot \frac{\partial SSE}{\partial m} = 0 -  \frac{\partial [\frac{1}{SST}]}{\partial m} \cdot \frac{\partial SSE}{\partial b} $ 
+\end{large}
+\end{center}
+ 
+Da diese Gleichung = 0 gesetzt wird und $ \frac{\partial [\frac{1}{SST}]}{\partial m} = const. $ ist, kann diese Ableitung vernachlässigt werden. Somit erhält man: \\ 
+
+\begin{center}
+\begin{large} 
+$ 0 = \frac{\partial SSE}{\partial m} = \frac{\partial [\sum\limits_{i=1}^n [(y_i - b -m \cdot x_i)^2]}{\partial m} = 2 \cdot \sum(y_i \cdot x_i - b \cdot x_i - m \cdot (x_i)^2) $
+\end{large}
+\end{center}
+
+Durch Benutzung der Definition des Mittelwertes und Kürzen der 2 erhält man:  
+ 
+\begin{center}
+$ 0 = \sum(y_i \cdot x_i) - b \cdot n \cdot \bar{x} - m \cdot \sum((x_i)^2) \Rightarrow   \sum(y_i \cdot x_i) =  b \cdot n \cdot \bar{x} + m \cdot \sum((x_i)^2) $  (**) 
+\end{center}
+
+Schreiben wir nun die zwei Gleichungen mithilfe einer Matrix so erhalten wir:
+
+{\color{red}{***********************************************************************\\ 
+Umsetzen der obigen Formel in Matrixschreibweise mit der folgenden Folien ..\\
+************************************************************************}}\\[0.2cm]
+
+
+\begin{center}
 \includegraphics{ML5-LeastSqFit-sLR-2}\\
 \end{center}
+ 
+
+\textbf{Zusammenfassung:}Die Formeln für die Berechnung der Koeffizienten $b$ und $m$ lauten wie folgt:
+
+\begin{center}
+\begin{Large}
+(I):  $    m = \frac{\sum((x - \bar{x}) \cdot (y - \bar{y}))}{\sum((x - \bar{x})^2)}$   
+\\[0.3cm]
+(II):     $   b = \bar{y} - m \cdot \bar{x} $                                      
+\end{Large}
+\\[0.3cm]
+\end{center}
+
+\begin{large}
+Dabei steht:\\
+$ \sum $ \text{ für die Summe über alle n Datenpunkte} := $ \sum\limits_{i=1}^n x_i $,\\
+$ \bar{x} $ \text{ für den Durchschnittswert der x-Werte} := $ \frac{1}{n} \cdot {\sum\limits_{i=1}^n x_i} $, \\
+$ \bar{y} $ \text{ für den Durchschnittswert der y-Werte} := $ \frac{1}{n} \cdot {\sum\limits_{i=1}^n y_i} $, \\
+\end{large}
+
+{\color{red}{***********************************************************************\\ 
+Umschreibung von Formel (I) und (II) mit der folgenden Folie ..\\
+************************************************************************}}\\[0.2cm]
+
+text.........
+
+\begin{center} 
+\hspace*{-2.2cm}
+\includegraphics[width=1.3\textwidth]{sLR-LSF-Umschreibung}
+\end{center}
+
+
+
+
+
 
 \subsubsection{Detailberechnung für mLR(k=2)}
+
+
+
+{\color{red}{***********************************************************************\\ 
+Umsetzen der Detail-Berechnung für den Fall (k=2) mit den folgenden Folien ..\\
+************************************************************************}}\\[0.2cm]
+
 
 \includegraphics{LSF-mLR(k=2)-1}\\
 \includegraphics{LSF-mLR(k=2)-2}\\
@@ -725,6 +934,7 @@ Taking the square of the vector $X \cdot \mathbf{w} - \mathbf{y}$ we discover th
 *** Weitere Kapitel Texte ***
 
 \subsection{simple Linear Regression (sLR) with Scikit-learn}
+
 In order to get a better feeling for linear regression, we want to test it to investigate the factors that determine the fuel consumption of cars.  %\myFig{cars.csv} shows the head of the data file 
 ``\href{https://github.com/karlstroetmann/Artificial-Intelligence/blob/master/SetlX/cars.csv}{\texttt{cars.csv}}''
 which I have adapted from the file
@@ -1469,5 +1679,6 @@ Weitere Kapitel Texte \\
 
 *** Weitere Referenzen \\
 ***\\
+
 
 \end{document}
