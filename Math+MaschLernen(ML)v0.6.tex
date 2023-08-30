@@ -547,16 +547,24 @@ Die ersten k Komponenten $\lbrace x_{ij} \rbrace $ pro Datenvektor sind die Komp
 
 \subsubsection{Beispiele von LR Lösungen für k=1, k=2}
 
-Mathematisch ("Geometrie") erhalten wir für k=1 Gerade in $ \mathbb{R}^2 $. \\
-Für k = 2 eine Ebene in $ \mathbb{R}^3$ und für $k \eqslantgtr 3 $ eine Hyperebene in $ \mathbb{R}^{k+1}$. \\
-Die ersten zwei Fälle lassen sich visualisieren:\\ 
-\textbf{k=1:} Das folgende Bild zeigt die $ \color{red}{"Regressionsgerade"} $ für die n blauen Beobachtungspunkte $ \color{blue}{\lbrace P_1 = (x_{11}, y_1)...P_n = (x_{1n}, y_n)\rbrace } $
-\\[0.1cm]
+Mathematisch ("Geometrie") erhalten wir für k=1 eine Gerade in $ \mathbb{R}^2 $. \\
+%
+Wir schreiben die \textbf{Geradengleichung} als $ y = a + b \cdot x $. \\
+$a$ ist dabei der Achsenabschnitt ("y-intercept" auf Englisch) und $b$ die Steigung in x-Richtung ("x-slope").\\[0.2cm] 
+%
+Für k = 2 eine Ebene in $ \mathbb{R}^3$ mit der \textbf{Ebenengleichung} $ z  = a + b \cdot x  + c \cdot y $. \\
+$a$ ist dabei der Achsenabschnitt mit der z-Achse (z-intercept), $b$ die Steigung in x-Richtung (x-slope) und $c$ die Steigung in y-Richtung (y-slope) \\[0.2cm] 
+%
+Für $k \eqslantgtr 3 $ erhalten wir eine Hyperebene in $ \mathbb{R}^{k+1}$.     \\[0.4cm]
+%
+Die ersten zwei Fälle lassen sich leicht visualisieren:\\[0.3cm] 
+\textbf{k=1:} Das folgende Bild zeigt die $ \color{red}{"Regressionsgerade"} $ für die n blauen Beobachtungspunkte $ \color{blue}{\lbrace P_1 = (x_1,y_1)\quad...\quad P_n = (x_n,y_n) \rbrace } $
+\\[0.2cm]
 \hspace*{0.2cm}
 \begin{center}
 \includegraphics{sLR-Gerade} 
 \end{center}
-\textbf{k=2:} Das nächste Bild zeigt die $ \color{black}{"Regressionsebene"} $ für die n blauen Beobachtungspunkte $ \color{blue}{\lbrace P_1 = (x_{11}, x_{21}, y_1)...P_n = (x_{1n}, x_{2n}, y_n)\rbrace } $
+\textbf{k=2:} Das nächste Bild zeigt die $ \color{black}{"Regressionsebene"} $ für die n blauen Beobachtungspunkte $ \color{blue}{\lbrace P_1 = (x_1, y_1, z_1)\quad ... \quad P_n = (x_n, y_n, z_n)\rbrace } $
 \begin{center}
 \includegraphics{ML5-MovingPicture_mLR}\
 \end{center} 
@@ -593,7 +601,7 @@ Für die Definition von R² brauchen wir Sum of Squares Error (SSE) und Sum of S
 % Zeilenfüller
 \textbf{Sprechweise:} Wir sagen eine Gerade ist eine \textbf{"optimale"} (sLR)-Gerade wenn R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "sLR-Gerade".\\[0.2 cm]
 % Zeilenfüller
-\textbf{Anmerkung:} Wir sehen später das für  optimale sLR-Geraden eine andere Formel für R² auch gültig ist. Diese Formel benutzt die Kennzahl SSR.\\[0.4cm]
+%\textbf{Anmerkung:} Wir sehen später das für  optimale sLR-Geraden eine andere Formel für R² auch gültig ist. Diese Formel benutzt die Kennzahl SSR.\\[0.4cm]
 % Zeilenfüller
 Im \textbf{folgenden Bild} sehen wir die Kennzahlen {\color{blue}{SSE}} und {\color{red}{SST}} geometrisch mit 4 Beobachtungspunkten. Sehr gut sind die Größen der Quadrate für {\color{blue}{SSE}} und {\color{red}{SST}} zu erkennen. Man bekommt zudem auch ein guten Eindruck von den Faktor 
 \begin{large}
@@ -617,9 +625,9 @@ Zur leichteren Schreibweise nutze ich die folgenden Notationen:\\
 sum(xi):= $ \sum\limits_{i=1}^n(x_i) $ und Mean(x) = $ \overline{x} := \frac{1}{n} \cdot \sum\limits_{i=1}^n(x_i) $\\[0.2cm]
 \end{center}
 Wir beginnen mit einigen einfachen mathematischen Aussagen ("Theoreme", "Propositionen", "Korollare", etc. ) über die Eigenschaften der Kennzahl $R^2$.\\[0.2cm]
-\textbf{Anmerkung:} ohne Einschränkung der Allgemeinheit ("OE") können wir annehmen, dass $SST > 0$ ist.\\[0.2cm] 
-
-\textbf{Theorem (Th-4.1)}: “Eigenschaften von $R^2$”\\[0.2cm]
+\textbf{Anmerkung:} Ohne Einschränkung der Allgemeinheit ("OE") können wir annehmen, dass $SST > 0$ ist.\\[0.2cm] 
+%
+\textbf{Theorem (Th-4.1)}: "Eigenschaften von $R^2$”\\[0.2cm]
 Es gelten die folgenden Aussagen:\\[0.3cm]
 (i)  $ \quad 0 \leqslant R^2 \leqslant 1 \quad\quad\quad\quad\quad\quad $   "Begrenzung"\\[0.2cm]                                       
 (ii) $ \quad R^2 = 0 \Leftrightarrow SSE = SST \quad $                      "Minimum"\\[0.2cm]                                       
@@ -629,47 +637,52 @@ Der Beweis dieser Aussagen ist trivial. Um aber das mathematische Kalkül einzu�
 ad (i): per Definition gilt $ SST \geqslant SSE \Leftrightarrow 1 \geqslant \frac{SSE}{SST} \Leftrightarrow 1- \frac{SSE}{SST} \geqslant 0 \Leftrightarrow R^2\geqslant 0 $\\[0.2cm]                                       
 per Definition gilt $ \frac{SSE}{SST} \geqslant 0 \Leftrightarrow 0 \geqslant -\frac{SSE}{SST} \Leftrightarrow 1 \geqslant 1- \frac{SSE}{SST} \frac{SSE}{SST} R^2 \leqslant 1 $ \\[0.3cm]                                       
 ad (ii): $ SSE = SST \Leftrightarrow \frac{SSE}{SST} = 1 \Leftrightarrow 1 - \frac{SSE}{SST} = 0 \Leftrightarrow R^2 = 0 $ \\[0.2cm]                                                                           
-ad (iii): $SSE = 0 \Leftrightarrow \frac{SSE}{SST} = 0 \Leftrightarrow  1 + \frac{SSE}{SST} = 1 \Leftrightarrow  1 = 1 -  \frac{SSE}{SST} \Leftrightarrow  R^2 = 1 $ q.e.d. \\[0.3cm] 
-
+ad (iii): $SSE = 0 \Leftrightarrow \frac{SSE}{SST} = 0 \Leftrightarrow  1 + \frac{SSE}{SST} = 1 \Leftrightarrow  1 = 1 -  \frac{SSE}{SST} \Leftrightarrow  R^2 = 1 \qquad $ q.e.d. \\[0.3cm] 
+%
 Manchmal ist es notwendig das die optimale sLR-Gerade durch den Ursprung (a=0) geht. In diesem Fall erhalten wir die folgende Aussage:\\
 \\[0.2cm]
-\textbf{Korollar(K-4.1)}: “opt. sLR ohne Achsenabschnitt(b =0)”\\
+\textbf{Korollar(K-4.1)}: “opt. sLR ohne Achsenabschnitt(a =0)”\\
 \begin{center}
 \begin{large}
-Aus $ b=0 \Rightarrow m = {\dfrac{\overline{x \cdot y}}{\overline{x^2}}}$  \\[0.2cm]                                          
+Aus $ a=0 \Rightarrow b = {\dfrac{\overline{x \cdot y}}{\overline{x^2}}}$  \\[0.2cm]                                          
 \end{large}
 \end{center}
 \textbf{Beweis:}\\
-$ b = 0 \Rightarrow y = m \cdot x$\\
-Da die sSLR-Gerade optimal ist, gilt die Ableitung von $R^2$ nach m = 0. Berechne nun diese. Da die Ableitung von SST konstant ist und die Gleichung später = 0 gesetzt wird, gilt: 
+$ a = 0 \Rightarrow y = b \cdot x$\\\\[0.1cm]
+%                                                                           
+Da die sSLR-Gerade optimal ist, nuss die Ableitung von $R^2$ nach b gleich Null. Berechne nun diese. Da die Ableitung von SST konstant ist und die Gleichung später = 0 gesetzt wird, gilt: 
 \begin{center}
 \begin{large}
-$ 0 =\frac{\partial}{\partial m} (1-\frac{SSE}{SST}) = \frac{\partial (SSE)}{\partial m} = \frac{\partial [\sum\limits_{i=1}^n [(y_i - m \cdot x_i)^2]}{\partial m} = 2 \cdot \sum(y_i \cdot x_i - m \cdot (x_i)^2) $ 
+$ 0 =\frac{\partial}{\partial b} (1-\frac{SSE}{SST}) = \frac{\partial)}{\partial b} [SSE] = \frac{\partial}{\partial b}[\sum\limits_{i=1}^n [(y_i - b \cdot x_i)^2] = -2 \cdot \sum(y_i \cdot x_i - b \cdot (x_i)^2) $ 
 \end{large}
 \end{center}
 daraus folgt:
 \begin{center}
 \begin{large}
-$ \sum(y_i \cdot x_i) =  m \cdot \sum(x_i)^2) \Rightarrow m = \frac{\sum(y_i \cdot x_i }{\sum(x_i)^2)} \Rightarrow m = \frac{\overline{x \cdot y}}{\overline{x^2}} \quad $ q.e.d.     \\[0.6cm] 
+$ \sum(y_i \cdot x_i) =  b \cdot \sum(x_i)^2) \Rightarrow b = \frac{\sum(y_i \cdot x_i) }{\sum(x_i)^2)} \Rightarrow m = \frac{\overline{x \cdot y}}{\overline{x^2}} \qquad $ q.e.d.     \\[0.5cm] 
 \end{large}
 \end{center} 
-
-Wir brauchen für später auch noch weitere hilfreiche Formeln über Summen und Mittelwerte. Diese werden für die Berechnung der “optimalen” Koeffizienten $b$ und $m$ gebraucht (siehe: “Least Square Fit” (LSF) Methode):\\[0.8cm]
+%
+Wir brauchen für später auch noch weitere hilfreiche Formeln über Summen und Mittelwerte. Diese werden für die Berechnung der “optimalen” Koeffizienten $a$ und $b$ gebraucht (siehe: “Least Square Fit” (LSF) Methode):\\[0.8cm]
 {\color{red}{***********************************************************************\\ 
 Ab hier bis Ende der subsection sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen...\\
-************************************************************************}}\\[0.2cm]                                                                                                                                      
-                                                                                                                                     
-\textbf{Proposition (P-4.1)}:
-Easily you can proof, that the following equations are valid (definiere M(x):=Mean(xi))\\
-(i)  Sum[(xi - M(x))²] = sum(xi²) - n*M(x)² \\
-(ii) Sum[(yi – M(y))²] = sum(yi²) - n*M(y)² \\
-(iii) Sum[(xi - M(x))*(yi - M(y))] = sum(xi*yi) – n*M(x)*M(y)\\
-\textbf{Beweis:} ”straightforward”
-\\(i) sum[(xi - M(x))²] = sum[xi²- 2*M(x)*(xi) + M(x)²]   (binominal formula) 
-        = sum(xi²)- 2*M(x)* sum(xi)+ sum(M(x)²)= sum(xi²)– 2*n*M(x)²+ n*M(x)²    weil sum(xi)=n*M(x))\\  
-         
-(ii) analog: sum[(yi-M(y))]²= sum(yi²)-2*M(y)*sum(yi)+ sum[M(y)²]=sum(yi²) - 2n*M(y)²+n*M(y)² = sum(yi²)- n*M(y)\\
-
+***************************************************************************}}
+\\[0.2cm]                                                                                                                                      
+%                                                                                                                                     
+\textbf{Proposition (P-4.1)}:\\[0.2cm] 
+Easily you can proof, that the following equations are valid \\
+(definiere M(x):=Mean(xi))\\[0.2cm] 
+(i)  Sum[(xi - M(x))²] = sum(xi²) - n*M(x)² \\[0.2cm]
+(ii) Sum[(yi – M(y))²] = sum(yi²) - n*M(y)² \\[0.2cm]
+(iii) Sum[(xi - M(x))*(yi - M(y))] = sum(xi*yi) – n*M(x)*M(y)\\[0.2cm]
+\textbf{Beweis:}\\[0.2cm]
+ ”straightforward”:\\[0.2cm]
+%
+(i) sum[(xi - M(x))²] = sum[xi²- 2*M(x)*(xi) + M(x)²]   (binominal formula) 
+        = sum(xi²)- 2*M(x)* sum(xi)+ sum(M(x)²)= sum(xi²)– 2*n*M(x)²+ n*M(x)²    weil sum(xi)=n*M(x))\\[0.2cm]  
+%         
+(ii) analog: sum[(yi-M(y))]²= sum(yi²)-2*M(y)*sum(yi)+ sum[M(y)²]=sum(yi²) - 2n*M(y)²+n*M(y)² = sum(yi²)- n*M(y)\\[0.2cm]
+%
 (iii) analog: sum[(xi-M(x))*(yi-M(y))]= sum[xi*yi- M(x)*yi– xi*M(y)+ M(x)*M(y)]     (durch Ausmultiplizieren aller Faktoren)\\         
   = sum(xi*yi)– n*M(x)*M(y)- n*M(x)*M(y)+ n*M(x)*M(y) = sum(xi*yi*)-n*M(x)*M(y)\\q.e.d.\\
   
@@ -692,23 +705,24 @@ $ F\bigl(\mathbf{x}^{(i)}\bigr)$ eine  genaue Approximation von $y^{(i)}$ ist,  
 \begin{large}
 $\forall i\in\{1,\cdots,n\}:F\bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$. \\[0.4cm]
 \end{large}
+%
 Die Kennzahl adj.R², wobei "adj." für "adjustiert" (angepasst) steht, soll nun genauer definiert werden. Die adj.R² ist eine modifizierte Version des gewöhnlichen R² ("Bestimmtheitsmaß").\\
 Während das normale R² die Proportion der abhängigen Variabilität erklärt, kann das adj.R² bei Modellen mit mehreren unabhängigen Variablen ("Prädiktoren") nützlicher sein, da es für die Anzahl der verwendeten Prädiktoren oder Kovariaten in einem Modell nutzt.\\
 Bezeichnen wir n = Anzahl der Beobachtungen (Datenpunke) und k = Anzahl der unabhängigen Variablen (Prädiktoren) und definieren wir df := n-k-1 ("Anzahl der Freiheitsgrade"). Dann ergibt sich, unter Nutzung von (D-4.4), folgende Formel:\\[0.1cm]
 
 \begin{center}
-\texttt{(D-4.5):}
-\begin{Large}
-\textbf{$ adj.R^2 := 1 - (1 - R^2) \cdot \frac{n-1}{n-k-1} = 1 - (\frac{SSE}{SST}) \cdot \frac{n-1}{n-k-1}$} \\[0.8cm] 
-\end{Large}     
+\texttt{(D-4.5)}
+\begin{large}
+\textbf{$ \quad adj.R^2 := 1 - (1 - R^2) \cdot (\frac{n-1}{n-k-1}) = 1 - (\frac{SSE}{SST}) \cdot (\frac{n-1}{n-k-1}) $}  \\[0.6cm] 
+\end{large}     
 \end{center}
-
-Das adj.R² berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktoren") im Modell und passt das gewöhnliche R² an, um zu verhindern, dass es aufgrund von Überanpassung (Overfitting) zu optimistisch wird. Ein höheres adj.R² zeigt an, dass ein größerer Anteil der Variabilität im abhängigen Wert von den unabhängigen Variablen im Modell erklärt wird, wobei jedoch die Anzahl der Prädiktoren berücksichtigt wird. Zusammenfassend ergibt sich folgende Übersicht:\\
+%
+Das adj.R² berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktoren") im Modell und passt das gewöhnliche R² an, um zu verhindern, dass es aufgrund von Überanpassung ("Overfitting") zu optimistisch wird. Ein höheres adj.R² zeigt an, dass ein größerer Anteil der Variabilität im abhängigen Wert von den unabhängigen Variablen im Modell erklärt wird, wobei jedoch die Anzahl der Prädiktoren berücksichtigt wird. Zusammenfassend ergibt sich folgende Übersicht:\\
 
 \begin{center}
 \includegraphics{Adj.R²-Definition}\\
 \end{center}
-
+%
 \textbf{Sprechweise:} Wir sagen eine Hyperebene ist eine \textbf{"optimale"} (mLR)- Hyperebene wenn adj.R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "mLR-Hyperebene".\\ 
 
 \subsection{Mathematische Berechnungen zu adj.R²}
@@ -827,68 +841,70 @@ Taking the square of the vector $X \cdot \mathbf{w} - \mathbf{y}$ we discover th
 \subsection{"Least Square Fit"(LSF) Verfahren für LR}
 
 Mit den LSF Verfahren oder in Deutsch "Methode der kleinsten Quadrate" lassen sich nun die optimale sLR-Gerade (k=1) und im Fall (k=2) die optimale mLR-Ebene berechnen. Wir nutzen das das "Max-Min" Kriterium der Analysis.\\
-Wir berechnen dazu explizit die Ableitung der Funktion R² nach ihren Veränderlichen in den Fälle (k=1)und (k=2): 
-\subsubsection{Detailberechnung für mLR(k=1)}
+Wir berechnen dazu explizit die Ableitung der Funktion R² nach ihren Veränderlichen in den Fälle (k=1)und (k=2). 
 
-Sei die optimale Regression-Gerade gegeben durch $ y = b + m \cdot x $ dann ist R² eine Funktion in den Veränderlichen b und m: R² = R²(b, m). Somit muss für ein Maximum gelten (Analysis I): \\
+\subsubsection{Detailberechnung für mLR (k=1)}
+
+Sei die optimale Regression-Gerade gegeben durch $ y = a + b \cdot x $ dann ist R² eine Funktion in den Veränderlichen $a$ und $ b: " R^2 = R^2(b,m)" $. Somit muss für ein Maximum gelten, dass der Gradient $\Delta{R^2}$ = 0 ist (Analysis I): 
 \begin{center}
-\begin{Large} 
-$  dR^2 = \frac{\partial R^2}{\partial b} \cdot db + \frac{\partial R^2}{\partial m} \cdot dm = 0 \Longleftrightarrow  \frac{\partial R^2}{\partial b} = \frac{\partial R^2}{\partial m} = 0 $
-\end{Large}
+\begin{large} 
+$  dR^2 = \frac{\partial R^2}{\partial a} \cdot db + \frac{\partial R^2}{\partial b} \cdot db = 0 \Longleftrightarrow  \frac{\partial R^2}{\partial a} = \frac{\partial R^2}{\partial b} = 0 $
+\end{large}
+\end{center}
+%
+Wir rechnen als erstes die \textbf{Ableitung nach $a$}:
+% 
+\begin{center}
+\begin{large} 
+$ \frac{\partial R^2}{\partial a} = \frac{\partial}{\partial a}(1 - \frac {SSE}{SST})]  =  \frac{\partial}{\partial a}(1) - \frac{\partial}{\partial a}(\frac{SSE}{SST})= 0 -  \frac{\partial}{\partial a}(SSE) $ 
+\end{large}
+\end{center}
+% 
+Die letzte Gleichung ist gültig, da das Gesamtergebnis ebenfalls = 0 gesetzt wird und $ \frac{\partial}{\partial a}(\frac{1}{SST}) = const. $ ist. Damit kann diese Ableitung vernachlässigt werden. Somit erhält man: \\ 
+
+\begin{center}
+\begin{large} 
+$ 0 = \frac{\partial}{\partial a}(SSE) = \frac{\partial}{\partial a}[\sum\limits_{i=1}^n {((y_i - a -b \cdot x_i)^2)} = -(2) \cdot (\sum\ (y_i - a - b \cdot  x_i)) $
+\end{large}
+\end{center}
+%
+Durch Benutzung der Definition des Mittelwertes und Kürzen mit (-2) erhält man: 
+
+\begin{center}
+$ 0 = n \cdot \bar{y} - n \cdot a -n \cdot b \cdot \bar{x} \quad \Leftrightarrow \quad 0 = \bar{y} - a  -b \cdot \bar{x}$ \\[0.2cm] 
+$ \qquad \qquad \Leftrightarrow \quad a = \bar{y} -b \cdot \bar{x} \qquad\ \Leftrightarrow \quad \bar{y} = a +  b \cdot \bar{x} \qquad $ (1)
 \end{center}
 
-Wir rechnen als erstes  die \textbf{Ableitung nach $b$}:\\
+Analog berechnen wir die \textbf{Ableitung nach $b$}:
  
 \begin{center}
 \begin{large} 
 $ \frac{\partial R^2}{\partial b} = \frac{\partial [ 1 - \frac {SSE}{SST}]}{\partial b} =  \frac{\partial 1}{\partial b} - \frac{\partial [\frac{1}{SST}]}{\partial b} \cdot \frac{\partial SSE}{\partial b} = 0 -  \frac{\partial [\frac{1}{SST}]}{\partial b} \cdot \frac{\partial SSE}{\partial b} $ 
 \end{large}
 \end{center}
- 
-Da diese Gleichung = 0 gesetzt wird und $ \frac{\partial [\frac{1}{SST}]}{\partial b} = const. $ ist, kann diese Ableitung vernachlässigt werden. Somit erhält man: \\ 
+% 
+Da diese Gleichung = 0 gesetzt wird und $ \frac{\partial [\frac{1}{SST}]}{\partial b} = const. $ ist, kann diese Ableitung vernachlässigt werden. Somit erhält man: 
 
 \begin{center}
 \begin{large} 
-$ 0 = \frac{\partial SSE}{\partial b} = \frac{\partial [\sum\limits_{i=1}^n [(y_i - b -m \cdot x_i)^2]}{\partial b} = 2 \cdot \sum\ (y_i - b - m \cdot  x_i) $
+$ 0 = \frac{\partial (SSE)}{\partial b } = \frac{\partial}{\partial b} \dot  [\sum\limits_{i=1}^n [(y_i - a -b \cdot x_i^2] = -2 \cdot \sum[y_i \cdot x_i - a \cdot x_i - b \cdot x_i^2)] $
 \end{large}
 \end{center}
-
-Durch Benutzung der Definition des Mittelwertes und Kürzen mit (-2) erhält man: 
-
-\begin{center}
-$ 0 = n \cdot \bar{y} - n \cdot b -n \cdot m \cdot \bar{x} \quad \Rightarrow \quad 0 = \bar{y} - b  -m \cdot \bar{x}$ \\[0.2cm] 
-$ \quad \Rightarrow \quad b = \bar{y} -m \cdot \bar{x} \quad\ \Rightarrow \quad \bar{y} = b +  m \cdot \bar{x} \quad\quad\quad $ (1)
-\end{center}
-
-Analog berechnen wir die \textbf{Ableitung nach $m$}:
+%
+Durch Benutzung der Definition des Mittelwertes und Kürzen durch (-2) erhält man:  
  
 \begin{center}
-\begin{large} 
-$ \frac{\partial R^2}{\partial m} = \frac{\partial [ 1 - \frac {SSE}{SST}]}{\partial m} =  \frac{\partial 1}{\partial m} - \frac{\partial [\frac{1}{SST}]}{\partial m} \cdot \frac{\partial SSE}{\partial m} = 0 -  \frac{\partial [\frac{1}{SST}]}{\partial m} \cdot \frac{\partial SSE}{\partial b} $ 
-\end{large}
+$ 0 = \sum(y_i \cdot x_i) - a \cdot n \cdot \bar{x} - b \cdot \sum(x_i^2) $ \\[0.4cm]  
+$ \quad\quad\quad \Leftrightarrow \qquad \sum(y_i \cdot x_i) =  a \cdot n \cdot \bar{x} + b \cdot \sum(x_i^2)\qquad\qquad  $ (2) \\[0.3cm]
 \end{center}
- 
-Da diese Gleichung = 0 gesetzt wird und $ \frac{\partial [\frac{1}{SST}]}{\partial m} = const. $ ist, kann diese Ableitung vernachlässigt werden. Somit erhält man: 
-
+%
+Schreiben wir nun die beiden Gleichungen (1) und (2) mit einer 2x2- Matrix um, so erhält man nach den Regeln der Matrizenmultiplikation (siehe Vorlesung "Lineare Algebra"):\\[0.2cm]  
 \begin{center}
 \begin{large} 
-$ 0 = \frac{\partial (SSE)}{\partial m } = \frac{\partial}{\partial m} \dot  [\sum\limits_{i=1}^n [(y_i - b -m \cdot x_i^2] = -2 \cdot \sum[y_i \cdot x_i - b \cdot x_i - m \cdot x_i^2)] $
+$ \begin{bmatrix} 1 & \bar{x} \\ n \cdot \bar{x} & \sum{x_i^2} \\ \end{bmatrix} \cdot                                                                                                  \begin{bmatrix} a \\ b \\ \end{bmatrix} = \begin{bmatrix} \bar{y} \\ \sum{x_i \cdot y_i}  \\ \end{bmatrix} $
 \end{large}
 \end{center}
-
-Durch Benutzung der Definition des Mittelwertes und Kürzen durch -(2) erhält man:  
- 
-\begin{center}
-$ 0 = \sum(y_i \cdot x_i) - b \cdot n \cdot \bar{x} - m \cdot \sum(x_i^2) $ \\[0.4cm]  
-$ \quad\quad\quad \Rightarrow \quad  \sum(y_i \cdot x_i) =  b \cdot n \cdot \bar{x} + m \cdot \sum(x_i^2)\quad\quad  $ (2) \\[0.3cm]
-\end{center}
-
-Schreiben wir nun die beiden Gleichungen (1) und (2) mit einer 2x2- Matrix um so erhält man nach den Regeln der Matrizenmultiplikation (siehe Vorlesung "Lineare Algebra"):\\[0.2cm]  
-\begin{center}
-\begin{large} 
-$ \begin{bmatrix} 1 & \bar{x} \\ n \cdot \bar{x} & \sum{x_i^2} \\ \end{bmatrix} \cdot                                                                                                  \begin{bmatrix} b \\ m \\ \end{bmatrix} = \begin{bmatrix} \bar{y} \\ \sum{x_i \cdot y_i}  \\ \end{bmatrix} $
-\end{large}
-\end{center}
+%
 In der Lin. Algebra wird die Inverse einer 2x2- Matrix:    
 A = $ \begin{bmatrix} a & b \\ c & d \\ \end{bmatrix} $ berechnet als: 
 \begin{center}
@@ -903,36 +919,37 @@ wobei Determinante(A)= detA = ad - bc. Mit obigen Werten eingesetzt erhält man:
 \begin{center}
 \begin{large}
 $ det = \sum{x_i^2} - n \cdot \bar{x}^2 $ \\[0.5cm]        
-$ \quad\quad\quad\quad  \begin{bmatrix} b \\ m \\ \end{bmatrix} = \frac{1}{det} \cdot { \begin{bmatrix} \sum{x_i^2} & -\bar{x} \\ -n \cdot \bar{x} & 1 \\ \end{bmatrix} \cdot                                                                                                     \begin{bmatrix} \bar{y} \\ \sum{x_i \cdot y_i} \\ \end{bmatrix}} $ \\[0.8cm]
+$ \qquad\qquad  \begin{bmatrix} a \\ b \\ \end{bmatrix} = \frac{1}{det} \cdot { \begin{bmatrix} \sum{x_i^2} & -\bar{x} \\ -n \cdot \bar{x} & 1 \\ \end{bmatrix} \cdot                                                                                                     \begin{bmatrix} \bar{y} \\ \sum{x_i \cdot y_i} \\ \end{bmatrix}} $ \\[0.8cm]
 \end{large}
 \end{center} 
 Unter Berücksichtigung von ($ det = \sum{x_i^2} - n \cdot \bar{x}^2 $) ist dies äquivalent zu den folgenden zwei Formeln : \\
 \begin{center}
 \begin{Large}
-$ \quad b = \frac{1}{det} \cdot (\bar{y} \cdot \sum{x_i^2} - \bar{x} \cdot \sum{x_i \cdot y_i})\quad\quad\ $ (3) \\[0.5cm]
-$ \quad m = \frac{1}{det} \cdot (\sum {x_i \cdot y_i} - n \cdot \bar{x} \cdot \bar{y})\quad\quad\quad\quad $    (4) \\[0.5cm]
+$ a = \frac{1}{det} \cdot (\bar{y} \cdot \sum{x_i^2} - \bar{x} \cdot \sum{x_i \cdot y_i})\qquad $ (3) \\[0.5cm]
+$ b = \frac{1}{det} \cdot (\sum {x_i \cdot y_i} - n \cdot \bar{x} \cdot \bar{y})\qquad\qquad $      (4) \\[0.5cm]
 \end{Large}
 \end{center} 
-\textbf{Weitere Umformulierungen von (3) und (4):}\\[0.2cm]
-
-Zur Berechnung des Achsenabschnittes ("intercept") $b$ setzt man nun (P4.1-(i)) und (P4.1-(iii)) in Formel (3). Man kürzt anschließend doppelte Komponenten, so erhält  man: \\[0.2cm]
-$ b = \frac{1}{det} \cdot (\bar{y} \cdot \sum{x_i^2} - \bar{x} \cdot \sum{x_i \cdot y_i})\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad $                    (nach Formel (3))
+\textbf{Weitere Umformulierungen von (3) und (4):}\\[0.1cm]
+%
+Zur Berechnung des Achsenabschnittes ("intercept") $a$ setzt man nun (P4.1-(i)) und (P4.1-(iii)) in Formel (3). Man kürzt anschließend doppelte Komponenten, so erhält  man: \\[0.2cm]
+$ a = \frac{1}{det} \cdot (\bar{y} \cdot \sum{x_i^2} - \bar{x} \cdot \sum{x_i \cdot y_i})\qquad \qquad \qquad \qquad \qquad \qquad $      (nach Formel (3))
 \\[0.2cm]
-$ \quad\quad = \frac{1}{det} \cdot (\bar{y} \cdot (\sum{(x_i - \bar{x})^2} + n \cdot \bar{x}^2) - \bar{x} \cdot \sum{x_i \cdot y_i})\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad $ (P4.1-(i)) 
-\\[0.2cm]
-$ \quad = \frac{1}{det} \cdot (\bar{y} \cdot (\sum{(x_i - \bar{x})^2} + n \cdot \bar{x}^2) - \bar{x} \cdot (n \cdot \bar{x} \cdot \bar{y} + \sum{[(x_i - \bar{x}) \cdot (y_i - \bar{y})]} $      (P4.1-(iii))        \\[0.2cm]
+$ = \frac{1}{det} \cdot (\bar{y} \cdot (\sum{(x_i - \bar{x})^2} + n \cdot \bar{x}^2) - \bar{x} \cdot \sum{x_i \cdot y_i})\qquad \qquad \qquad \qquad $ (P4.1-(i)) \\[0.2cm]
+$ = \frac{1}{det} \cdot (\bar{y} \cdot (\sum{(x_i - \bar{x})^2} + n \cdot \bar{x}^2) - \bar{x} \cdot (n \cdot \bar{x} \cdot \bar{y} + \sum{[(x_i - \bar{x}) \cdot (y_i - \bar{y})]} $      (P4.1-(iii)) \\[0.2cm]
 $ = \frac{1}{det} \cdot (\bar{y} \cdot (\sum{(x_i - \bar{x})^2)} - \bar{x} \cdot \sum{[(x_i - \bar{x}) \cdot (y_i - \bar{y})]} \quad $                                   (Doppelten Faktor kürzen)
 \\[0.2cm]
-Analog lässt sich auch die es Steigung ("slope") $m$ aus Formel (4) umformen und man erhält: \\[0.2cm]
-$ m = \frac{1}{det} \cdot \sum{[(x_i - \bar{x}) \cdot (y_i - \bar{y})]}$.
+Analog lässt sich auch die es Steigung ("slope") $b$ aus Formel (4) umformen und man erhält: \\[0.2cm]
+$ b = \frac{1}{det} \cdot \sum{[(x_i - \bar{x}) \cdot (y_i - \bar{y})]}$.
 \\[0.5cm]
 Definieren wir nun $ \hat{x_i} = (x_i - \bar{x}) $ und $ \hat{y_i} = (x_i - \bar{y}) $ so gilt:\\[0.4cm]
+%
 \textbf{Korollar (K4.2)}: 
 \begin{center}
 \begin{large}
- $ \quad\quad det = \sum{\hat{x_i}}^2 \quad\quad\quad\quad\ $ \\[0.2cm] 
+ $ \qquad det = \sum{\hat{x_i}}^2 \qquad \qquad $ \\[0.2cm] 
 \end{large}
 \end{center}
+%
 \textbf{Beweis}:\\
 wir rechnen:\\
 
@@ -944,11 +961,11 @@ Beweis fehlt noch....kommt später\\
 q.e.d\\[0.2cm]
 Wir erhalten wir als Zusammenfassung der obigen Berechnungen das folgende Theorem: \\[0.4cm]
 \textbf{Theorem (Th-4.2)}: "LSF Komponenten für optimale sLR-Gerade" \\[0.2cm]
-Sei $ det = \sum{\hat{x_i}}^2 $. Für die Achsenabschnitte $b$ und die Steigung $m$ einer optimalen sLR - Geraden $ y = b +  m \cdot x $ gelten folgende Formeln:\\[0.5cm]
+Sei $ det = \sum{\hat{x_i}}^2 $. Für die Achsenabschnitte $a$ und die Steigung $a$ einer optimalen sLR - Geraden $ y = a +  b \cdot x $ gelten folgende Formeln:\\[0.5cm]
 \begin{large}
-(sLSF-I): $ \quad\quad b = \frac{1}{det} \cdot (\bar{y} \cdot \sum{(\hat{x_i}^2)} - \bar{x} \cdot  \sum{[\hat{x_i} \cdot \hat{y_i}]}) \quad\quad $   \\[0.3cm] 
-(sLSF-I*): $ \quad\quad b = \bar{y} - m \cdot \bar{x} \quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad $ \\[0.3cm]                                   
-(sLSF-II): $ \quad\quad m = \frac{1}{det} \cdot {\sum[\hat{x_i} \cdot \hat{y_i}]} \quad\quad\quad\quad\quad\quad\quad $  \\[0.5cm]
+(sLSF-I): $ \quad a = \frac{1}{det} \cdot (\bar{y} \cdot \sum{(\hat{x_i}^2)} - \bar{x} \cdot  \sum{[\hat{x_i} \cdot \hat{y_i}]}) \quad\quad $   \\[0.3cm] 
+(sLSF-I*): $ \quad a = \bar{y} - b \cdot \bar{x} \qquad \qquad \qquad \qquad\qquad \qquad $ \\[0.3cm]                                   
+(sLSF-II): $ \quad b = \frac{1}{det} \cdot {\sum[\hat{x_i} \cdot \hat{y_i}]} \qquad \qquad \qquad \qquad $  \\[0.5cm]
 \end{large}
 Dabei steht:\\
 $ \quad\quad\quad\quad\quad\quad \sum $ \text{ für die Summe über alle n Datenpunkte} := $ \sum\limits_{i=1}^n x_i $,\\
@@ -957,10 +974,10 @@ $ \quad\quad\quad\quad\quad\quad \bar{y} $ \text{ für den Durchschnittswert der
 %\end{center}
 \textbf{Beweis:}\\
 Der Beweis der Formeln (sLSF-I) und (sLSF-II) wurde durch Berechnungen oben gezeigt. Der Beweis (sLSF-I*) wurde schon in Formel (1) gezeigt. Wir brweisen in jedoch noch einmal direkt durch Einsetzen von $ det = \sum{\hat{x_i}}^2 $:\\[0.2cm]
-$ b = \frac{1}{det} \cdot (\bar{y} \cdot \sum{\hat{x_i}^2} - \bar{x} \cdot  \sum{[\hat{x_i} \cdot \hat{y_i}]})\quad $                (sLSF-I) \\[0.2cm] 
-$  = \frac{1}{\sum{\hat{x_i}}^2} \cdot (\bar{y} \cdot \sum{{\hat{x_i}}^2} - \bar{x} \cdot  \sum{[\hat{x_i} \cdot \hat{y_i}]})\quad $ (Einsetzen (K4.2))\\[0.2cm]
-$ = \bar{y} + \bar{x} \cdot [\frac{\sum{[\hat{x_i} \cdot \hat{y_i}]}}{\sum{\hat{x_i}}^2}] \quad\quad\quad\quad\quad\quad\quad\quad\quad $ (Kürzen)\\[0.3cm]
-$ = \bar{y} + \bar{x} \cdot m \quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad $                                         (sLF-II)\\    q.e.d.
+$ a = \frac{1}{det} \cdot (\bar{y} \cdot \sum{\hat{x_i}^2} - \bar{x} \cdot  \sum{[\hat{x_i} \cdot \hat{y_i}]})\qquad $                (sLSF-I) \\[0.2cm] 
+$  = \frac{1}{\sum{\hat{x_i}}^2} \cdot (\bar{y} \cdot \sum{{\hat{x_i}}^2} - \bar{x} \cdot  \sum{[\hat{x_i} \cdot \hat{y_i}]})\qquad $ (Einsetzen (K4.2))\\[0.2cm]
+$ = \bar{y} + \bar{x} \cdot [\frac{\sum{[\hat{x_i} \cdot \hat{y_i}]}}{\sum{\hat{x_i}}^2}] \qquad \qquad \qquad \qquad \qquad $ (Kürzen)\\[0.3cm]
+$ = \bar{y} + \bar{x} \cdot b \qquad \qquad\qquad \qquad \qquad \qquad \quad $ (sLF-II)\\    q.e.d.
  
 
 \subsubsection{Detailberechnung für mLR(k=2)}
