@@ -6,6 +6,23 @@
 	linkcolor=black]
 {hyperref}
 
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyfoot[C]{--- \thepage/\pageref{LastPage}\ ---}
+
+%\fancypagestyle{plain}
+\fancyhf{}
+
+
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\fancyhf{} % Löscht vorhandene Kopf- und Fußzeileneinstellungen
+%\cfoot{\thepage} % Zentrierte Fußzeile: Seitennummer
+
 %\usepackage{wasysym}
 \usepackage[english]{babel}
 \usepackage{tikz}
@@ -32,6 +49,7 @@
 \usepackage{pgfplots}
 
 \begin{document}
+\pagenumbering{roman} % römische Seitennummerierung für Titelblatt und Inhaltsverzeichni
 
 \begin{titlepage}
    \begin{center}
@@ -86,7 +104,10 @@ Dieses Skript wurde generiert mit \LaTeX\
 \setcounter{tocdepth}{2}
 \tableofcontents
 
+
 \newpage
+
+\pagenumbering{arabic} % arabische Seitennummerierung für den Hauptteil
  
 %\renewcommand{\labelenumi}{(\alph{enumi})}
 %\renewcommand{\labelenumii}{\arabic{enumii}.}
@@ -587,7 +608,7 @@ $ f_i = f(x_i)$ und $\overline{y} = \frac{1}{n} \sum\limits_{i=1}^n \Bigl(y_i \B
 SST, SSE und SSR sind gegeben durch die folgenden Definitionen. Ohne Verlust der Allgemeinheit (o.A.) können wir dabei annehmen das SST größer als Null ist:
 \begin{center}
 $ \texttt{(D-4.1): Sum of Squares Total (SST) := } \sum\limits_{i=1}^n \Bigl(y_i - \overline{y})\Bigr)^2 $ 
-$ \texttt{(D-4.2): Sum of Squares Error (SSE) := } \sum\limits_{i=1}^n \Bigl(y_i - f_i\Bigr)^2 $
+$ \texttt{(D-4.2): Sum of Squares Residuas (SSE) := } \sum\limits_{i=1}^n \Bigl(y_i - f_i\Bigr)^2 $
 $ \texttt{(D-4.3): Sum of Squares Regression (SSR) := } \sum\limits_{i=1}^n \Bigl(f_i - \overline{y})\Bigr)^2 $  
 \end{center}
 % Zeilenfüller
@@ -595,17 +616,30 @@ Für die Definition von R² brauchen wir Sum of Squares Error (SSE) und Sum of S
 \begin{center}
 \texttt{(D-4.4):}
 \begin{Large}  
-\textbf{$ R^2 := 1 - \frac{SSE}{SST} $} \\[0.8 cm]
+\textbf{$ R^2 := 1 - \frac{SSE}{SST} $} \\[1.0cm]
 \end{Large}   
 \end{center}
-% Zeilenfüller
-\textbf{Sprechweise:} Wir sagen eine Gerade ist eine \textbf{"optimale"} (sLR)-Gerade wenn R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "sLR-Gerade".\\[0.2 cm]
-% Zeilenfüller
+% 
+\textbf{Erläuterungen zu obigen Definition}:\\[0.4 cm]
+In der einfachen linearen Regression haben die Begriffe SSE, SSR und SST folgende Bedeutungen:
+
+\begin{itemize}
+    \item \textbf{SSE (Sum of Squares Residuals)}: SSE steht für die "Summe der quadrierten Residuen" (Sum of Squares Residuals). Die SSE misst die Gesamtmenge der Abweichungen zwischen den beobachteten Datenpunkten \( y_i \) und den vorhergesagten Werten \( f_i \) der Regressionsgeraden. Es repräsentiert die nicht erklärte Variation in den Daten. Wir schreiben SSE dafür um uns von SSR zu unterscheiden.
+    
+    \item \textbf{SSR (Sum of Squares Regression)}: SSR steht für die "Summe der quadrierten Abweichungen der Regression" (Sum of Squares Regression). Die SSR misst die Variation, die durch die Regression erklärt wird. Sie quantifiziert die Summe der quadrierten Distanzen zwischen den vorhergesagten Werten \(\hat{y}_i\) und dem Mittelwert \(\bar{y}\) der abhängigen Variable.
+    
+    \item \textbf{SST (Total Sum of Squares)}: SST steht für die "Gesamtsumme der quadrierten Abweichungen" (Total Sum of Squares). Die SST misst die Gesamtvariation der beobachteten Werte \(y_i\) um ihren Mittelwert \(\bar{y}\). Es ist die Summe der quadrierten Abweichungen jedes Datenpunkts von \(\bar{y}\).
+\end{itemize}
+%
+Die Beziehung zwischen diesen Begriffen kann durch die Gleichung \(SST = SSR + SSE\) für optimale Regressionsgeraden ausgedrückt werden. Diese Gleichung zeigt, wie die Gesamtvariation der abhängigen Variable in die Variation, die durch die Regression erklärt wird (SSR), und die nicht erklärte Variation (SSE) aufgeteilt wird.\\[0.2 cm]
+% 
+\textbf{Sprechweise:} Wir sagen eine Gerade ist eine \textbf{"optimale"} (sLR)-Gerade wenn R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "sLR-Gerade".\\[0.4 cm]
+% 
 %\textbf{Anmerkung:} Wir sehen später das für  optimale sLR-Geraden eine andere Formel für R² auch gültig ist. Diese Formel benutzt die Kennzahl SSR.\\[0.4cm]
 % Zeilenfüller
 Im \textbf{folgenden Bild} sehen wir die Kennzahlen {\color{blue}{SSE}} und {\color{red}{SST}} geometrisch mit 4 Beobachtungspunkten. Sehr gut sind die Größen der Quadrate für {\color{blue}{SSE}} und {\color{red}{SST}} zu erkennen. Man bekommt zudem auch ein guten Eindruck von den Faktor 
 \begin{large}
-$ \frac{\color{blue}{SSE}}{\color{red}{SST}} $\\[5.8cm]
+$ \frac{\color{blue}{SSE}}{\color{red}{SST}} $\\[11.8cm]
 \end{large}
 
 \begin{figure}[htp]
@@ -622,7 +656,7 @@ $ \frac{\color{blue}{SSE}}{\color{red}{SST}} $\\[5.8cm]
 Nun wollen wir die ersten offensichtlichen mathematische Aussagen zu R² machen. \\
 Zur leichteren Schreibweise nutze ich die folgenden Notationen:\\
 \begin{center}
-sum(xi):= $ \sum\limits_{i=1}^n(x_i) $ und Mean(x) = $ \overline{x} := \frac{1}{n} \cdot \sum\limits_{i=1}^n(x_i) $\\[0.2cm]
+sum(xi) := $ \sum\limits_{i=1}^n(x_i) $  und  $ \overline{x} := \frac{1}{n} \cdot \sum\limits_{i=1}^n(x_i) $\\[0.2cm]
 \end{center}
 Wir beginnen mit einigen einfachen mathematischen Aussagen ("Theoreme", "Propositionen", "Korollare", etc. ) über die Eigenschaften der Kennzahl $R^2$.\\[0.2cm]
 \textbf{Anmerkung:} Ohne Einschränkung der Allgemeinheit ("OE") können wir annehmen, dass $SST > 0$ ist.\\[0.2cm] 
@@ -650,7 +684,7 @@ Aus $ a=0 \Rightarrow b = {\dfrac{\overline{x \cdot y}}{\overline{x^2}}}$  \\[0.
 \textbf{Beweis:}\\
 $ a = 0 \Rightarrow y = b \cdot x$\\\\[0.1cm]
 %                                                                           
-Da die sSLR-Gerade optimal ist, nuss die Ableitung von $R^2$ nach b gleich Null. Berechne nun diese. Da die Ableitung von SST konstant ist und die Gleichung später = 0 gesetzt wird, gilt: 
+Da die sLR-Gerade optimal ist, muss die Ableitung von $R^2$ nach b gleich Null. Berechne nun diese. Da die Ableitung von SST konstant ist und die Gleichung später = 0 gesetzt wird, gilt: 
 \begin{center}
 \begin{large}
 $ 0 =\frac{\partial}{\partial b} (1-\frac{SSE}{SST}) = \frac{\partial)}{\partial b} [SSE] = \frac{\partial}{\partial b}[\sum\limits_{i=1}^n [(y_i - b \cdot x_i)^2] = -2 \cdot \sum(y_i \cdot x_i - b \cdot (x_i)^2) $ 
@@ -664,31 +698,33 @@ $ \sum(y_i \cdot x_i) =  b \cdot \sum(x_i)^2) \Rightarrow b = \frac{\sum(y_i \cd
 \end{center} 
 %
 Wir brauchen für später auch noch weitere hilfreiche Formeln über Summen und Mittelwerte. Diese werden für die Berechnung der “optimalen” Koeffizienten $a$ und $b$ gebraucht (siehe: “Least Square Fit” (LSF) Methode):\\[0.8cm]
-{\color{red}{***********************************************************************\\ 
-Ab hier bis Ende der subsection sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen...\\
-***************************************************************************}}
-\\[0.2cm]                                                                                                                                      
 %                                                                                                                                     
-\textbf{Proposition (P-4.1)}:\\[0.2cm] 
-Easily you can proof, that the following equations are valid \\
-(definiere M(x):=Mean(xi))\\[0.2cm] 
-(i)  Sum[(xi - M(x))²] = sum(xi²) - n*M(x)² \\[0.2cm]
-(ii) Sum[(yi – M(y))²] = sum(yi²) - n*M(y)² \\[0.2cm]
-(iii) Sum[(xi - M(x))*(yi - M(y))] = sum(xi*yi) – n*M(x)*M(y)\\[0.2cm]
-\textbf{Beweis:}\\[0.2cm]
- ”straightforward”:\\[0.2cm]
+\textbf{Proposition (P-4.1)}:\\[0.2cm]
 %
-(i) sum[(xi - M(x))²] = sum[xi²- 2*M(x)*(xi) + M(x)²]   (binominal formula) 
-        = sum(xi²)- 2*M(x)* sum(xi)+ sum(M(x)²)= sum(xi²)– 2*n*M(x)²+ n*M(x)²    weil sum(xi)=n*M(x))\\[0.2cm]  
-%         
-(ii) analog: sum[(yi-M(y))]²= sum(yi²)-2*M(y)*sum(yi)+ sum[M(y)²]=sum(yi²) - 2n*M(y)²+n*M(y)² = sum(yi²)- n*M(y)\\[0.2cm]
-%
-(iii) analog: sum[(xi-M(x))*(yi-M(y))]= sum[xi*yi- M(x)*yi– xi*M(y)+ M(x)*M(y)]     (durch Ausmultiplizieren aller Faktoren)\\         
-  = sum(xi*yi)– n*M(x)*M(y)- n*M(x)*M(y)+ n*M(x)*M(y) = sum(xi*yi*)-n*M(x)*M(y)\\q.e.d.\\
-  
+Leicht können dann die folgenden 3 Aussagen bewiesen werden: \\
+\begin{enumerate}
+ \item  $ \quad (i:) \quad \sum(x_i - \bar{x})^2 = \sum(x_i^2) - n \cdot \bar{x}^2 $\\[0.2cm] 
+    
+ \item  \( \quad (ii:) \quad \sum(y_i - \bar{y})^2 = \sum(y_i^2) - n \cdot \bar{y}^2\)\\[0.2cm] 
+    
+ \item  \( \quad (iii:) \quad \sum((x_i - \bar{x}) \cdot (y_i - \bar{y})) = \sum(x_i \cdot y_i) - n \cdot \bar{x} \cdot \bar{y} \)\\[0.2cm] 
+\end{enumerate}
 
+\textbf{Beweis:}\\[0.1cm]
+"straightforward":
+
+\begin{enumerate}
+    \item \( \sum(x_i - \bar{x})^2 = \sum(x_i^2 - 2 \cdot \bar{x} \cdot x_i + \bar{x}^2) \) \\[0.2cm]
+        \(= \sum(x_i^2) - 2 \cdot \bar{x} \cdot \sum(x_i) + \sum(\bar{x}^2)\)\\[0.2cm]
+        \(= \sum(x_i^2) - 2 \cdot n \cdot \bar{x}^2 + n \cdot \bar{x}^2 \quad \) ( weil:  \(\sum(x_i) = n \cdot \bar{x} \))\\[0.2cm]
+        
+    \item Analog: \(\sum(y_i - \bar{y})^2) = \sum(y_i^2) - n \cdot \bar{y}^2\)\\[0.2cm]
+    
+    \item Analog: \( \sum((x_i - \bar{x})(y_i - \bar{y})) = \sum(x_i \cdot y_i) - n \cdot \bar{x} \cdot \bar{y} \quad \)   q.e.d. \\[0.3cm]
+\end{enumerate}   
+%     
 \subsubsection{Definition der mLR-Kennzahl adj.R²}
-
+%
 In diesem Abschnitt definieren wir die Theorie der \href{https://en.wikipedia.org/wiki/Linear_regression}{"mutiple linear regression"}.\\
 In einem {\color{blue}{multiplen Regression Problem}} arbeiten wir mit $n$ Datenpaaren $\langle\mathbf{x}^{(i)}, y^{(i)} \rangle \in \mathbb{R}^{k+1} $ 
 wobei $\mathbf{x}^{(i)} \in \mathbb{R}^k$ und $y^{(i)} \in \mathbb{R}$ für alle $i \in \{1,\cdots,n\}$.  \\
@@ -845,7 +881,7 @@ Wir berechnen dazu explizit die Ableitung der Funktion R² nach ihren Veränderl
 
 \subsubsection{Detailberechnung für mLR (k=1)}
 
-Sei die optimale Regression-Gerade gegeben durch $ y = a + b \cdot x $ dann ist R² eine Funktion in den Veränderlichen $a$ und $ b: " R^2 = R^2(b,m)" $. Somit muss für ein Maximum gelten, dass der Gradient $\Delta{R^2}$ = 0 ist (Analysis I): 
+Sei die optimale Regression-Gerade gegeben durch $ y = a + b \cdot x $ dann ist R² eine Funktion in den Veränderlichen $a$ und $ b: " R^2 = R^2(a,b)" $. Somit muss für ein Maximum gelten, dass der Gradient $\Delta{R^2}$ = 0 ist (Analysis I): 
 \begin{center}
 \begin{large} 
 $  dR^2 = \frac{\partial R^2}{\partial a} \cdot db + \frac{\partial R^2}{\partial b} \cdot db = 0 \Longleftrightarrow  \frac{\partial R^2}{\partial a} = \frac{\partial R^2}{\partial b} = 0 $
@@ -978,7 +1014,56 @@ $ a = \frac{1}{det} \cdot (\bar{y} \cdot \sum{\hat{x_i}^2} - \bar{x} \cdot  \sum
 $  = \frac{1}{\sum{\hat{x_i}}^2} \cdot (\bar{y} \cdot \sum{{\hat{x_i}}^2} - \bar{x} \cdot  \sum{[\hat{x_i} \cdot \hat{y_i}]})\qquad $ (Einsetzen (K4.2))\\[0.2cm]
 $ = \bar{y} + \bar{x} \cdot [\frac{\sum{[\hat{x_i} \cdot \hat{y_i}]}}{\sum{\hat{x_i}}^2}] \qquad \qquad \qquad \qquad \qquad $ (Kürzen)\\[0.3cm]
 $ = \bar{y} + \bar{x} \cdot b \qquad \qquad\qquad \qquad \qquad \qquad \quad $ (sLF-II)\\    q.e.d.
+
+
+\subsubsection{Weitere Folgerungen für optimale sLR Geraden}  
+
+
+\textbf{Theorem (Th-4.3): "Folgerung xxxxxx" =} \\[0.2cm]
+Sei $ y = a + b \cdot x $ optimale sLR-Gerade $ \Longrightarrow SST = SSE + SSR $
+\\[0.2cm]
+\textbf{Beweis:} 
+
+\begin{align*}
+SST &= \sum_{i=1}^{n} (y_i - \bar{y})^2 \\
+&= \sum_{i=1}^{n} (y_i - f_i + f_i - \bar{y})^2 \\
+&= \sum_{i=1}^{n} [(y_i - f_i)^2 + 2(y_i - f_i)(f_i - \bar{y}) + (f_i - \bar{y})^2] \\
+&= \sum_{i=1}^{n} (y_i - f_i)^2 + \sum_{i=1}^{n} (f_i - \bar{y})^2 + 2\sum_{i=1}^{n} (y_i - f_i)(f_i - \bar{y})
+\end{align*}
+%
+Beachte, dass der mittlere Ausdruck $\sum_{i=1}^{n} (f_i - \bar{y})^2$ der SSR entspricht und der letzte Ausdruck $2\sum_{i=1}^{n} (y_i - \hat{y}_i)(\hat{y}_i - \bar{y})$ (*) durch algebraische Umformungen gleich null wird (da die Residuen und die Abweichungen vom Mittelwert orthogonal zueinander sind).
+Der Beweis von (*) ist eine Übungsaufgabe.
  
+Somit bleibt übrig:
+
+\[
+SST = SSR + SSE
+\]
+
+q.e.d \\[0.7cm]
+%
+Wenn man viele Beispiele rechnet könnte man denken das auch die Umkehrung gilt. Diese ist jedoch falsch: \\[0.2cm]
+%
+% 
+\textbf{Proposition (P4.2)}\\[0.2cm]
+$ y = a + b \cdot x $ ist optimale sLR-Gerade $ \nLeftarrow $ $ SST = SSE + SSR $ \\[0.2cm] 
+%
+\textbf{Beweis}:\\[0.2cm] 
+%
+Betrachten wir zwei verschiedene Regressionsmodelle, Modell A und Modell B, die dieselben beobachteten Werte \(y_i\) haben, aber unterschiedliche Regressionsgeraden verwenden.
+
+\begin{itemize}
+\item \textbf{Modell A}: Die Regressionsgerade passt sehr gut zu den Daten, was zu einer geringen Summe der quadrierten Residuen (\(SSE\)) führt.
+\item \textbf{Modell B}: Die Regressionsgerade passt schlechter zu den Daten, wodurch eine höhere Summe der quadrierten Residuen (\(SSE\)) entsteht.
+\end{itemize}
+%
+Beide Modelle erfüllen dennoch die Gleichung \(SST = SSR + SSE\), da diese Gleichung eine Identität ist und in jedem Fall gilt. Das bedeutet:
+
+\[SST_A = SSR_A + SSE_A \quad \text{für Modell A}\]
+\[SST_B = SSR_B + SSE_B \quad \text{für Modell B}\]
+%
+Obwohl beide Modelle die Gleichung erfüllen, ist Modell A mit der geringeren \(SSE\) tatsächlich die bessere Anpassung an die Daten. Das verdeutlicht, dass die Umkehrung von \(SST = SSR + SSE\) allein nicht ausreicht, um die Qualität der Anpassung der Regressionsgeraden zu beurteilen. Die Optimierung der Regressionsgerade erfordert die Minimierung des \(SSE\) und nicht nur die Erfüllung dieser Identität.\\
+q.e.d.
 
 \subsubsection{Detailberechnung für mLR(k=2)}
 
@@ -1753,6 +1838,5 @@ Weitere Kapitel Texte \\
 
 *** Weitere Referenzen \\
 ***\\
-
 
 \end{document}
