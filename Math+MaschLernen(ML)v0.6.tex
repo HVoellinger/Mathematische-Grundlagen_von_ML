@@ -1,3 +1,4 @@
+
 \documentclass[12pt]{article}
 
 \usepackage[
@@ -6,27 +7,24 @@
 	linkcolor=black]
 {hyperref}
 
-\usepackage{fancyhdr}
-\usepackage{lastpage}
-
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-
-\fancyfoot[C]{--- \thepage/\pageref{LastPage}\ ---}
-
-%\fancypagestyle{plain}
-\fancyhf{}
-
+%\usepackage{fancyhdr}
+%\usepackage{lastpage}
 
 %\usepackage{fancyhdr}
 %\pagestyle{fancy}
+
+%\fancyfoot[C]{--- \thepage/\pageref{LastPage}\ ---}
+
+%\fancypagestyle{plain}
+%\fancyhf{}
+
 %\fancyhf{} % Löscht vorhandene Kopf- und Fußzeileneinstellungen
 %\cfoot{\thepage} % Zentrierte Fußzeile: Seitennummer
 
 %\usepackage{wasysym}
 \usepackage[english]{babel}
 \usepackage{tikz}
-\pagestyle{empty}
+%\pagestyle{empty}
 %\usepackage[margin=0in,paperwidth=596pt,paperheight=842pt]{geometry}
 \usepackage[all]{hypcap}
 
@@ -49,7 +47,7 @@
 \usepackage{pgfplots}
 
 \begin{document}
-\pagenumbering{roman} % römische Seitennummerierung für Titelblatt und Inhaltsverzeichni
+%\pagenumbering{roman} % römische Seitennummerierung für Titelblatt und 
 
 \begin{titlepage}
    \begin{center}
@@ -104,10 +102,17 @@ Dieses Skript wurde generiert mit \LaTeX\
 \setcounter{tocdepth}{2}
 \tableofcontents
 
+\newpage
+
+\listoffigures 
 
 \newpage
 
-\pagenumbering{arabic} % arabische Seitennummerierung für den Hauptteil
+\listoftables 
+
+\newpage
+
+%\pagenumbering{arabic} % arabische Seitennummerierung für den Hauptteil
  
 %\renewcommand{\labelenumi}{(\alph{enumi})}
 %\renewcommand{\labelenumii}{\arabic{enumii}.}
@@ -601,14 +606,17 @@ Diese Kennzahlen sind \textbf{Sum of Squares Total (SST), Sum of Squares Error (
 
 \subsubsection{Definition der sLR Kennzahl $ R^2 $}
 
-Die Definition der Kennzahl $R^2$ benutzt die Kennzahlen SST und SSE). SSR wird für die eigentliche Definition von $R^2$ nicht genutzt. Wir brauchen diese Kennzahl aber später im Kapitel. Definiere der Einfachheit halber: 
+Die Definition der Kennzahl $R^2$ benutzt die Kennzahlen SST und SSE). SSR wird für die eigentliche Definition von $R^2$ nicht genutzt. Wir brauchen diese Kennzahl aber später im Kapitel. Sei n = (Anzahl der Beobachtungen) dann definieren wir der Einfachheit halber: 
 \begin{center}
-$ f_i = f(x_i)$ und $\overline{y} = \frac{1}{n} \sum\limits_{i=1}^n \Bigl(y_i \Bigr) $,   wobei n = (Anzahl der Beobachtungen)
+$ \hat{y_i} := f_i = f(x_i)\quad $ und $ \quad \overline{x} = \frac{1}{n} \sum\limits_{i=1}^n (x_i) ; \overline{y} = \frac{1}{n} \sum\limits_{i=1}^n (y_i) $\\
 \end{center} 
+Mit einfachen Umrechnungen (Matrizenrechnung) zeigt man: 
+$ \overline{\hat{y_i}} = \overline{y} $. \\
+%
 SST, SSE und SSR sind gegeben durch die folgenden Definitionen. Ohne Verlust der Allgemeinheit (o.A.) können wir dabei annehmen das SST größer als Null ist:
 \begin{center}
 $ \texttt{(D-4.1): Sum of Squares Total (SST) := } \sum\limits_{i=1}^n \Bigl(y_i - \overline{y})\Bigr)^2 $ 
-$ \texttt{(D-4.2): Sum of Squares Residuas (SSE) := } \sum\limits_{i=1}^n \Bigl(y_i - f_i\Bigr)^2 $
+$ \texttt{(D-4.2): Sum of Squares Error (SSE) := } \sum\limits_{i=1}^n \Bigl(y_i - f_i\Bigr)^2 $
 $ \texttt{(D-4.3): Sum of Squares Regression (SSR) := } \sum\limits_{i=1}^n \Bigl(f_i - \overline{y})\Bigr)^2 $  
 \end{center}
 % Zeilenfüller
@@ -621,10 +629,11 @@ Für die Definition von R² brauchen wir Sum of Squares Error (SSE) und Sum of S
 \end{center}
 % 
 \textbf{Erläuterungen zu obigen Definition}:\\[0.4 cm]
+%
 In der einfachen linearen Regression haben die Begriffe SSE, SSR und SST folgende Bedeutungen:
 
 \begin{itemize}
-    \item \textbf{SSE (Sum of Squares Residuals)}: SSE steht für die "Summe der quadrierten Residuen" (Sum of Squares Residuals). Die SSE misst die Gesamtmenge der Abweichungen zwischen den beobachteten Datenpunkten \( y_i \) und den vorhergesagten Werten \( f_i \) der Regressionsgeraden. Es repräsentiert die nicht erklärte Variation in den Daten. Wir schreiben SSE dafür um uns von SSR zu unterscheiden.
+    \item \textbf{SSE (Sum of Squares Error)}: SSE steht für die ”Summe der quadrierten Fehler (”Error”)”. In der Literatur wird dies manchmal auch als ”Sum of Squares Residuals” bezeichnet. Wir wählen aber lieber den Begriff ”Error” um auch mit der Abkürzung SSE konsistent zu sein. SSE misst die Gesamtmenge der Abweichungen zwischen den beobachteten Datenpunkten $y_i$ und den vorhergesagten Werten $ f_i $ der Regressionsgeraden. Es repräsentiert die nicht erklärte Variation in den Daten. 
     
     \item \textbf{SSR (Sum of Squares Regression)}: SSR steht für die "Summe der quadrierten Abweichungen der Regression" (Sum of Squares Regression). Die SSR misst die Variation, die durch die Regression erklärt wird. Sie quantifiziert die Summe der quadrierten Distanzen zwischen den vorhergesagten Werten \(\hat{y}_i\) und dem Mittelwert \(\bar{y}\) der abhängigen Variable.
     
@@ -977,12 +986,12 @@ $ = \frac{1}{det} \cdot (\bar{y} \cdot (\sum{(x_i - \bar{x})^2)} - \bar{x} \cdot
 Analog lässt sich auch die es Steigung ("slope") $b$ aus Formel (4) umformen und man erhält: \\[0.2cm]
 $ b = \frac{1}{det} \cdot \sum{[(x_i - \bar{x}) \cdot (y_i - \bar{y})]}$.
 \\[0.5cm]
-Definieren wir nun $ \hat{x_i} = (x_i - \bar{x}) $ und $ \hat{y_i} = (x_i - \bar{y}) $ so gilt:\\[0.4cm]
+Definieren wir nun $ \tilde{x_i} = (x_i - \bar{x}) $ und $ \tilde{y_i} = (x_i - \bar{y}) $ so gilt:\\[0.4cm]
 %
 \textbf{Korollar (K4.2)}: 
 \begin{center}
 \begin{large}
- $ \qquad det = \sum{\hat{x_i}}^2 \qquad \qquad $ \\[0.2cm] 
+ $ \qquad det = \sum{\tilde{x_i}}^2 \qquad \qquad $ \\[0.2cm] 
 \end{large}
 \end{center}
 %
@@ -997,11 +1006,11 @@ Beweis fehlt noch....kommt später\\
 q.e.d\\[0.2cm]
 Wir erhalten wir als Zusammenfassung der obigen Berechnungen das folgende Theorem: \\[0.4cm]
 \textbf{Theorem (Th-4.2)}: "LSF Komponenten für optimale sLR-Gerade" \\[0.2cm]
-Sei $ det = \sum{\hat{x_i}}^2 $. Für die Achsenabschnitte $a$ und die Steigung $a$ einer optimalen sLR - Geraden $ y = a +  b \cdot x $ gelten folgende Formeln:\\[0.5cm]
+Sei $ det = \sum{\tilde{x_i}}^2 $. Für die Achsenabschnitte $a$ und die Steigung $a$ einer optimalen sLR - Geraden $ y = a +  b \cdot x $ gelten folgende Formeln:\\[0.5cm]
 \begin{large}
-(sLSF-I): $ \quad a = \frac{1}{det} \cdot (\bar{y} \cdot \sum{(\hat{x_i}^2)} - \bar{x} \cdot  \sum{[\hat{x_i} \cdot \hat{y_i}]}) \quad\quad $   \\[0.3cm] 
+(sLSF-I): $ \quad a = \frac{1}{det} \cdot (\bar{y} \cdot \sum{(\tilde{x_i}^2)} - \bar{x} \cdot  \sum{[\tilde{x_i} \cdot \tilde{y_i}]}) \quad\quad $   \\[0.3cm] 
 (sLSF-I*): $ \quad a = \bar{y} - b \cdot \bar{x} \qquad \qquad \qquad \qquad\qquad \qquad $ \\[0.3cm]                                   
-(sLSF-II): $ \quad b = \frac{1}{det} \cdot {\sum[\hat{x_i} \cdot \hat{y_i}]} \qquad \qquad \qquad \qquad $  \\[0.5cm]
+(sLSF-II): $ \quad b = \frac{1}{det} \cdot {\sum[\tilde{x_i} \cdot \tilde{y_i}]} \qquad \qquad \qquad \qquad $  \\[0.5cm]
 \end{large}
 Dabei steht:\\
 $ \quad\quad\quad\quad\quad\quad \sum $ \text{ für die Summe über alle n Datenpunkte} := $ \sum\limits_{i=1}^n x_i $,\\
@@ -1009,10 +1018,10 @@ $ \quad\quad\quad\quad\quad\quad \bar{x} $ \text{ für den Durchschnittswert der
 $ \quad\quad\quad\quad\quad\quad \bar{y} $ \text{ für den Durchschnittswert der y-Werte} := $ \frac{1}{n} \cdot {\sum\limits_{i=1}^n y_i} $, \\
 %\end{center}
 \textbf{Beweis:}\\
-Der Beweis der Formeln (sLSF-I) und (sLSF-II) wurde durch Berechnungen oben gezeigt. Der Beweis (sLSF-I*) wurde schon in Formel (1) gezeigt. Wir brweisen in jedoch noch einmal direkt durch Einsetzen von $ det = \sum{\hat{x_i}}^2 $:\\[0.2cm]
-$ a = \frac{1}{det} \cdot (\bar{y} \cdot \sum{\hat{x_i}^2} - \bar{x} \cdot  \sum{[\hat{x_i} \cdot \hat{y_i}]})\qquad $                (sLSF-I) \\[0.2cm] 
-$  = \frac{1}{\sum{\hat{x_i}}^2} \cdot (\bar{y} \cdot \sum{{\hat{x_i}}^2} - \bar{x} \cdot  \sum{[\hat{x_i} \cdot \hat{y_i}]})\qquad $ (Einsetzen (K4.2))\\[0.2cm]
-$ = \bar{y} + \bar{x} \cdot [\frac{\sum{[\hat{x_i} \cdot \hat{y_i}]}}{\sum{\hat{x_i}}^2}] \qquad \qquad \qquad \qquad \qquad $ (Kürzen)\\[0.3cm]
+Der Beweis der Formeln (sLSF-I) und (sLSF-II) wurde durch Berechnungen oben gezeigt. Der Beweis (sLSF-I*) wurde schon in Formel (1) gezeigt. Wir brweisen in jedoch noch einmal direkt durch Einsetzen von $ det = \sum{\tilde{x_i}}^2 $:\\[0.2cm]
+$ a = \frac{1}{det} \cdot (\bar{y} \cdot \sum{\tilde{x_i}^2} - \bar{x} \cdot  \sum{[\tilde{x_i} \cdot \tilde{y_i}]})\qquad $                (sLSF-I) \\[0.2cm] 
+$  = \frac{1}{\sum{\tilde{x_i}}^2} \cdot (\bar{y} \cdot \sum{{\tilde{x_i}}^2} - \bar{x} \cdot  \sum{[\tilde{x_i} \cdot \tilde{y_i}]})\qquad $ (Einsetzen (K4.2))\\[0.2cm]
+$ = \bar{y} + \bar{x} \cdot [\frac{\sum{[\tilde{x_i} \cdot \tilde{y_i}]}}{\sum{\tilde{x_i}}^2}] \qquad \qquad \qquad \qquad \qquad $ (Kürzen)\\[0.3cm]
 $ = \bar{y} + \bar{x} \cdot b \qquad \qquad\qquad \qquad \qquad \qquad \quad $ (sLF-II)\\    q.e.d.
 
 
@@ -1031,7 +1040,7 @@ SST &= \sum_{i=1}^{n} (y_i - \bar{y})^2 \\
 &= \sum_{i=1}^{n} (y_i - f_i)^2 + \sum_{i=1}^{n} (f_i - \bar{y})^2 + 2\sum_{i=1}^{n} (y_i - f_i)(f_i - \bar{y})
 \end{align*}
 %
-Beachte, dass der mittlere Ausdruck $\sum_{i=1}^{n} (f_i - \bar{y})^2$ der SSR entspricht und der letzte Ausdruck $2\sum_{i=1}^{n} (y_i - \hat{y}_i)(\hat{y}_i - \bar{y})$ (*) durch algebraische Umformungen gleich null wird (da die Residuen und die Abweichungen vom Mittelwert orthogonal zueinander sind).
+Beachte, dass der mittlere Ausdruck $\sum_{i=1}^{n} (f_i - \bar{y})^2$ der SSR entspricht und der letzte Ausdruck $2\sum_{i=1}^{n} (y_i - f_i)(f_i - \bar{y})$ (*) durch algebraische Umformungen gleich null wird (da die Residuen und die Abweichungen vom Mittelwert orthogonal zueinander sind).
 Der Beweis von (*) ist eine Übungsaufgabe.
  
 Somit bleibt übrig:
