@@ -940,40 +940,41 @@ SST = SSR + SSE
 
 q.e.d \\[0.7cm]
 %
-Wenn man viele Beispiele rechnet könnte man denken das auch die Umkehrung gilt. Diese ist jedoch falsch: \\[0.2cm]
+Wenn man viele Beispiele rechnet könnte man vermuten, dass auch die Umkehrung gilt. Diese ist jedoch nicht trivialerweise berechenbar.\\ Andererseits ist auch ein Gegenbeispiel nicht einfach zu konstruieren.\\  Somit kann man an dieser Stelle nur eine Vermutung aussprechen: \\[0.2cm]
 %
 % 
-\textbf{Proposition (P5.2)}\\[0.2cm]
-$ y = a + b \cdot x $ ist optimale sLR-Gerade $ \nLeftarrow $ $ SST = SSE + SSR $ \\[0.2cm] 
+\textbf{Vermutung (V-5.1)}\\[0.2cm]
+Aus der Bedingung $ SST = SSE + SSR $ folgt für eine sLR-Gerade, dass diese auch optimal ist in unserer Definition (d.h. R² = maximal).\\[0.2cm] 
 %
-\textbf{Beweis}:\\[0.2cm] 
+\textbf{Beweis}:\\ 
 %
-Betrachten wir zwei verschiedene Regressionsmodelle, Modell A und Modell B, die dieselben beobachteten Werte \(y_i\) haben, aber unterschiedliche Regressionsgeraden verwenden.
-
-\begin{itemize}
-\item \textbf{Modell A}: Die Regressionsgerade passt sehr gut zu den Daten, was zu einer geringen Summe der quadrierten Residuen (\(SSE\)) führt.
-\item \textbf{Modell B}: Die Regressionsgerade passt schlechter zu den Daten, wodurch eine höhere Summe der quadrierten Residuen (\(SSE\)) entsteht.
-\end{itemize}
+Kann zur Zeit noch nicht bewiesen werden.\\
+Auch ein Gegenbeispiel ist nicht trivial konstruierbar.\\
+Somit bleibt diese Frage offen, bis ein Beweis gefunden ist.\\[0.3
+cm]
 %
-Beide Modelle erfüllen dennoch die Gleichung \(SST = SSR + SSE\), da diese Gleichung eine Identität ist und in jedem Fall gilt. Das bedeutet:
-
-\[SST_A = SSR_A + SSE_A \quad \text{für Modell A}\]
-\[SST_B = SSR_B + SSE_B \quad \text{für Modell B}\]
-%
-Obwohl beide Modelle die Gleichung erfüllen, ist Modell A mit der geringeren \(SSE\) tatsächlich die bessere Anpassung an die Daten. Das verdeutlicht, dass die Umkehrung von \(SST = SSR + SSE\) allein nicht ausreicht, um die Qualität der Anpassung der Regressionsgeraden zu beurteilen. Die Optimierung der Regressionsgerade erfordert die Minimierung des \(SSE\) und nicht nur die Erfüllung dieser Identität.\\
-q.e.d.\\[0.4cm]
-%
+\textbf{Anmerkung:} (V-5.1) wird als Übungsaufgabe mit (*) definiert.\\[0.4cm]
 \textbf{Korollar (K5.3)}: 
-Mit einfachen Umrechnungen (Matrizenrechnung) zeigt man: \\
+Mit einfachen Umrechnungen (Matrizenrechnung) zeigt man: 
 \begin{large}
 \begin{center}
 $ \overline{f} = \overline{y} $. \\
 \end{center} 
 \end{large}
 %
-\textbf{Beweis:} \\
+\textbf{Beweis:} Man kann den Beweis auf zwei Arten durchführen:\\
+\textbf{1. Beweis-Methode:}\\
 In Theorem (Th-5.3) wurde gezeigt, dass gilt: (*) $ \quad 0 = \sum_{i=1}^{n} (y_i - f_i)(f_i - \bar{y})$ \\
 Ohne Einschränkug der Allgemeinheit (OE) kann man annehmen: $(f_i - \bar{y}) \neq 0 $ \\ dann folgt direkt $0 = \sum_{i=1}^{n} (y_i - f_i)$ \\
+\textbf{2. Beweis-Methode:}\\
+Um den den Zusammenhang zwischen den geschätzten Werten $ \overline{f} = \frac{1}{n} \cdot \sum_{i=1}^{n} (f_i)$ und den tatsächlichen Werten $ \overline{y} $ in einer einfachen linearen Regression zu zeigen, setzen wir die "Schätzung für den Achsenabschitt a"  =: $ \hat{a} $ ein und führen die Berechnungen durch:
+\begin{large}
+\begin{center}
+$ \overline{f} = \frac{1}{n} \cdot \sum_{i=1}^{n} (\hat{a}+ \hat{b} \cdot x_i) \Longrightarrow \overline{f} = \hat{a} + \hat{b} \cdot  \overline{x} $ \\[0.2cm]
+(sLSF-I*): $ \hat{a}  = \bar{y} - \hat{b} \cdot \bar{x} \Longrightarrow \bar{y}  = \hat{a} + \hat{b} \cdot \bar{x} $
+\end{center} 
+\end{large}
+Vergleichen wir die Formeln für  $\overline{f}$ und $\overline{y}$, so sind diese gleich. \\
 q.e.d.
 
 \subsubsection{Detailberechnung für mLR(k=2)}
@@ -1115,10 +1116,7 @@ which I have adapted from the file
 %\myFig{cars.csv} shows the column headers and the first ten data entries contained in this file.  
 Altogether, this file contains data of 392 different car models.
 \\[0.1cm]
-\hspace*{0.2cm}
-\begin{center}
-\includegraphics{sLR-Gerade} 
-\end{center}
+
 
 \subsection{Anwendungen zu mLR}
 
@@ -1170,22 +1168,32 @@ Berechne die Varianzen im Car-Daten Beispiel
   \label{tab:explained-variance}
 \end{table}[h]
 
-\subsubsection{Übung 5.3 - .......}
-TEXT\\
-\subsubsection{Übung 5.4 - .......}
-
-\subsubsection{Übung 5.5 - Berechung eines mLR(k=2) Beispiels:}
-%
-\textbf{Calculation of  mLR(k=2)-model for “Students Examination Results”}\\
-Similar to Example (5.1): \\
-Find "least square fit" z = a + b*x + c*y for the z:=“Achieved points(score) of exam[pt.]” depending on the two parameter: x:="Effort exam preparation[h]" and y:=“Effort for homework [h]“. \\
-Data from Training Set TS  = $ \lbrace (x, y; z) | (exam prep.[h], homework[h]; score[pt.])\rbrace = \lbrace(7,5;41 ),(3,4;27), (5,5;35), (3,3;26), (8,9;48), (7,8;45), (10,10;46), (3,5;27), (5,3;29), (3,3;19)\rbrace $ \\
-\textbf{Task:} Build to the model mLR(x,y; z). Compare and check your result with the output of a Python-Program.\\[0.2cm]
+\subsubsection{Übung 5.3* - Vermutung (V-5.1)}
+Beweisen Sie oder Widerlegen Sie folgende \textbf{Vermutung (V-5.1)}:\\[0.2cm]
+Aus der Bedingung $ SST = SSE + SSR $ folgt für eine sLR-Gerade, dass diese auch optimal ist in unserer Definition (d.h. R² = maximal).\\
+\subsubsection{Übung 5.4 - Berechnung eines sLR Beispiels.......}
+%								
+Finde eine "least square fit" gerade  y = a + b*x für y:=erreichte Punktzahl (Score) des Examens [pt.]” abhängig vom Parameter: x:="Aufwand der Examens Vorbereitung in Std.[h]" \\
+Daten der Trainings-Sets TS  = $ \lbrace (x; y;) | (exam vorb.[h], homework[h]; score[pt.])\rbrace = \lbrace(7;41 ),(3;27), (5;35), (3;26), (8;48), (7;45), (10;46), (3;27), (5;29), (3;19)\rbrace $ \\
+\textbf{Task:} Baue das Modell sLR(x,y). Vergleiche und prüfe das Ergebnis mit einem Python-Programm.\\[0.2cm]
 \textbf{Beantworte die folgenden Fragen:}\\ 
-Q1: How much points would a student achieve without any preparation and without doing any homework? \\
-Q2: How much points would a student achieve with (10 hours of preparation for the exam) and (10 hours homework) ?\\ 
-Q3: How much effort you will need to reach enough points (=25) to score enough points to pass the exam?\\ 
-\textbf{Zusätzliche Frage/Anmerkung:} Our calculation use both variables in the calculation. What is the difference to our sLR-model results? Compare Adj.R² (calculated here) to the two R² you got in Example (E5.1).\\
+Q1: Wie viele Punkte würde ein Student ohne Examens Vorbereitung und ohne Hausaufgabe Aufwand erreichen? \\
+Q2: Wie viele Punkte würde ein Student mit 10 Stunden für Examens Vorbereitung  erreichen? \\ 
+Q3: Wie viel Aufwand ist notwendig um genug Punkte (=25) zum Bestehen des Examens?\
+
+\subsubsection{Übung 5.5 - Berechnung eines mLR(k=2) Beispiels}
+%
+Analog zu Übung 5.4
+\textbf{Berechne das  mLR(k=2)-Modell studentische Examens-Ergebnisse}\\
+Analog zu Übung (5.4).  
+Finde eine "least square fit" Ebene  z = a + b*x + c*y für z:=erreichte Punktzahl (Score) des Examens [pt.]” abhängig von den zwei Parametern: x:="Aufwand der Examens Vorbereitung in Std.[h]" and y:=Aufwand für Hausaufgaben in Std.[h]“. \\
+Daten der Trainings-Sets TS  = $ \lbrace (x, y; z) | (exam vorb.[h], homework[h]; score[pt.])\rbrace = \lbrace(7,5;41 ),(3,4;27), (5,5;35), (3,3;26), (8,9;48), (7,8;45), (10,10;46), (3,5;27), (5,3;29), (3,3;19)\rbrace $ \\
+\textbf{Task:} Baue das Modell mLR(x,y;z). Vergleiche und prüfe das Ergebnis mit einem Python-Programm.\\[0.2cm]
+\textbf{Beantworte die folgenden Fragen:}\\ 
+Q1: Wie viele Punkte würde ein Student ohne Examens Vorbereitung und ohne Hausaufgabe Aufwand erreichen? \\
+Q2: Wie viele Punkte würde ein Student mit 10 Stunden für Examens Vorbereitung und auch mit 10 Std. Hausaufgabe Aufwand erreichen? \\ 
+Q3: Wie viel Aufwand ist notwendig um genug Punkte (=25) zum Bestehen des Examens?\\ 
+\textbf{Zusätzliche Frage/Anmerkung:} Unsere Berechnung nutzt beide Variablen zur Berechnung. Was ist der Unterschied zum sLR-Model Resultat? Vergleiche Adj.R² (wie hier genutzt) zu zwei R²- Lösungen (E5.1).\\
 Für eine Lösung vergleiche:\\
 \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/LR-Calculation_of_Coeff.xlsx}
 \\
@@ -1367,7 +1375,7 @@ Sowohl lineare als auch nichtlineare Support Vector Machines lassen sich durch z
 Stellen wir uns ein einfaches und anschauliches Beispiel in $\mathbb{R}^2$ vor, bei dem die Datenpunkte im ursprünglichen Raum $(x_1,x_2)$ nicht linear trennbar sind.\\ 
 Gesucht ist dann eine Abbildung $\Phi:\mathbb{R}^2 \rightarrow\mathbb{R}^3$, so das die Datenpunkte im höherdimensionalen Raum $(x,y,z)\in  \mathbb{R}^3$ linear trennbar sind.\\ 
 Der Kernel-Trick ermöglicht es der SVM, die Entscheidungsgrenze in diesem höherdimensionalen Raum zu finden, ohne die zusätzlichen Merkmale $z$ tatsächlich berechnen zu müssen:\\ 
-Gegeben sind die folgenden Datenpunkte: {\color{red}{Klasse +1: A(1,1), B(-1,1)}} und {\color{blue}{Klasse -1: C'(2,1), D(1,-2) und E(-2,1)}}.\\
+Gegeben sind die folgenden Datenpunkte: {\color{red}{Klasse +1: A(1,1), B(-1,1)}} und {\color{blue}{Klasse -1: C(2,1), D(1,-2) und E(-2,1)}}.\\
 In diesem Beispiel sind die Datenpunkte nicht linear trennbar (siehe auch nachfolgende Skizze). Es gibt keine gerade Linie, die die Punkte der {\color{red}{Klasse +1}} von den Punkten der {\color{blue}{Klasse -1}} perfekt trennen kann.\\
 Jetzt wenden wir den Kernel-Trick an, um die Daten in $\mathbb{R}^3$ zu transformieren. Hier verwenden wir den polynomiellen Kernel über die folgende Transformation an: 
 \begin{center}
@@ -1763,23 +1771,46 @@ Für eine Lösung vergleiche:\\
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 5}
-
-\hspace*{-1.8cm} Weitere Hilfe unter \textbf{[HVö-5]} \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\
+%
+\hspace*{-0.1cm} Weitere Hilfe unter \textbf{[HVö-5]:}\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\
 
 \subsubsection{Lösungshinweise zu Übung 5.1}
-
+%
+text
+%
 
 \subsubsection{Lösungshinweise zu Übung 5.2}
-....\\
-
-Die letzten Python Codeblöcke sehen Sie im folg Screenshot: 
-
-
-
+%
+Die letzten Python Codeblöcke sehen Sie im folg Screenshot:  \\
+%
+text
+%
 
 \subsubsection{Lösungshinweise zu Übung 5.3}
+%
+text
+%
+\subsubsection{Lösungshinweise zu Übung 5.4}
+%
+$\rightarrow$ opt. Regression-Gerade:  y =  14,117 + 3,7376*x \\
+$\rightarrow$ R² = 1 - Sum((yi-y(xi))²)/Sum((yi-M(y))²) = 1 -(134,2172/922,1) $\backsim $ 0,8544 \\[0.2cm]	
+%				
+Question 1:   14,117 points.	\\				
+Question 2:   14,117 + 37,38 = 51,497 = 50 points (grade=  1,0).\\					
+Question 3:  x= (25-14,117)/3,7376=2,91[h] 	\\[0.4cm]							
+%
+Für eine komplette Lösung vergleiche:\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/LR-Calculation_of_Coeff.xlsx}
 
-\hspace*{-1.8cm} Weitere Hilfe unter \textbf{[HVö-5]} \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\
+\subsubsection{Lösungshinweise zu Übung 5.5}
+%
+$\rightarrow$ opt. mLR-Ebene :  z = 13,264 +  2,488*x +  1,382*y		\\					
+$\rightarrow$ Adj.R²=  1 -(1-R²)*(9/7) $\backsim $ 0.8512  \\[0.4cm]				%	
+Für eine komplette Lösung vergleiche:\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/LR-Calculation_of_Coeff.xlsx}
+
+
 
 
 \newpage
