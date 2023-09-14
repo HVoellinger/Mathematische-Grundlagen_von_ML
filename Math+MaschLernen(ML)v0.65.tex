@@ -127,10 +127,15 @@ Dieses Skript wurde generiert mit \LaTeX\
 
 \section{Management Zusammenfassung}
 
-
 Ziel der Ausarbeitung ist es, die {\color{blue}mathematischen Konzepte des Maschinellen Lernens (ML)} zu erkennen.\\
-Leider wird in der gängigen Literatur dieses Thema nicht genug gewürdigt. Dies mag damit zu tun haben das heutzutage mathematische Ausbildung in der Schule und in der Universität etwas den Bezug zur Realität verloren hat und deshalb viele Schüler und Studenten den Nutzen und die Schönheit der Mathematik nicht erkennen können. Es gehört ja manchmal schon "zum guten Ton", wenn technische Hochschulabsolventen fast schon scherzhaft sagen, dass Sie mit Mathematik "nichts am Hut haben". Dies ist leider sehr schade und ist zudem beim Lösen von ML Fragestellungen ein große Hürde.\\ Ein Ziel der Ausarbeitung ist es deshalb zu zeigen wie nützlich mathematische Ideen bei der Lösung der Fragestellungen des Maschinellen Lernens (aka: \url{https://en.wikipedia.org/wiki/Machine_learning}) sind.Die mathematischen Grundlagen des Machine Learning umfassen mehrere Bereiche der Mathematik, die für das Verständnis und die Entwicklung von Machine Learning Algorithmen von Bedeutung sind.
-Hier sind einige wichtige \textbf{mathematische Konzepte und Grundlagen:}\\
+Leider wird in der gängigen Literatur dieses Thema nicht genug gewürdigt. Dies mag damit zu tun haben das heutzutage mathematische Ausbildung in der Schule und in der Universität etwas den Bezug zur Realität verloren hat und deshalb viele Schüler und Studenten den Nutzen und die Schönheit der Mathematik nicht erkennen können. Es gehört ja manchmal schon "zum guten Ton", wenn technische Hochschulabsolventen fast schon scherzhaft sagen, dass Sie mit Mathematik "nichts am Hut haben".\\
+Dies ist leider sehr schade und ist zudem beim Lösen von ML Fragestellungen ein große Hürde. Viele Studenten im "Data Science" Bereich scheitern deshalb auch an mangelnden Mathematik Kenntnissen.\\[0.2cm]
+%
+Ein Ziel der Ausarbeitung ist es deshalb zu zeigen wie nützlich mathematische Ideen bei der Lösung der Fragestellungen des Maschinellen Lernens (aka: \url{https://en.wikipedia.org/wiki/Machine_learning}) sind.
+Hierfür werden wir mit anschaulichen aber nicht trivialen Beispielen starten, mit deren Hilfe wir die Arbeitsweise des Mathematischen Verfahrens leichter erkennen können.\\
+Die Umsetzung dieser Beispiele in allgemeine mathematische Aussagen unter  Nutzung des mathematischen Kalküls wird damit leichter und verständlicher vorbereitet.\\[0.2cm]
+Die mathematischen Grundlagen des Maschinellen Lernens ("Machine Learning")  umfassen mehrere Bereiche der Mathematik, die für das Verständnis und die Entwicklung von Machine Learning Algorithmen von Bedeutung sind.
+Hier sind die wichtigsten \textbf{mathematische Konzepte und Grundlagen:}\\
 \\
 \textbf{1. Lineare Algebra:} Lineare Algebra ist ein grundlegender Bestandteil des Maschinellen Lernens "Machine Learning". Vektoren und Matrizen werden verwendet, um Daten darzustellen, und Operationen wie Skalierung, Addition, Multiplikation und Transformationen werden angewendet, um Berechnungen durchzuführen. Matrixoperationen wie Matrixmultiplikation und Matrixinversion sind wichtig für viele Algorithmen.\\[0.2cm]
 %
@@ -142,30 +147,20 @@ Hier sind einige wichtige \textbf{mathematische Konzepte und Grundlagen:}\\
 %
 \textbf{5. Informationstheorie:} Informationstheorie befasst sich mit der Quantifizierung und Übertragung von Informationen. Konzepte wie Entropie, Informationsgewinn und Kompressionsalgorithmen spielen eine Rolle in der Modellierung und Auswahl von Merkmalen sowie in der Reduzierung der Komplexität von Daten.\\[0.2cm]
 %
-Diese mathematischen Grundlagen werden verwendet, um Modelle zu definieren, Daten zu analysieren, Funktionen anzupassen, Vorhersagen zu treffen und Modelle zu evaluieren. Sie dienen als Grundlage für das Verständnis der Algorithmen und Methoden des Machine Learning. Es ist wichtig, ein solides Verständnis dieser mathematischen Konzepte zu haben, um Machine Learning effektiv anzuwenden und weiterzuentwickeln.\\
+Diese mathematischen Grundlagen werden verwendet, um Modelle zu definieren, Daten zu analysieren, Funktionen anzupassen, Vorhersagen zu treffen und Modelle zu evaluieren. Sie dienen als Grundlage für das Verständnis der Algorithmen und Methoden des Machine Learning. Es ist wichtig, ein solides Verständnis dieser mathematischen Konzepte zu haben, um Machine Learning effektiv anzuwenden und weiterzuentwickeln.
 %
-\\ *** Weitere Kapitel Texte *** \\[0.2cm]
+\subsection{Historische Anmerkungen und Ziele}
 %
 Mathematik ist eine Säule des maschinellen Lernens. Vor etwa 250 Jahren begann man, sie zu formalisieren, aber erst vor etwa 100 Jahren wurde die moderne Mathematik entwickelt. Es handelt sich um ein riesiges Fachgebiet, mit vielen Unterbereichen, wie Lineare Algebra, Statistik, etc. sowie mit Anwendungen in den Ingenieurwissenschaften und der Physik.\\
-Zum Glück müssen wir nicht die ganze Breite und Tiefe der Mathematik kennen, um unser Verständnis und unsere Anwendung des maschinellen Lernens zu verbessern. Die wesentlichen Bereiche der Mathematik die näher betrachten werden, sind:\\
-
-1.	Lineare Algebra für Maschinelles Lernen (ML)\\ 
-
-2.	Wahrscheinlichkeitsrechnung und Statistische Methoden für ML\\ 
-
-3.	Optimierungsmethoden für ML\\
-
-4.	Analysis (i.e. "Gradienten-Verfahren") für ML\\[0.5cm]
-%
+Zum Glück müssen wir nicht die ganze Breite und Tiefe der Mathematik kennen, um unser Verständnis und unsere Anwendung des maschinellen Lernens zu verbessern. 
+\textbf{Ziele:}\\
 Die wichtigsten ML Anwendungen und Methoden, die mathematische Verfahren nutzen, werden vorgestellt und in ihren wesentlichen Merkmalen erläutert.\\
 Es werden zahlreiche Hinweise auf vertiefende Anwendungen oder Informationen durch Internet-Links oder weiterführende Literatur gegeben. An vielen Stellen werden konkrete Umsetzungsbeispiele mit Werkzeugen wie \textit{KNIME Analytics Platform} gezeigt. \\
 Die Beziehungen ("Brücken") zwischen Mathematik, Maschinellen Lernen (ML) und Data Science (DL) (insbesondere \href{https://en.wikipedia.org/wiki/Data_mining}{Data Mining} werden konkret gebaut und anschließend beispielhaft "beschritten" (siehe auch "3-Insel-Bild" von der Titelseite).\\ 
-Die Leser sollen befähigt werden, die Mathematik hinter den ML Anwendungen zu verstehen um mögliche weitere sinnvolle Ergänzungen und Erweiterungen die sich aus dem mathematischen Erkenntnisse ergeben zu nutzen.\\
+Die Leser sollen befähigt werden, die Mathematik hinter den ML Anwendungen zu verstehen um mögliche weitere sinnvolle Ergänzungen und Erweiterungen, die sich aus den mathematischen Erkenntnisse ergeben, zu entwickeln.\\
 Zu jedem Kapitel gibt es Übungen, die das im Kapitel Gelernte nochmals an konkreten Fragestellungen und Problemen erproben und vertiefen. Musterlösungen bzw. Hinweise zur Lösung der Übungen findet man am Ende des Buches.\\
 Insgesamt beinhaltet diese Arbeit zur Zeit 10 Kapitel.\\
 \\
-*** Weitere Kapitel Texte *** 
-
 
 \newpage
 
@@ -1380,7 +1375,7 @@ q.e.d.\\[0.5cm]
 
 Um ein besseres Gefühl für die lineare Regression zu bekommen, wollen wir sie noch einige Beispiel mit konkreten Zahlen berechnen. Erstes manuell und dann auch noch mit Hilfe der Scikit-learn Software Bibliothek zum maschinellen Lernen für die Programmiersprache Python.
 \subsubsection{Manuelle Berechnungen zu einem sLR Beispiel}
-
+%
 Bei der manuellen Berechnung für einfache Beispiele mit wenigen  Trainingspunkten entwickeln wir einen Excel-Tabelle, wo wir die wichtigsten Parameter/Komponenten für die Berechnung von der optimalen sLR-Geraden und dem Bestimmungsgrad R² per Tabellen-Kalkulation bestimmen lassen.\\
 
 \textbf{1. Berechne opt. Regressionsgerade:}\\[0.2cm]   
@@ -1388,12 +1383,12 @@ Nach (Th-5.2): Mit $ det = \sum{x_i^2} - n \cdot \bar{x}^2 $ gelten für den Ach
 \begin{large}
 $ a = \frac{1}{det} \cdot (\bar{y} \cdot \sum{x_i^2} - \bar{x} \cdot \sum{x_i \cdot y_i}) $ und $ b = \frac{1}{det} \cdot (\sum {x_i \cdot y_i} - n \cdot \bar{x} \cdot \bar{y})$   \\[0.2cm]
 \end{large} \\[0.2cm]
-Also brauchen wir: $ \quad n  \quad, \quad \bar{x} \quad , \quad \bar{y} \quad ,\quad  \sum {x_i \cdot y_i} \quad, \quad (x_i)^2 \quad,\quad n\cdot \bar{x}\cdot\bar{y}\quad  und \quad \bar{x}^2$.
+Also brauchen wir: ${\color{blue}{ n, \quad \bar{x}, \quad \bar{y}, \quad n \cdot \bar{x} \cdot \bar{y}, \quad \bar{x}^2, \quad \sum{x_i^2} \quad und \quad \sum{(x_i \cdot y_i)}}}$
 \\[0.2cm]
 Alle diese Werte werden nun in die Excel-Tabelle eingetragen. Siehe die blauen Felder im nächsten Bild.\\[0.1cm]
 
-\textbf{2. Berechne R²:}\\[0.2cm]
-Nachdem die opt. Regressionsgerade $y(x_i)$ berechnet ist lassen sich auch die  Werte SSE und SST berechnen. Siehe grünen Felder im nächsten Bild:\\
+\textbf{2. Berechne $R^2$:}\\[0.2cm]
+Nachdem die opt. Regressionsgerade $y(x)$ berechnet ist lassen sich auch die  Werte SSE und SST berechnen. Siehe grünen Felder im nächsten Bild:\\
 \\[1.5cm]
 
 \begin{figure}[htp]
@@ -1444,11 +1439,25 @@ Bestimmungsgrat $R^2$ und Achsenabschnitt $a$ und Steigung $b$ der Regressiosger
 \subsection{multiple Lineare Regression mLR(k=2) Beispile )}
 
 \subsubsection{Manuelle Berechnungen zu einem mLR(k=2) Beispiel}
+%
+Bei der manuellen Berechnung für einfache Beispiele mit wenigen  Trainingspunkten entwickeln wir einen Excel-Tabelle, wo wir die wichtigsten Parameter/Komponenten für die Berechnung von der optimalen mLR(k=2)-Ebene und dem Bestimmungsgrad $adj.R^2$ per Tabellen-Kalkulation bestimmen lassen.\\
 
+\textbf{1. Berechne opt. Regressionsgerade:}\\[0.2cm]   
+Nach (Th-5.4): Sei $ \quad det = \sum{\widetilde{x_i}^2} \cdot \sum{\widetilde{y_i}^2}  -  (\sum{\widetilde{x_i} \cdot \widetilde{y_i}})^2 \quad $ \\
+Für den Achsenabschnitt $a$ und die Steigungen $b$ und $c$ einer optimalen mLR(k=2)- Ebene $\quad  z = a +  b \cdot x + c \cdot y \quad $  
+gelten folgende Formeln:\\[0.4cm]
+\begin{large}
+$ \quad a = \bar{z} - b \cdot \bar{x} - c \cdot \bar{y} \ \qquad \qquad \qquad\qquad $ \\[0.3cm]
+$ \quad b = \frac{1}{det} \cdot \left[  \sum{\widetilde{y_i}^2} \cdot  \sum{(\widetilde{x_i} \cdot \widetilde{z_i})} - \sum{(\widetilde{x_i} \cdot \widetilde{y_i})} \cdot  \sum{(\widetilde{y_i} \cdot \widetilde{z_i})}          \right] $    \\[0.3cm]                                
+$ \quad c = \frac{1}{det} \cdot \left[ \sum{\widetilde{x_i}^2} \cdot  \sum{(\widetilde{y_i} \cdot \widetilde{z_i})} - \sum{(\widetilde{x_i} \cdot \widetilde{y_i})} \cdot  \sum{( \widetilde{x_i} \cdot \widetilde{z_i})}          \right] $ \\[0.5cm]
+\end{large}
+Also brauchen wir: {\color{blue}{$ n, \quad \bar{x}, \bar{y}, \bar{z}, \quad \sum {\widetilde{x_i}^2}, \sum {\widetilde{y_i}^2}, \quad  \sum {(\widetilde{x_i} \cdot \widetilde{y_i})},  \sum {(\widetilde{x_i} \cdot \widetilde{z_i})}, \sum {(\widetilde{y_i} \cdot \widetilde{z_i})}$}}
+\\[0.2cm]
+Alle diese Werte werden nun in die Excel-Tabelle eingetragen. Siehe die blauen Felder im nächsten Bild.\\[0.1cm]
 
-
-{\color{red}
-{***** Weitere Kapitel Texte und Beispiele einfügen, siehe Vorlesung *****}}
+\textbf{2. Berechne $adj.R^2$:}\\[0.2cm]
+Nachdem die opt. Regressionsebene $z(x,y)$ berechnet ist lassen sich auch die  Werte SSE und SST berechnen. Siehe grünen Felder im nächsten Bild:\\
+\\[1.5cm]
 
 \begin{figure}[htp]
   \centering
@@ -1492,10 +1501,13 @@ Aus der Bedingung $ SST = SSE + SSR $ folgt für eine sLR-Gerade, dass diese auc
 Zeige die im Theorem (Th-5.4) noch nicht bewiesene Behauptung:\\ 
 \hspace*{4.5cm} $ \nabla g(\mathbf{x}) = A^\top \cdot \mathbf{b}$
 
-\subsubsection{Übung 5.4 - manuelles sLR Beispiel}
-Führen Sei die Schritte analog der Vorlesung zur manuellen Befüllung der Excel-Tabelle zur Bestimmung der optimalen sLR gerade durch. Prüfen Sie da Ergebnis mit einem kleinen Python Programm. Ploten Sie die opt. sLR Gerade mit den Ausgangsdatenpunkten. Stimmt das Bild mit Ihrer Erwartungshaltung überein (Datenpunkt 6 und 7)?
+\subsubsection{Übung 5.4 - Manuelles sLR Beispiel}
+Führen Sei die Schritte analog der Vorlesung zur manuellen Befüllung der Excel-Tabelle zur Bestimmung der optimalen sLR-Gerade durch. Prüfen Sie da Ergebnis mit einem kleinen Python Programm. Plotten Sie die optimale sLR-Gerade mit den Ausgangsdatenpunkten. Stimmt das Bild mit Ihrer Erwartungshaltung überein (Datenpunkt 6 und 7)?
 
-\subsubsection{Übung 5.5 - sLR Beispiel "Studentisches Examen"}
+\subsubsection{Übung 5.5 - Manuelles mLR(k=2) Beispiel}
+Führen Sei die Schritte analog der Vorlesung zur manuellen Befüllung der Excel-Tabelle zur Bestimmung der optimalen mLR-Ebene durch. Prüfen Sie da Ergebnis mit einem kleinen Python Programm. Plotten Sie die opt. mLR-Ebene mit den Ausgangsdatenpunkten. Stimmt das Bild mit Ihrer Erwartungshaltung überein?
+
+\subsubsection{Übung 5.6 - sLR Beispiel "Studentisches Examen"}
 %								
 \textbf{1. Teil:} Finde eine "least square fit" gerade  y = a + b*x für y:=erreichte Punktzahl (Score) des Examens [pt.]” abhängig vom Parameter: x:="Aufwand der Examens Vorbereitung in Std.[h]". Daten der Trainings-Sets TS  = $ \lbrace (exam vorb.[h]; score[pt.])\rbrace \\
 = \lbrace(7;41 ),(3;27), (5;35), (3;26), (8;48), (7;45), (10;46), (3;27), (5;29), (3;19)\rbrace $ \\
@@ -1503,14 +1515,18 @@ Baue das Modell sLR(x,y). Vergleiche und prüfe das Ergebnis mit einem Python-Pr
 \textbf{2. Teil:} Wiederhole obige Aufgabe mit zehn anderen Eingabewerten: \\
  $ \lbrace (homework[h]; score[pt.])\\
 = {(5; 41), (4; 27), (5; 35), (3; 26), (9; 48), (8; 45), (10; 46), (5; 27), (3; 29), (3; 19)}\rbrace $\\[0.2cm]
-\textbf{Zusatzaufgabe:} Beantworte die folgenden Fragen:\\ 
-Q1: Wie viele Punkte würde ein Student ohne Examens Vorbereitung und ohne Hausaufgabe Aufwand erreichen? \\
+\textbf{Zusatzaufgaben:} Beantworte die folgenden Fragen:\\ 
+Q1: Wie viele Punkte würde ein Student ohne Examens Vorbereitung erreichen? Ist dies realistisch (Hinweis: Sinnhaftigkeit von "Bias")?\\
+Q1': Wie viele Punkte würde ein Student ohne Hausaufgabe/Homework Aufwand erreichen? Ist dies realistisch (Hinweis: Sinnhaftigkeit von "Bias")?\\
 Q2: Wie viele Punkte würde ein Student mit 10 Stunden für Examens Vorbereitung  erreichen? \\ 
-Q3: Wie viel Aufwand ist notwendig um genug Punkte (=25) zum Bestehen des Examens?
+Q2': Wie viele Punkte würde ein Student mit 10 Stunden Homework erreichen? \\ 
+Q3: Wie viel Aufwand Examens Vorbereitung ist notwendig um genug Punkte (=25) zum Bestehen des Examens?\\
+Q3': Wie viel Aufwand Homework ist notwendig um genug Punkte (=25) zum Bestehen des Examens?\\
+Q4: Welche Aufwandsart ist aufgrund unserer Trainingsdaten effektiver?\\ 
 
-\subsubsection{Übung 5.6 - mLR(k=2) Beispiel "Studentisches Examen"}
+\subsubsection{Übung 5.7 - mLR(k=2) Beispiel "Studentisches Examen"}
 %
-Berechne das  mLR(k=2)-Modell studentische Examens-Ergebnisse mit zwei 2 unabhängigen Parametern (Vergleiche auch Übung (5.5):\\  
+Berechne das  mLR(k=2)-Modell studentische Examens-Ergebnisse mit zwei 2 unabhängigen Parametern (Vergleiche auch Übung 5.6):\\  
 Finde eine "least square fit" Ebene  z = a + b*x + c*y für z:=erreichte Punktzahl (Score) des Examens [pt.]” abhängig von den zwei Parametern: x:="Aufwand der Examens Vorbereitung in Std.[h]" and y:=Aufwand für Hausaufgaben in Std.[h]“.\\[0.2cm]
 Daten der Trainings-Sets $TS$: \\
 = $ \lbrace (x, y; z) | (exam vorb.[h], homework[h]; score[pt.])\rbrace = \lbrace(7,5;41 ),(3,4;27), \\
@@ -1519,8 +1535,8 @@ Baue das Modell mLR(x,y;z). Vergleiche und prüfe das Ergebnis mit einem Python-
 \textbf{Zusatz: Beantworte die folgenden Fragen:}\\ 
 Q1: Wie viele Punkte würde ein Student ohne Examens Vorbereitung und ohne Hausaufgabe Aufwand erreichen? \\
 Q2: Wie viele Punkte würde ein Student mit 10 Stunden für Examens Vorbereitung und auch mit 10 Std. Hausaufgabe Aufwand erreichen? \\ 
-Q3: Wie viel Aufwand ist notwendig um genug Punkte (=25) zum Bestehen des Examens?\\ 
-\textbf{Zusätzliche Frage/Anmerkung:} Unsere Berechnung nutzt beide Variablen zur Berechnung. Was ist der Unterschied zum sLR-Model Resultat? Vergleiche Adj.R² (wie hier genutzt) zu den zwei R²- Lösungen von Übung 5.4.\\
+Q3: Wie viel Aufwand für Examensvorbereitung ist notwendig um genug Punkte (=25) zum Bestehen des Examens? Wie gross ist der Aufwand bei Homework?\\[0.2cm]
+\textbf{Zusätzliche Frage/Anmerkung:} Unsere Berechnung nutzt beide Variablen zur Berechnung. Was ist der Unterschied zum sLR-Model Resultat? Vergleiche $adj.R^2$ (wie hier genutzt) zu den zwei $R^2$- Lösungen von Übung 5.6.\\
 
 \newpage
 
@@ -2109,24 +2125,46 @@ Siehe analoge Teilberechnungen im Skript.
 \subsubsection{Lösungshinweise zu Übung 5.4}
 %
 $ a = - \frac{1}{7}, \quad b =  \frac{61}{28}, \qquad R^2 \backsim 0.9247 $\\[0.2cm]
-Konkrete Werte in der entsprechenden Tabelle im Skript.
+siehe auch konkrete Werte in der entsprechenden Tabelle im Skript.
 %
 \subsubsection{Lösungshinweise zu Übung 5.5}
 %
+$ a \backsim 5.522, \quad b \backsim 0.4471, \quad c \backsim 0.225, \qquad adj.R^2 \backsim 0.8062 $\\[0.2cm]
+Siehe auch konkrete Werte in der entsprechenden Tabelle im Skript.
+%
+\subsubsection{Lösungshinweise zu Übung 5.6}
+%
+\textbf{Teil 1:}\\
 $\rightarrow$ opt. Regression-Gerade:  y =  14,117 + 3,7376*x \\[0.3cm]
 $\rightarrow$ R² = 1 - Sum((yi-y(xi))²)/Sum((yi-M(y))²) = 1 -(134,2172/922,1) $\backsim $ 0,8544 \\[0.3cm]	
 %				
-Question 1:   14,117 points.	\\[0.1cm]				
-Question 2:   14,117 + 37,38 = 51,497 = 50 points (grade=  1,0).\\[0.1cm]		
-Question 3:  x= (25-14,117)/3,7376=2,91[h] 	\\[0.3cm]							
+\textbf{Teil 2:}\\
+$\rightarrow$ opt. Regression-Gerade:  y =  15,164 + 3,479*x \\[0.3cm]
+$\rightarrow$ R² = 1 - Sum((yi-y(xi))²)/Sum((yi-M(y))²) = 1 -(189,6999/922,1) $\backsim $ 0,7943 \\[0.3cm]	
+%				
+							
+\textbf{Zusatzfragen:}\\
 %
+Question 1:   14,117 points. Bias = unrealistisch (zu wenig Daten und zudem fiktiv).	\\[0.1cm]
+Question 1': 15,114 points. Bias = unrealistisch (zu wenig Daten und zudem fiktiv).	\\[0.1cm]		
+Question 2:  14,117 + 37,38 = 51,497 points.\\[0.1cm]
+Question 2': 15,164 + 34,79 = 49,954 points.\\[0.1cm]		
+Question 3:  x= (25-14,117)/3,7376=2,91[h] \\[0.3cm]	
+Question 3': x= (25-15,164)/3,479=2,83[h] \\[0.3cm]	
+Question 4: Zum Bestehen ist Homework besser (höherer Bias) und um jedoch insgesamt ein besseres Ergebnis zu erhalten ist die Examensvorbereitung besser (höherer "Slope" = "Lernkurve") und der Bestimmungswert $R^2$ ist besser.\\[0.3cm]	
+
 \hspace*{1.0cm}Für eine komplette Lösung vergleiche: \\
 \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/LR-Calculation_of_Coeff.xlsx}\\[0.4cm]	
 
-\subsubsection{Lösungshinweise zu Übung 5.6}
+\subsubsection{Lösungshinweise zu Übung 5.7}
 %
 $\rightarrow$ opt. mLR-Ebene :  z = 13,264 +  2,488*x +  1,382*y \\[0.2cm]				
 $\rightarrow$ Adj.R²=  1 -(1-R²)*(9/7) $\backsim $ 0.8512  \\[0.3cm]				
+Question 1:  13,264 points.	\\[0.1cm]
+Question 2:  13,264 + 24,88 + 13,82 = 51,96 points.\\[0.1cm]
+Question 3:  Examensvorbereitung x = (25-13,264)/2,488=4,72[h]\\ Homework y = (25-13,264)/1,382 = 8,49[h]\\[0.2cm]
+Anmerkung: $adj.R^2$ ist geringer als $R^2$ für Examensvorbereitung, aber weit besser als $R^2$ bei Homework. Insgesamt ist somit diese Modell besser ("ausbalancierter" und geringerer Bias). \\[0.3cm]
+	
 \hspace*{1.0cm}Für eine komplette Lösung vergleiche:\\
 \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/LR-Calculation_of_Coeff.xlsx}\\[0.4cm]	
 
