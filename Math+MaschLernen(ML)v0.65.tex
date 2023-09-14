@@ -777,7 +777,7 @@ Das adj.R² berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktore
 Mit den LSF Verfahren oder in Deutsch "Methode der kleinsten Quadrate" lassen sich nun die optimale sLR-Gerade (k=1) und im Fall (k=2) die optimale mLR-Ebene berechnen. Wir nutzen das das "Max-Min" Kriterium der Analysis.\\
 Wir berechnen dazu explizit die Ableitung der Funktion R² nach ihren Veränderlichen in den Fälle (k=1)und (k=2). 
 
-\subsubsection{Detailberechnung für mLR (k=1)}
+\subsubsection{Detailberechnung für sLR}
 
 Sei die optimale Regression-Gerade gegeben durch $ y = a + b \cdot x $ dann ist R² eine Funktion in den Veränderlichen $a$ und $ b: " R^2 = R^2(a,b)" $. Somit muss für ein Maximum gelten, dass der Gradient $\Delta{R^2}$ = 0 ist (Analysis I): 
 \begin{center}
@@ -995,6 +995,7 @@ gelten folgende Formeln:\\[0.5cm]
 \end{large}
 \textbf{Beweis:}\\[0.2cm]
 Der Beweise folgt direkt durch Theorem (Th-5.5). Siehe Korollar (K-5.4)\\[0.3cm]
+Oder wir berechnen den Beweis analog wie bei sLR....(siehe Folien unten)\\[0.3cm] 
 %
 {\color{red}{***********************************************************************\\ 
 ****** Beweis/Detail-Berechnung für (k=2) mit folgenden Folien *********\\
@@ -1003,9 +1004,16 @@ Der Beweise folgt direkt durch Theorem (Th-5.5). Siehe Korollar (K-5.4)\\[0.3cm]
 
 \includegraphics{LSF-mLR(k=2)-1}\\
 \includegraphics{LSF-mLR(k=2)-2}\\
-
+\includegraphics{LSF-mLR(k=2)-3}\\
 
 *** Weitere Kapitel Texte ***
+
+\subsubsection{Weitere Folgerungen für optimale mLR(k=2) Ebene}  
+%
+{\color{red}{***********************************************************************\\ 
+********************** Details analog Vorlesungsfolien für (k=2)*********\\
+************************************************************************}}\\[0.2cm]
+
 
 \subsection{Allgemeine Mathematische Berechnungen zu adj.R²}
 %
@@ -1238,15 +1246,14 @@ $g(\mathbf{x}) := \mathbf{b}^\top \cdot A \cdot \mathbf{x}$, \quad wobei $\mathb
 dann zeigt eine ähnliche Berechnung, dass
 \\[0.2cm]
 \hspace*{1.3cm}
-$ \nabla g(\mathbf{x}) = A^\top \cdot \mathbf{b}$.
+$ \nabla g(\mathbf{x}) = A^\top \cdot \mathbf{b}$ \\[0.2cm]
 %\exercise
-Der Beweis dieser Aussage ist eine Übungsaufgabe "Übung 5.6"
-
+Der Beweis dieser Aussage ist eine Übungsaufgabe "Übung 5.3".\\[0.2cm]
+\subsubsection{Ableitung der Normaform}
 {\color{red}{***********************************************************************\\ 
  ***********************  Übersetzung in Deutsch ************************\\
 ************************************************************************}}
-
-\subsubsection{Ableitung der Normaform}
+%
 Next, we derive the so called {\color{blue}{normal equation}} \index{normal equation}
 for linear regression.  To this end, we first
 expand the product in equation (\ref{eq:squared-error-3}):
@@ -1369,7 +1376,7 @@ q.e.d.\\[0.5cm]
 
 
 
-\subsection{simple Linear Regression (sLR) Beispiele}
+\subsection{simple Lineare Regression (sLR) Beispiele}
 
 Um ein besseres Gefühl für die lineare Regression zu bekommen, wollen wir sie noch einige Beispiel mit konkreten Zahlen berechnen. Erstes manuell und dann auch noch mit Hilfe der Scikit-learn Software Bibliothek zum maschinellen Lernen für die Programmiersprache Python.
 \subsubsection{Manuelle Berechnungen zu einem sLR Beispiel}
@@ -1434,13 +1441,33 @@ Bestimmungsgrat $R^2$ und Achsenabschnitt $a$ und Steigung $b$ der Regressiosger
 \end{figure}
 \newpage
 
-\subsection{Anwendungen und Beispiele zu mLR}
+\subsection{multiple Lineare Regression mLR(k=2) Beispile )}
+
+\subsubsection{Manuelle Berechnungen zu einem mLR(k=2) Beispiel}
+
+
 
 {\color{red}
 {***** Weitere Kapitel Texte und Beispiele einfügen, siehe Vorlesung *****}}
 
-\includegraphics{ML5-MovingPicture_mLR}\\
+\begin{figure}[htp]
+  \centering
+  \hspace*{-0.8cm} 
+  \includegraphics[width=1.2\textwidth]{Einfaches-mLR(k=2)_Beispiel}\\
+  \caption{mLR(k=2)-Beispiel}
+  \label{fig:mLR(k=2)-Beispiel}
+\end{figure}
+\newpage
 
+
+\subsubsection{Python-Programm zur Berechnung eines mLR(k=2) Beispiels}
+
+{\color{red}
+{***** Weitere Kapitel Texte und Beispiele einfügen, siehe Vorlesung *****}}
+
+
+\includegraphics{ML5-MovingPicture_mLR}\\
+%
 Ein bewegtes Bild davon liegt in der Referenz [HVö-5]: 
 {\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/ML5-QYuIc.gif}}
 
