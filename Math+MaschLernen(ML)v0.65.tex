@@ -1010,95 +1010,84 @@ Oder wir berechnen den Beweis analog wie bei sLR....(siehe Folien unten)\\[0.3cm
 ************************************************************************}}\\[0.2cm]
 
 
-\subsection{Allgemeine Mathematische Berechnungen zu adj.R²}
+\subsection{Allgemeine Mathematische Berechnungen zu $mLR(k\geqq 2$}
 %
-
-Die Notation ist analog zur obigen Definition von adj.R². Um die Gleichung $F\bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$ weiter zu präzisieren, definieren wir den {\color{blue}{gemittelten quadratischen Fehler "mean squared error"}}: 
+Die Notation ist analog zun den obigen Definitionen bei $adj.R^2$:\\
+In einem {\color{blue}{multiplen Regression Problem}} arbeiten wir mit $n$ Datenpaaren $\langle\mathbf{x}^{(i)}, y^{(i)} \rangle \in \mathbb{R}^{k+1} $ 
+wobei $\mathbf{x}^{(i)} \in \mathbb{R}^k$ und $y^{(i)} \in \mathbb{R}$ für alle $i \in \{1,\cdots,n\}$.  \\
+Die Zahl $k$ ist die Anzahl der unabhängigen {\color{blue}{Features ("Prädiktoren") $ {\mathbf{x}^{(i)}} $ } }, und {\color{blue}{$ y^{(i)}$}} ist die abhängige {\color{blue}{Zielvariable ("target column")}}. Die Datenpaare nennen wir auch {\color{blue}{Trainings-Menge}}. Unser Ziel ist es die folgende Funktion:  
+\\[0.2cm]
+\hspace*{1.3cm}
+\begin{large}
+$ f:\mathbb{R}^k \rightarrow \mathbb{R}$ 
+\end{large} 
+zu berechnen, so dass 
+\\[0.2cm]  
+$ f \bigl(\mathbf{x}^{(i)}\bigr)$ eine  genaue Approximation von $y^{(i)}$ ist, für alle for all $i\in\{1,\cdots,n\}$, insbesondere wollen wir erreichen: \\[0.3cm]
+\hspace*{1.3cm}
+\begin{large}
+$\forall i\in\{1,\cdots,n\}:f \bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$. \\[0.4cm]
+\end{large}
+%
+Um die Gleichung $ f\bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$ weiter zu präzisieren, definieren wir den {\color{blue}{gemittelten quadratischen Fehler "mean squared error"}}: 
 \begin{equation}
   \label{eq:squared-error-1}
-  \mathtt{MSE} := \frac{1}{m-1} \cdot \sum\limits_{i=1}^{m} \Bigl(F\bigl(\mathbf{x}^{(i)}\bigr) - y^{(i)}\Bigr)^2. 
+  \mathtt{MSE} := \frac{1}{n-1} \cdot \sum\limits_{i=1}^{n} \Bigl(f\bigl(\mathbf{x}^{(i)}\bigr) - y^{(i)}\Bigr)^2. 
 \end{equation}
-Für eine Liste von Trainingsdaten $[\langle \mathbf{x}^{(1)}, y^{(1)} \rangle, \cdots, \langle \mathbf{x}^{m}, y^{(m)} \rangle] $, haben wir das Ziel der Minimierung von $\mathtt{MSE}$.
+Für eine Liste von Trainingsdaten $[\langle \mathbf{x}^{(1)}, y^{(1)} \rangle, \cdots, \langle \mathbf{x}^{n}, y^{(n)} \rangle] $, haben wir das Ziel der Minimierung von $\mathtt{MSE}$.
 %
 \subsubsection{Matrixdarstellung von $\mathtt{MSE}$}
 %
-Um dies zu erreichen brauchen wir eine Modell für die Funktion $F$.  Das einfachste Modell ist das lineare Modell, i.e. wir nehmen an das  $F$ gegeben ist durch: \\[0.2cm]
+Um dies zu erreichen brauchen wir eine Modell für die Funktion $f$.  Das einfachste Modell ist das lineare Modell, i.e. wir nehmen an das  $f$ gegeben ist durch: \\[0.2cm]
 \hspace*{1.3cm}
-$ F(\mathbf{x}) =  \sum\limits_{j=1}^p w_j \cdot x_j + b  =  \mathbf{x^\top} \cdot \mathbf{w} + b  \quad $ 
-wobei $ \mathbf{w} \in {\mathbb{R}^p}$ und $ {b\in\mathbb{R}} $.
+$ f(\mathbf{x}) =  \sum\limits_{j=1}^k w_j \cdot x_j + b  =  \mathbf{x^\top} \cdot \mathbf{w} + b  \quad $ 
+wobei $ \mathbf{w} \in {\mathbb{R}^k}$ und $ {b\in\mathbb{R}} $.
 \\[0.2cm]
 Hier bezeichnet der Ausdruck $\mathbf{x}^\top \cdot \mathbf{w}$ das Matrix Produkt des Vektors $\mathbf{x}^\top$, welcher eine $1$-zu-$m$ Matrix ist, mit dem Vektor $\mathbf{w}$. Alternativ könnte man diesen Ausdruck auch als das Punktprodukt des Vektors $\mathbf{x}$ und des Vektors $\mathbf{w}$ interpretieren.\\[0.2cm]
 An dieser Stelle werden Sie sich vielleicht fragen, warum es sinnvoll ist, hier die Matrixschreibweise einzuführen. Der Grund ist dass diese Notation die Formel verkürzt und darüber hinaus effizienter zu implementieren ist, da die meisten Programmiersprachen, die im Bereich des maschinellen Lernens verwendet werden, über spezielle Bibliotheksunterstützung für Matrixoperationen verfügen.\\  
 Sofern der Computer mit einer Grafikkarte ausgestattet ist, können einige
 Programmiersprachen sogar in der Lage, Matrixoperationen an die Grafikeinheit zu delegieren. Dies führt zu einer erheblichen Geschwindigkeitszuwachs.\\[0.2cm]
 %
-Die oben angegebene Definition von $F$ ist das Modell, das in der
+Die oben angegebene Definition von $f$ ist das Modell, das in der
 \href{https://en.wikipedia.org/wiki/Linear_regression}{linearen Regression} genutzt wird.\\ 
-Hier wird $\mathbf{w}$ als der {\color{blue}{Gewichtsvektor}} und $b$ als der {\color{blue}{bias}} bezeichnet. Es zeigt sich, dass die Notation vereinfacht werden kann, wenn wir den $p$-dimensionalen Merkmalsvektor $\mathbf{x}$ zu einem
-$p+1$-dimensionalen Vektor $\mathbf{x}'$ so erweitern, dass
+Hier wird $\mathbf{w}$ als der {\color{blue}{Gewichtsvektor}} und $b$ als der {\color{blue}{bias}} bezeichnet. Es zeigt sich, dass die Notation vereinfacht werden kann, wenn wir den $k$-dimensionalen Merkmalsvektor $\mathbf{x}$ zu einem
+$k+1$-dimensionalen Vektor $\mathbf{x}'$ so erweitern, dass
 \\[0.2cm]
 \hspace*{1.3cm}
-$x_j' := x_j$ \quad für alle $j\in\{1,\cdots,p\}$ \quad und \quad $x_{m+1}' := 1$.
+$x_j' := x_j$ \quad für alle $j\in\{1,\cdots,k\}$ \quad und \quad $x_{k+1}' := 1$.
 \\[0.2cm]
 In Worten ausgedrückt: Der Vektor $\mathbf{x}'$ ergibt sich aus dem Vektor $\mathbf{x}$ durch Anhängen der Zahl $1$:
 \\[0.2cm]
 \hspace*{1.3cm}
-$\mathbf{x}' = \langle x_1, \cdots, x_p, 1 \rangle^\top$ \quad wobei $\langle x_1, \cdots, x_p \rangle = \mathbf{x}^\top$.
+$\mathbf{x}' = \langle x_1, \cdots, x_k, 1 \rangle^\top$ \quad wobei $\langle x_1, \cdots, x_k \rangle = \mathbf{x}^\top$.
+\\[0.2cm]
+weiterhin definieren wir:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mathbf{w}' = \langle w_1, \cdots, w_k, b \rangle^\top$ \quad wobei $\langle w_1, \cdots, x_k \rangle = \mathbf{w}^\top$.
 \\[0.2cm]
 Dann haben wir
 \\[0.2cm]
 \hspace*{1.3cm}
-$ F(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b = \mathbf{w}' \cdot \mathbf{x}'$.
+$ f(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b = \mathbf{x}' \cdot \mathbf{w}'$.
 \\[0.2cm]
-Die Verzerrung wurde also in den Gewichtsvektor aufgenommen, und zwar auf Kosten des Anhängens der Zahl $1$ am Ende des
-Eingabevektors.  Da wir diese Vereinfachung nutzen wollen, gehen wir von nun an davon aus, dass die Eingangsvektoren
-$\mathbf{x}^{(i)}$ alle so erweitert wurden, dass ihre letzte Komponente $1$ ist.  Unter dieser
-Annahme definieren wir die
-Funktion $F$ als
+Die Verzerrung ("bias") wurde also in den Gewichtsvektor aufgenommen, und zwar auf Kosten des Anhängens der Zahl $1$ am Ende des Eingabevektors.  Da wir diese Vereinfachung nutzen wollen, gehen wir von nun an davon aus, dass die Eingangsvektoren $\mathbf{x}^{(i)}$ alle so erweitert wurden, dass ihre letzte Komponente $1$ ist.  Unter dieser Annahme definieren wir die Funktion $f$ als:
 \\[0.2cm]
 \hspace*{1.3cm}
-$F(\mathbf{x}) := \mathbf{x}^\top \cdot \mathbf{w}$.
+$f(\mathbf{x}) := \mathbf{x}^\top \cdot \mathbf{w}$.
 \\[0.2cm]
 Nun kann die Gleichung (\ref{eq:squared-error-1}) wie folgt umgeschrieben werden:
 \begin{equation}
   \label{eq:squared-error-2}
-  \mathtt{MSE}(\mathbf{w}) = \frac{1}{m-1} \cdot \sum\limits_{i=1}^m \Bigl(\bigl(\mathbf{x}^{(i)})^\top \cdot \mathbf{w} - y^{(i)}\Bigr)^2.
+  \mathtt{MSE}(\mathbf{w}) = \frac{1}{n-1} \cdot \sum\limits_{i=1}^n \Bigl(\bigl(\mathbf{x}^{(i)})^\top \cdot \mathbf{w} - y^{(i)}\Bigr)^2
 \end{equation}
-Unser Ziel ist es, die in dieser Gleichung erscheinende Summe als Skalarprodukt eines Vektors mit
-selbst.  Zu diesem Zweck definieren wir zunächst den Vektor $\mathbf{y}$ wie folgt:
+\\[0.2cm]
+Unser Ziel ist es, die in dieser Gleichung erscheinende Summe als Skalarprodukt eines Vektors mit selbst darzustellen. Zu diesem Zweck definieren wir zunächst den Vektor $\mathbf{y}$ wie folgt:
 \\
 \hspace*{1.3cm}
-$\mathbf{y} := \langle y^{(1)}, \cdots, y^{(m)} \rangle^\top$.
+$\mathbf{y} := \langle y^{(1)}, \cdots, y^{(n)} \rangle^\top$.
 \\[0.2cm]
-Beachten Sie, dass $\mathbf{y} \in \mathbb{R}^m$ enthalten ist, da es eine Komponente für alle $m$ Trainings
-Beispiele hat.  Als nächstes definieren wir die {\color{blue}{Designmatrix}} $X$ wie folgt:
-\\[0.2cm]
-Then we have
-\\[0.2cm]
-\hspace*{1.3cm}
-$ F(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b = \mathbf{w}' \cdot \mathbf{x}'$.
-\\[0.2cm]
-Die Verzerrung wurde also in den Gewichtungsvektor aufgenommen, und zwar um den Preis, dass die Zahl $1$ an das Ende des
-Eingangsvektors.  Da wir diese Vereinfachung nutzen wollen, nehmen wir von nun an an, dass die Eingangsvektoren
-$\mathbf{x}^{(i)}$ alle so erweitert wurden, dass ihre letzte Komponente $1$ ist.  Unter dieser
-Annahme definieren wir die
-Funktion $F$ als
-\\[0.2cm]
-\hspace*{1.3cm}
-$F(\mathbf{x}) := \mathbf{x}^\top \cdot \mathbf{w}$.
-\\[0.2cm]
-Nun kann die Gleichung (\ref{eq:squared-error-1}) wie folgt umgeschrieben werden:
-\begin{equation}
-  \label{eq:squared-error-2}
-  \mathtt{MSE}(\mathbf{w}) = \frac{1}{m-1} \cdot \sum\limits_{i=1}^m \Bigl(\bigl(\mathbf{x}^{(i)})^\top \cdot \mathbf{w} - y^{(i)}\Bigr)^2.
-\end{equation}
-Unser Ziel ist es, die in dieser Gleichung erscheinende Summe als Skalarprodukt eines Vektors mit
-selbst.  Zu diesem Zweck definieren wir zunächst den Vektor $\mathbf{y}$ wie folgt:
-\\
-\hspace*{1.3cm}
-$\mathbf{y} := \langle y^{(1)}, \cdots, y^{(m)} \rangle^\top$.
-\\[0.2cm]
-Beachten Sie, dass $\mathbf{y} \in \mathbb{R}^m$ enthalten ist, da es eine Komponente für alle $m$ Trainings
+Beachten Sie, dass $\mathbf{y} \in \mathbb{R}^m$ enthalten ist, da es eine Komponente für alle $n$ Trainings
 Beispiele hat.  Als nächstes definieren wir die {\color{blue}{Designmatrix}} $X$ wie folgt:
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -1106,26 +1095,25 @@ $ X := \left(
   \begin{array}{c}
     \bigl(\mathbf{x}^{(1)}\bigr)^\top \\
     \vdots \\
-    \bigl(\mathbf{x}^{(m)}\bigr)^\top
+    \bigl(\mathbf{x}^{(n)}\bigr)^\top
   \end{array}
   \right)   
 $
 \\[0.2cm]
-So definiert sind die Zeilenvektoren der Matrix $X$ die transponierten Vektoren $\mathbf{x}^{(i)}$.
-Nun haben wir folgendes:
+In der Literatur heisst $X$ auch oft {\color{blue}{Feature Matrix}}. So definiert sind die Zeilenvektoren der Matrix $X$ die transponierten Vektoren $\mathbf{x}^{(i)}$. Nun haben wir folgendes:
 \\[0.2cm]
 \hspace*{1.3cm}
 $X \cdot \mathbf{w} - \mathbf{y} = \left(
   \begin{array}{c}
     \bigl(\mathbf{x}^{(1)}\bigr)^\top \\
     \vdots \\
-    \bigl(\mathbf{x}^{(m)}\bigr)^\top
+    \bigl(\mathbf{x}^{(n)}\bigr)^\top
   \end{array}
   \right) \cdot \mathbf{w} - \mathbf{y} = \left(
   \begin{array}{c}
     \bigl(\mathbf{x}^{(1)}\bigr)^\top \cdot \mathbf{w} - y_1 \\\
     \vdots \\
-    \bigl(\mathbf{x}^{(m)}\bigr)^\top \cdot \mathbf{w} - y_m
+    \bigl(\mathbf{x}^{(n)}\bigr)^\top \cdot \mathbf{w} - y_n
   \end{array}
   \right)
 $
@@ -1160,11 +1148,11 @@ Wenn wir das Quadrat des Vektors $X \cdot \mathbf{w} - \mathbf{y}$ nehmen, stell
 
 \begin{equation}
   \label{eq:squared-error-3}
-  \mathtt{MSE}(\mathbf{w}) = \frac{1}{m-1} \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr)^\top \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr).
+  \mathtt{MSE}(\mathbf{w}) = \frac{1}{n-1} \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr)^\top \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr).
 \end{equation}\\
 \subsubsection{Berechnung des Gradienten zu $\mathtt{MSE}$}
 %
-Um das minimale MSE(w) zu bekommen, sagt uns die Mathematik (Analysis I), müssen wir den "Gradienten" der Funktion MSE(w)" null setzen. Die folgenden Berechnungen dienen dazu. Nützlich dazu ist die Matrizenrechnung aus der Linearen Algebra.\\[0.2cm]
+Um das minimale $ MSE(w)$ zu bekommen, sagt uns die Mathematik (Analysis I), müssen wir den "Gradienten" der Funktion $MSE(w)$ null setzen. Die folgenden Berechnungen dienen dazu. Nützlich dazu ist die Matrizenrechnung aus der Linearen Algebra.\\[0.2cm]
 %
 Im letzten Abschnitt haben wir den mittleren quadratischen Fehler $\mathtt{MSE}(\mathbf{w})$ anhand der Gleichung
 (\ref{eq:squared-error-3}) berechnet.\\
@@ -1173,9 +1161,9 @@ Unser Ziel ist die Minimierung des $\mathtt{MSE}(\mathbf{w})$ durch die Wahl des
 \hspace*{1.3cm}
 $\nabla \mathtt{MSE}(\mathbf{w}) = \mathbf{0}$,
 \\[0.2cm]
-d.h. der \href{https://en.wikipedia.org/wiki/Gradient}{Gradient} \index{gradient} von $\mathtt{MSE}(\mathbf{w})$ in Bezug auf
-$\mathbf{w}$ muss Null sein.  Zur Vorbereitung der Berechnung von 
-$\nabla \mathtt{MSE}(\mathbf{w})$, berechnen wir zunächst den Gradienten von zwei einfacheren Funktionen.\\[0.4cm]
+d.h. der \href{https://en.wikipedia.org/wiki/Gradient}{Gradient} \index{gradient} von $\mathtt{MSE}(\mathbf{w})$ in Bezug auf $\mathbf{w}$ muss Null sein. \\
+Zur Vorbereitung der Berechnung von $\nabla \mathtt{MSE}(\mathbf{w})$, berechnen wir zunächst den Gradienten von zwei einfacheren Funktionen.\\[0.4cm]
+\textbf{********************** Zwischenrechnung *******************}\\[0.4cm]
 %
 Angenommen die Funktion $f:\mathbb{R}^n \rightarrow \mathbb{R}$ ist definiert als:
 \\[0.2cm]
@@ -1183,8 +1171,7 @@ Angenommen die Funktion $f:\mathbb{R}^n \rightarrow \mathbb{R}$ ist definiert al
 $f(\mathbf{x}) := \mathbf{x}^\top \cdot C \cdot \mathbf{x}$ \quad where $C \in \mathbb{R}^{n \times n}$
 %
 Wenn wir die Matrix $C$ als $C = (c_{i,j})_{i=1,\cdots,n \atop j=1,\cdots,n}$ schreiben und den Vektor
-$\mathbf{x}$ als $\mathbf{x} = \langle x_1, \cdots, x_n \rangle^\top$, dann kann $f(\mathbf{x})$ wie folgt berechnet werden
-wie folgt berechnet werden:
+$\mathbf{x}$ als $\mathbf{x} = \langle x_1, \cdots, x_n \rangle^\top$, dann kann $f(\mathbf{x})$ wie folgt berechnet werden:
 \\[0.2cm]
 \hspace*{1.3cm}
 $ f(\mathbf{x}) = \sum\limits_{i=1}^n x_i \cdot \sum\limits_{j=1}^n c_{i,j} \cdot x_j = \sum\limits_{i=1}^n \sum\limits_{j=1}^n x_i \cdot c_{i,j} \cdot x_j $.
@@ -1227,8 +1214,7 @@ Wir haben also gezeigt, dass
 \hspace*{1.3cm}
 $ \nabla f(\mathbf{x}) = (C + C^\top) \cdot \mathbf{x}$.
 \\[0.2cm]
-Wenn die Matrix $C$ ist {
-{\color{blue}}{symmetrisch}}, d.h.~wenn $C = C^\top$, vereinfacht sich dies zu
+Wenn die Matrix $C$ {\color{blue}{symmetrisch}} ist, d.h. wenn $C = C^\top$, vereinfacht sich dies zu:
 \\[0.2cm]
 \hspace*{1.3cm}
 $ \nabla f(\mathbf{x}) = 2 \cdot C \cdot \mathbf{x}$.
@@ -1244,14 +1230,11 @@ dann zeigt eine ähnliche Berechnung, dass
 $ \nabla g(\mathbf{x}) = A^\top \cdot \mathbf{b}$ \\[0.2cm]
 %\exercise
 Der Beweis dieser Aussage ist eine Übungsaufgabe "Übung 5.3".\\[0.2cm]
-\subsubsection{Ableitung der Normaform}
-{\color{red}{***********************************************************************\\ 
- ***********************  Übersetzung in Deutsch ************************\\
-************************************************************************}}
+\textbf{************ Ende der Zwischenrechnung ********************}\\
+
+\subsubsection{Ableitung der Normalform}
 %
-Next, we derive the so called {\color{blue}{normal equation}} \index{normal equation}
-for linear regression.  To this end, we first
-expand the product in equation (\ref{eq:squared-error-3}):
+Als nächstes leiten wir die so genannte {\color{blue}{Normalform}} \index{normal equation} for die Lineare Regression ab. Zu diesem Zweck   erweitern wir zuerst da sprodukt im der Gleicung (\ref{eq:squared-error-3}):
 \\[0.2cm]
 \hspace*{0.3cm}
 $
@@ -1264,79 +1247,72 @@ $
  & \mbox{since $(A \cdot B)^\top = B^\top \cdot A^\top$}
  \\[0.5cm]
  & = & 
-  \frac{1}{m-1} \cdot \bigl(\mathbf{w}^\top \cdot X^\top \cdot X \cdot \mathbf{w} 
-                             - \textbf{y}^\top \cdot X \cdot \mathbf{w} 
-                             - \mathbf{w}^\top \cdot X^\top \cdot \mathbf{y}
-                             + \mathbf{y}^\top \cdot \mathbf{y}
-                       \bigr)
+  \frac{1}{m-1} \cdot \bigl(\mathbf{w}^\top \cdot X^\top \cdot X \cdot \mathbf{w} - \textbf{y}^\top \cdot X \cdot \mathbf{w} 
+ - \mathbf{w}^\top \cdot X^\top \cdot \mathbf{y}
++ \mathbf{y}^\top \cdot \mathbf{y} \bigr)
  \\[0.5cm]
  & = & 
- \frac{1}{m-1} \cdot \bigl(\mathbf{w}^\top \cdot X^\top \cdot X \cdot \mathbf{w} 
-                             - 2 \cdot \textbf{y}^\top \cdot X \cdot \mathbf{w} 
-                             + \mathbf{y}^\top \cdot \mathbf{y}
-                       \bigr)
+ \frac{1}{m-1} \cdot \bigl(\mathbf{w}^\top \cdot X^\top \cdot X \cdot \mathbf{w} - 2 \cdot \textbf{y}^\top \cdot X \cdot \mathbf{w} 
+ +  \mathbf{y}^\top \cdot \mathbf{y} \bigr)
  & \mbox{since $\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y} = \textbf{y}^\top \cdot X \cdot \mathbf{w}$}
 \end{array}
 $
 \\[0.2cm]
-The fact that 
+Die Tatsache das gilt 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y} = \textbf{y}^\top \cdot X \cdot \mathbf{w}$
 \\[0.2cm]
-might not be immediately obvious.  It follows from two facts:
+mag auf den ersten Blick nicht offensichtlich sein. Aber diese folgt  asu zwei Fakten:
 \begin{enumerate}
-\item For two matrices $A$ and $B$ such that the matrix product $A \cdot B$ is defined we have 
+\item Für zwei Matrizen $A$ and $B$ wo das Matrix Produkt $A \cdot B$ is definiert ist , gilt  
       \\[0.2cm]
       \hspace*{1.3cm}
       $(A \cdot B)^\top = B^\top \cdot A^\top$.
-\item The matrix product $\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y}$ is a real number.  The transpose $r^\top$ of a real number $r$ is the number
-      itself, i.e.~$r^\top = r$ for all $r \in \mathbb{R}$.  Therefore, we have
+\item Das Matrix Produkt $\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y}$ ist eine reelle Zahl. Das Transponierte  $r^\top$ einer reellen Zahl ist selbst wieder eine reelle Zahl $r$, i.e.~$r^\top = r$ for all $r \in \mathbb{R}$.  Darum gilt:
       \\[0.2cm]
       \hspace*{1.3cm}
       $\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y} = 
 \bigl(\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y}\bigr)^\top =
 \mathbf{y}^\top \cdot X \cdot \mathbf{w}
-$.
+$
 \end{enumerate}
-Hence we have shown that
+Also haben wir letztendlich gezeigt, dass
 \begin{equation}
   \label{eq:squared-error-4}
-  \mathtt{MSE}(\mathbf{w}) = \frac{1}{m-1} \cdot \Bigl(\mathbf{w}^\top \cdot \bigl(X^\top \cdot X\bigr) \cdot \mathbf{w} 
-                                             - 2 \cdot \textbf{y}^\top \cdot X \cdot \mathbf{w} 
-                                             + \mathbf{y}^\top \cdot \mathbf{y}
-                                        \Bigr)
+  \mathtt{MSE}(\mathbf{w}) = \frac{1}{n-1} \cdot \Bigl(\mathbf{w}^\top \cdot \bigl(X^\top \cdot X\bigr) \cdot \mathbf{w} 
+      - 2 \cdot \textbf{y}^\top \cdot X \cdot \mathbf{w} 
+      + \mathbf{y}^\top \cdot \mathbf{y}  \Bigr)
 \end{equation}
-holds.  The matrix $X^\top \cdot X$ used in the first term is symmetric because
+gilt. Die benutzte Matrix $X^\top \cdot X$ im ersten Term ist symmetrisch weil
 \\[0.2cm]
 \hspace*{1.3cm}
 $\bigl(X^\top \cdot X\bigr)^\top = X^\top \cdot \bigl(X^\top\bigr)^\top = X^\top \cdot X$.
 \\[0.2cm]
-Using the results from the previous section we can now compute the gradient of $\mathtt{MSE}(\mathbf{w})$ with respect to
-$\mathbf{w}$.  The result is
+Benutzen wir die Resultate der vorherigen Abschnitte so können wir nun  den Gradienten von  $\mathtt{MSE}(\mathbf{w})$ mit Bezug auf $\mathbf{w}$. berechnen zu 
 \\[0.2cm]
 \hspace*{1.3cm}
-$ \nabla \mathtt{MSE}(\mathbf{w}) = \frac{2}{m-1} \cdot \Bigl(X^\top \cdot X \cdot \mathbf{w} - X^\top \cdot \mathbf{y}\Bigr)$.
+$ \nabla \mathtt{MSE}(\mathbf{w}) = \frac{2}{n-1} \cdot \Bigl(X^\top \cdot X \cdot \mathbf{w} - X^\top \cdot \mathbf{y}\Bigr)$.
 \\[0.2cm]
-If the squared error $\mathtt{MSE}(\mathbf{w})$ has a minimum for the weights $\mathbf{w}$, then we must have
+Falls quadratische Fehler $\mathtt{MSE}(\mathbf{w})$ eien Minimum für die Gewichte $\mathbf{w}$ hat, dann gilt
 \\[0.2cm]
 \hspace*{1.3cm}
 $\nabla \mathtt{MSE}(\mathbf{w}) = \mathbf{0}$.
 \\[0.2cm]
-This leads to the equation
+Dies führt zur Gleichung
 \\[0.2cm]
 \hspace*{1.3cm}
-$ \frac{2}{m-1} \cdot \Bigl(X^\top \cdot X \cdot \mathbf{w} - X^\top \cdot \mathbf{y}\Bigr) = \mathbf{0}$.
+$ \frac{2}{n-1} \cdot \Bigl(X^\top \cdot X \cdot \mathbf{w} - X^\top \cdot \mathbf{y}\Bigr) = \mathbf{0}$.
 \\[0.2cm]
-This equation can be rewritten as
+Dies kann umgeschhrieben werden zu 
 \begin{equation}
   \label{eq:normal-equation}
  \colorbox{blue}{\framebox{\colorbox{gray!40}{\framebox{
  $ \bigl(X^\top \cdot X\bigr) \cdot \mathbf{w} = X^\top \cdot \mathbf{y}$}}}} 
 \end{equation}
-This equation is called the {\color{blue}{normal equation}}.  \index{normal equation}\\
+Diese Gleichung nennt man {\color{blue}{Normalform}}.  \index{normal equation}\\
 %
-Insgesamt erhält man folg. Theorem: \\[0.5cm]
+Insgesamt erhält man das e Theorem: \\[0.5cm]
 \textbf{Theorem (Th-5.5): "Gewichtsmatrix bei mLR($k\geqslant 2$)"} \\[0.3cm]
 Die Gewichtsmatrx $\mathbf{w}$ bestimmt die Parameter der optimalen mLR - Hyperebenen. Sie lässt sich bestimmen durch die folgende Gleichung:\\[0.3cm]
 \begin{center}
@@ -1349,27 +1325,23 @@ Siehe obige Rechnung. \\
 q.e.d. \\[0.5cm]
 %
 \textbf{Bemerkung:}
-Although the matrix $X^\top \cdot X$ will often be invertible, for numerical reasons it is not
-advisable to rewrite the normal equation as:
+Obwohl die Matrix $X^\top \cdot X$ oft invertierbar ist, umschreiben wir sie aus numerischen Gründen nicht als:
 \\[0.2cm]
 \hspace*{4.8cm}
 \colorbox{black}{\framebox{\colorbox{gray!40}{\framebox{
 $\mathbf{w} = \bigl(X^\top \cdot X)^{-1} \cdot X^\top \cdot \mathbf{y}$}}}}.
-\\[0.2cm]
-Instead, when solving the normal equation we will use the \textsl{Python} function $\texttt{numpy.linalg.solve}(A,b)$, which
-takes a matrix $A \in \mathbb{R}^{n \times n}$ and a vector $\mathbf{b} \in \mathbb{R}^n$ and solves the equation:
+\\[0.4cm]
+In der Tat werden wir wenn wir die Normaform auflösen die  \textsl{Python} Funktion $\texttt{numpy.linalg.solve}(A,b)$ nutzen, welche die Matrix $A \in \mathbb{R}^{n \times n}$ und den Vektor $\mathbf{b} \in \mathbb{R}^n$ berechnet mit der folgenden Gleichung:
 \\[0.2cm]
 \hspace*{5.3cm}
 $A \cdot \mathbf{x} = \mathbf{b}$. \\[0.5cm]
 %
 \textbf{Korollar (K-5.4)}:\\ 
-Theorem (Th-5.4) folgt direkt aus Theorem (Th-5.5). 
+Theorem (Th-5.4) folgt direkt aus Theorem (Th-5.5).\\ 
 %
 \textbf{Beweis}:\\
 Einsetzen der Definitionen für die Normalform für den Fall k=2. \\    
 q.e.d.\\[0.5cm]
-
-
 
 \subsection{simple Lineare Regression (sLR) Beispiele}
 
