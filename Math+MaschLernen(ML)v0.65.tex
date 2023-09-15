@@ -48,6 +48,8 @@
 \usepackage{stackengine} % für \stackengine
 \usepackage{theorem}
 
+\setcounter{tocdepth}{2} % Begrenzt die Gliederungsebene des Inhaltsverzeichnisses auf 2 (Abschnitte und Unterabschnitte)
+
 \begin{document}
 \pagenumbering{roman} % römische Seitennummerierung für Titelblatt und 
 
@@ -84,7 +86,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.65 (Datum: 14.9.2023) ist nicht final!!! \\
+Diese Version V0.65 (Datum: 15.9.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.65.pdf} \\
@@ -102,7 +104,6 @@ Dieses Skript wurde generiert mit \LaTeX\
 \begin{LARGE} Inhaltsangabe \end{LARGE}
 
 \tableofcontents
-\setcounter{tocdepth}{2}
 
 \newpage
 
@@ -125,7 +126,7 @@ Dieses Skript wurde generiert mit \LaTeX\
 
 \fancyfoot[C]{--- \thepage/\pageref{LastPage}\ ---}
 
-\section{Management Zusammenfassung}
+\section{Management Zusammenfassung - Motivation und Ziele}
 
 Ziel der Ausarbeitung ist es, die {\color{blue}mathematischen Konzepte des Maschinellen Lernens (ML)} zu erkennen.\\
 Leider wird in der gängigen Literatur dieses Thema nicht genug gewürdigt. Dies mag damit zu tun haben das heutzutage mathematische Ausbildung in der Schule und in der Universität etwas den Bezug zur Realität verloren hat und deshalb viele Schüler und Studenten den Nutzen und die Schönheit der Mathematik nicht erkennen können. Es gehört ja manchmal schon "zum guten Ton", wenn technische Hochschulabsolventen fast schon scherzhaft sagen, dass Sie mit Mathematik "nichts am Hut haben".\\
@@ -149,18 +150,36 @@ Hier sind die wichtigsten \textbf{mathematische Konzepte und Grundlagen:}\\
 %
 Diese mathematischen Grundlagen werden verwendet, um Modelle zu definieren, Daten zu analysieren, Funktionen anzupassen, Vorhersagen zu treffen und Modelle zu evaluieren. Sie dienen als Grundlage für das Verständnis der Algorithmen und Methoden des Machine Learning. Es ist wichtig, ein solides Verständnis dieser mathematischen Konzepte zu haben, um Machine Learning effektiv anzuwenden und weiterzuentwickeln.
 %
-\subsection{Historische Anmerkungen und Ziele}
+\subsection{Historische Anmerkungen zu Mathematik und ML}
 %
-Mathematik ist eine Säule des maschinellen Lernens. Vor etwa 250 Jahren begann man, sie zu formalisieren, aber erst vor etwa 100 Jahren wurde die moderne Mathematik entwickelt. Es handelt sich um ein riesiges Fachgebiet, mit vielen Unterbereichen, wie Lineare Algebra, Statistik, etc. sowie mit Anwendungen in den Ingenieurwissenschaften und der Physik.\\
+Vor etwa 250 Jahren begann man, die Mathematik zu formalisieren, aber erst vor etwa 100 Jahren wurde die moderne Mathematik entwickelt. Es handelt sich um ein riesiges Fachgebiet, mit vielen Unterbereichen, wie Lineare Algebra, Statistik, etc. sowie mit Anwendungen in den Ingenieurwissenschaften und der Physik.\\[0.2cm]
+Die Nutzung von Mathematik in Machine Learning ist eine grundlegende Komponente der Entwicklung von Algorithmen und Modellen. Hier sind einige historische Anmerkungen zur Verwendung von Mathematik in diesem Bereich:\\[0.2cm]
+\textbf{1. Entwicklung der linearen Regression (19. Jahrhundert):} \\
+Die lineare Regression ist ein grundlegendes statistisches Modell, das in Machine Learning weit verbreitet ist. Es wurde im 19. Jahrhundert entwickelt und nutzt mathematische Konzepte wie die Methode der kleinsten Quadrate, um Beziehungen zwischen Variablen zu modellieren.\\[0.2cm]
+\textbf{2. Perzeptron (1957)}\\
+Der Perzeptron-Algorithmus, entwickelt von Frank Rosenblatt, war einer der frühen Versuche, maschinelles Lernen formal mathematisch zu modellieren. Es basierte auf der Idee von künstlichen Neuronen und wurde für die Klassifikation verwendet.\\[0.2cm]
+\textbf{3. Gradientenabstiegsverfahren (1960er Jahre):} \\
+Das Gradientenabstiegsverfahren ist ein wichtiger Optimierungsalgorithmus in der Mathematik, der später in vielen Machine-Learning-Verfahren wie Neuronalen Netzen, Support Vector Machines und tiefen Lernalgorithmen verwendet wurde.\\[0.2cm]
+\textbf{4. Bayes'sche Statistik (18. Jahrhundert):}\\
+Die Bayes'sche Statistik und das Bayes'sche Theorem, das auf dem Werk von Thomas Bayes basiert, sind grundlegende mathematische Konzepte, die in probabilistischen Machine-Learning-Modellen wie dem Naive Bayes-Klassifikator Anwendung finden.\\[0.2cm]
+\textbf{5. Entwicklung von neuronalen Netzen (1940er Jahre - heute):}\\
+Neuronale Netze, die in vielen modernen Machine-Learning-Anwendungen eine zentrale Rolle spielen, basieren auf mathematischen Modellen von künstlichen Neuronen und sind eng mit der Linearen Algebra und dem Konzept der Backpropagation verbunden.\\[0.2cm]
+\textbf{6. Entwicklung von tiefen neuronalen Netzen (2010er Jahre):}\\
+Die jüngste Entwicklung von tiefen neuronalen Netzen, die in Deep Learning eingesetzt werden, beruht auf fortgeschrittenen mathematischen Konzepten, insbesondere der Backpropagation, die es ermöglichen, komplexe Modelle zu trainieren.\\[0.3cm]
+%
+Die Verwendung von Mathematik in Machine Learning ist also keine neue Entwicklung, sondern hat eine lange Geschichte. Mit der Zeit wurden jedoch immer leistungsfähigere mathematische Techniken entwickelt und angewendet, um komplexe Modelle zu erstellen und große Datenmengen zu verarbeiten. Diese Entwicklung setzt sich fort, da Machine Learning und künstliche Intelligenz weiterhin stark erforscht und weiterentwickelt werden.
+\\[0.2cm]
+%
 Zum Glück müssen wir nicht die ganze Breite und Tiefe der Mathematik kennen, um unser Verständnis und unsere Anwendung des maschinellen Lernens zu verbessern. 
-\textbf{Ziele:}\\
+%
+\subsection{Ziele der Arbeit}
 Die wichtigsten ML Anwendungen und Methoden, die mathematische Verfahren nutzen, werden vorgestellt und in ihren wesentlichen Merkmalen erläutert.\\
 Es werden zahlreiche Hinweise auf vertiefende Anwendungen oder Informationen durch Internet-Links oder weiterführende Literatur gegeben. An vielen Stellen werden konkrete Umsetzungsbeispiele mit Werkzeugen wie \textit{KNIME Analytics Platform} gezeigt. \\
 Die Beziehungen ("Brücken") zwischen Mathematik, Maschinellen Lernen (ML) und Data Science (DL) (insbesondere \href{https://en.wikipedia.org/wiki/Data_mining}{Data Mining} werden konkret gebaut und anschließend beispielhaft "beschritten" (siehe auch "3-Insel-Bild" von der Titelseite).\\ 
 Die Leser sollen befähigt werden, die Mathematik hinter den ML Anwendungen zu verstehen um mögliche weitere sinnvolle Ergänzungen und Erweiterungen, die sich aus den mathematischen Erkenntnisse ergeben, zu entwickeln.\\
 Zu jedem Kapitel gibt es Übungen, die das im Kapitel Gelernte nochmals an konkreten Fragestellungen und Problemen erproben und vertiefen. Musterlösungen bzw. Hinweise zur Lösung der Übungen findet man am Ende des Buches.\\
 Insgesamt beinhaltet diese Arbeit zur Zeit 10 Kapitel.\\
-\\
+
 
 \newpage
 
@@ -777,7 +796,7 @@ Wir berechnen dazu explizit die Ableitung der Funktion R² nach ihren Veränderl
 Sei die optimale Regression-Gerade gegeben durch $ y = a + b \cdot x $ dann ist R² eine Funktion in den Veränderlichen $a$ und $ b: " R^2 = R^2(a,b)" $. Somit muss für ein Maximum gelten, dass der Gradient $\Delta{R^2}$ = 0 ist (Analysis I): 
 \begin{center}
 \begin{large} 
-$  dR^2 = \frac{\partial R^2}{\partial a} \cdot db + \frac{\partial R^2}{\partial b} \cdot db = 0 \Longleftrightarrow  \frac{\partial R^2}{\partial a} = \frac{\partial R^2}{\partial b} = 0 $
+$  dR^2 = \frac{\partial R^2}{\partial a} \cdot da + \frac{\partial R^2}{\partial b} \cdot db = 0 \Longleftrightarrow  \frac{\partial R^2}{\partial a} = \frac{\partial R^2}{\partial b} = 0 $
 \end{large}
 \end{center}
 %
@@ -965,7 +984,7 @@ $ \overline{f} = \overline{y} $ \\
 In Theorem (Th-5.3) wurde gezeigt, dass gilt: (*) $ \quad 0 = \sum_{i=1}^{n} (y_i - f_i)(f_i - \bar{y})$ \\
 Ohne Einschränkug der Allgemeinheit (OE) kann man annehmen: $(f_i - \bar{y}) \neq 0 $ \\ dann folgt direkt $0 = \sum_{i=1}^{n} (y_i - f_i)$ \\
 \textbf{2. Beweis-Methode:}\\
-Um den den Zusammenhang zwischen den geschätzten Werten $ \overline{f} = \frac{1}{n} \cdot \sum_{i=1}^{n} (f_i)$ und den tatsächlichen Werten $ \overline{y} $ in einer einfachen linearen Regression zu zeigen, setzen wir die "Schätzung für den Achsenabschitt a"  =: $ \hat{a} $ ein und führen die Berechnungen durch:
+Um den den Zusammenhang zwischen den geschätzten Werten $ \overline{f} = \frac{1}{n} \cdot \sum_{i=1}^{n} (f_i)$ und den tatsächlichen Werten $ \overline{y} $ in einer einfachen linearen Regression zu zeigen, setzen wir die "Schätzung für den Achsenabschitt a"  =: $ \hat{a} $ und die "Schätzung der Steigung b" =: $ \hat{b} $ ein und führen die Berechnungen durch:
 \begin{large}
 \begin{center}
 $ \overline{f} = \frac{1}{n} \cdot \sum_{i=1}^{n} (\hat{a}+ \hat{b} \cdot x_i) \Longrightarrow \overline{f} = \hat{a} + \hat{b} \cdot  \overline{x} $ \\[0.2cm]
@@ -976,8 +995,8 @@ Vergleichen wir die Formeln für  $\overline{f}$ und $\overline{y}$, so sind die
 q.e.d.
 
 \subsubsection{Detailberechnung für mLR(k=2)}
-
-Analog wie für die simple Lineare Regression lässt sich das LSF-Verfahren auch auf auch die multiple Lineare Regression(mLR). Für den Fall k=2 erhält man das folgende Theorem:\\
+%
+Analog wie für die simple Lineare Regression (SLR) lässt sich das LSF-Verfahren auch auf die multiple Lineare Regression(mLR) anwenden. Für den Fall k=2 erhält man das folgende Theorem:\\[0.4cm]
 %
 \textbf{Theorem (Th-5.4)}: "LSF Komponenten für optimale mLR(k=2)-Ebene" \\[0.2cm]
 Sei $ \quad det = \sum{\widetilde{x_i}^2} \cdot \sum{\widetilde{y_i}^2}  -  (\sum{\widetilde{x_i} \cdot \widetilde{y_i}})^2 \quad $ \\
@@ -986,30 +1005,95 @@ gelten folgende Formeln:\\[0.5cm]
 \begin{large}
 (mLSF-I): $ \quad a = \bar{z} - b \cdot \bar{x} - c \cdot \bar{y} \ \qquad \qquad \qquad\qquad $ \\[0.3cm]
 (mLSF-II): $ \quad b = \frac{1}{det} \cdot \left[  \sum{\widetilde{y_i}^2} \cdot  \sum{(\widetilde{x_i} \cdot \widetilde{z_i})} - \sum{(\widetilde{x_i} \cdot \widetilde{y_i})} \cdot  \sum{(\widetilde{y_i} \cdot \widetilde{z_i})}          \right] $    \\[0.3cm]                                
-(sLSF-III): $ \quad c = \frac{1}{det} \cdot \left[ \sum{\widetilde{x_i}^2} \cdot  \sum{(\widetilde{y_i} \cdot \widetilde{z_i})} - \sum{(\widetilde{x_i} \cdot \widetilde{y_i})} \cdot  \sum{( \widetilde{x_i} \cdot \widetilde{z_i})}          \right] $  \\[0.5cm]
+(sLSF-III): $ \quad c = \frac{1}{det} \cdot \left[ \sum{\widetilde{x_i}^2} \cdot  \sum{(\widetilde{y_i} \cdot \widetilde{z_i})} - \sum{(\widetilde{x_i} \cdot \widetilde{y_i})} \cdot  \sum{( \widetilde{x_i} \cdot \widetilde{z_i})}          \right] $  \\[0.7cm]
 \end{large}
 \textbf{Beweis:}\\[0.2cm]
-Der Beweise folgt direkt durch Theorem (Th-5.5). Siehe Korollar (K-5.4)\\[0.3cm]
-Oder wir berechnen den Beweis analog wie bei sLR....(siehe Folien unten)\\[0.3cm] 
+Sei die optimale Regression-Ebene gegeben durch $ z = a + b \cdot x + c \cdot y$ dann muss gelten $R^2 = R^2(a,b,c)$ ist maximal $\Leftrightarrow SSE$ ist minimal. Sei $S = S(a,b,c)$ die Abkürzung für $SSE(a,b,c)$. $S$ ist eine Funktion in den Veränderlichen $a$ und $b$ und $c$. Somit muss für ein Minimum gelten, dass der Gradient $\Delta{S(a,b,c)}$ = 0 ist (Analysis I): 
+\begin{center}
+\begin{large} 
+$  dS(a,b,c) = \frac{\partial S}{\partial a} \cdot da + \frac{\partial S}{\partial b} \cdot db + \frac{\partial S}{\partial c} \cdot dc = 0 \Longleftrightarrow  \frac{\partial S}{\partial a} = \frac{\partial S}{\partial b} = \frac{\partial S}{\partial c} = 0 $
+\end{large}
+\end{center}
 %
-{\color{red}{***********************************************************************\\ 
-****** Beweis/Detail-Berechnung für (k=2) mit folgenden Folien *********\\
-************************************************************************}}\\[0.2cm]
-
-
-\includegraphics{LSF-mLR(k=2)-1}\\
-\includegraphics{LSF-mLR(k=2)-2}\\
-\includegraphics{LSF-mLR(k=2)-3}\\
-
-*** Weitere Kapitel Texte ***
-
-\subsubsection{Weitere Folgerungen für optimale mLR(k=2) Ebene}  
+Wir rechnen als erstes die \textbf{partielle Ableitung nach $a$}:\\[0.3cm]
+% 
+\begin{large} 
+$ \frac{\partial S}{\partial a} = \frac{\partial}{\partial a}[\sum\limits_{i=1}^n {(z_i - a - b \cdot x_i - c \cdot y_i)^2}] 
+= 2 \cdot \sum\ (z_i - a - b \cdot x_i - c \cdot y_i) \\[0.5cm] $
+\end{large}
 %
-{\color{red}{***********************************************************************\\ 
-********************** Details analog Vorlesungsfolien für (k=2)*********\\
-************************************************************************}}\\[0.2cm]
+Durch Benutzung der Definition des Mittelwertes und Kürzen mit 2 erhält man: 
+%
+\hspace*{3.5cm}
+\begin{large}
+$ 0 = n \cdot \bar{z} - n \cdot a -n \cdot b \cdot \bar{x} -n \cdot c \cdot \bar{y} $\\[0.5cm]
+\end{large}
+Daraus folgt: 
+\begin{Large}
+$ \qquad \qquad 
+a = \bar{z} - b \cdot \bar{x} - c \cdot \bar{y} \qquad \qquad $ (1)\\[0.2cm]  
+\end{Large}
+%
+Nun benutzen wir den Trick, dass wir die Gleichung (1) auch schon in die partiellen Ableitungen nach $b$ und $c$ einsetzen. Damit müssen wir später keine 3x3-Matrix invertieren, sondern nur eine 2x2-Matrix.\\[0.2cm]
+\begin{large} 
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ 0 & = & 
+ \frac{\partial}{\partial b} \cdot \left[ \sum\limits_{i=1}^n (z_i - \bar{z} + b \cdot \bar{x} + c \cdot \bar{y} - b \cdot x_i -c \cdot y_i)^2 \right] \\[0.5cm]
+& = &  \frac{\partial}{\partial b} \cdot \left[ \sum\limits_{i=1}^n (\widetilde{z_i} - b \cdot \widetilde{x_i} - c \cdot \widetilde{y_i})^2 \right] \ \\[0.5cm]
+& = &
+2 \cdot \sum\limits_{i=1}^n ((\widetilde{z_i} - b \cdot \widetilde{x_i} - c \cdot \widetilde{y_i}) \cdot (-\widetilde{x_i})) \ \\[0.5cm] 
+& = &
+(-2) \cdot \sum\limits_{i=1}^n ((\widetilde{x_i} \cdot \widetilde{z_i} + b \cdot \widetilde{x_i}^2 + c \cdot \widetilde{x_i} \cdot \widetilde{y_i}) \ \\[0.5cm] 
+\end{array} \\[0.3cm] 
+$
+\end{large}
+Also erhalten wir:\\[0.5cm] 
+\begin{Large} 
+\hspace*{3.5cm} 
+$ 0 = \sum\limits_{i=1}^n (\widetilde{x_i} \cdot \widetilde{z_i} + b \cdot \widetilde{x_i}^2 + c \cdot \widetilde{x_i} \cdot \widetilde{y_i}) \qquad (2)\\[0.3cm]$   
+\end{Large}
+Analog für die partielle Ableitung nach $c$: \\[0.4cm] 
+\begin{Large} 
+\hspace*{3.5cm} 
+$ 0 = \sum\limits_{i=1}^n (\widetilde{y_i} \cdot \widetilde{z_i} + b \cdot \widetilde{x_i} \cdot \widetilde{y_i} + c \cdot \widetilde{y_i}^2) \qquad (3)\\[0.6cm]$ 
+\end{Large}
+%
+Schreiben wir nun die beiden Gleichungen (2) und (3) mit einer 2x2- Matrix um, so erhält man nach den Regeln der Matrizenmultiplikation (siehe Vorlesung "Lineare Algebra"):\\[0.4cm]  
+\begin{center}
+\begin{large} 
+$ \begin{bmatrix} \sum{ \widetilde{x_i}^2} & \sum{(\widetilde{x_i} \cdot\widetilde{y_i})} \\ \sum{( \widetilde{x_i} \cdot \widetilde{y_i} )} & \sum{\widetilde{y_i}^2} \\ \end{bmatrix} \cdot                                                                                                  \begin{bmatrix} b \\ c \\ \end{bmatrix} = \begin{bmatrix} \sum{(\widetilde{x_i} \cdot\widetilde{z_i})} \\ \sum{(\widetilde{y_i} \cdot\widetilde{z_i})}  \\ \end{bmatrix} $
+\end{large}
+\end{center}
+%
+In der Lin. Algebra wird die Inverse einer 2x2- Matrix:    
+A = $ \begin{bmatrix} a & b \\ c & d \\ \end{bmatrix} $ berechnet als: 
+\begin{center}
+\begin{large} 
+$ A^{-1} = \frac{1}{ad - bc} \begin{bmatrix}
+d & -b \\
+-c & a \\
+\end{bmatrix} $
+\end{large}
+\end{center} 
+wobei Determinante(A)= detA = ad - bc. Mit obigen Werten eingesetzt erhält man: \\
+\begin{center}
+\begin{Large}
+$ \qquad \quad det = \sum{ \widetilde{x_i}^2} \cdot \sum{ \widetilde{y_i}^2}- (\sum{ \widetilde{x_i} \cdot \widetilde{y_i}})^2 \qquad \qquad \quad $ (4) \\[0.6cm]
+$ \begin{bmatrix} b \\ c \\ \end{bmatrix} =
+ \frac{1}{det} \cdot \begin{bmatrix} \sum{ \widetilde{y_i}^2} & -( \sum{(\widetilde{x_i} \cdot\widetilde{y_i})}) \\ -( \sum{( \widetilde{x_i} \cdot \widetilde{y_i} )}) & \sum{\widetilde{x_i}^2} \\ \end{bmatrix} 
+ \begin{bmatrix} \sum{(\widetilde{x_i} \cdot\widetilde{z_i})} \\ \sum{(\widetilde{y_i} \cdot\widetilde{z_i})} \\ \end{bmatrix}\quad $(5) \\[0.4cm] 
+\end{Large}
+\end{center}
+%
+Durch Auflösen der Gleichung (5) erhalten wir zusammen mit (1) und (4) die Aussagen von Theorem (Th-5.4)\\
+q.e.d.\\[0.5cm]
 
-
+\subsubsection{Weitere Folgerungen für opt. mLR(k=2)-Ebene} 
+%
+{\color{red}{******* Analoge Aussagen wie bei slR-Geraden formulieren****}}\\[0.5cm] 
+%
 \subsection{Allgemeine Mathematische Berechnungen zu $mLR(k\geqq 2$}
 %
 Die Notation ist analog zun den obigen Definitionen bei $adj.R^2$:\\
@@ -1041,16 +1125,16 @@ Für eine Liste von Trainingsdaten $[\langle \mathbf{x}^{(1)}, y^{(1)} \rangle, 
 Um dies zu erreichen brauchen wir eine Modell für die Funktion $f$.  Das einfachste Modell ist das lineare Modell, i.e. wir nehmen an das  $f$ gegeben ist durch: \\[0.2cm]
 \hspace*{1.3cm}
 $ f(\mathbf{x}) =  \sum\limits_{j=1}^k w_j \cdot x_j + b  =  \mathbf{x^\top} \cdot \mathbf{w} + b  \quad $ 
-wobei $ \mathbf{w} \in {\mathbb{R}^k}$ und $ {b\in\mathbb{R}} $.
+wobei $ \mathbf{w}, \mathbf{x} \in {\mathbb{R}^k}$ und $ {b\in\mathbb{R}} $.
 \\[0.2cm]
-Hier bezeichnet der Ausdruck $\mathbf{x}^\top \cdot \mathbf{w}$ das Matrix Produkt des Vektors $\mathbf{x}^\top$, welcher eine $1$-zu-$m$ Matrix ist, mit dem Vektor $\mathbf{w}$. Alternativ könnte man diesen Ausdruck auch als das Punktprodukt des Vektors $\mathbf{x}$ und des Vektors $\mathbf{w}$ interpretieren.\\[0.2cm]
+Hier bezeichnet der Ausdruck $\mathbf{x}^\top \cdot \mathbf{w}$ das Matrix Produkt des Vektors $\mathbf{x}^\top$, welcher eine $1$-zu-$k$ Matrix ist, mit dem Vektor $\mathbf{w}$. Alternativ könnte man diesen Ausdruck auch als das Punktprodukt des Vektors $\mathbf{x}$ und des Vektors $\mathbf{w}$ interpretieren.\\[0.2cm]
 An dieser Stelle werden Sie sich vielleicht fragen, warum es sinnvoll ist, hier die Matrixschreibweise einzuführen. Der Grund ist dass diese Notation die Formel verkürzt und darüber hinaus effizienter zu implementieren ist, da die meisten Programmiersprachen, die im Bereich des maschinellen Lernens verwendet werden, über spezielle Bibliotheksunterstützung für Matrixoperationen verfügen.\\  
-Sofern der Computer mit einer Grafikkarte ausgestattet ist, können einige
+Sofern der Computer mit einer Grafikkarte ausgestattet ist, wären einige
 Programmiersprachen sogar in der Lage, Matrixoperationen an die Grafikeinheit zu delegieren. Dies führt zu einer erheblichen Geschwindigkeitszuwachs.\\[0.2cm]
 %
 Die oben angegebene Definition von $f$ ist das Modell, das in der
 \href{https://en.wikipedia.org/wiki/Linear_regression}{linearen Regression} genutzt wird.\\ 
-Hier wird $\mathbf{w}$ als der {\color{blue}{Gewichtsvektor}} und $b$ als der {\color{blue}{bias}} bezeichnet. Es zeigt sich, dass die Notation vereinfacht werden kann, wenn wir den $k$-dimensionalen Merkmalsvektor $\mathbf{x}$ zu einem
+Hier wird $\mathbf{w}$ als der {\color{blue}{Gewichtsvektor}} und $b$ als der {\color{blue}{Bias}} bezeichnet. Es zeigt sich, dass die Notation vereinfacht werden kann, wenn wir den $k$-dimensionalen Merkmalsvektor $\mathbf{x}$ zu einem
 $k+1$-dimensionalen Vektor $\mathbf{x}'$ so erweitern, dass
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -1069,7 +1153,7 @@ $\mathbf{w}' = \langle w_1, \cdots, w_k, b \rangle^\top$ \quad wobei $\langle w_
 Dann haben wir
 \\[0.2cm]
 \hspace*{1.3cm}
-$ f(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b = \mathbf{x}' \cdot \mathbf{w}'$.
+$ f(\mathbf{x}) = \mathbf{x}^\top \cdot \mathbf{w} + b = \mathbf{x}'^\top \cdot \mathbf{w}'$.
 \\[0.2cm]
 Die Verzerrung ("bias") wurde also in den Gewichtsvektor aufgenommen, und zwar auf Kosten des Anhängens der Zahl $1$ am Ende des Eingabevektors.  Da wir diese Vereinfachung nutzen wollen, gehen wir von nun an davon aus, dass die Eingangsvektoren $\mathbf{x}^{(i)}$ alle so erweitert wurden, dass ihre letzte Komponente $1$ ist.  Unter dieser Annahme definieren wir die Funktion $f$ als:
 \\[0.2cm]
@@ -1122,37 +1206,12 @@ Wenn wir das Quadrat des Vektors $X \cdot \mathbf{w} - \mathbf{y}$ nehmen, stell
 
 \begin{equation}
   \label{eq:squared-error-3}
-  \mathtt{MSE}(\mathbf{w}) = \frac{1}{m-1} \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr)^\top \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr).
-\end{equation}\\
-
-So definiert, sind die Zeilenvektoren der Matrix $X$ die transponierten Vektoren $\mathbf{x}^{(i)}$.
-Nun haben wir folgendes:
-\\[0.2cm]
-\hspace*{1.3cm}
-$X \cdot \mathbf{w} - \mathbf{y} = \left(
-  \begin{array}{c}
-    \bigl(\mathbf{x}^{(1)}\bigr)^\top \\
-    \vdots \\
-    \bigl(\mathbf{x}^{(m)}\bigr)^\top
-  \end{array}
-  \right) \cdot \mathbf{w} - \mathbf{y} = \left(
-  \begin{array}{c}
-    \bigl(\mathbf{x}^{(1)}\bigr)^\top \cdot \mathbf{w} - y_1 \\\
-    \vdots \\
-    \bigl(\mathbf{x}^{(m)}\bigr)^\top \cdot \mathbf{w} - y_m
-  \end{array}
-  \right)
-$
-\\[0.2cm]
-Wenn wir das Quadrat des Vektors $X \cdot \mathbf{w} - \mathbf{y}$ nehmen, stellen wir fest, dass wir die Gleichung (\ref{eq:squared-error-2}) wie folgt umschreiben können
-
-\begin{equation}
-  \label{eq:squared-error-3}
   \mathtt{MSE}(\mathbf{w}) = \frac{1}{n-1} \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr)^\top \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr).
-\end{equation}\\
+\end{equation}
+%
 \subsubsection{Berechnung des Gradienten zu $\mathtt{MSE}$}
 %
-Um das minimale $ MSE(w)$ zu bekommen, sagt uns die Mathematik (Analysis I), müssen wir den "Gradienten" der Funktion $MSE(w)$ null setzen. Die folgenden Berechnungen dienen dazu. Nützlich dazu ist die Matrizenrechnung aus der Linearen Algebra.\\[0.2cm]
+Um das minimale  $\mathtt{MSE}(\mathbf{w})$ zu bekommen, sagt uns die Mathematik (Analysis I), müssen wir den "Gradienten" der Funktion $\mathtt{MSE}(\mathbf{w})$ null setzen. Die folgenden Berechnungen dienen dazu. Nützlich dazu ist die Matrizenrechnung aus der Linearen Algebra.\\[0.2cm]
 %
 Im letzten Abschnitt haben wir den mittleren quadratischen Fehler $\mathtt{MSE}(\mathbf{w})$ anhand der Gleichung
 (\ref{eq:squared-error-3}) berechnet.\\
@@ -1218,7 +1277,7 @@ Wenn die Matrix $C$ {\color{blue}{symmetrisch}} ist, d.h. wenn $C = C^\top$, ver
 \\[0.2cm]
 \hspace*{1.3cm}
 $ \nabla f(\mathbf{x}) = 2 \cdot C \cdot \mathbf{x}$.
-\\[0.2cm]
+\\[0.5cm]
 Als nächstes, wenn die Funktion $g: \mathbb{R}^n \rightarrow \mathbb{R}$ definiert ist als 
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -1234,42 +1293,42 @@ Der Beweis dieser Aussage ist eine Übungsaufgabe "Übung 5.3".\\[0.2cm]
 
 \subsubsection{Ableitung der Normalform}
 %
-Als nächstes leiten wir die so genannte {\color{blue}{Normalform}} \index{normal equation} for die Lineare Regression ab. Zu diesem Zweck   erweitern wir zuerst da sprodukt im der Gleicung (\ref{eq:squared-error-3}):
+Als nächstes leiten wir die so genannte {\color{blue}{Normalform}} \index{normal equation} für die Lineare Regression ab. Zu diesem Zweck   erweitern wir zuerst das Produkt im der Gleichung (\ref{eq:squared-error-3}):
 \\[0.2cm]
-\hspace*{0.3cm}
+\hspace*{-1.1cm}
 $
 \begin{array}[t]{lcll}
  \mathtt{MSE}(\mathbf{w}) & = & 
-  \frac{1}{m-1} \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr)^\top \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr) 
+  \frac{1}{n-1} \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr)^\top \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr) 
  \\[0.5cm]
  & = & 
- \frac{1}{m-1} \cdot \bigl(\mathbf{w}^\top \cdot X^\top - \textbf{y}^\top\bigr) \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr) 
- & \mbox{since $(A \cdot B)^\top = B^\top \cdot A^\top$}
+ \frac{1}{n-1} \cdot \bigl(\mathbf{w}^\top \cdot X^\top - \textbf{y}^\top\bigr) \cdot \bigl(X \cdot \mathbf{w} - \textbf{y}\bigr) 
+ & \mbox{da $(A \cdot B)^\top = B^\top \cdot A^\top$}
  \\[0.5cm]
  & = & 
-  \frac{1}{m-1} \cdot \bigl(\mathbf{w}^\top \cdot X^\top \cdot X \cdot \mathbf{w} - \textbf{y}^\top \cdot X \cdot \mathbf{w} 
+  \frac{1}{n-1} \cdot \bigl(\mathbf{w}^\top \cdot X^\top \cdot X \cdot \mathbf{w} - \textbf{y}^\top \cdot X \cdot \mathbf{w} 
  - \mathbf{w}^\top \cdot X^\top \cdot \mathbf{y}
 + \mathbf{y}^\top \cdot \mathbf{y} \bigr)
  \\[0.5cm]
  & = & 
- \frac{1}{m-1} \cdot \bigl(\mathbf{w}^\top \cdot X^\top \cdot X \cdot \mathbf{w} - 2 \cdot \textbf{y}^\top \cdot X \cdot \mathbf{w} 
+ \frac{1}{n-1} \cdot \bigl(\mathbf{w}^\top \cdot X^\top \cdot X \cdot \mathbf{w} - 2 \cdot \textbf{y}^\top \cdot X \cdot \mathbf{w} 
  +  \mathbf{y}^\top \cdot \mathbf{y} \bigr)
- & \mbox{since $\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y} = \textbf{y}^\top \cdot X \cdot \mathbf{w}$}
+ & \mbox{da $\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y} = \textbf{y}^\top \cdot X \cdot \mathbf{w}$}
 \end{array}
 $
-\\[0.2cm]
+\\[0.4cm]
 Die Tatsache das gilt 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y} = \textbf{y}^\top \cdot X \cdot \mathbf{w}$
 \\[0.2cm]
-mag auf den ersten Blick nicht offensichtlich sein. Aber diese folgt  asu zwei Fakten:
+mag auf den ersten Blick nicht offensichtlich sein. Aber dies folgt aus zwei Fakten:
 \begin{enumerate}
-\item Für zwei Matrizen $A$ and $B$ wo das Matrix Produkt $A \cdot B$ is definiert ist , gilt  
+\item Für zwei Matrizen $A$ and $B$ wo das Matrix Produkt $A \cdot B$ ist definiert ist, gilt  
       \\[0.2cm]
       \hspace*{1.3cm}
       $(A \cdot B)^\top = B^\top \cdot A^\top$.
-\item Das Matrix Produkt $\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y}$ ist eine reelle Zahl. Das Transponierte  $r^\top$ einer reellen Zahl ist selbst wieder eine reelle Zahl $r$, i.e.~$r^\top = r$ for all $r \in \mathbb{R}$.  Darum gilt:
+\item Das Matrix Produkt $\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y}$ ist eine reelle Zahl $r$. Das Transponierte  $r^\top$ einer reellen Zahl ist selbst wieder eine reelle Zahl $r$, i.e. ~$r^\top = r$ for all $r \in \mathbb{R}$.  Darum gilt:
       \\[0.2cm]
       \hspace*{1.3cm}
       $\mathbf{w}^\top \cdot X^\top \cdot \mathbf{y} = 
@@ -1285,36 +1344,36 @@ Also haben wir letztendlich gezeigt, dass
       + \mathbf{y}^\top \cdot \mathbf{y}  \Bigr)
 \end{equation}
 gilt. Die benutzte Matrix $X^\top \cdot X$ im ersten Term ist symmetrisch weil
-\\[0.2cm]
+\\[0.3cm]
 \hspace*{1.3cm}
 $\bigl(X^\top \cdot X\bigr)^\top = X^\top \cdot \bigl(X^\top\bigr)^\top = X^\top \cdot X$.
-\\[0.2cm]
+\\[0.4cm]
 Benutzen wir die Resultate der vorherigen Abschnitte so können wir nun  den Gradienten von  $\mathtt{MSE}(\mathbf{w})$ mit Bezug auf $\mathbf{w}$. berechnen zu 
-\\[0.2cm]
+\\[0.4cm]
 \hspace*{1.3cm}
 $ \nabla \mathtt{MSE}(\mathbf{w}) = \frac{2}{n-1} \cdot \Bigl(X^\top \cdot X \cdot \mathbf{w} - X^\top \cdot \mathbf{y}\Bigr)$.
-\\[0.2cm]
+\\[0.4cm]
 Falls quadratische Fehler $\mathtt{MSE}(\mathbf{w})$ eien Minimum für die Gewichte $\mathbf{w}$ hat, dann gilt
-\\[0.2cm]
+\\[0.4cm]
 \hspace*{1.3cm}
 $\nabla \mathtt{MSE}(\mathbf{w}) = \mathbf{0}$.
-\\[0.2cm]
+\\[0.4cm]
 Dies führt zur Gleichung
-\\[0.2cm]
+\\[0.4cm]
 \hspace*{1.3cm}
 $ \frac{2}{n-1} \cdot \Bigl(X^\top \cdot X \cdot \mathbf{w} - X^\top \cdot \mathbf{y}\Bigr) = \mathbf{0}$.
-\\[0.2cm]
-Dies kann umgeschhrieben werden zu 
+\\[0.4cm]
+Dies kann umgeschrieben werden zu 
 \begin{equation}
   \label{eq:normal-equation}
  \colorbox{blue}{\framebox{\colorbox{gray!40}{\framebox{
  $ \bigl(X^\top \cdot X\bigr) \cdot \mathbf{w} = X^\top \cdot \mathbf{y}$}}}} 
 \end{equation}
-Diese Gleichung nennt man {\color{blue}{Normalform}}.  \index{normal equation}\\
+Diese Gleichung nennt man {\color{blue}{Normalform}}.  \index{normal equation}\\[0.4cm]
 %
-Insgesamt erhält man das e Theorem: \\[0.5cm]
-\textbf{Theorem (Th-5.5): "Gewichtsmatrix bei mLR($k\geqslant 2$)"} \\[0.3cm]
-Die Gewichtsmatrx $\mathbf{w}$ bestimmt die Parameter der optimalen mLR - Hyperebenen. Sie lässt sich bestimmen durch die folgende Gleichung:\\[0.3cm]
+\hspace*{1.3cm} Insgesamt erhält man das folgende Theorem: \\[0.4cm]
+\textbf{Theorem (Th-5.5): "Gewichtsmatrix bei $mLR(k\geqslant 2$)"} \\[0.3cm]
+Die Gewichtsmatrx $\mathbf{w}$ bestimmt die Parameter der optimalen $mLR(k\geqslant 2$)- Hyperebenen. Sie lässt sich bestimmen durch die folgende Gleichung:\\[0.2cm]
 \begin{center}
 \begin{large}
 $ \bigl(X^\top \cdot X\bigr) \cdot \mathbf{w} = X^\top \cdot \mathbf{y}$
@@ -1747,7 +1806,7 @@ CNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispi
 \subsection{Mathematische Grundlagen von CNN}
 Die mathematischen Grundlagen des Convolutional Neural Networks (CNN) beruhen auf Konzepten aus linearen Algebra, partiellen Ableitungen und Faltung (Convolution). Ein CNN ist eine spezielle Art von neuronalem Netzwerk, das häufig in der Bild- und Sprachverarbeitung eingesetzt wird, aufgrund seiner Fähigkeit, räumliche Strukturen in Daten zu erkennen.\\
 Hier sind die wichtigen mathematischen Grundlagen eines Convolutional Neural Networks:\\
-
+%
 \textbf{1. Lineare Algebra:}\\
 CNNs verwenden Matrizenoperationen, um Gewichte und Aktivierungen zu berechnen. Ein typischer Schritt in einem CNN ist die lineare Transformation, bei der Eingabedaten durch eine Gewichtsmatrix multipliziert und ein Bias addiert wird. Dies erzeugt die Aktivierungen der nächsten Schicht.\\
 \textbf{2. Faltung (Convolution):}\\
