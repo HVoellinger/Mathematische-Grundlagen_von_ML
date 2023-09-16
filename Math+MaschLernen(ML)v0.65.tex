@@ -86,7 +86,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.65 (Datum: 15.9.2023) ist nicht final!!! \\
+Diese Version V0.65 (Datum: 16.9.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.65.pdf} \\
@@ -1101,9 +1101,9 @@ $ \overline{f} = \overline{z} $ \\
 \end{large}
 \textbf{Beweis:} Man kann den Beweis analog wie bei sLR durchführen.\\
 In Theorem (Th-5.4) wurde gezeigt, dass gilt: (1) $ \bar{z} = a + b \cdot  \bar{x} +  c  \cdot \bar{y} = f(\bar{x},\bar{y}) $  \\[0.2cm] 
-q.e.d.
-
-{\color{red}{******* weitere analoge Aussagen wie bei slR-Geraden formulieren****}}\\[0.5cm] 
+q.e.d.\\[0.2cm] 
+%
+{\color{red}{***************************** Weitere analoge Aussagen wie bei sLR-Geraden formulieren (i.e. "SST = SSE + SSR?" etc. ... *********************************}}\\[0.5cm] 
 %
 \subsection{Allgemeine Mathematische Berechnungen zu $mLR(k\geqq 2$}
 %
@@ -1182,8 +1182,7 @@ Unser Ziel ist es, die in dieser Gleichung erscheinende Summe als Skalarprodukt 
 \hspace*{1.3cm}
 $\mathbf{y} := \langle y^{(1)}, \cdots, y^{(n)} \rangle^\top$.
 \\[0.2cm]
-Beachten Sie, dass $\mathbf{y} \in \mathbb{R}^m$ enthalten ist, da es eine Komponente für alle $n$ Trainings
-Beispiele hat.  Als nächstes definieren wir die {\color{blue}{Designmatrix}} $X$ wie folgt:
+Beachten Sie, dass $\mathbf{y} \in \mathbb{R}^n$ enthalten ist, da es eine Komponente für alle $n$ Trainings Beispiele hat. Als nächstes definieren wir die {\color{blue}{Designmatrix}} $X$ wie folgt:
 \\[0.2cm]
 \hspace*{1.3cm}
 $ X := \left(
@@ -1406,12 +1405,12 @@ In der Tat werden wir wenn wir die Normaform auflösen die  \textsl{Python} Funk
 \hspace*{5.3cm}
 $A \cdot \mathbf{x} = \mathbf{b}$. \\[0.5cm]
 %
-\textbf{Korollar (K-5.4)}:\\ 
+\textbf{Korollar (K-5.5)}:\\ 
 Theorem (Th-5.4) folgt direkt aus Theorem (Th-5.5).\\ 
 %
 \textbf{Beweis}:\\
-Einsetzen der Definitionen für die Normalform für den Fall k=2. \\    
-q.e.d.\\[0.5cm]
+{\color{red}{Einsetzen der Definitionen in die in (Th-5.5) definierte Normalform für den Fall k=2. Dies ist als Homework zu definieren......\\ q.e.d.}}. \\    
+
 
 \subsection{simple Lineare Regression (sLR) Beispiele}
 
@@ -1478,7 +1477,7 @@ Bestimmungsgrat $R^2$ und Achsenabschnitt $a$ und Steigung $b$ der Regressiosger
 \end{figure}
 \newpage
 
-\subsection{multiple Lineare Regression mLR(k=2) Beispile )}
+\subsection{multiple Lineare Regression mLR(k=2) Beispiele )}
 
 \subsubsection{Manuelle Berechnungen zu einem mLR(k=2) Beispiel}
 %
@@ -1498,14 +1497,14 @@ Also brauchen wir: {\color{blue}{$ n, \quad \bar{x}, \bar{y}, \bar{z}, \quad \su
 Alle diese Werte werden nun in die Excel-Tabelle eingetragen. Siehe die blauen Felder im nächsten Bild.\\[0.1cm]
 
 \textbf{2. Berechne $adj.R^2$:}\\[0.2cm]
-Nachdem die opt. Regressionsebene $z(x,y)$ berechnet ist lassen sich auch die  Werte SSE und SST berechnen. Siehe grünen Felder im nächsten Bild:\\
-\\[1.5cm]
+Nachdem die opt. Regressionsebene $z(x,y)$ berechnet ist, lassen sich auch die  Werte SSE und SST berechnen. Siehe grünen Felder im nächsten Bild:\\
+\\[0.5cm]
 
 \begin{figure}[htp]
   \centering
   \hspace*{-0.8cm} 
   \includegraphics[width=1.2\textwidth]{Einfaches-mLR(k=2)_Beispiel}\\
-  \caption{mLR(k=2)-Beispiel}
+  \caption{Manuelle Berechnung mLR(k=2)}
   \label{fig:mLR(k=2)-Beispiel}
 \end{figure}
 \newpage
@@ -2149,7 +2148,7 @@ Für eine Lösung vergleiche:\\
 
 \subsection{Lösungshinweise zu Übungen Kapitel 5}
 %
-\hspace*{1.0cm} Weitere Hilfe unter \textbf{[HVö-5]:}\\
+\hspace*{-0.3cm} Weitere Hilfe \textbf{[HVö-5]:} 
 \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}
 %
 \subsubsection{Lösungshinweise zu Übung 5.1}
@@ -2194,9 +2193,10 @@ Question 2': 15,164 + 34,79 = 49,954 points.\\[0.1cm]
 Question 3:  x= (25-14,117)/3,7376=2,91[h] \\[0.3cm]	
 Question 3': x= (25-15,164)/3,479=2,83[h] \\[0.3cm]	
 Question 4: Zum Bestehen ist Homework besser (höherer Bias) und um jedoch insgesamt ein besseres Ergebnis zu erhalten ist die Examensvorbereitung besser (höherer "Slope" = "Lernkurve") und der Bestimmungswert $R^2$ ist besser.\\[0.3cm]	
+%
+\hspace*{0.0cm}Für eine komplette Lösung vergleiche:\\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/LR-Calculation_of_Coeff.xlsx}
 
-\hspace*{1.0cm}Für eine komplette Lösung vergleiche: \\
-\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/LR-Calculation_of_Coeff.xlsx}\\[0.4cm]	
 
 \subsubsection{Lösungshinweise zu Übung 5.7}
 %
@@ -2205,11 +2205,10 @@ $\rightarrow$ Adj.R²=  1 -(1-R²)*(9/7) $\backsim $ 0.8512  \\[0.3cm]
 Question 1:  13,264 points.	\\[0.1cm]
 Question 2:  13,264 + 24,88 + 13,82 = 51,96 points.\\[0.1cm]
 Question 3:  Examensvorbereitung x = (25-13,264)/2,488=4,72[h]\\ Homework y = (25-13,264)/1,382 = 8,49[h]\\[0.2cm]
-Anmerkung: $adj.R^2$ ist geringer als $R^2$ für Examensvorbereitung, aber weit besser als $R^2$ bei Homework. Insgesamt ist somit diese Modell besser ("ausbalancierter" und geringerer Bias). \\[0.3cm]
-	
-\hspace*{1.0cm}Für eine komplette Lösung vergleiche:\\
-\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/LR-Calculation_of_Coeff.xlsx}\\[0.4cm]	
-
+Anmerkung: $adj.R^2$ ist geringer als $R^2$ für Examensvorbereitung, aber weit besser als $R^2$ bei Homework. Insgesamt ist somit diese Modell besser ("ausbalancierter" und geringerer Bias). \\[0.2cm]
+%	
+\hspace*{0.0cm}Für eine komplette Lösung vergleiche:\\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/LR-Calculation_of_Coeff.xlsx}
 
 \newpage
 
