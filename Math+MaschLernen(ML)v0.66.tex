@@ -1340,8 +1340,7 @@ mag auf den ersten Blick nicht offensichtlich sein. Aber dies folgt aus zwei Fak
 Also haben wir letztendlich gezeigt, dass
 \begin{equation}
   \label{eq:squared-error-6}
-  \mathtt{SSE}(\mathbf{w}) = \bigl(\mathbf{w}^\top \cdot X^\top \cdot X \cdot \mathbf{w} - 2 \cdot \mathbf{\widetilde{y}}^\top \cdot X \cdot \mathbf{w} 
- +  \mathbf{\widetilde{y}}^\top \cdot \mathbf{\widetilde{y}} \bigr)\end{equation}
+  \mathtt{SSE}(\mathbf{w}) = \bigl(\mathbf{w}^\top \cdot X^\top \cdot X \cdot \mathbf{w} - 2 \cdot \mathbf{\widetilde{y}}^\top \cdot X \cdot \mathbf{w} + \mathbf{\widetilde{y}}^\top \cdot \mathbf{\widetilde{y}} \bigr)\end{equation}
 gilt. Die benutzte Matrix $X^\top \cdot X$ im ersten Term ist symmetrisch weil
 \\[0.3cm]
 \hspace*{1.3cm}
@@ -1384,13 +1383,13 @@ Für k=1 (opt. sLR-Geraden), k=2 (opt. mLR-Ebenen) und $k\geqslant 3$ ( opt. mLR
 (LSF-II): $ \quad \mathbf{w} = \bigl(X^\top \cdot X)^{-1} \cdot X^\top \cdot \mathbf{\widetilde{y}} $
 \end{large}
 \end{center} 
+\textbf{Anmerkung:} Gleichung (LSF-II) gilt nur falls $(X^\top \cdot X)$ invertierbar $\Leftrightarrow det(X^\top \cdot X) \neq 0 $ ist. Ist dies nicht der Fall lösen wir die Normalform (\ref{eq:normal-equation}) auf.\\
 \textbf{Beweis:}\\
-Siehe obige Rechnung. \\
+Siehe obige Berechnungen. \\
 q.e.d. \\[0.5cm]
 %
 \textbf{Bemerkung:}
-Obwohl die (kxk)-Matrix $X^\top \cdot X$ oft invertierbar ist, lesen wir häufig auch noch die ursprüngliche Gleichung : $ \bigl(X^\top \cdot X\bigr) \cdot \mathbf{w} = X^\top \cdot \mathbf{\widetilde{y}}$ 
-\\[0.2cm]
+Obwohl die (kxk)-Matrix $X^\top \cdot X$ oft invertierbar ist, können wir (wenn dies nicht zutrifft) auch die ursprüngliche Gleichung : $ \bigl(X^\top \cdot X\bigr) \cdot \mathbf{w} = X^\top \cdot \mathbf{\widetilde{y}}$ lösen.\\[0.2cm]
 In der Tat werden wir wenn wir die Normaform auflösen die  \textsl{Python} Funktion $\texttt{numpy.linalg.solve}(A,b)$ nutzen, welche die Matrix $A \in \mathbb{R}^{n \times n}$ und den Vektor $\mathbf{b} \in \mathbb{R}^n$ berechnet mit der folgenden Gleichung:
 \\[0.2cm]
 \hspace*{5.3cm}
@@ -1401,8 +1400,8 @@ Für k=1 und k=2 folgen die Theoreme (Th-5.2) und (Th-5.4) direkt aus dem Theore
 %
 \textbf{Beweis}:\\
 Einsetzen der Definitionen in die zwei Formeln von (Th-5.5) für beide Fälle. \\
-Hinweis: Berechne als erstes die (kxk)-Matrix $X^\top \cdot X$ und danach den (kx1)-Vektor $ X^\top \cdot \mathbf{\widetilde{y}} $ \\
-Diese Berechnungen sind als (Übung-5.8) durchzuführen. Eine komplette Lösung dazu finden sie auch im abschnitt "Lösungshinweisen zu Übungen Kapitel 5".\\
+\textbf{Hinweis:} Berechne als erstes die (kxk)-Matrix $X^\top \cdot X$ und danach den (kx1)-Vektor $ X^\top \cdot \mathbf{\widetilde{y}} $ \\
+Diese Berechnungen sind als (Übung-5.8) durchzuführen. Eine komplette Lösung dazu finden sie auch im Abschnitt "Lösungshinweise zu den Übungen Kapitel 5".\\
 %
 q.e.d. \\    
 
@@ -1939,7 +1938,11 @@ In ähnlicher Weise werden die Gradienten berechnet und die Gewichte und Verzerr
 
 Dieser Prozess des Vorwärtsdurchlaufs, der Verlustberechnung und des Rückwärtsdurchlaufs wird iterativ über den gesamten Trainingsdatensatz wiederholt, um die Gewichte und Verzerrungen zu aktualisieren, bis das Netzwerk lernt, genaue Vorhersagen zu treffen.\\[0.2cm]
 
-Weitere Details unter folgenden \textbf{Referenzen:} [BackP-Exam] und [BackP-Scikit]  
+Weitere Details unter folgenden \textbf{Referenzen:} [BackP-Exam] und [BackP-Scikit] 
+{\color{red}{*******************************************************************\\ ****************  Ende Anpassung für diese Subsection ************** \\
+********************************************************************\\}}
+
+ 
 \newpage
 
 \subsection{Übungen zum Kapitel 8}
@@ -2217,8 +2220,7 @@ Siehe die folgenden Handnotizen dazu:\\
 \begin{center}
 \hspace*{-1.5cm}   
 \includegraphics[width=1.2\textwidth]{Korollar-(K-5.5)-Seite1}
-\hspace*{-1.5
-cm}   
+\hspace*{-1.5cm}   
 \includegraphics[width=1.2\textwidth]{Korollar-(K-5.5)-Seite2}
 \end{center}
 
