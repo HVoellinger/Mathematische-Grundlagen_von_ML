@@ -1164,11 +1164,11 @@ Wir berechnen die partielle Ableitung $ \frac{\partial}{\partial b}(\mathtt{MSE}
 \begin{equation}
     0 = \frac{\partial}{\partial b}(\mathtt{SSE}(\mathbf{w})) =  \sum\limits_{i=1}^n \Bigl(\bigl(\mathbf{x}^{(i)})^\top \cdot \mathbf{w} + b - y^{(i)}\Bigr)
 \end{equation}
-Lösen wir die Gleichung nach $b$ auf, nutzen $\bar{\mathbf{x}}^\top = \bar{\mathbf{x}}$ und kürzen mit n,  so erhalten wir mit der Matrixschreibweise:
+Lösen wir die Gleichung nach $b$ auf und kürzen mit n,  so erhalten wir mit der Matrixschreibweise:
 \begin{large}
 \begin{equation}
     \label{eq:squared-error-3}
-    b = \bar{\mathbf{y}}- \mathbf{w} \cdot \bar{\mathbf{x}}^\top = \bar{\mathbf{y}} - \mathbf{w} \cdot \bar{\mathbf{x}}   
+    b = \bar{\mathbf{y}}- \mathbf{w} \cdot \bar{\mathbf{x}}^\top    
 \end{equation}
 \end{large}
 Setzen wir dies in die Definition von $\mathtt{SSE})(\mathbf{w}) $ ein und nutzen die uns schon bekannte \textbf{Notation}( 
@@ -1191,7 +1191,7 @@ $ X := \left(
   \right)   
 $
 \\[0.2cm]
-In der Literatur heisst $X$ auch oft {\color{blue}{Feature Matrix}}. So definiert sind die Zeilenvektoren der Matrix $X$ die transponierten Vektoren $\mathbf{\widetilde{x^{(i)}}}$. Nun haben wir folgendes:
+In der Literatur heisst $X$ auch oft {\color{blue}{Feature Matrix}}. $X$ ist eine (nxk)-Matrix. So definiert sind die Zeilenvektoren der Matrix $X$ die transponierten Vektoren $ \mathbf{\widetilde{x^{(i)}}}$. Nun haben wir folgendes:
 \\[0.4
 cm]
 \hspace*{1.3cm}
@@ -1210,7 +1210,7 @@ $X \cdot \mathbf{w} - \mathbf{\widetilde{y} }= \left(
   \right)
 $
 \\[0.2cm]
-Wenn wir das Quadrat des Vektors $X \cdot \mathbf{w} - \mathbf{y}$ nehmen, stellen wir fest, dass wir die Gleichung $\left(\ref{eq:squared-error-2} \right)$ wie folgt umschreiben können:\\[0.3cm]
+Wenn wir das Quadrat des Vektors $X \cdot \mathbf{w} - \mathbf{\widetilde{y}}$ nehmen, stellen wir fest, dass wir die Gleichung $\left(\ref{eq:squared-error-2} \right)$ wie folgt umschreiben können:\\[0.3cm]
 \begin{equation}
   \label{eq:squared-error-5}
   \mathtt{SSE}(\mathbf{w}) = \bigl( X \cdot \mathbf{w} - 
@@ -1380,7 +1380,7 @@ Insgesamt erhält man das folgende Theorem: \\[0.4cm]
 Für k=1 (opt. sLR-Geraden), k=2 (opt. mLR-Ebenen) und $k\geqslant 3$ ( opt. mLR-Hyperebenen) lassen sich "Bias" und "Gewichte" durch die folgenden zwei Gleichungen bestimmen:
 \begin{center}
 \begin{large}
-(LSF-I): $ \qquad  b = \mathbf{w}\cdot \bar{\mathbf{x}} - \bar{\mathbf{y}} \qquad \qquad $ \\[0.5cm]
+(LSF-I): $ \qquad b = \bar{\mathbf{y}}- \mathbf{w} \cdot \bar{\mathbf{x}}^\top \qquad \qquad $ \\[0.5cm]
 (LSF-II): $ \quad \mathbf{w} = \bigl(X^\top \cdot X)^{-1} \cdot X^\top \cdot \mathbf{\widetilde{y}} $
 \end{large}
 \end{center} 
@@ -1389,7 +1389,7 @@ Siehe obige Rechnung. \\
 q.e.d. \\[0.5cm]
 %
 \textbf{Bemerkung:}
-Obwohl die Matrix $X^\top \cdot X$ oft invertierbar ist, lesen wir häufig auch noch die ursprüngliche Gleichung : $ \bigl(X^\top \cdot X\bigr) \cdot \mathbf{w} = X^\top \cdot \mathbf{\widetilde{y}}$ 
+Obwohl die (kxk)-Matrix $X^\top \cdot X$ oft invertierbar ist, lesen wir häufig auch noch die ursprüngliche Gleichung : $ \bigl(X^\top \cdot X\bigr) \cdot \mathbf{w} = X^\top \cdot \mathbf{\widetilde{y}}$ 
 \\[0.2cm]
 In der Tat werden wir wenn wir die Normaform auflösen die  \textsl{Python} Funktion $\texttt{numpy.linalg.solve}(A,b)$ nutzen, welche die Matrix $A \in \mathbb{R}^{n \times n}$ und den Vektor $\mathbf{b} \in \mathbb{R}^n$ berechnet mit der folgenden Gleichung:
 \\[0.2cm]
@@ -1400,8 +1400,9 @@ $A \cdot \mathbf{x} = \mathbf{b}$. \\[0.5cm]
 Für k=1 und k=2 folgen die Theoreme (Th-5.2) und (Th-5.4) direkt aus dem Theorem (Th-5.5).\\
 %
 \textbf{Beweis}:\\
-{\color{red}{Einsetzen der Definitionen in die zwei Formeln von (Th-5.5) für beide Fälle. Dies ist als Homework zu definieren...}}.\\ 
-Hinweis: .....Berechne als erstes $X^\top \cdot X$ und danach $ X^\top \cdot \mathbf{\widetilde{y}} $.....  \\
+Einsetzen der Definitionen in die zwei Formeln von (Th-5.5) für beide Fälle. \\
+Hinweis: Berechne als erstes die (kxk)-Matrix $X^\top \cdot X$ und danach den (kx1)-Vektor $ X^\top \cdot \mathbf{\widetilde{y}} $ \\
+Diese Berechnungen sind als (Übung-5.8) durchzuführen. Eine komplette Lösung dazu finden sie auch im abschnitt "Lösungshinweisen zu Übungen Kapitel 5".\\
 %
 q.e.d. \\    
 
@@ -2220,12 +2221,6 @@ Siehe die folgenden Handnotizen dazu:\\
 cm}   
 \includegraphics[width=1.2\textwidth]{Korollar-(K-5.5)-Seite2}
 \end{center}
-
-
-
-\subsubsection{Lösungshinweise zu Übung 5.7}
-%
-
 
 \newpage
 
