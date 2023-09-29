@@ -1188,20 +1188,27 @@ $ X := \left(
     \vdots \\
     \bigl(\mathbf{\widetilde{x^{(n)}}}\bigr)^\top
   \end{array}
-  \right)   
-$
+  \right)   \qquad \qquad \qquad \qquad \qquad \qquad (A)
+$   
 \\[0.2cm]
-In der Literatur heisst $X$ auch oft {\color{blue}{Feature Matrix}}. $X$ ist eine (nxk)-Matrix. So definiert sind die Zeilenvektoren der Matrix $X$ die transponierten Vektoren $ \mathbf{\widetilde{x^{(i)}}} $ mit $ 1 \lneq i \lneq n $  wobei n = Anzahl der Trainingstupel. Schreiben wir die einzelnen Komponenten (Skalare) der (nxk)-Matrix $X$ aus,  so ergibt sich: 
+In der Literatur heisst $X$ auch oft {\color{blue}{Feature Matrix}}. $X$ ist eine (nxk)-Matrix. So definiert sind die Zeilenvektoren der Matrix $X$ die transponierten Vektoren $ \mathbf{\widetilde{x^{(i)}}} $ mit $ 1 \lneq i \lneq n $  wobei n = Anzahl der Trainingstupel. Schreiben wir die einzelnen Komponenten (Skalare) der (nxk)-Matrix $X$ und (kxn)-Matrix  $X^\top$ aus, so ergibt sich: 
 \\[0.3cm]
-\hspace*{4.8cm}
+\hspace*{2.0cm}
 $ X := \left(
   \begin{array}{c}
     \widetilde{x_1^{(1)}} \quad ... \quad  \widetilde{x_k^{(1)}}\\
     \vdots \\
     \widetilde{x_1^{(n)}} \quad ... \quad  \widetilde{x_k^{(n)}}
   \end{array}
-  \right)   
-$
+  \right) 
+$;       
+$ \quad X^\top := \left(
+  \begin{array}{c}
+    \widetilde{x_1^{(1)}} \quad ... \quad  \widetilde{x_1^{(n)}}\\
+    \vdots \\
+    \widetilde{x_k^{(1)}} \quad ... \quad  \widetilde{x_k^{(n)}}
+  \end{array}
+  \right) \qquad \qquad (A') $
 \\[0.2cm]
 Nun haben wir folgendes:
 \\[0.4
@@ -1379,7 +1386,18 @@ Dies kann umgeschrieben werden zu
  \colorbox{blue}{\framebox{\colorbox{gray!40}{\framebox{
  $ \bigl(X^\top \cdot X\bigr) \cdot \mathbf{w} = X^\top \cdot \mathbf{\widetilde{y}}$}}}} 
 \end{equation}
-Diese Gleichung nennt man {\color{blue}{Normalform}}.  \index{normal equation}\\[0.4cm]
+Diese Gleichung nennt man {\color{blue}{Normalform}}.  \index{normal equation}\. Nutzen wir die Gleichungen (A') so können wir jetzt leicht per Matrizen-Multiplikation die Komponenten der (kxk)-Produktmatrix $ X^\top \cdot X $ berechnen:
+\\[0.3cm]
+\hspace*{2.0cm}
+$ X^\top \cdot X := \left(
+  \begin{array}{c}
+     \sum\limits_{i=1}^n [{\widetilde{x_1^{(i)}}]^2} \quad ... \quad \sum \limits_{i=1}^n [{\widetilde{x_1^{(i)}}} \cdot {\widetilde{x_k^{(i)}}}]\\
+    \vdots \\
+    \sum\limits_{i=1}^n [{\widetilde{x_k^{(i)}}} \cdot {\widetilde{x_1^{(_i)}}}] \quad ... \quad  \sum\limits_{i=1}^n [{\widetilde{x_k^{(i)}}]^2} 
+  \end{array}  \
+  \right) \qquad \qquad \qquad  (B)
+$     
+\\[0.4cm]
 Angenommen die Matrix $X^\top \cdot X$ ist invertierbar, so lässt sich obige Matrix umschreiben zu:
 \\[0.2cm]
 \hspace*{4.8cm}
