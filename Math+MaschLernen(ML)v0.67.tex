@@ -86,7 +86,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.67 (Datum: 1.10.2023) ist nicht final!!! \\
+Diese Version V0.67 (Datum: 2.10.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.65.pdf} \\
@@ -1440,20 +1440,20 @@ Für k=1 und k=2 folgen die Theoreme (Th-5.2) und (Th-5.4) direkt aus dem Theore
 \textbf{Beweis}:\\
 Einsetzen der Definitionen in die zwei Formeln von (Th-5.5) für beide Fälle. \\
 \textbf{Hinweis:} Berechne als erstes die (kxk)-Matrix $X^\top \cdot X$ und danach den (kx1)-Vektor $ X^\top \cdot \mathbf{\widetilde{y}} $ \\
-Diese Berechnungen sind als (Übung-5.9) durchzuführen. Eine komplette Lösung dazu finden sie auch im Abschnitt "Lösungshinweise zu den Übungen Kapitel 5".\\
+Diese Berechnungen sind als (Übung-5.8) durchzuführen. Eine komplette Lösung dazu finden sie auch im Abschnitt "Lösungshinweise zu den Übungen Kapitel 5".\\
 %
 \\[0.3cm]    
 \textbf{Anmerkung (A-5.2): Beweis von (Th-5.5) ohne "Bias-Trick"}: \\[0.2cm] 
 Wenn man ohne den Bias-Trick arbeiten will, kann man die Notation so anpassen, dass wir den k-dimensionalen Feature-Vektor zu einem (k+1)-dimensionalen Vektor erweitern:\\[0.2cm]
 \hspace*{1.3cm}
-$x_j' := x_j$ \quad für alle $j\in\{1,\cdots,k\}$ \quad and \quad $x_{k+1}' := 1$.
+$x_j' := x_j$ \quad für alle $j \in \{1,\cdots,k\} $ \quad and \quad $x_{k+1}' := 1$.
 \\[0.2cm]
 weiterhin definieren wir:
 \\[0.2cm]
 \hspace*{1.3cm}
 $\mathbf{w}' := \langle w_1, \cdots, w_k, b \rangle^\top$ \quad wobei $\langle w_1, \cdots, w_k \rangle = \mathbf{w}^\top$.
 \\[0.2cm]
-Der Herleitung der Normalform ist dabei analog wie mit dem "Bias-Trick". Wir erhalten für die Faktoren der {\color{blue}{Normalform}}:
+Die Herleitung der Normalform ist dabei analog wie mit dem "Bias-Trick". Wir erhalten für die Faktoren der {\color{blue}{Normalform}}:
 \\[0.4cm]
 \hspace*{-0.3cm}
 $ X^\top \cdot X := \left(
@@ -1477,14 +1477,19 @@ $
 .\\[0.2cm]
 Wie man leicht an der Matrix $X^\top \cdot X$ erkennt, ist die Matrix symmetrisch, da das Produkt zweier reellen Zahlen kommutativ ist.\\[0.3cm]
 \textbf{Anwendung für den Fall k=1 (simple lineare Regression)} \\[0.2cm] 
-Einsetzen dieser beiden Faktoren in die Formeln von (Th-5.5) ergibt die Ergebnisse des Theorem (Th-5.2) fü die simple lineare Regression. \\
-\textbf{Hinweis:} Die konkrete Berechnung  sind als (Übung-5.8) durchzuführen. Eine komplette Lösung dazu finden sie auch im Abschnitt "Lösungshinweise zu den Übungen Kapitel 5".\\
+Einsetzen der beiden Formeln (B') in die aus in die Formeln von (Th-5.5) ergibt die Ergebnisse des Theorem (Th-5.2) für die simple lineare Regression. \\
+%
+\textbf{Hinweis:} Die konkrete Berechnungen sind als (Übung-5.9) durchzuführen. Eine komplette Lösung dazu finden sie auch im Abschnitt "Lösungshinweise zu den Übungen Kapitel 5".\\
+%
+\textbf{Anwendung für den Fall k=2 (mult. lineare Regression (k=2)}\\[0.2cm] 
+Analog wie oben bei k=1 ist hier vorzugehen. Die einzige Schwierigkeit ist die Berechnung der Inversen zu einer (3x3)- Matrix, da hier etwas längliche Ausdrücke zu berechnen Sind. Hier zeigt sich auch der Vorteil des "Bias-Trick", da hier nur eine (2x2)-Matrix zu invertieren ist. Wir benutzen hier die bekannten Formeln aus der Linearen Algebra. Am Ende erhalten wir die Formeln des Theorem (Th-5.4).  \\
+\textbf{Hinweis:} Die konkrete Berechnungen sind als (Übung-5.9) durchzuführen. Eine komplette Lösung dazu finden sie auch im Abschnitt "Lösungshinweise zu den Übungen Kapitel 5".\\
 %
 q.e.d. \\    
 
 \subsection{simple Lineare Regression (sLR) Beispiele}
 
-Um ein besseres Gefühl für die lineare Regression zu bekommen, wollen wir sie noch einige Beispiel mit konkreten Zahlen berechnen. Erstes manuell und dann auch noch mit Hilfe der Scikit-learn Software Bibliothek zum maschinellen Lernen für die Programmiersprache Python.
+Um ein besseres Gefühl für die lineare Regression zu bekommen, wollen wir sie noch einige Beispiel mit konkreten Zahlen berechnen. Erstes manuell und dann auch noch mit Hilfe der Scikit-learn Software Bibliothek zum maschinellen Lernen für die Programmiersprache Python.\\
 \subsubsection{Manuelle Berechnungen zu einem sLR Beispiel}
 %
 Bei der manuellen Berechnung für einfache Beispiele mit wenigen  Trainingspunkten entwickeln wir einen Excel-Tabelle, wo wir die wichtigsten Parameter/Komponenten für die Berechnung von der optimalen sLR-Geraden und dem Bestimmungsgrad R² per Tabellen-Kalkulation bestimmen lassen.\\
@@ -1648,16 +1653,19 @@ Q1: Wie viele Punkte würde ein Student ohne Examens Vorbereitung und ohne Hausa
 Q2: Wie viele Punkte würde ein Student mit 10 Stunden für Examens Vorbereitung und auch mit 10 Std. Hausaufgabe Aufwand erreichen? \\ 
 Q3: Wie viel Aufwand für Examensvorbereitung ist notwendig um genug Punkte (=25) zum Bestehen des Examens? Wie gross ist der Aufwand bei Homework?\\[0.2cm]
 \textbf{Zusätzliche Frage/Anmerkung:} Unsere Berechnung nutzt beide Variablen zur Berechnung. Was ist der Unterschied zum sLR-Model Resultat? Vergleiche $adj.R^2$ (wie hier genutzt) zu den zwei $R^2$- Lösungen von Übung 5.6.\\
-
-
+%
 \subsubsection{Übung 5.8 - "Beweis zu Korollar (K-5.5)"}
 %
 Beweise die Aussage von Korollar (K-5.5) und lerne dabei die "Allgemeinen Berechnungen zu LSF-Verfahren" dadurch kennen. Beachte die Hinweise. 
-
-
-\subsubsection{Übung 5.9 - "Beweis zur Anmerkung (A-5.2)"}
 %
-Beweise die Aussage von Anmerkung (A-5.2) und lerne dabei die "Allgemeinen Berechnungen zu LSF-Verfahren (ohne Bias-Trick)" besser kennen. Beachte die Hinweise in der Aufgabenstellung. 
+\subsubsection{Übung 5.9 - "Beweis zur Anmerkung (A-5.2)-Fall (k=1)"}
+%
+Beweise die Aussage von Anmerkung (A-5.2) im Fall K=1 und lerne dabei die "Allgemeinen Berechnungen zum LSF-Verfahren (ohne Bias-Trick)" besser kennen. Beachte die Hinweise in der Aufgabenstellung. 
+%
+\subsubsection{Übung 5.10 - "Beweis zur Anmerkung (A-5.2) Fall (k=2)"}
+%
+Beweise die Aussage von Anmerkung (A-5.2) im Fall k=2 und lerne dabei die "Allgemeinen Berechnungen zum LSF-Verfahren (ohne Bias-Trick)" besser kennen. Die Vorteile des "Bias-Trick" werden offensichtlich. Beachte die Hinweise in der Aufgabenstellung. 
+
 
 \newpage
 
@@ -2296,7 +2304,7 @@ Anmerkung: $adj.R^2$ ist geringer als $R^2$ für Examensvorbereitung, aber weit 
 
 \subsubsection{Lösungshinweise zu Übung 5.8}
 %
-Setze die Gleichungen (B) für k=1 und K=2 um, so erhalten wir für $(X^\top \cdot X)$ und $X^\top \cdot \widetilde{y} $ die entsprechenden (kxk)-Matrix und (kx1)-Vektoren:\\
+Setze die Gleichungen (B) für k=1 und K=2 um, so erhalten wir für $(X^\top \cdot X)^{(-1)}$ und $X^\top \cdot \widetilde{y} $ die entsprechenden (kxk)-Matrix und (kx1)-Vektoren:\\
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Korollar-(K-5.5)-Seite1.jpg}  \\
 Berechnen wird die notwendigen Matrixen-Multiplikaionenen so erhalten wir für k=1 und k=2 die Ergebnisse der Theoreme (Th-5.2) und (Th-5.4):\\
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Korollar-(K-5.5)-Seite2.jpg}
@@ -2309,13 +2317,18 @@ Berechnen wird die notwendigen Matrixen-Multiplikaionenen so erhalten wir für k
 %\hspace*{-1.5cm}   
 %\includegraphics[width=1.2\textwidth]{Korollar-(K-5.5)-Seite2}
 %\end{center}
-
+%
 \subsubsection{Lösungshinweise zu Übung 5.9}
 %
 Setze die Gleichungen (B') für k=1 um, so erhalten wir für $(X^\top \cdot X)^{(-1)}$ die folgende 2x2 Matrix:\\
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Anmerkung-A5.2-Blatt1.jpg}  \\
-Setzen wir jetzt noch $X^\top \cdot y $ ein und berechnen das Ergebnis für $w_1$ und $y$ so erhalten wir das Ergebnis von Theorem (Th-5.2):\\
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Anmerkung-A5.2-Blatt2.jpg}
+Setzen wir jetzt noch $X^\top \cdot y $ ein und berechnen das Ergebnis für $w_1$ und $b$ so erhalten wir das Ergebnis von Theorem (Th-5.2):\\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Anmerkung-A5.2-Blatt2.jpg}\\
+%
+\subsubsection{Lösungshinweise zu Übung 5.10}
+%
+Setze die Gleichungen (B') für k=2 um, so erhalten wir für $(X^\top \cdot X)^{(-1)}$ eine (3x3)- Matrix analog wie im Falls k=1 wo wir eine (2x2)-Matrix erhalten hatten:\\
+Setzen wir jetzt noch $X^\top \cdot y $ ein und berechnen das Ergebnis für $w_1, w_2$ und $b$ so erhalten wir das Ergebnis von Theorem (Th-5.4):\\
 
 \newpage
 
