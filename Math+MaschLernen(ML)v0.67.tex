@@ -793,8 +793,55 @@ Das adj.R² berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktore
 
 \subsection{"Least Square Fit"(LSF) Verfahren für LR}
 
-Mit den LSF Verfahren oder in Deutsch "Methode der kleinsten Quadrate" lassen sich nun die optimale sLR-Gerade (k=1) und im Fall (k=2) die optimale mLR-Ebene berechnen. Wir nutzen das das "Max-Min" Kriterium der Analysis.\\
-Wir berechnen dazu explizit die Ableitung der Funktion R² nach ihren Veränderlichen in den Fälle (k=1)und (k=2). 
+Mit den LSF Verfahren oder in Deutsch "Methode der kleinsten Quadrate" lassen sich nun die optimale sLR-Gerade (k=1) und im Fall (k=2) die optimale mLR-Ebene berechnen. Wir nutzen das "Max-Min" Kriterium der Analysis.\\
+Wir berechnen dazu explizit die Ableitung der Funktion R² nach ihren Veränderlichen in den Fälle (k=1)und (k=2).\\
+Um dies Durchführen zu können brauchen wir noch einige mathematische Grundlagen der Matrizenrechnung aus der Linearen Algebra. Dies sind die Berechnung einer Inversen einer Matrix und die Berechnung der Determinante einer Matrix. Beispielhaft zeigen wir jetzt nur die Formel für die Berechnung einer Determinante. Der Rest ist Wiederholung der Linearen Algebra Vorlesung.
+%
+\subsubsection{Lineare Algebra - Berechnung einer Determinante}
+%
+In dieser Wiederholung der Linearen Algebra definieren die \href{https://de.wikipedia.org/wiki/Determinante}{Determinante} einer $n \times n$ Matrix so,  wie dies 1690 von \href{http://de.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz}{Gottfried Wilhelm Leibniz\footnote{Den erfreuliche Umstand, dass der Name ``Leibniz'' selbst in bildungsfernen Schichten ein fester Begriff ist, haben wir   der Firma \href{http://www.bahlsen.com}{Bahlsen} zu verdanken, die ihre \href{http://en.wikipedia.org/wiki/Leibniz-Keks}{Butterkekse} nach diesem Mathematiker, Philosophen und Naturwissenschaftler benannt haben.
+}} 
+vorgeschlagen wurde.\\
+Ist $A = (a_{i,j}) \in \mathbb{K}^{n \times n}$, wobei entweder 
+$\mathbb{K}= \mathbb{R}$ oder $\mathbb{K}= \mathbb{C}$ gilt, so definieren wir die {\emph{\color{blue}Determinante}} von $A$ (geschrieben $\mathtt{det}(A)$) über die Formel
+\\[0.2cm]
+\hspace*{1.3cm}
+\colorbox{blue}{\framebox{\colorbox{yellow}{
+$\texttt{det}(A) :=  \sum\limits_{\sigma \in \mathcal{S}_n} \texttt{sgn}(\sigma) \cdot \prod\limits_{i=1}^n a_{i,\sigma(i)} 
+  := \sum \Bigl\{ \texttt{sgn}(\sigma) \cdot  \prod\limits_{i=1}^n a_{i,\sigma(i)} \Bigm| \sigma \in \mathcal{S}_n \Bigr\} $
+}}}.\\[0.2cm]
+Es sei $A$ eine $2 \times 2$ Matrix, es gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$A = \left(
+  \begin{array}{ll}
+    a_{1,1} & a_{1,2} \\[0.2cm] 
+    a_{2,1} & a_{2,2} 
+  \end{array}
+  \right)
+$
+\\[0.2cm]
+Zur Berechnung von $\texttt{det}(A)$ müssen wir uns überlegen, wie $ \mathcal{S}_2 $ aussieht.  Es gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mathcal{S}_2 := \bigl\{ [1,2], [2,1] \bigr\}$.
+\\[0.2cm]
+Für die Permutation $[1,2]$ finden wir:  $\texttt{sgn}([1,2]) = (-1)^0 = +1$.
+\\[0.2cm]
+Und für die  Permutation $[2,1]$ ergibt sich: $ \quad \texttt{sgn}([2,1]) = (-1)^1 = -1 $.
+\\[0.2cm]
+Insgesamt haben wir
+\\[0.2cm]
+\hspace*{0.3cm}
+$\texttt{det}(A) = \texttt{det}\left(\begin{array}{ll}
+    a_{1,1} & a_{1,2} \\[0.2cm] 
+    a_{2,1} & a_{2,2} 
+  \end{array}
+  \right)
+  = (+1) \cdot a_{1,1} \cdot a_{2,2} + (-1) \cdot a_{1,2} \cdot a_{2,1} 
+  = a_{1,1} \cdot a_{2,2} - a_{1,2} \cdot a_{2,1} $
+.\\[0.3cm]
+Sei $A$ eine $3 \times 3$ Matrix, es lässt sich die Determinante analog berechnen. 
 
 \subsubsection{Detailberechnung für sLR}
 
@@ -2320,15 +2367,15 @@ Berechnen wird die notwendigen Matrixen-Multiplikaionenen so erhalten wir für k
 %
 \subsubsection{Lösungshinweise zu Übung 5.9}
 %
-Setze die Gleichungen (B') für k=1 um, so erhalten wir für $(X^\top \cdot X)^{(-1)}$ die folgende 2x2 Matrix:\\
+Setze die Gleichungen (B') für k=1 um, so erhalten wir für $(X^\top \cdot X)^{(-1)}$ die folgende (2x2)-Matrix:\\
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Anmerkung-A5.2-Blatt1.jpg}  \\
 Setzen wir jetzt noch $X^\top \cdot y $ ein und berechnen das Ergebnis für $w_1$ und $b$ so erhalten wir das Ergebnis von Theorem (Th-5.2):\\
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Anmerkung-A5.2-Blatt2.jpg}\\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Anmerkung-A5.2-Blatt2.jpg}
 %
 \subsubsection{Lösungshinweise zu Übung 5.10}
 %
 Setze die Gleichungen (B') für k=2 um, so erhalten wir für $(X^\top \cdot X)^{(-1)}$ eine (3x3)- Matrix analog wie im Falls k=1 wo wir eine (2x2)-Matrix erhalten hatten:\\
-Setzen wir jetzt noch $X^\top \cdot y $ ein und berechnen das Ergebnis für $w_1, w_2$ und $b$ so erhalten wir das Ergebnis von Theorem (Th-5.4):\\
+Setzen wir jetzt noch $X^\top \cdot y $ ein und berechnen das Ergebnis für $w_1, w_2$ und $b$ so erhalten wir das Ergebnis von Theorem (Th-5.4).\\
 
 \newpage
 
