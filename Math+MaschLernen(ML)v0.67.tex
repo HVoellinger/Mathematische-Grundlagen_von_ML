@@ -810,10 +810,27 @@ A = \begin{bmatrix}
 \end{bmatrix}
 \]
 kann mit der Formel
+\begin{large}
+\\[0.5cm]
+\hspace*{4.0cm}
+\colorbox{blue}{\framebox{\colorbox{yellow}{
+$ A^{-1} = \frac{1}{\text{det}(A)} \cdot \text{adj}(A) $
+}}}\\[0.6cm]
+\end{large}
+% 
+berechnet werden, wobei $\text{adj}(A)$ die adjungierte (auch bekannt als die adjazente oder komplementäre) Matrix von $A$ ist.\\
+%
+Die adjungierte Matrix von $A$ (oft als $\text{adj}(A)$ abgekürzt) wird berechnet, indem man die Kofaktormatrix transponiert:
 \[
-A^{-1} = \frac{1}{\text{det}(A)} \cdot \text{adj}(A)
+\text{adj}(A) = \begin{bmatrix}
+    C_{11} & C_{21} & \cdots & C_{n1} \\
+    C_{12} & C_{22} & \cdots & C_{n2} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    C_{1n} & C_{2n} & \cdots & C_{nn} \\
+\end{bmatrix}
 \]
-berechnet werden, wobei $\text{adj}(A)$ die adjungierte (auch bekannt als die adjazente oder komplementäre) Matrix von $A$ ist. Die adjungierte Matrix wird berechnet, indem man die Kofaktormatrix transponiert.\\[0.5cm]
+\\[0.4cm]
+wobei $C_{ij}$ die Kofaktoren der Elemente von $A$ sind. Die Kofaktoren werden durch das Entfernen der i-ten Zeile und j-ten Spalte aus $A$ und berechnen der Determinante der verbleibenden (n-1)x(n-1)-Matrix erhalten.\\[0.8cm]
 %
 \textbf{Berechnung der Determinante $det(A)$}\\[0.2cm]
 Die Determinante von  einer (nxn)-Matrix $A$ wird bezeichnet durch folgende {Notation:\footnote{Senkrechte  Striche vor und hinter der Matrix $A$ bedeutet Determinante von $A$}}
@@ -825,26 +842,30 @@ Die Determinante von  einer (nxn)-Matrix $A$ wird bezeichnet durch folgende {Not
     a_{n1} & a_{n2} & \cdots & a_{nn} \\
 \end{vmatrix}
 \]
-%
+\\[0.4cm]
 und kann mit dieser allgemeinen Formel berechnet werden:
-%
-%\colorbox{blue}{\framebox{\colorbox{yellow}{
-\[
-\text{det}(A) = \sum_{i=1}^{n} (-1)^{i+j} \cdot a_{ij} \cdot \text{det}(A_{ij})
-\]
-%}}}.\\[0.2cm]
-wobei $A_{ij}$ die Matrix ist, die durch Entfernen der i-ten Zeile und j-ten Spalte aus $A$ entsteht.\\[0.5cm]
-\textbf{Bemerkung: Definition der Determinante nach Leibniz (1690):}\\[0.2cm]
-In dieser Bemerkung definieren wir die \href{https://de.wikipedia.org/wiki/Determinante}{Determinante} einer $n \times n$ Matrix so, wie dies 1690 von \href{http://de.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz}{Gottfried Wilhelm Leibniz\footnote{G. W. Leibniz war einer der bekanntesten Mathematiker, Philosoph und Naturwissenschaftler seiner Epoche.}} 
-vorgeschlagen wurde.\\
+\begin{large}
+\\[0.5cm]
+\hspace*{3.0cm}
+\colorbox{blue}{\framebox{\colorbox{yellow}{
+%\[
+$ \text{det}(A) = \sum_{i=1}^{n} (-1)^{i+j} \cdot a_{ij} \cdot \text{det}(A_{ij})$
+%\]
+}}}\\[0.6cm]
+\end{large}
+wobei $A_{ij}$ die Matrix ist, die durch Entfernen der i-ten Zeile und j-ten Spalte aus $A$ entsteht.\\[0.8cm]
+\textbf{Bemerkung: Definition der Determinante nach Leibniz (1690):}\\[0.4cm]
+In dieser Bemerkung definieren wir etwas allgemeiner und eleganter die \href{https://de.wikipedia.org/wiki/Determinante}{Determinante} einer $n \times n$ Matrix so, wie dies 1690 von \href{http://de.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz}{Gottfried Wilhelm Leibniz\footnote{G. W. Leibniz war einer der bekanntesten Mathematiker, Philosophen und Naturwissenschafter seiner Epoche.}} vorgeschlagen wurde. Wir verzichten hier aus Zeitgründen auf die Einführung von Permutationsgruppen. Dies kann auch in Wikipedia leicht nachgeschaut werden.\\[0.2cm]
 Ist $A = (a_{i,j}) \in \mathbb{K}^{n \times n}$, wobei entweder 
-$\mathbb{K}= \mathbb{R}$ oder $\mathbb{K}= \mathbb{C}$ gilt, so definieren wir die {\emph{\color{blue}Determinante}} von $A$ (geschrieben $\mathtt{det}(A)$) über die Formel
-\\[0.2cm]
-\hspace*{1.3cm}
+$\mathbb{K}= \mathbb{R}$ oder $\mathbb{K}= \mathbb{C}$ gilt, so definieren wir die {\emph{\color{blue}Determinante}} von $A$ (geschrieben $\mathtt{det}(A)$) über die Formel:
+\begin{large}
+\\[0.6cm]
+\hspace*{1.0cm}
 \colorbox{blue}{\framebox{\colorbox{yellow}{
 $\texttt{det}(A) :=  \sum\limits_{\sigma \in \mathcal{S}_n} \texttt{sgn}(\sigma) \cdot \prod\limits_{i=1}^n a_{i,\sigma(i)} 
   := \sum \Bigl\{ \texttt{sgn}(\sigma) \cdot  \prod\limits_{i=1}^n a_{i,\sigma(i)} \Bigm| \sigma \in \mathcal{S}_n \Bigr\} $
-}}}.\\[0.7cm]
+}}}\\[0.7cm]
+\end{large}
 \textbf{Beispiel für eine $2 \times 2$ Matrix:}\\
 Es sei $A$ eine $2 \times 2$ Matrix, es gilt also
 \\[0.2cm]
