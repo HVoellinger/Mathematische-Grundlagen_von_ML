@@ -86,7 +86,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.67 (Datum: 2.10.2023) ist nicht final!!! \\
+Diese Version V0.67 (Datum: 4.10.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.65.pdf} \\
@@ -797,13 +797,45 @@ Mit den LSF Verfahren oder in Deutsch "Methode der kleinsten Quadrate" lassen si
 Wir berechnen dazu explizit die Ableitung der Funktion R² nach ihren Veränderlichen in den Fälle (k=1)und (k=2).\\
 Um dies Durchführen zu können brauchen wir noch einige mathematische Grundlagen der Matrizenrechnung aus der Linearen Algebra. Dies sind die Berechnung einer Inversen einer Matrix und die Berechnung der Determinante einer Matrix. Beispielhaft zeigen wir jetzt nur die Formel für die Berechnung einer Determinante. Der Rest ist Wiederholung der Linearen Algebra Vorlesung.
 %
-\subsubsection{Lineare Algebra -Inverse und Determinante einer Matrix}
+\subsubsection{Lineare Algebra - Inverse und Determinante einer Matrix}
+In diesem Unterkapitel machen wie eine kleine Wiederholung der Vorlesung über Lineare Algebra. Wir definieren die  Inverse und die Determinante einer Matrix und geben ein Beispiel dazu. \\[0.3cm]
+\textbf{Berechnung der Inversen Matrix $A^{-1}$}\\[0.2cm]
+Du kannst die Matrixgröße und die Elemente entsprechend deiner spezifischen Matrix anpassen. Die inverse Matrix von $A$:
+\[
+A = \begin{bmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{bmatrix}
+\]
+kann mit der Formel
+\[
+A^{-1} = \frac{1}{\text{det}(A)} \cdot \text{adj}(A)
+\]
+berechnet werden, wobei $\text{adj}(A)$ die adjungierte (auch bekannt als die adjazente oder komplementäre) Matrix von $A$ ist. Die adjungierte Matrix wird berechnet, indem man die Kofaktormatrix transponiert.\\[0.5cm]
 %
-{\color{red}{***********Defintion von Inverse und Determinate einfügen******** }}\\[0.5cm]
+\textbf{Berechnung der Determinante $det(A)$}\\[0.2cm]
+Die Determinante von  einer (nxn)-Matrix $A$ wird bezeichnet durch folgende {Notation:\footnote{Senkrechte  Striche vor und hinter der Matrix $A$ bedeutet Determinante von $A$}}
+\[
+\begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{vmatrix}
+\]
 %
-\textbf{Bemerkung: Histrorische Definition einer Determinante nach Leibniz:}\\
-In dieser Bemerkung definieren wir die \href{https://de.wikipedia.org/wiki/Determinante}{Determinante} einer $n \times n$ Matrix so, wie dies 1690 von \href{http://de.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz}{Gottfried Wilhelm Leibniz\footnote{Den erfreuliche Umstand, dass der Name ``Leibniz'' selbst in bildungsfernen Schichten ein fester Begriff ist, haben wir   der Firma \href{http://www.bahlsen.com}{Bahlsen} zu verdanken, die ihre \href{http://en.wikipedia.org/wiki/Leibniz-Keks}{Butterkekse} nach diesem Mathematiker, Philosophen und Naturwissenschaftler benannt haben.
-}} 
+und kann mit dieser allgemeinen Formel berechnet werden:
+%
+%\colorbox{blue}{\framebox{\colorbox{yellow}{
+\[
+\text{det}(A) = \sum_{i=1}^{n} (-1)^{i+j} \cdot a_{ij} \cdot \text{det}(A_{ij})
+\]
+%}}}.\\[0.2cm]
+wobei $A_{ij}$ die Matrix ist, die durch Entfernen der i-ten Zeile und j-ten Spalte aus $A$ entsteht.\\[0.5cm]
+\textbf{Bemerkung: Definition der Determinante nach Leibniz (1690):}\\[0.2cm]
+In dieser Bemerkung definieren wir die \href{https://de.wikipedia.org/wiki/Determinante}{Determinante} einer $n \times n$ Matrix so, wie dies 1690 von \href{http://de.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz}{Gottfried Wilhelm Leibniz\footnote{G. W. Leibniz war einer der bekanntesten Mathematiker, Philosoph und Naturwissenschaftler seiner Epoche.}} 
 vorgeschlagen wurde.\\
 Ist $A = (a_{i,j}) \in \mathbb{K}^{n \times n}$, wobei entweder 
 $\mathbb{K}= \mathbb{R}$ oder $\mathbb{K}= \mathbb{C}$ gilt, so definieren wir die {\emph{\color{blue}Determinante}} von $A$ (geschrieben $\mathtt{det}(A)$) über die Formel
@@ -825,7 +857,7 @@ $A = \left(
   \right)
 $
 \\[0.2cm]
-Zur Berechnung von $\texttt{det}(A)$ müssen wir uns überlegen, wie $ \mathcal{S}_2 $ aussieht.  Es gilt
+Zur Berechnung von $\texttt{det}(A)$ (nach Leibniz) müssen wir uns überlegen, wie $ \mathcal{S}_2 $ aussieht.  Es gilt
 \\[0.2cm]
 \hspace*{1.3cm}
 $\mathcal{S}_2 := \bigl\{ [1,2], [2,1] \bigr\}$.
@@ -853,7 +885,7 @@ $ A^{-1} = \frac{1}{det A} \cdot \left(
   \right)
 $  
 .\\[0.3cm]
-Sei $A$ eine $3 \times 3$ Matrix, es lässt sich die Determinante analog berechnen. 
+Für eine $3 \times 3$ Matrix $A$ lässt sich die Determinante analog berechnen. 
 
 \subsubsection{Detailberechnung für sLR}
 
