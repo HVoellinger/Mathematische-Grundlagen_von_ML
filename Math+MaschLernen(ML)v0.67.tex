@@ -86,7 +86,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.67 (Datum: 4.10.2023) ist nicht final!!! \\
+Diese Version V0.67 (Datum: 5.10.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.65.pdf} \\
@@ -815,7 +815,7 @@ kann mit der Formel
 \hspace*{4.0cm}
 \colorbox{blue}{\framebox{\colorbox{yellow}{
 $ A^{-1} = \frac{1}{\text{det}(A)} \cdot \text{adj}(A) $
-}}}\\[0.6cm]
+}}} $ \qquad \qquad \qquad \quad $ (Inv)\\[0.6cm]
 \end{large}
 % 
 berechnet werden, wobei $\text{adj}(A)$ die adjungierte (auch bekannt als die adjazente oder komplementäre) Matrix von $A$ ist.\\
@@ -848,10 +848,8 @@ und kann mit dieser allgemeinen Formel berechnet werden:
 \\[0.5cm]
 \hspace*{3.0cm}
 \colorbox{blue}{\framebox{\colorbox{yellow}{
-%\[
 $ \text{det}(A) = \sum_{i=1}^{n} (-1)^{i+j} \cdot a_{ij} \cdot \text{det}(A_{ij})$
-%\]
-}}}\\[0.6cm]
+}}} $ \qquad $ (Det-1)\\[0.5cm]
 \end{large}
 wobei $A_{ij}$ die Matrix ist, die durch Entfernen der i-ten Zeile und j-ten Spalte aus $A$ entsteht.\\[0.8cm]
 \textbf{Bemerkung: Definition der Determinante nach Leibniz (1690):}\\[0.4cm]
@@ -860,11 +858,11 @@ Ist $A = (a_{i,j}) \in \mathbb{K}^{n \times n}$, wobei entweder
 $\mathbb{K}= \mathbb{R}$ oder $\mathbb{K}= \mathbb{C}$ gilt, so definieren wir die {\emph{\color{blue}Determinante}} von $A$ (geschrieben $\mathtt{det}(A)$) über die Formel:
 \begin{large}
 \\[0.6cm]
-\hspace*{1.0cm}
+\hspace*{0.0cm}
 \colorbox{blue}{\framebox{\colorbox{yellow}{
-$\texttt{det}(A) :=  \sum\limits_{\sigma \in \mathcal{S}_n} \texttt{sgn}(\sigma) \cdot \prod\limits_{i=1}^n a_{i,\sigma(i)} 
-  := \sum \Bigl\{ \texttt{sgn}(\sigma) \cdot  \prod\limits_{i=1}^n a_{i,\sigma(i)} \Bigm| \sigma \in \mathcal{S}_n \Bigr\} $
-}}}\\[0.7cm]
+$\texttt{det}(A =  \sum\limits_{\sigma \in \mathcal{S}_n} \texttt{sgn}(\sigma) \cdot \prod\limits_{i=1}^n a_{i,\sigma(i)} 
+ = \sum \Bigl\{ \texttt{sgn}(\sigma) \cdot  \prod\limits_{i=1}^n a_{i,\sigma(i)} \Bigm| \sigma \in \mathcal{S}_n \Bigr\} $
+}}} \\ $ \qquad $(Det-2)\\[0.6cm]
 \end{large}
 \textbf{Beispiel für eine $2 \times 2$ Matrix:}\\
 Es sei $A$ eine $2 \times 2$ Matrix, es gilt also
@@ -878,7 +876,7 @@ $A = \left(
   \right)
 $
 \\[0.2cm]
-Zur Berechnung von $\texttt{det}(A)$ (nach Leibniz) müssen wir uns überlegen, wie $ \mathcal{S}_2 $ aussieht.  Es gilt
+Zur Berechnung von $\texttt{det}(A)$ (nach Leibniz, Formel (Det-2)) müssen wir uns überlegen, wie $ \mathcal{S}_2 $ aussieht.  Es gilt
 \\[0.2cm]
 \hspace*{1.3cm}
 $\mathcal{S}_2 := \bigl\{ [1,2], [2,1] \bigr\}$.
@@ -897,7 +895,7 @@ $\texttt{det}(A) = \texttt{det}\left(\begin{array}{ll}
   \right)
   = (+1) \cdot a_{1,1} \cdot a_{2,2} + (-1) \cdot a_{1,2} \cdot a_{2,1} 
   = a_{1,1} \cdot a_{2,2} - a_{1,2} \cdot a_{2,1} $
-Somit ergibt sich:\\[0.2cm]  
+Somit ergibt sich mit der Formel (Inv):\\[0.2cm]  
 $ A^{-1} = \frac{1}{det A} \cdot \left(
   \begin{array}{ll}
     a_{2,2} & - a_{2,1} \\[0.2cm] 
@@ -905,11 +903,108 @@ $ A^{-1} = \frac{1}{det A} \cdot \left(
   \end{array}
   \right)
 $  
-.\\[0.3cm]
-Für eine $3 \times 3$ Matrix $A$ lässt sich die Determinante analog berechnen. 
+\\[0.5cm]
+\textbf{Bemerkung:}\\ Für eine $3 \times 3$ Matrix $A$ lassen sich Inverse und Determinante analog berechnen.\\ Eine manuelle Berechnung ist jedoch sehr aufwendig und es ist ratsam einen entsprechenden Algorithmus (z.B. in der Python Library "SciKit-Learn") zu benutzen:\\
+Gegeben sei die 3x3-Matrix $A$:
 
+\[
+A = \begin{bmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33} \\
+\end{bmatrix}
+\]
+
+Berechnung der adjungierten Matrix $\text{adj}(A)$:
+
+\[
+\text{adj}(A) = \begin{bmatrix}
+    C_{11} & C_{21} & C_{31} \\
+    C_{12} & C_{22} & C_{32} \\
+    C_{13} & C_{23} & C_{33} \\
+\end{bmatrix}
+\]
+
+wobei $C_{ij}$ die Kofaktoren der Elemente von $A$ sind:
+
+\[
+C_{11} = \begin{vmatrix}
+    a_{22} & a_{23} \\
+    a_{32} & a_{33} \\
+\end{vmatrix}, \quad
+C_{12} = -\begin{vmatrix}
+    a_{21} & a_{23} \\
+    a_{31} & a_{33} \\
+\end{vmatrix}, \quad
+C_{13} = \begin{vmatrix}
+    a_{21} & a_{22} \\
+    a_{31} & a_{32} \\
+\end{vmatrix}
+\]
+
+\[
+C_{21} = -\begin{vmatrix}
+    a_{12} & a_{13} \\
+    a_{32} & a_{33} \\
+\end{vmatrix}, \quad
+C_{22} = \begin{vmatrix}
+    a_{11} & a_{13} \\
+    a_{31} & a_{33} \\
+\end{vmatrix}, \quad
+C_{23} = -\begin{vmatrix}
+    a_{11} & a_{12} \\
+    a_{31} & a_{32} \\
+\end{vmatrix}
+\]
+
+\[
+C_{31} = \begin{vmatrix}
+    a_{12} & a_{13} \\
+    a_{22} & a_{23} \\
+\end{vmatrix}, \quad
+C_{32} = -\begin{vmatrix}
+    a_{11} & a_{13} \\
+    a_{21} & a_{23} \\
+\end{vmatrix}, \quad
+C_{33} = \begin{vmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22} \\
+\end{vmatrix}
+\]
+Die Kofaktoren werden durch die Berechnung der Determinanten von 2x2-Untermatrizen erstellt. Du kannst die Werte der Matrix $A$ anpassen, um die Kofaktoren und die adjungierte Matrix für deine spezifische Matrix zu berechnen.\\[0.4cm]
+Berechnung der Determinante $\text{det}(A)$:
+\[
+\text{det}(A) = a_{11} \cdot \begin{vmatrix}
+    a_{22} & a_{23} \\
+    a_{32} & a_{33} \\
+\end{vmatrix} - a_{12} \cdot \begin{vmatrix}
+    a_{21} & a_{23} \\
+    a_{31} & a_{33} \\
+\end{vmatrix} + a_{13} \cdot \begin{vmatrix}
+    a_{21} & a_{22} \\
+    a_{31} & a_{32} \\
+\end{vmatrix}
+\]
+Berechne die Determinanten der 2x2-Untermatrizen, indem du die Differenz der Produkte der Hauptdiagonalen und Nebendiagonalen verwendest:
+\[
+\text{det}(A) = a_{11} \cdot ((a_{22} \cdot a_{33}) - (a_{23} \cdot a_{32})) - a_{12} \cdot ((a_{21} \cdot a_{33}) - (a_{23} \cdot a_{31})) + a_{13} \cdot ((a_{21} \cdot a_{32}) - (a_{22} \cdot a_{31}))
+\]
+%
+In diesem Beispiel wird die Determinante der 3x3-Matrix $A$ mithilfe des Laplace'schen Entwicklungssatzes berechnet. Du kannst die Werte der Matrix $A$ anpassen, um die Determinante für deine spezifische Matrix zu berechnen.\\[0.2cm]
+Ist die Matrix \textbf{symmetrisch} so vereinfacht sich die Formel wesentlich.\\Gegeben sei die symmetrische 3x3-Matrix $A$:
+\[
+A = \begin{bmatrix}
+    a & b & c \\
+    b & d & e \\
+    c & e & f \\
+\end{bmatrix}
+\]
+Die Determinante $\text{det}(A)$ kann wie folgt berechnet werden:
+\[
+\text{det}(A) = adf + 2bce - ae^2 - bd^2 - cf^2
+\]
 \subsubsection{Detailberechnung für sLR}
-
+%
 Sei die optimale Regression-Gerade gegeben durch $ y = a + b \cdot x $ dann ist R² eine Funktion in den Veränderlichen $a$ und $ b: " R^2 = R^2(a,b)" $. Somit muss für ein Maximum gelten, dass der Gradient $\Delta{R^2}$ = 0 ist (Analysis I): 
 \begin{center}
 \begin{large} 
