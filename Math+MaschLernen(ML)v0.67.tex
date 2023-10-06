@@ -86,7 +86,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.67 (Datum: 5.10.2023) ist nicht final!!! \\
+Diese Version V0.67 (Datum: 6.10.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.65.pdf} \\
@@ -984,7 +984,7 @@ Berechne die Determinanten der 2x2-Untermatrizen, indem du die Differenz der Pro
 \text{det}(A) = a_{11} \cdot ((a_{22} \cdot a_{33}) - (a_{23} \cdot a_{32})) - a_{12} \cdot ((a_{21} \cdot a_{33}) - (a_{23} \cdot a_{31})) + a_{13} \cdot ((a_{21} \cdot a_{32}) - (a_{22} \cdot a_{31}))
 \]
 %
-\textbf{Beispiel für eine symmetrische $3 \times 2$ Matrix:}\\
+\textbf{Beispiel für eine symmetrische $3 \times 3$ Matrix:}\\
 In diesem Beispiel wird die Inverse und Determinante der 3x3-Matrix $A$ mithilfe des Laplace'schen Entwicklungssatzes berechnet. Du kannst die Werte der Matrix $A$ anpassen, um die Determinante für deine spezifische Matrix zu berechnen.\\[0.2cm]
 Ist die Matrix \textbf{symmetrisch} so vereinfachen sich die Formel wesentlich.\\Gegeben sei die symmetrische 3x3-Matrix $A
 $:
@@ -1042,8 +1042,37 @@ C_{33} &= \begin{vmatrix}
 A^{-1} = \frac{1}{\text{det}(A)} \cdot \text{adj}(A)
 \]
 Die inverse Matrix $A^{-1}$ ist dann die resultierende 3x3-Matrix.\\
-Dieser LaTeX-Code zeigt die korrekte Berechnung der inversen Matrix für die gegebene symmetrische 3x3-Matrix A unter Verwendung des Laplace'schen Entwicklungssatzes.
-
+Dieser LaTeX-Code zeigt die korrekte Berechnung der inversen Matrix für die gegebene symmetrische 3x3-Matrix A unter Verwendung des Laplace'schen Entwicklungssatzes.\\[0.4cm]
+%
+\textbf{Python-Programm zur Berechnung der obigen Inversen:} 
+%
+\begin{center} 
+\includegraphics[width=1.0\textwidth]{Inv_Matrix-Berech}
+\end{center}
+%
+\begin{center} 
+\includegraphics[width=1.1\textwidth]{Inv_Matrix-Ausgabe1}
+\end{center}
+%
+\begin{center} 
+\includegraphics[width=1.1\textwidth]{Inv_Matrix-Ausgabe2}
+\end{center}
+% \begin{figure}[h]
+%  \centering
+%  \includegraphics[width=1.0
+%  \textwidth]{Inv_Matrix-Berech}
+%  \caption{Python-Inv(A)- Berechnung}
+%  \label{fig:IVM_Ber}
+%\end{figure}
+%\\[0.1cm]
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[width=1.0
+%  \textwidth]{Inv_Matrix-Ausgabe}
+%  \caption{Python-Inv(A)- Ausgabe}
+%  \label{fig:IVM_Ber}
+%\end{figure}
+%
 \subsubsection{Detailberechnung für sLR}
 %
 Sei die optimale Regression-Gerade gegeben durch $ y = a + b \cdot x $ dann ist R² eine Funktion in den Veränderlichen $a$ und $ b: " R^2 = R^2(a,b)" $. Somit muss für ein Maximum gelten, dass der Gradient $\Delta{R^2}$ = 0 ist (Analysis I): 
