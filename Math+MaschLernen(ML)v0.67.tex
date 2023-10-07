@@ -864,7 +864,8 @@ $\texttt{det}(A =  \sum\limits_{\sigma \in \mathcal{S}_n} \texttt{sgn}(\sigma) \
  = \sum \Bigl\{ \texttt{sgn}(\sigma) \cdot  \prod\limits_{i=1}^n a_{i,\sigma(i)} \Bigm| \sigma \in \mathcal{S}_n \Bigr\} $
 }}} \\ $ \qquad $(Det-2)\\[0.6cm]
 \end{large}
-\textbf{Beispiel für eine $2 \times 2$ Matrix:}\\
+%
+\textbf{Beispiel für eine $2 \times 2$ Matrix:}\\[0.2cm]
 Es sei $A$ eine $2 \times 2$ Matrix, es gilt also
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -904,8 +905,9 @@ $ A^{-1} = \frac{1}{det A} \cdot \left(
   \right)
 $  
 \\[0.5cm]
-\textbf{Beispiel für eine $3 \times 3$ Matrix:}\\
-Für eine $3 \times 3$ Matrix $A$ lassen sich Inverse und Determinante analog berechnen.\\ Eine manuelle Berechnung ist jedoch sehr aufwendig und es ist ratsam einen entsprechenden ML Algorithmus zu benutzen. Du kannst dazu etwa  Jupyter Notebook ausführen. Stelle sicher, dass du die benötigte NumPy-Bibliothek installiert ist. Im entsprechenden den Codebeispiel  weiter unten entwickeln wird ein Notebook erstellt, dass für eine symmetrische 3x3-Matrix A, ihre Determinante und Adj. Matrix berechnet, woraus sich die inverse Matrix von A sich ergibt.\\
+5
+\textbf{Beispiel für eine $3 \times 3$ Matrix:}\\[0.2cm]
+Für eine $3 \times 3$ Matrix $A$ lassen sich Inverse und Determinante analog berechnen.\\ Eine manuelle Berechnung ist jedoch sehr aufwendig und es ist ratsam einen entsprechenden ML Algorithmus zu benutzen. Du kannst dazu etwa  Jupyter Notebook ausführen. Stelle sicher, dass die benötigte NumPy-Bibliothek installiert ist. Im entsprechenden Codebeispiel (weiter unten) entwickeln wird ein Notebook erstellt, dass für eine symmetrische 3x3-Matrix A, ihre Determinante und Adj. Matrix berechnet, woraus sich die inverse Matrix von A sich ergibt.\\
 Gegeben sei die 3x3-Matrix $A$:
 \[
 A = \begin{bmatrix}
@@ -984,10 +986,12 @@ Berechne die Determinanten der 2x2-Untermatrizen, indem du die Differenz der Pro
 \text{det}(A) = a_{11} \cdot ((a_{22} \cdot a_{33}) - (a_{23} \cdot a_{32})) - a_{12} \cdot ((a_{21} \cdot a_{33}) - (a_{23} \cdot a_{31})) + a_{13} \cdot ((a_{21} \cdot a_{32}) - (a_{22} \cdot a_{31}))
 \]
 %
-\textbf{Beispiel für eine symmetrische $3 \times 3$ Matrix:}\\
-In diesem Beispiel wird die Inverse und Determinante der 3x3-Matrix $A$ mithilfe des Laplace'schen\footnote{Pierre-Simon Laplace war einer der führenden Mathematiker und Wissenschaftler des 18. und 19. Jahrhunderts und hinterließ einen erheblichen Einfluss auf verschiedene Bereiche der Mathematik und Naturwissenschaften} Entwicklungssatzes berechnet. Du kannst die Werte der Matrix $A$ anpassen, um die Determinante für deine spezifische Matrix zu berechnen.\\[0.2cm]
-Ist die Matrix \textbf{symmetrisch} so vereinfachen sich die Formel wesentlich.\\Gegeben sei die symmetrische 3x3-Matrix $A
-$:
+\textbf{Beispiel für eine symmetrische $3 \times 3$ Matrix:}\\[0.2cm]
+In diesem Beispiel wird die Inverse und Determinante der 3x3-Matrix $A$ mithilfe des Laplace'schen\footnote{Pierre-Simon Laplace war einer der führenden Mathematiker und Wissenschaftler des 18. und 19. Jahrhunderts und hinterließ einen erheblichen Einfluss auf verschiedene Bereiche der Mathematik und Naturwissenschaften} Entwicklungssatzes berechnet.\\
+Dieser Satz ermöglicht es, die Determinante einer Matrix durch die Berechnung von Determinanten kleinerer Matrizen zu finden, was besonders nützlich ist, wenn die Matrix groß ist. \\
+Um die Inverse einer Matrix zu berechnen, könnte man den Laplace-Entwicklungssatz verwenden, um die Determinante der Matrix zu finden und dann die Cofaktormethode oder eine andere Methode zur Berechnung der Inversen anwenden. \\
+Du kannst die Werte der Matrix $A$ anpassen, um die Determinante für deine spezifische Matrix zu berechnen.\\[0.2cm]
+Ist die Matrix \textbf{symmetrisch} so vereinfachen sich die Formel wesentlich. Gegeben sei die symmetrische 3x3-Matrix $A$:
 \[
 A = \begin{bmatrix}
     a & b & c \\
@@ -995,7 +999,8 @@ A = \begin{bmatrix}
     c & e & f \\
 \end{bmatrix}
 \]
-Um die inverse Matrix $A^{-1}$ zu berechnen, führen wir die folgenden Schritte aus:\\
+Um die inverse Matrix $A^{-1}$ zu berechnen, führen wir die folgenden Schritte aus:\\[0.2cm]
+
 1. Berechne die Determinante von $A$:
 \[
 \text{det}(A) = a(df - ce) - b(ef - cd) + c(be - dc)
@@ -1042,21 +1047,19 @@ C_{33} &= \begin{vmatrix}
 A^{-1} = \frac{1}{\text{det}(A)} \cdot \text{adj}(A)
 \]
 Die inverse Matrix $A^{-1}$ ist dann die resultierende 3x3-Matrix.\\
-Dieser LaTeX-Code zeigt die korrekte Berechnung der inversen Matrix für die gegebene symmetrische 3x3-Matrix A unter Verwendung des Laplace'schen Entwicklungssatzes.\\[0.4cm]
+Dieser LaTeX-Code zeigt die korrekte Berechnung der inversen Matrix für die gegebene symmetrische 3x3-Matrix A unter Verwendung des Laplace'schen Entwicklungssatzes (siehe oben).\\[0.4cm]
 %
-\textbf{Python-Programm zur Berechnung der obigen Inversen:} 
+\textbf{Python-Programm zur Berechnung der obigen Inversen:}\\[0.2cm] 
 %
+Wir entwickeln ein Python Programm als Jupyter Notebook. Du kannst dieses Code-Snippet in einem Jupyter Notebook ausführen. Importiere die benötigte NumPy-Bibliothek.\\ 
+Das Notebook erstellt eine symmetrische 3x3-Matrix A, berechnet Det(A) und Adj(A), woraus sich Inv(A) ergibt. Insgesamt besteht das Programm aus 4 Schritten. 
 \begin{center} 
-\includegraphics[width=1.0\textwidth]{Inv_Matrix-Berech}
+\hspace*{-0.5cm}
+\includegraphics[width=1.08\textwidth]{Inv_Matrix-Step1+2}
+\hspace*{-1.0cm} 
+\includegraphics[width=1.1\textwidth]{Inv_Matrix-Step3+4}
 \end{center}
 %
-\begin{center} 
-\includegraphics[width=1.1\textwidth]{Inv_Matrix-Ausgabe1}
-\end{center}
-%
-\begin{center} 
-\includegraphics[width=1.1\textwidth]{Inv_Matrix-Ausgabe2}
-\end{center}
 % \begin{figure}[h]
 %  \centering
 %  \includegraphics[width=1.0
@@ -1699,7 +1702,7 @@ Für k=1 (opt. sLR-Geraden), k=2 (opt. mLR-Ebenen) und $k\geqslant 3$ ( opt. mLR
 (LSF-II): $ \quad \mathbf{w} = \bigl(X^\top \cdot X)^{-1} \cdot X^\top \cdot \mathbf{\widetilde{y}} $
 \end{large}
 \end{center} 
-\textbf{Anmerkung (A-5.1):} Gleichung (LSF-II) gilt nur falls $(X^\top \cdot X)$ invertierbar $\Leftrightarrow det(X^\top \cdot X) \neq 0 $ ist. Ist dies nicht der Fall lösen wir die Normalform (\ref{eq:normal-equation}) auf.\\
+\textbf{Anmerkung (A-5.1):} Gleichung (LSF-II) gilt nur falls $(X^\top \cdot X)$ invertierbar\footnote{Matrix A ist genau dann invertierbar (auch regulär oder nicht singulär genannt), wenn ihre Determinante $ Det(A)$) ungleich 0 ist} ist. Dies ist eine wichtige Eigenschaft von invertierbaren Matrizen. $\Leftrightarrow det(X^\top \cdot X) \neq 0 $ ist. Ist dies nicht der Fall lösen wir die Normalform (\ref{eq:normal-equation}) auf.\\
 \textbf{Beweis:}\\
 Siehe obige Berechnungen. \\
 q.e.d. \\[0.5cm]
@@ -2595,16 +2598,63 @@ Berechnen wird die notwendigen Matrixen-Multiplikaionenen so erhalten wir für k
 %
 \subsubsection{Lösungshinweise zu Übung 5.9}
 %
-Setze die Gleichungen (B') für k=1 um, so erhalten wir für $(X^\top \cdot X)^{(-1)}$ die folgende (2x2)-Matrix:\\
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Anmerkung-A5.2-Blatt1.jpg}  \\
-Setzen wir jetzt noch $X^\top \cdot y $ ein und berechnen das Ergebnis für $w_1$ und $b$ so erhalten wir das Ergebnis von Theorem (Th-5.2):\\
+Setze die Gleichungen (B') für k=1 um, so erhalten wir für $(X^\top \cdot X)$ und $X^\top \cdot y $ die folgenden (2x2)- und (2x1)-Matrizen :\\[0.4cm]
+\hspace*{+0.6cm}
+$ X^\top \cdot X = \left(
+  \begin{array}{c}
+  \quad \sum\limits_{i=1}^n [{x_1^{(i)}}]^2 \quad \sum\limits_{i=1}^n {x_1^{(i)}}  \\
+      \sum\limits_{i=1}^n {x_1^{(i)}} \qquad n \\
+  \end{array}  \
+  \right) \quad 
+$    
+$ X^\top \cdot y = \left(
+  \begin{array}{c}
+    \sum\limits_{i=1}^n [{x_1^{(i)}} \cdot {{y^{(i)}}}]\\
+    \sum\limits_{i=1}^n {{y^{(_i)}}} \\
+  \end{array}  \
+  \right) \quad (B'_{k=1})
+$     
+\\[0.3cm]
+Für die Inverse Matrix $(X^\top \cdot X)^{(-1)}$ erhalten wir: \\[0.2cm]
+\hspace*{+3.2cm}
+$ (X^\top \cdot X)^{(-1)} = \left(
+  \begin{array}{c}
+  \quad  n \qquad -\sum\limits_{i=1}^n {x_1^{(i)}} \\
+ -\sum\limits_{i=1}^n {x_1^{(i)}} \quad \sum\limits_{i=1}^n [{x_1^{(i)}}]^2 \\
+  \end{array}  
+  \right) \qquad 
+$    
+\\[0.4cm]
+%\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Anmerkung-A5.2-Blatt1.jpg}  \\
+Multiplizieren wir diese jetzt noch mit $X^\top \cdot y $ und berechnen das Ergebnis für $w_1$ und $b$, so erhalten wir das Ergebnis von Theorem (Th-5.2). Siehe auch den folgenden Link:\\[0.2cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Anmerkung-A5.2-Blatt2.jpg}
 %
 \subsubsection{Lösungshinweise zu Übung 5.10}
 %
-Setze die Gleichungen (B') für k=2 um, so erhalten wir für $(X^\top \cdot X)^{(-1)}$ eine (3x3)- Matrix analog wie im Falls k=1 wo wir eine (2x2)-Matrix erhalten hatten:\\
-Setzen wir jetzt noch $X^\top \cdot y $ ein und berechnen das Ergebnis für $w_1, w_2$ und $b$ so erhalten wir das Ergebnis von Theorem (Th-5.4).\\
-
+Setze die Gleichungen (B') für k=2 um, so erhalten wir für $(X^\top \cdot X)$ eine (3x3)- Matrix analog wie im Falls k=1 wo wir eine (2x2)-Matrix erhalten hatten:\\
+Die Herleitung der Normalform ist dabei analog wie mit dem "Bias-Trick". Wir erhalten für die Faktoren der {\color{blue}{Normalform}}:
+\\[0.4cm]
+\hspace*{-0.5cm}
+$ X^\top \cdot X = \left(
+  \begin{array}{c}
+  \qquad \sum\limits_{i=1}^n [{x_1^{(i)}}]^2 \quad \sum \limits_{i=1}^n [{x_1^{(i)}} \cdot {x_2^{(i)}}] \quad  \sum\limits_{i=1}^n {x_1^{(i)}}  \\
+        \sum\limits_{i=1}^n [{x_2^{(i)}} \cdot {{x_1^{(_i)}}] \quad \sum\limits_{i=1}^n [{x_2^{(i)}}]^2} \qquad  \sum\limits_{i=1}^n {x_2^{(i)}} \\
+  \sum\limits_{i=1}^n {x_1^{(i)}} \qquad \sum\limits_{i=1}^n {x_2^{(i)}} \quad \qquad n \\
+  \end{array}  \
+  \right) 
+$    
+$ X^\top \cdot y = \left(
+  \begin{array}{c}
+    \sum\limits_{i=1}^n [{x_1^{(i)}} \cdot {{y^{(i)}}}]\\
+        \sum\limits_{i=1}^n [{{x_2^{(i)}}} \cdot {{y^{(_i)}}}] \\
+    \sum\limits_{i=1}^n {{y^{(_i)}}} \\
+  \end{array}  \
+  \right) \quad (B'_{k=2})
+$     
+\\[0.3cm]
+Wie man leicht an der Matrix $X^\top \cdot X$ erkennt, ist die Matrix symmetrisch, da das Produkt zweier reellen Zahlen kommutativ ist. Als nächstes ist $(X^\top \cdot X)^{(-1)}$ zu berechnen.\\
+\textbf{Hinweis}: Eine manuelle Berechnung einer solchen inversen Matrix ist sehr aufwendig und fehleranfällig. Wir empfehlen deshalb dies über ein Programm zu machen. Siehe dazu auch das Codebeispiel in Python im Unterkapitel (5.4.1).\\[0.2cm]
+Bilden wir noch das Matrix-Produkt dieser Matrix mit $X^\top \cdot y $ und  berechnen das Ergebnis für $w_1, w_2$ und $b$, so erhalten wir das Ergebnis von Theorem (Th-5.4).
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 6}
