@@ -86,7 +86,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.67 (Datum: 6.10.2023) ist nicht final!!! \\
+Diese Version V0.67 (Datum: 8.10.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.65.pdf} \\
@@ -903,9 +903,10 @@ $ A^{-1} = \frac{1}{det A} \cdot \left(
     - a_{1,2} & a_{1,1} 
   \end{array}
   \right)
-$  
-\\[0.5cm]
-5
+$ 
+\\[0.4cm]
+Es wird empfohlen bei solchen Rechnungen immer eine Probe zu machen, indem man jetzt mit den konkreten Werten die Gleichung: $A \cdot A^{(-1)} = E (Einheitsmatrix)$ nachrechnet.\\[0.3cm]
+%
 \textbf{Beispiel für eine $3 \times 3$ Matrix:}\\[0.2cm]
 Für eine $3 \times 3$ Matrix $A$ lassen sich Inverse und Determinante analog berechnen.\\ Eine manuelle Berechnung ist jedoch sehr aufwendig und es ist ratsam einen entsprechenden ML Algorithmus zu benutzen. Du kannst dazu etwa  Jupyter Notebook ausführen. Stelle sicher, dass die benötigte NumPy-Bibliothek installiert ist. Im entsprechenden Codebeispiel (weiter unten) entwickeln wird ein Notebook erstellt, dass für eine symmetrische 3x3-Matrix A, ihre Determinante und Adj. Matrix berechnet, woraus sich die inverse Matrix von A sich ergibt.\\
 Gegeben sei die 3x3-Matrix $A$:
@@ -1048,6 +1049,7 @@ A^{-1} = \frac{1}{\text{det}(A)} \cdot \text{adj}(A)
 \]
 Die inverse Matrix $A^{-1}$ ist dann die resultierende 3x3-Matrix.\\
 Dieser LaTeX-Code zeigt die korrekte Berechnung der inversen Matrix für die gegebene symmetrische 3x3-Matrix A unter Verwendung des Laplace'schen Entwicklungssatzes (siehe oben).\\[0.4cm]
+Auch hier wird empfohlen bei dieser Rechnung eine Probe zu machen, indem man jetzt mit den konkreten Werten die Gleichung: $A \cdot A^{(-1)} = E (Einheitsmatrix)$ nachrechnet.\\[0.3cm]
 %
 \textbf{Python-Programm zur Berechnung der obigen Inversen:}\\[0.2cm] 
 %
@@ -1055,9 +1057,9 @@ Wir entwickeln ein Python Programm als Jupyter Notebook. Du kannst dieses Code-S
 Das Notebook erstellt eine symmetrische 3x3-Matrix A, berechnet Det(A) und Adj(A), woraus sich Inv(A) ergibt. Insgesamt besteht das Programm aus 4 Schritten. 
 \begin{center} 
 \hspace*{-0.5cm}
-\includegraphics[width=1.08\textwidth]{Inv_Matrix-Step1+2}
+\includegraphics[width=1.12\textwidth]{Inv_Matrix-Step1+2}
 \hspace*{-1.0cm} 
-\includegraphics[width=1.1\textwidth]{Inv_Matrix-Step3+4}
+\includegraphics[width=1.15\textwidth]{Inv_Matrix-Step3+4}
 \end{center}
 %
 % \begin{figure}[h]
