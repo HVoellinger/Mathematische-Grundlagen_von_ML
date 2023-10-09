@@ -48,6 +48,9 @@
 \usepackage{stackengine} % für \stackengine
 \usepackage{theorem}
 
+\usepackage{makeidx}
+\makeindex 
+
 \setcounter{tocdepth}{2} % Begrenzt die Gliederungsebene des Inhaltsverzeichnisses auf 2 (Abschnitte und Unterabschnitte)
 
 \begin{document}
@@ -86,7 +89,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.67 (Datum: 8.10.2023) ist nicht final!!! \\
+Diese Version V0.67 (Datum: 9.10.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.65.pdf} \\
@@ -798,7 +801,7 @@ Wir berechnen dazu explizit die Ableitung der Funktion R² nach ihren Veränderl
 Um dies Durchführen zu können brauchen wir noch einige mathematische Grundlagen der Matrizenrechnung aus der Linearen Algebra. Dies sind die Berechnung einer Inversen einer Matrix und die Berechnung der Determinante einer Matrix. Beispielhaft zeigen wir jetzt nur die Formel für die Berechnung einer Determinante. Der Rest ist Wiederholung der Linearen Algebra Vorlesung.
 %
 \subsubsection{Lineare Algebra - Inverse und Determinante einer Matrix}
-In diesem Unterkapitel machen wie eine kleine Wiederholung der Vorlesung über Lineare Algebra. Wir definieren die  Inverse und die Determinante einer Matrix und geben ein Beispiel dazu. \\[0.3cm]
+In diesem Unterkapitel machen wie eine kleine Wiederholung der Vorlesung über Lineare Algebra. Wir definieren die Inverse\index{inverse Matrix} und die Determinante\index{Determinante einer Matrix} einer Matrix und geben ein Beispiel dazu. \\[0.3cm]
 \textbf{Berechnung der Inversen Matrix $A^{-1}$}\\[0.2cm]
 Du kannst die Matrixgröße und die Elemente entsprechend deiner spezifischen Matrix anpassen. Die inverse Matrix von $A$:
 \[
@@ -852,7 +855,7 @@ $ \text{det}(A) = \sum_{i=1}^{n} (-1)^{i+j} \cdot a_{ij} \cdot \text{det}(A_{ij}
 }}} $ \qquad $ (Det-1)\\[0.5cm]
 \end{large}
 wobei $A_{ij}$ die Matrix ist, die durch Entfernen der i-ten Zeile und j-ten Spalte aus $A$ entsteht.\\[0.8cm]
-\textbf{Bemerkung: Definition der Determinante nach Leibniz (1690):}\\[0.4cm]
+\textbf{Bemerkung: Definition der Determinante nach Leibniz (1690):}\index{Determinate}\\[0.4cm]
 In dieser Bemerkung definieren wir etwas allgemeiner und eleganter die \href{https://de.wikipedia.org/wiki/Determinante}{Determinante} einer $n \times n$ Matrix so, wie dies 1690 von \href{http://de.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz}{Gottfried Wilhelm Leibniz\footnote{G. W. Leibniz war einer der bekanntesten Mathematiker, Philosophen und Naturwissenschafter seiner Epoche.}} vorgeschlagen wurde. Wir verzichten hier aus Zeitgründen auf die Einführung von Permutationsgruppen. Dies kann auch in Wikipedia leicht nachgeschaut werden.\\[0.2cm]
 Ist $A = (a_{i,j}) \in \mathbb{K}^{n \times n}$, wobei entweder 
 $\mathbb{K}= \mathbb{R}$ oder $\mathbb{K}= \mathbb{C}$ gilt, so definieren wir die {\emph{\color{blue}Determinante}} von $A$ (geschrieben $\mathtt{det}(A)$) über die Formel:
@@ -1177,7 +1180,7 @@ Analog lässt sich auch die es Steigung ("slope") $b$ aus Formel (4) umformen un
 $ b = \frac{1}{det} \cdot \sum{[(x_i - \bar{x}) \cdot (y_i - \bar{y})]}$.
 \\[0.5cm]
 %
-\textbf{Notation und "Bias-Trick":} Zur Vereinfachung der Formeln und besserer Übersichtlichkeit führen wir das "Tilde" Symbol $ \widetilde{x_i} := (x_i - \bar{x}) $ und $ \widetilde{y_i} := (y_i - \bar{y}) $ ein.\\ 
+\textbf{Notation und "Bias-Trick":}\index{Bias-Trick} Zur Vereinfachung der Formeln und besserer Übersichtlichkeit führen wir das "Tilde" Symbol $ \widetilde{x_i} := (x_i - \bar{x}) $ und $ \widetilde{y_i} := (y_i - \bar{y}) $ ein.\\ 
 Der \textbf{Trick} besteht darin, daß wir das Ergebnis der Optimierung des "Biases" $a$ in die Gleichung zur Optimierung von der "Steigung" $b$ einsetzen. \\
 Dadurch vereinfachen sich die Gleichungen, denn wir keine 2x2-Matrix invertieren, sondern können mit Skalaren rechnen. Aus der Linearen Algebra wissen wir, daß dies eine enorme Vereinfachung und Ersparnisse in den Berechnungen bedeutet. Ich nenne diesen Trick \textbf{"Bias-Trick"}, da wir diesen Effekt durch das separate Vorziehen der Berechnung des optimalem "Biases" erreicht haben.\\[0.2cm] 
 Damit ergibt sich auch das folgende Korollar: \\
@@ -2669,7 +2672,7 @@ Bilden wir noch das Matrix-Produkt dieser Matrix mit $X^\top \cdot y $ und  bere
 \begin{center} 
 \includegraphics[width=1.1\textwidth]{Naive-Bayes-Ueb61_Hinweis}
 \end{center}
-\textbf{Zusatzfrage:} Das Ergebnis dreht sich rum wenn Sie als Zielsatz \textbf{"Hermann plays a very clean game"} eingeben.\\................
+\textbf{Zusatzfrage:} Das Ergebnis dreht sich um wenn Sie als Zielsatz \textbf{"Hermann plays a very clean game"} eingeben.\\................
 
 \subsubsection{Lösungshinweise zu Übung 6.2}
 
@@ -2689,19 +2692,23 @@ Bilden wir noch das Matrix-Produkt dieser Matrix mit $X^\top \cdot y $ und  bere
 \subsubsection{Lösungshinweise zu Übung 7.2} 
 ...... \\[0.8cm]
 \subsubsection{Lösungshinweise zu Übung 7.3}
+Hier ist ein beispielhafter Python-Code zur Generierung der zwei Hyperebenen im 2-dim. Beispiel zum Kernel-Trick.\\ 
+Eine animierte Darstellung des Ergebnisses kann man in meinem GitHub anschauen: \\[0.2cm]
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Kernel-Trick_Animation.gif}
 
+%
 \begin{figure}[htp]
   \centering
   \hspace*{-0.5cm} 
-  \includegraphics[width=0.9\textwidth]{Kernel-Hyperebene-Code-Bild1}
+  \includegraphics[width=1.18\textwidth]{Kernel-Hyperebene-Code-Bild1}
   \caption{Codeblock(1+2) zum Kernel-Trick Beispiel}
   \label{fig:SVM_Ebenen}
 \end{figure}
-
+%
 \begin{figure}[htp]
   \centering
-  \hspace*{-0.5cm} 
-  \includegraphics[width=0.9\textwidth]{Kernel-Hyperebene-Code-Bild2}
+  \hspace*{-1.2cm} 
+  \includegraphics[width=1.25\textwidth]{Kernel-Hyperebene-Code-Bild2}
   \caption{Codeblock(3) zum Kernel-Trick Beispiel}
   \label{fig:SVM_Ebenen}
 \end{figure}
@@ -2756,90 +2763,17 @@ Weitere Kapitel Texte \\
 %
 \textbf{[Wiki-ML]} - Wikipedia: "Machine learning ML); \url{https://en.wikipedia.org/wiki/Machine_learning}{Machine Learning}\\[0.2cm] 
 %
-\textbf{[Wiki-SVM]} - Wikipedia: Support Vector Machine (SVM); \url{https://de.wikipedia.org/wiki/Support Vector Machine(SVM)} \\[0.2cm] 
+\textbf{[Wiki-SVM]} - Wikipedia Support Vector Machine (SVM); \url{https://de.wikipedia.org/wiki/Support Vector Machine(SVM)} \\[0.2cm] \\[0.2cm]
 
-*** Weitere Referenzen \\
-***\\
-%
-%
-{\color{red}{*** Anlagen: Beispiele von Latex Syntax für eine Tabelle und eine Matrix  **}}\\[0.2cm]
-%
-\url{https://en.wikibooks.org/wiki/LaTeX/Mathematics#Sums_and_integrals}
-%
-Berechne die Determinante der Matrix A. Beginne mit der Definition von A:
-\\[0.1cm]
-\begin{center}
-\hspace*{0.1cm}
+*** Weitere Referenzen ***\\
 
-$ A := \left(
-   \begin{array}{llll}
-     1 & 2 & 3 & 4 \\
-     2 & 3 & 4 & 1 \\ 
-     3 & 4 & 1 & 2 \\ 
-     4 & 1 & 2 & 3 \\ 
-   \end{array}
-   \right) $ 
-%   \caption{Darstellung einer 4x4 Matrix}
-% \label{tab:Matrix_4x4)}
-\\[0.3cm]
+\newpage
 
-\end{center} 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|l|r|}
-  \hline
-  dependent variable      & explained variance   \\
-  \hline
-  \hline
-  $\mathtt{displacement}$ & 0.75                 \\
-  \hline
-  $\mathtt{cyl}$          & 0.70                 \\
-  \hline
-  $\mathtt{hp}$           & 0.73                 \\
-  \hline
-  $\mathtt{weight}$       & 0.78                 \\
-  \hline
-  $\mathtt{acc}$          & 0.21                 \\
-  \hline
-  $\mathtt{year}$         & 0.31                 \\
-  \hline
-  \end{tabular}
-  \caption[explained variance]{Explained variance for various dependent variables.}
-  \label{tab:explained-variance}
-\end{table}
+\begin{LARGE} Indexverzeichnis \end{LARGE}
 
-\begin{table}[t] % Tabelle wird am oberen Rand der Seite platziert, bei [h] % Tabelle wird hier eingefügt, wenn möglich
-  \centering
-  \centering
-  \begin{tabular}{|c|c|}
-    \hline
-    Spalte 1 & Spalte 2 \\
-    \hline
-    Inhalt 1 & Inhalt 2 \\
-    \hline
-  \end{tabular}
-  \caption{Eine Tabelle mit Positionsangabe "t".}
-  \label{tab:tabelle_t}
-\end{table}
+\clearpage % Seite wechseln
 
+\printindex
 
-{\color{red}{*** Ende Beispiele Latex Syntax für Tabellen und Matrizen ***}}\\[0.2cm] 
-
-{\color{red}{***********************************************************************\\ 
- ***********************  Einschub Latex Syntax... ********************************\\
-************************************************************************}}\\[0.2cm]
-$ \widetilde{{x_i}}$ $ \widetilde{\boldsymbol{x_i}}$ Fettes Tilde über "x":\\
-$\accentset{\bm{\sim}}{x_i}$\\
-% Sehr großes Tilde über "x": $\stackengine{3pt}{x}{\scalebox{2.5}[1.5]{$\sim$}}{O}{c}{F}{T}{S}$
-%
-Großes Hut-Symbol über "x": $\widehat{x}$\\
-%
-$\overline{x}$  Standardgröße \\
-$\overline{\overline{x}}$  Doppelter Balken \\ 
-$\overline{\underline{x}}$   Balken mit Unterstrich \\
-$\overline{\rule{0pt}{20pt}x}$  Größe anpassen (zum Beispiel 20pt)\\[0.8cm]
-{\color{red}{***********************************************************************\\ 
-* ********* Ende Latex Syntax...*********************************************\\
-************************************************************************}}\\[0.2cm]
 
 \end{document}
