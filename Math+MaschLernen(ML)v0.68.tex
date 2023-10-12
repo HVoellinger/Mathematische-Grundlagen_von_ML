@@ -1,4 +1,3 @@
-
 \documentclass[12pt]{article}
 
 \usepackage[
@@ -24,24 +23,24 @@
 %\usepackage[margin=0in,paperwidth=596pt,paperheight=842pt]{geometry}
 \usepackage[all]{hypcap}
 
-\usepackage{graphicx}
-\graphicspath{ {./Images/} }
-
 
 \usepackage{geometry}
 \usepackage{xcolor}
 \definecolor{mygray}{gray}{0.3}
+
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
 \usepackage[some]{background}
 \usepackage{lipsum}
 
 \usepackage{graphicx} % Zum Einfügen von Grafiken
 \usepackage{caption}  % Für anpassbare Bildunterschriften
 \usepackage{subcaption} % Für Unterabbildungen, wenn nötig
+\graphicspath{ {./Images/} }
 
-\usepackage{amsfonts}
 \usepackage{floatflt}
-\usepackage{amssymb}
 \usepackage{pgfplots}
 \usepackage{bm}      % for \boldsymbol
 \usepackage{accents} % für \accentset
@@ -89,7 +88,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.67 (Datum: 9.10.2023) ist nicht final!!! \\
+Diese Version V0.68 (Datum: 13.10.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.65.pdf} \\
@@ -2128,6 +2127,7 @@ Sowohl lineare als auch nichtlineare Support Vector Machines lassen sich durch z
 Stellen wir uns ein einfaches und anschauliches Beispiel in $\mathbb{R}^2$ vor, bei dem die Datenpunkte im ursprünglichen Raum $(x_1,x_2)$ nicht linear trennbar sind.\\ 
 Gesucht ist dann eine Abbildung $\Phi:\mathbb{R}^2 \rightarrow\mathbb{R}^3$, so das die Datenpunkte im höherdimensionalen Raum $(x,y,z)\in  \mathbb{R}^3$ linear trennbar sind.\\ 
 Der Kernel-Trick ermöglicht es der SVM, die Entscheidungsgrenze in diesem höherdimensionalen Raum zu finden, ohne die zusätzlichen Merkmale $z$ tatsächlich berechnen zu müssen:\\ 
+\subsubsection{Definition des Kernel-Trick Beispieles}
 Gegeben sind die folgenden Datenpunkte: {\color{red}{Klasse +1: A(1,1), B(-1,1)}} und {\color{blue}{Klasse -1: C(2,1), D(1,-2) und E(-2,1)}}.\\
 In diesem Beispiel sind die Datenpunkte nicht linear trennbar (siehe auch nachfolgende Skizze). Es gibt keine gerade Linie, die die Punkte der {\color{red}{Klasse +1}} von den Punkten der {\color{blue}{Klasse -1}} perfekt trennen kann.\\
 Jetzt wenden wir den Kernel-Trick an, um die Daten in $\mathbb{R}^3$ zu transformieren. Hier verwenden wir den polynomiellen Kernel über die folgende Transformation an: 
@@ -2147,9 +2147,9 @@ Die transformierten Punkte A' = $\Phi(A)$ ....E' = $\Phi(A)$ werden dann berechn
 \end{figure}
 
 Ein bewegtes Bild davon liegt in der Referenz \textbf{[HVö-5]:} \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/hyperebenen_animation.gif}\\[0.2cm]
-
-Wie man leicht aus dem Plot sieht, lassen sich diese Punkte optimal durch eine Hyperebene ${H := \lbrace (x_1,x_2,z)| z=3,5\rbrace}$ trennen.\\ 
-Durch eine "Zurücktransformation" erhält man den \textbf{Kreis: $x_1^2+x_2^2=3,5$ } mit den Radius $r = \sqrt[2]{3,5} \approx 1.871 $  Damit ergibt sich die visuelle Darstellung der Klassifikation-Trennlinie als Kreislinie. Wir lassen uns diesen Kreis via einem kleinem Python Programm ausploten:\\[0.2cm]
+%
+Wie man leicht aus dem Plot sieht, lassen sich diese Punkte optimal durch eine Hyperebene ${H := \lbrace (x_1,x_2,z)| z=3.5\rbrace}$ trennen. Der Normalenvektor dieser Ebene ist in z-Richtung also $(0,0,1) in \mathbb{R}^3 $. Da alle Punkte A' bis E' den gleichen Abstand 1.5 zu dieser Hyperebene haben, sind diese alle "Stützvektoren im Sinne von SVM (siehe oben). \\ 
+Durch eine "Zurücktransformation" erhält man den \textbf{Kreis: $x_1^2+x_2^2=3,5$ } mit den Radius $r = \sqrt[2]{3,5} \approx 1.871 $  Damit ergibt sich die visuelle Darstellung der Klassifikation-Trennlinie als Kreislinie. Wir lassen uns diesen Kreis via einem kleinem Python Programm zeichnen:\\[0.2cm]
 \begin{figure}[tp]
   \centering
   \hspace*{-0.1cm} 
@@ -2157,6 +2157,16 @@ Durch eine "Zurücktransformation" erhält man den \textbf{Kreis: $x_1^2+x_2^2=3
   \caption{Python Code und Kernel-Trick Kreisbild}       
   \label{fig:SVM_Kreis}
 \end{figure}
+.\\[10.5cm]
+\subsubsection{Berechnung per Jupyter Notebook}
+...\\[0.3cm]
+Wenn es mehr Daten-Punkte gibt (was die Regel ist) müssen wir Algorithmen einsetzen. Die Beispiele werden dann auch entsprechend komplizierter und können nicht mehr manuell berechnet werden. Die Normalvektoren $ (0,0,1)in {R}^3 $ sind sicherlich nicht senkrecht, sondern haben Beiträge in x- und y-Richtung.\\
+Ein solches Beispiel soll als Übungsbeispiel in Übung(7.1) gerechnet werden\\[0.2cm]
+ 
+Um ein einfaches und anschauliches Beispiel für eine Support Vector Machine (SVM) mit einem Kernel-Trick von 2D nach 3D in einem Jupyter Notebook zu erstellen, können Sie den folgenden Python-Code verwenden. Der Code 
+verwendet die scikit-learn Bibliothek für die SVM und die matplotlib Bibliothek zum Plotten. Zunächst importieren Sie die erforderlichen Bibliotheken. Hier das komplette Notebook:\\[0.5cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-Kernel-2D-3D.pdf}}
+....\\[0.5cm]
 
 \newpage
 
@@ -2167,10 +2177,17 @@ Durch eine "Zurücktransformation" erhält man den \textbf{Kreis: $x_1^2+x_2^2=3
 {\color{red}{*******************************************************************\\ 
 ab hier bis Ende der Übungen sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
 ********************************************************************\\}}
-.....\\
-\subsubsection{Übung 7.1 - .......}
-TEXT\\
-\subsubsection{Übung 7.2 - .......}
+%
+\subsubsection{Übung 7.1 - Einfaches Kernel-Trick(2D nach 3D)- Beispiel}
+Berechnen Sie analog zum Kapitel (7.3) ein einfaches und anschauliches Beispiel für eine Support Vector Machine (SVM) mit einem Kernel-Trick von 2D nach 3D in einem Jupyter Notebook.\\
+Sie nehmen wieder 2 Klassen +1 und -1 mit jetzt 5 Daten-Punkten. Wählen Sie eine passende Transformation von 2D nach 3D.\\
+Gegen Sie die SVM-Ebene an mit Ebenen-Gleichung (Normalvektor), Stützvektoren an. Visualisieren Sie die Punkte und Trennlinie in 2D und in 3D \\[0.2cm]\\
+\subsubsection{Übung 7.2 - Vergleich Polymonischer Kernel mit RBF Kernel}
+In dieser Übung erstellen wir einen Datensatz mit Punkten, die konzentrische Kreise bilden, die im ursprünglichen Merkmalsraum nicht linear separierbar sind. Wir verwenden dann zwei SVM-Modelle: eines mit einem Polynomischen Kernel und ein anderes mit einem RBF-Kernel (Radial Basis Function). Der RBF-Kernel wendet effektiv den Kernel-Trick an, indem er die Daten in einen höherdimensionalen Raum transformiert, in dem sie linear trennbar werden. Die Entscheidungsgrenzen und Datenpunkte werden grafisch dargestellt, um den Unterschied zwischen den beiden Kerneln zu verdeutlichen.
+Der RBF-Kernel wird in der Praxis häufig verwendet, um nicht linear trennbare Daten zu verarbeiten, und ist eine der wichtigsten Anwendungen des Kernel-Tricks in der SVM.
+Hier ein Beispiel Notebook:\\[0.5cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-RBF+Polyn-Kernel.pdf}}\\[0.5cm]
+
 
 \subsubsection{Übung 7.3 - Python Code zu Hyperebenen}
 Schreiben Sie den Python Code zur Generierung der zwei Hyperebenen im 2-dim. Beispiel zum Kernel-Trick. Animieren Sie die Grafik, so dass sie sich dreht. 
