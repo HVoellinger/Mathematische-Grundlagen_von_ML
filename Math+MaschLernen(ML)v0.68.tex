@@ -644,27 +644,34 @@ $ \texttt{(D-5.2): Sum of Squares Error (SSE) := } \sum\limits_{i=1}^n \Bigl(y_i
 $ \texttt{(D-5.3): Sum of Squares Regression (SSR) := } \sum\limits_{i=1}^n \Bigl(f_i - \overline{y})\Bigr)^2 $  
 \end{center}
 % Zeilenfüller
-Für die Definition von R² brauchen wir Sum of Squares Error (SSE) und Sum of Squares Total (SST). Die Definition von R² ist gegeben durch die Differenz von 1 und dem Quotienten SSE/SST. Wir nennen R² in Deutsch auch "Bestimmtheitsgrad":\\
+Für die Definition von R² brauchen wir Sum of Squares Error (SSE) und Sum of Squares Total (SST). Die Definition von R² ist gegeben durch die Differenz von 1 und dem Quotienten SSE/SST. Wir nennen R² in Deutsch auch "Bestimmtheitsgrad": \index{Bestimmtheitsgrad}\\
 \begin{center}
 \texttt{(D-5.4):}
 \begin{Large}  
-\textbf{$ R^2 := 1 - \frac{SSE}{SST} $} \\[1.0cm]
+\textbf{$ R^2 := 1 - \frac{SSE}{SST} $} \\[0.8cm]
 \end{Large}   
 \end{center}
 % 
+\textbf{Anmerkungen und Definition von $MSE$}:\\[0.2cm]
+Bei der Nutzung von Python-Programmen, insbesondere bei der Nutzung der NumPy Bibliothek, wird oft noch eine weitere Kennzahl ("Measure") zur Messung der Güte der Regression benutzt. Diese Kennzahl ist  "Mean Squared Error" $(MSE)$ \index{MSE} und ist eine Abwandlung der Definition von SSE (D-5.2). $ MSE$ ist definiert durch:
+\begin{center}
+$ \texttt{(D-5.5): Mean Squared Error (MSE) := } \frac{1}{n} \cdot \sum\limits_{i=1}^n \Bigl( y_i - f_i \Bigr)^2 = \frac{1}{n} \cdot \sum\limits_{i=1}^n \varepsilon_i^2 $ \\
+\end{center} 
+%
 \textbf{Erläuterungen zu obigen Definition}:\\[0.4 cm]
 %
 In der einfachen linearen Regression haben die Begriffe SSE, SSR und SST folgende Bedeutungen:
-
 \begin{itemize}
-    \item \textbf{SSE (Sum of Squares Error)}: SSE steht für die ”Summe der quadrierten Fehler (”Error”)”. In der Literatur wird dies manchmal auch als ”Sum of Squares Residuals” bezeichnet. Wir wählen aber lieber den Begriff ”Error” um auch mit der Abkürzung SSE konsistent zu sein. SSE misst die Gesamtmenge der Abweichungen zwischen den beobachteten Datenpunkten $y_i$ und den vorhergesagten Werten $ f_i $ der Regressionsgeraden. Es repräsentiert die nicht erklärte Variation in den Daten. 
+\item \textbf{SSE (Sum of Squares Error)}: SSE steht für die ”Summe der quadrierten Fehler (”Error”)”. In der Literatur wird dies manchmal auch als ”Sum of Squares Residuals” bezeichnet. Wir wählen aber lieber den Begriff ”Error” um auch mit der Abkürzung SSE konsistent zu sein. SSE misst die Gesamtmenge der Abweichungen zwischen den beobachteten Datenpunkten $y_i$ und den vorhergesagten Werten $ f_i $ der Regressionsgeraden. Es repräsentiert die nicht erklärte Variation in den Daten. 
     
-    \item \textbf{SSR (Sum of Squares Regression)}: SSR steht für die "Summe der quadrierten Abweichungen der Regression" (Sum of Squares Regression). Die SSR misst die Variation, die durch die Regression erklärt wird. Sie quantifiziert die Summe der quadrierten Distanzen zwischen den vorhergesagten Werten \(\hat{y}_i\) und dem Mittelwert \(\bar{y}\) der abhängigen Variable.
+\item \textbf{SSR (Sum of Squares Regression)}: SSR steht für die "Summe der quadrierten Abweichungen der Regression" (Sum of Squares Regression). Die SSR misst die Variation, die durch die Regression erklärt wird. Sie quantifiziert die Summe der quadrierten Distanzen zwischen den vorhergesagten Werten \(\hat{y}_i\) und dem Mittelwert \(\bar{y}\) der abhängigen Variable.
     
-    \item \textbf{SST (Total Sum of Squares)}: SST steht für die "Gesamtsumme der quadrierten Abweichungen" (Total Sum of Squares). Die SST misst die Gesamtvariation der beobachteten Werte \(y_i\) um ihren Mittelwert \(\bar{y}\). Es ist die Summe der quadrierten Abweichungen jedes Datenpunkts von \(\bar{y}\).
+\item \textbf{SST (Total Sum of Squares)}: SST steht für die "Gesamtsumme der quadrierten Abweichungen" (Total Sum of Squares). Die SST misst die Gesamtvariation der beobachteten Werte \(y_i\) um ihren Mittelwert \(\bar{y}\). Es ist die Summe der quadrierten Abweichungen jedes Datenpunkts von \(\bar{y}\).
+
+\item \textbf{MSE (Mean Squared Error)}: Die MSE-Kennzahl ist eine weit verbreitete Metrik zur Beurteilung der Güte einer linearen Regression, einem statistischen Verfahren zur Vorhersage von abhängigen Variablen anhand von unabhängigen Variablen. Die MSE-Kennzahl quantifiziert, wie gut die Regressionsgerade die tatsächlichen Datenpunkte approximiert.Insgesamt ist der MSE eine nützliche Kennzahl, um die Genauigkeit eines linearen Regressionsmodells zu bewerten. Es ist jedoch wichtig zu beachten, dass je nach Anwendungsfall auch andere Metriken in Betracht gezogen werden können, um die Vorhersagequalität zu beurteilen.
 \end{itemize}
 %
-Die Beziehung zwischen diesen Begriffen kann durch die Gleichung \(SST = SSR + SSE\) für optimale Regressionsgeraden ausgedrückt werden. Diese Gleichung zeigt, wie die Gesamtvariation der abhängigen Variable in die Variation, die durch die Regression erklärt wird (SSR), und die nicht erklärte Variation (SSE) aufgeteilt wird.\\[0.2 cm]
+Die Beziehung zwischen den Kennzahlen SST, SSE und SSR kann durch die Gleichung \(SST = SSR + SSE\) für optimale Regressionsgeraden ausgedrückt werden. Diese Gleichung zeigt, wie die Gesamtvariation der abhängigen Variable in die Variation, die durch die Regression erklärt wird (SSR), und die nicht erklärte Variation (SSE) aufgeteilt wird.\\[0.2 cm]
 % 
 \textbf{Sprechweise:} Wir sagen eine Gerade ist eine \textbf{"optimale"} (sLR)-Gerade wenn R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "sLR-Gerade".\\[0.4 cm]
 % 
@@ -672,18 +679,17 @@ Die Beziehung zwischen diesen Begriffen kann durch die Gleichung \(SST = SSR + S
 % 
 Im \textbf{folgenden Bild} sehen wir die Kennzahlen {\color{blue}{SSE}} und {\color{red}{SST}} geometrisch mit 4 Beobachtungspunkten. Sehr gut sind die Größen der Quadrate für {\color{blue}{SSE}} und {\color{red}{SST}} zu erkennen. Man bekommt zudem auch ein guten Eindruck von den Faktor 
 \begin{large}
-$ \frac{\color{blue}{SSE}}{\color{red}{SST}} $\\[16.8cm]
+$ \frac{\color{blue}{SSE}}{\color{red}{SST}} $.\\[8.8cm]
 \end{large}
-
+%
 \begin{figure}[htp]
-\hspace*{-1.0cm}  
+\hspace*{-0.2cm}  
 \centering 
 \includegraphics[width=0.8\textwidth]{SSE_SST-Definition}
   \caption{Geometrische Darstellung von {\color{blue}{SSE}} und {\color{red}{SST}}}
   \label{fig:SSE-SST-1}
 \end{figure}
-
-
+%
 \subsubsection{Eigenschaften und Theoreme zu $R^2$ $(k \geqslant 2$ } 
 
 Nun wollen wir die ersten offensichtlichen mathematische Aussagen zu R² machen. \\
@@ -2145,7 +2151,7 @@ Die transformierten Punkte A' = $\Phi(A)$ ....E' = $\Phi(A)$ werden dann berechn
   \caption{Hyperebenen zum Kernel-Trick Beispiel}
   \label{fig:SVM_Ebenen}
 \end{figure}
-
+%
 Ein bewegtes Bild davon liegt in der Referenz \textbf{[HVö-5]:} \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/hyperebenen_animation.gif}\\[0.2cm]
 %
 Wie man leicht aus dem Plot sieht, lassen sich diese Punkte optimal durch eine Hyperebene ${H := \lbrace (x_1,x_2,z)| z=3.5\rbrace}$ trennen. Der Normalenvektor dieser Ebene ist in z-Richtung also $(0,0,1) in \mathbb{R}^3 $. Da alle Punkte A' bis E' den gleichen Abstand 1.5 zu dieser Hyperebene haben, sind diese alle "Stützvektoren im Sinne von SVM (siehe oben). \\ 
@@ -2157,17 +2163,24 @@ Durch eine "Zurücktransformation" erhält man den \textbf{Kreis: $x_1^2+x_2^2=3
   \caption{Python Code und Kernel-Trick Kreisbild}       
   \label{fig:SVM_Kreis}
 \end{figure}
-.\\[10.5cm]
+%
+\newpage
 \subsubsection{Berechnung per Jupyter Notebook}
-...\\[0.3cm]
 Wenn es mehr Daten-Punkte gibt (was die Regel ist) müssen wir Algorithmen einsetzen. Die Beispiele werden dann auch entsprechend komplizierter und können nicht mehr manuell berechnet werden. Die Normalvektoren $ (0,0,1)in {R}^3 $ sind sicherlich nicht senkrecht, sondern haben Beiträge in x- und y-Richtung.\\
-Ein solches Beispiel soll als Übungsbeispiel in Übung(7.1) gerechnet werden\\[0.2cm]
- 
+Ein solches Beispiel soll als Übungsbeispiel in Übung(7.1) gerechnet werden\\[0.3cm]
+% 
 Um ein einfaches und anschauliches Beispiel für eine Support Vector Machine (SVM) mit einem Kernel-Trick von 2D nach 3D in einem Jupyter Notebook zu erstellen, können Sie den folgenden Python-Code verwenden. Der Code 
-verwendet die scikit-learn Bibliothek für die SVM und die matplotlib Bibliothek zum Plotten. Zunächst importieren Sie die erforderlichen Bibliotheken. Hier das komplette Notebook:\\[0.5cm]
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-Kernel-2D-3D.pdf}}
-....\\[0.5cm]
-
+verwendet die scikit-learn Bibliothek für die SVM und die matplotlib Bibliothek zum Plotten. Zur Programmierung in Python importieren wir zuerst die erforderlichen Bibliotheken.... Hier das komplette Notebook:\\[0.2cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-Kernel-2D-3D.pdf}}\\
+Ein mögliches Ergebnis könnte wie folgt aussehen: \\
+\begin{figure}[tp]
+  \centering
+  \hspace*{-0.1cm} 
+  \includegraphics[width=1.\textwidth]{SVM-Kernel(2D-3D)-Beispiel}
+  \caption{Kernel-Trick(2D-3D) Beispiel} .\\[10.2cm]      
+  \label{fig:SVM_2D-3D}
+\end{figure}
+%
 \newpage
 
 \subsection{Übungen zum Kapitel 7}
@@ -2707,33 +2720,34 @@ Bilden wir noch das Matrix-Produkt dieser Matrix mit $X^\top \cdot y $ und  bere
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 7}
-.....\\
+... \\[0.8cm]
 \subsubsection{Lösungshinweise zu Übung 7.1}
-.....\\
-\subsubsection{Lösungshinweise zu Übung 7.2} 
-...... \\[0.8cm]
-\subsubsection{Lösungshinweise zu Übung 7.3}
-Hier ist ein beispielhafter Python-Code zur Generierung der zwei Hyperebenen im 2-dim. Beispiel zum Kernel-Trick.\\ 
-Eine animierte Darstellung des Ergebnisses kann man in meinem GitHub anschauen: \\[0.2cm]
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Kernel-Trick_Animation.gif}
-
+Hier ist ein beispielhafter Python-Code zur Generierung der zwei Hyperebenen im 2-dim. Beispiel zum Kernel-Trick. Eine animierte Darstellung des Ergebnisses kann man in meinem GitHub anschauen: \\[0.3cm]
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Kernel-Trick_Animation.gif} \\[0.3cm]
+%
+Hier noch die entsprechenden Python Codeblöcke (1-3):
 %
 \begin{figure}[htp]
   \centering
   \hspace*{-0.5cm} 
-  \includegraphics[width=1.18\textwidth]{Kernel-Hyperebene-Code-Bild1}
+  \includegraphics[width=1.1\textwidth]{Kernel-Hyperebene-Code-Bild1}
   \caption{Codeblock(1+2) zum Kernel-Trick Beispiel}
   \label{fig:SVM_Ebenen}
 \end{figure}
 %
 \begin{figure}[htp]
   \centering
-  \hspace*{-1.2cm} 
-  \includegraphics[width=1.25\textwidth]{Kernel-Hyperebene-Code-Bild2}
+  \hspace*{-0.5cm} 
+  \includegraphics[width=1.1\textwidth]{Kernel-Hyperebene-Code-Bild2}
   \caption{Codeblock(3) zum Kernel-Trick Beispiel}
   \label{fig:SVM_Ebenen}
 \end{figure}
-
+%
+\newpage
+\subsubsection{Lösungshinweise zu Übung 7.2} 
+... \\[0.8cm]
+\subsubsection{Lösungshinweise zu Übung 7.3}
+... \\[0.8cm]
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 8}
