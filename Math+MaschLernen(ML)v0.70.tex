@@ -88,7 +88,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.68 (Datum: 22.10.2023) ist nicht final!!! \\
+Diese Version V0.68 (Datum: 25.10.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.68.pdf} \\
@@ -206,7 +206,7 @@ Diese sechs ML Verfahren sind:\\
 
 1. Mathematik zum k-Means-Algorithmus ("Euklidische Geometrie")\\
 
-2. Entscheidungsbäume mit GINI-Index und ID3-Verfahren(Statistik)\\
+2. Entscheidungsbäume mit GINI-Index \index{GINI} und ID3-Verfahren \index{ID3}(Statistik)\\
 
 3. Lineare Regression und "Best Fit" Verfahren der Analysis (AN)\\
 
@@ -257,7 +257,7 @@ Eine Visualisierung der k-Means-Konvergenz Iterationen, sehen wir im der folgend
   \centering
   \hspace*{-0.1cm} 
   \includegraphics[width=0.7\textwidth]{k-Means-Konvergenz-Iteration0}
-  \caption{k-Means-Konvergenz-Iteration0}
+  \caption{k-Means-Konvergenz-Iterationen(0-14)}
   \label{fig:k-Means-Iteration0}
 \end{figure}
 %
@@ -366,7 +366,7 @@ Es gibt verschiedene mathematische Verfahren und Techniken, die bei der Konstruk
 \textbf{1. Entropie und Informationsgewinn:}\\
 Die Entropie ist ein Maß für die Unordnung oder Unsicherheit in einem Datensatz. Beim Konstruieren eines Entscheidungsbaums wird der Informationsgewinn verwendet, um festzustellen, wie gut eine Funktion (Attribut) den Datensatz in Bezug auf die Zielvariable aufteilt. Der Informationsgewinn wird oft in Form von Entropieänderungen zwischen den ursprünglichen und den aufgeteilten Datensätzen gemessen.\\[0.2cm]
 %
-\textbf{2. Gini-Index:}\\
+\textbf{2. Gini-Index \index{GINI}}\\
 Der Gini-Index misst die Wahrscheinlichkeit, dass eine zufällig ausgewählte Instanz falsch klassifiziert wird, wenn sie zufällig nach den Klassenverteilungen in einem Teilbaum ausgewählt wird. Ein niedriger Gini-Index deutet auf eine homogene Verteilung der Klassen hin.\\[0.2cm]
 %
 \textbf{3. Reduktion des quadratischen Fehlers (Regression):}\\
@@ -376,7 +376,7 @@ Bei Entscheidungsbäumen für Regression werden mathematische Kriterien wie die 
 Nach dem Konstruieren eines Entscheidungsbaums können zu viele Verzweigungen zu Overfitting führen. Das Cost-Complexity-Pruning verwendet eine Kostenfunktion, um die Qualität eines Baums in Bezug auf seine Komplexität zu bewerten. Durch Entfernen von Verzweigungen, die nur geringfügig zur Verbesserung der Modellgenauigkeit beitragen, kann die Generalisierungsfähigkeit des Baums verbessert werden.\\\\[0.2cm]
 %
 \textbf{5. CART (Classification and Regression Trees):}\\
-Der CART-Algorithmus verwendet eine rekursive Zweig- und Bindemethode, um einen Baum zu erstellen. Er sucht nach der besten Spaltung eines Datensatzes anhand des Gini-Index (für Klassifikation) oder der Reduzierung des quadratischen Fehlers (für Regression).\\\\[0.2cm]
+Der CART-Algorithmus verwendet eine rekursive Zweig- und Bindemethode, um einen Baum zu erstellen. Er sucht nach der besten Spaltung eines Datensatzes anhand des Gini-Index\index{GINI} (für Klassifikation) oder der Reduzierung des quadratischen Fehlers (für Regression).\\\\[0.2cm]
 %
 \textbf{6. Random Forests und Boosting:}\\
 Diese Ansätze basieren auf Entscheidungsbäumen, werden jedoch durch die Kombination mehrerer Bäume oder das Hinzufügen von Gewichten zu den Instanzen verbessert. Sie nutzen mathematische Methoden, um die Vorhersagegenauigkeit und Robustheit zu erhöhen.\\\\[0.2cm]
@@ -387,10 +387,10 @@ Die Wahl der Hyperparameter, wie beispielsweise die maximale Tiefe des Baums ode
 \textbf{Zusammenfassung}:
 Diese Verfahren sind alle Teil des Prozesses der Konstruktion, Anpassung und Optimierung von Entscheidungsbäumen im maschinellen Lernen. Die Wahl des geeigneten Verfahrens hängt von der Art des Problems und den Daten ab, mit denen Sie arbeiten.\\[0.4cm]
 
-\subsection{Mathematische Grundlagen Gini-Index- und Entropie-Verfahren }
+\subsection{Mathematische Grundlagen Gini-Index \index{GINI} - und Entropie-Verfahren }
 
 
-\subsubsection{Gini-Index Verfahren}
+\subsubsection{Gini-Index Verfahren \index{GINI}}
 
 {\color{red}{*******************************************************************\\ 
 ab hier bis Ende der section sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
@@ -454,7 +454,7 @@ Siehe auch folgenden Weblink:\\
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Homework_H4.5-DecTree_ID3_Praesentation.pdf}\\[0.2cm]
 
 
-\subsection{Beispiele für Gini-Index- und Entropie-Verfahren }
+\subsection{Beispiele für Gini-Index \index{GINI} - und Entropie-Verfahren }
 
 
 \subsubsection{Beispiele für Gini-Index Verfahren}
@@ -606,8 +606,8 @@ Ein bewegtes Bild davon liegt in der Referenz [HVö-5]:
 
 \subsection{Kennzahlen  $ R^2 $ und $ adj.{R^2} $ }
 %
-Für die Definition der \textbf{simple Linear Regression\index{simple Linear Regression} (sLR)} und \textbf{multiple Linear Regression (mLR)} brauchen wir einige Kennzahlen für die Datenpunkte (i.e."Beobachtungspunkte") aus der Trainingsmenge\index{Trainingsmenge} (\textit{observation points}\index{observation points}).\\
-Diese Kennzahlen sind \textbf{Sum of Squares Total (SST), Sum of Squares Error (SSE)} und \textbf{Sum of Squares Regression (SSR)}.\\[0.2cm]
+Für die Definition der \textbf{simple Linear Regression (sLR)}\index{Simple Linear Regression (sLR)} und \textbf{multiple Linear Regression (mLR)} \index{Multiple Linear Regression (mLR)} brauchen wir einige Kennzahlen für die Datenpunkte ("Beobachtungspunkte") aus der Trainingsmenge\index{Trainingsmenge} (\textit{observation points).}\index{Observation Points}\\
+Diese Kennzahlen sind \textbf{Sum of Squares Total (SST)}\index{SST} ,\textbf{ Sum of Squares Error (SSE)}\index{SSE} und \textbf{Sum of Squares Regression (SSR)}\index{SSR}
 %
 \subsubsection{Definition der sLR Kennzahl $ R^2 $}
 %
@@ -628,7 +628,7 @@ Größe und Gewicht der Probanden. $f(xi) = f_i $  ist das geschätzte Gewicht d
 Probanden bei einer gegebenen Größe $x_i$.\\[0.2cm]
 Der Restfehler (das Residuum) $\varepsilon_i$ stellt die Differenz zwischen dem Messwert $y_i$ und dem Schätzwert $f_i$ dar.\\[0.2cm]
 %
-Die Definition der Kennzahl $R^2$ benutzt die Kennzahlen SST und SSE). SSR wird für die eigentliche Definition von $R^2$ nicht genutzt. Wir brauchen diese Kennzahl aber später im Kapitel. Sei n = (Anzahl der Beobachtungen) dann definieren wir der Einfachheit halber: 
+Die Definition der Kennzahl $R^2$ \index{$R^2$} benutzt die Kennzahlen SST und SSE). SSR wird für die eigentliche Definition von $R^2$ nicht genutzt. Wir brauchen diese Kennzahl aber später im Kapitel. Sei n = (Anzahl der Beobachtungen) dann definieren wir der Einfachheit halber: 
 \begin{center}
 $ f_i = f(x_i)\quad $ und $ \quad \overline{x} = \frac{1}{n} \sum\limits_{i=1}^n (x_i) ; \quad \overline{y} = \frac{1}{n} \sum\limits_{i=1}^n (y_i) $\\
 \end{center} 
@@ -644,7 +644,7 @@ $ \texttt{(D-5.2): Sum of Squares Error (SSE) := } \sum\limits_{i=1}^n \Bigl(y_i
 $ \texttt{(D-5.3): Sum of Squares Regression (SSR) := } \sum\limits_{i=1}^n \Bigl(f_i - \overline{y})\Bigr)^2 $  
 \end{center}
 % Zeilenfüller
-Für die Definition von R² brauchen wir Sum of Squares Error (SSE) und Sum of Squares Total (SST). Die Definition von R² ist gegeben durch die Differenz von 1 und dem Quotienten SSE/SST. Wir nennen R² in Deutsch auch "Bestimmtheitsgrad": \index{Bestimmtheitsgrad}\\
+Für die Definition von $R^2$\index{$R^2$}  brauchen wir Sum of Squares Error (SSE) und Sum of Squares Total (SST). Die Definition von $R^2$ ist gegeben durch die Differenz von 1 und dem Quotienten SSE/SST. Wir nennen $R^2$ in Deutsch auch {\color{blue}{"Bestimmtheitsgrad"}}: \index{Bestimmtheitsgrad}\\
 \begin{center}
 \texttt{(D-5.4):}
 \begin{Large}  
@@ -653,7 +653,7 @@ Für die Definition von R² brauchen wir Sum of Squares Error (SSE) und Sum of S
 \end{center}
 % 
 \textbf{Anmerkungen und Definition von $MSE$}:\\[0.2cm]
-Bei der Nutzung von Python-Programmen, insbesondere bei der Nutzung der NumPy Bibliothek, wird oft noch eine weitere Kennzahl ("Measure") zur Messung der Güte der Regression benutzt. Diese Kennzahl ist  "Mean Squared Error" $(MSE)$ \index{MSE} und ist eine Abwandlung der Definition von SSE (D-5.2). $ MSE$ ist definiert durch:
+Bei der Nutzung von Python-Programmen, insbesondere bei der Nutzung der NumPy Bibliothek, wird oft noch eine weitere Kennzahl ("Measure") zur Messung der Güte der Regression benutzt. Diese Kennzahl ist  {\color{blue}{"Mean Squared Error" $(MSE)$}} \index{MSE} und ist eine Abwandlung der Definition von SSE (D-5.2). $ MSE$ ist definiert durch:
 \begin{center}
 $ \texttt{(D-5.5): Mean Squared Error (MSE) := } \frac{1}{n} \cdot \sum\limits_{i=1}^n \Bigl( y_i - f_i \Bigr)^2 = \frac{1}{n} \cdot \sum\limits_{i=1}^n \varepsilon_i^2 $ \\
 \end{center} 
@@ -662,7 +662,7 @@ $ \texttt{(D-5.5): Mean Squared Error (MSE) := } \frac{1}{n} \cdot \sum\limits_{
 %
 In der einfachen linearen Regression haben die Begriffe SSE, SSR und SST folgende Bedeutungen:
 \begin{itemize}
-\item \textbf{SSE (Sum of Squares Error)}: SSE steht für die ”Summe der quadrierten Fehler (”Error”)”. In der Literatur wird dies manchmal auch als ”Sum of Squares Residuals” bezeichnet. Wir wählen aber lieber den Begriff ”Error” um auch mit der Abkürzung SSE konsistent zu sein. SSE misst die Gesamtmenge der Abweichungen zwischen den beobachteten Datenpunkten $y_i$ und den vorhergesagten Werten $ f_i $ der Regressionsgeraden. Es repräsentiert die nicht erklärte Variation in den Daten. 
+\item \textbf{SSE (Sum of Squares Error)}: SSE\index{SSE}  steht für die ”Summe der quadrierten Fehler (”Error”)”. In der Literatur wird dies manchmal auch als ”Sum of Squares Residuals” bezeichnet. Wir wählen aber lieber den Begriff ”Error” um auch mit der Abkürzung SSE konsistent zu sein. SSE misst die Gesamtmenge der Abweichungen zwischen den beobachteten Datenpunkten $y_i$ und den vorhergesagten Werten $ f_i $ der Regressionsgeraden. Es repräsentiert die nicht erklärte Variation in den Daten. 
     
 \item \textbf{SSR (Sum of Squares Regression)}: SSR steht für die "Summe der quadrierten Abweichungen der Regression" (Sum of Squares Regression). Die SSR misst die Variation, die durch die Regression erklärt wird. Sie quantifiziert die Summe der quadrierten Distanzen zwischen den vorhergesagten Werten \(\hat{y}_i\) und dem Mittelwert \(\bar{y}\) der abhängigen Variable.
     
@@ -807,10 +807,10 @@ Das adj.R² berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktore
 
 Mit den LSF Verfahren oder in Deutsch "Methode der kleinsten Quadrate" lassen sich nun die optimale sLR-Gerade (k=1) und im Fall (k=2) die optimale mLR-Ebene berechnen. Wir nutzen das "Max-Min" Kriterium der Analysis.\\
 Wir berechnen dazu explizit die Ableitung der Funktion R² nach ihren Veränderlichen in den Fälle (k=1)und (k=2).\\
-Um dies Durchführen zu können brauchen wir noch einige mathematische Grundlagen der Matrizenrechnung aus der Linearen Algebra. Dies sind die Berechnung einer Inversen einer Matrix und die Berechnung der Determinante einer Matrix. Beispielhaft zeigen wir jetzt nur die Formel für die Berechnung einer Determinante. Der Rest ist Wiederholung der Linearen Algebra Vorlesung.
+Um dies Durchführen zu können brauchen wir noch einige mathematische Grundlagen der Matrizenrechnung aus der Linearen Algebra. Dies sind die Berechnung einer Inversen einer Matrix \index{Inverse} und die Berechnung der Determinante\index{Determinante} einer Matrix. Beispielhaft zeigen wir jetzt nur die Formel für die Berechnung einer Determinante. Der Rest ist Wiederholung der Linearen Algebra Vorlesung.
 %
 \subsubsection{Lineare Algebra - Inverse und Determinante einer Matrix}
-In diesem Unterkapitel machen wie eine kleine Wiederholung der Vorlesung über Lineare Algebra. Wir definieren die Inverse\index{inverse Matrix} und die Determinante\index{Determinante einer Matrix} einer Matrix und geben ein Beispiel dazu. \\[0.3cm]
+In diesem Unterkapitel machen wie eine kleine Wiederholung der Vorlesung über Lineare Algebra. Wir definieren die Inverse und die Determinante einer Matrix und geben ein Beispiel dazu. \\[0.3cm]
 \textbf{Berechnung der Inversen Matrix $A^{-1}$}\\[0.2cm]
 Du kannst die Matrixgröße und die Elemente entsprechend deiner spezifischen Matrix anpassen. Die inverse Matrix von $A$:
 \[
@@ -842,7 +842,7 @@ Die adjungierte Matrix von $A$ (oft als $\text{adj}(A)$ abgekürzt) wird berechn
 \end{bmatrix}
 \]
 \\[0.4cm]
-wobei $C_{ij}$ die Kofaktoren der Elemente von $A$ sind. Die Kofaktoren werden durch das Entfernen der i-ten Zeile und j-ten Spalte aus $A$ und berechnen der Determinante der verbleibenden (n-1)x(n-1)-Matrix erhalten.\\[0.8cm]
+wobei $C_{ij}$ die Kofaktoren der Elemente von $A$ sind. Die Kofaktoren werden durch das Entfernen der i-ten Zeile und j-ten Spalte aus $A$ und berechnen der Determinante\index{Determinante} der verbleibenden (n-1)x(n-1)-Matrix erhalten.\\[0.8cm]
 %
 \textbf{Berechnung der Determinante $det(A)$}\\[0.2cm]
 Die Determinante von  einer (nxn)-Matrix $A$ wird bezeichnet durch folgende {Notation:\footnote{Senkrechte  Striche vor und hinter der Matrix $A$ bedeutet Determinante von $A$}}
@@ -864,7 +864,7 @@ $ \text{det}(A) = \sum_{i=1}^{n} (-1)^{i+j} \cdot a_{ij} \cdot \text{det}(A_{ij}
 }}} $ \qquad $ (Det-1)\\[0.5cm]
 \end{large}
 wobei $A_{ij}$ die Matrix ist, die durch Entfernen der i-ten Zeile und j-ten Spalte aus $A$ entsteht.\\[0.8cm]
-\textbf{Bemerkung: Definition der Determinante nach Leibniz (1690):}\index{Determinate}\\[0.4cm]
+\textbf{Bemerkung: Definition der Determinante nach Leibniz (1690):}\\[0.4cm]
 In dieser Bemerkung definieren wir etwas allgemeiner und eleganter die \href{https://de.wikipedia.org/wiki/Determinante}{Determinante} einer $n \times n$ Matrix so, wie dies 1690 von \href{http://de.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz}{Gottfried Wilhelm Leibniz\footnote{G. W. Leibniz war einer der bekanntesten Mathematiker, Philosophen und Naturwissenschafter seiner Epoche.}} vorgeschlagen wurde. Wir verzichten hier aus Zeitgründen auf die Einführung von Permutationsgruppen. Dies kann auch in Wikipedia leicht nachgeschaut werden.\\[0.2cm]
 Ist $A = (a_{i,j}) \in \mathbb{K}^{n \times n}$, wobei entweder 
 $\mathbb{K}= \mathbb{R}$ oder $\mathbb{K}= \mathbb{C}$ gilt, so definieren wir die {\emph{\color{blue}Determinante}} von $A$ (geschrieben $\mathtt{det}(A)$) über die Formel:
@@ -1000,7 +1000,7 @@ Berechne die Determinanten der 2x2-Untermatrizen, indem du die Differenz der Pro
 \]
 %
 \textbf{Beispiel für eine symmetrische $3 \times 3$ Matrix:}\\[0.2cm]
-In diesem Beispiel wird die Inverse und Determinante der 3x3-Matrix $A$ mithilfe des Laplace'schen\footnote{Pierre-Simon Laplace war einer der führenden Mathematiker und Wissenschaftler des 18. und 19. Jahrhunderts und hinterließ einen erheblichen Einfluss auf verschiedene Bereiche der Mathematik und Naturwissenschaften.} Entwicklungssatzes berechnet.\\
+In diesem Beispiel wird die Inverse\index{Inverse} und Determinante der 3x3-Matrix $A$ mithilfe des Laplace'schen\footnote{Pierre-Simon Laplace war einer der führenden Mathematiker und Wissenschaftler des 18. und 19. Jahrhunderts und hinterließ einen erheblichen Einfluss auf verschiedene Bereiche der Mathematik und Naturwissenschaften.} Entwicklungssatzes berechnet.\\
 Dieser Satz ermöglicht es, die Determinante einer Matrix durch die Berechnung von Determinanten kleinerer Matrizen zu finden, was besonders nützlich ist, wenn die Matrix groß ist. \\
 Um die Inverse einer Matrix zu berechnen, könnte man den Laplace-Entwicklungssatz verwenden, um die Determinante der Matrix zu finden und dann die Cofaktormethode oder eine andere Methode zur Berechnung der Inversen anwenden. \\
 Du kannst die Werte der Matrix $A$ anpassen, um die Determinante für deine spezifische Matrix zu berechnen.\\[0.2cm]
@@ -1063,7 +1063,7 @@ Die inverse Matrix $A^{-1}$ ist dann die resultierende 3x3-Matrix.\\
 Dieser LaTeX-Code zeigt die korrekte Berechnung der inversen Matrix für die gegebene symmetrische 3x3-Matrix A unter Verwendung des Laplace'schen Entwicklungssatzes (siehe oben).\\[0.4cm]
 Auch hier wird empfohlen bei dieser Rechnung eine Probe zu machen, indem man jetzt mit den konkreten Werten die Gleichung: $A \cdot A^{(-1)} = E (Einheitsmatrix)$ nachrechnet.\\[0.3cm]
 %
-\textbf{Python-Programm zur Berechnung der obigen Inversen:}\\[0.2cm] 
+\textbf{Python-Programm zur Berechnung der obigen Inversen\index{Inverse}:}\\[0.2cm] 
 %
 Wir entwickeln ein Python Programm als Jupyter Notebook. Du kannst dieses Code-Snippet in einem Jupyter Notebook ausführen. Importiere die benötigte NumPy-Bibliothek.\\ 
 Das Notebook erstellt eine symmetrische 3x3-Matrix A, berechnet Det(A) und Adj(A), woraus sich Inv(A) ergibt. Insgesamt besteht das Programm aus 4 Schritten. 
@@ -1423,7 +1423,7 @@ $ f \bigl(\mathbf{x}^{(i)}\bigr)$ eine  genaue Approximation von $y^{(i)}$ ist, 
 $\forall i\in\{1,\cdots,n\}:f \bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$. \\[0.4cm]
 \end{large}
 %
-Um die Gleichung $ f\bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$ zu berechnen nutzen wir wieder die {\color{blue}{Summe der  quadratischen Fehler "Sum of Squared Errors"}}: 
+Um die Gleichung $ f\bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$ zu berechnen nutzen wir wieder die {\color{blue}{Summe der  quadratischen Fehler "Sum of Squared Errors"}}\index{SSE} (: 
 \begin{equation}
   \label{eq:squared-error-1}
   \mathtt{SSE} := \sum\limits_{i=1}^{n} \Bigl(f\bigl(\mathbf{x}^{(i)}\bigr) - y^{(i)}\Bigr)^2. 
@@ -1448,7 +1448,7 @@ Die oben angegebene Definition von $f$ ist das Modell, das in der
 \hspace*{4.3cm}
 $ f(\mathbf{x}) = \mathbf{x}^\top \cdot \mathbf{w} + b $.
 \\[0.2cm]
-Als erstes wollen wir den Bias $b$ berechnen. Wir Arbeiten dabei mit der umgeschriebenen Gleichung von (\ref{eq:squared-error-1}):
+Als erstes wollen wir den Bias\index{Bias} $b$ berechnen. Wir Arbeiten dabei mit der umgeschriebenen Gleichung von (\ref{eq:squared-error-1}):
 \begin{equation}
   \label{eq:squared-error-2}
   \mathtt{SSE}(\mathbf{w}) = \sum\limits_{i=1}^n \Bigl(\bigl(\mathbf{x}^{(i)})^\top \cdot \mathbf{w} + b - y^{(i)}\Bigr)^2
@@ -1467,7 +1467,7 @@ Lösen wir die Gleichung nach $b$ auf und kürzen mit n,  so erhalten wir mit de
 \end{large}
 Setzen wir dies in die Definition von $\mathtt{SSE})(\mathbf{w}) $ ein und nutzen die uns schon bekannte \textbf{Notation}( 
  $ \widetilde{x_i} := (x_i - \bar{x}) $ und $ \widetilde{y_i} := (y_i - \bar{y})$). \\
-Nun nutzen wir wieder den \textbf{"Bias-Trick"}: Wir setzen den optimalen Bias $b$ in die partiellen Ableitungen der Gewichte $w$ ein. Damit müssen wir später keine (k+1)x(k+1)-Matrix invertieren, sondern nur eine kxk-Matrix. Dies führt zu Vereinfachung der Formeln und  Ersparnissen in den Berechnungen. So erhalten wir:
+Nun nutzen wir wieder den \textbf{"Bias-Trick"}\index{Bias-Trick} Wir setzen den optimalen Bias $b$ in die partiellen Ableitungen der Gewichte $w$ ein. Damit müssen wir später keine (k+1)x(k+1)-Matrix invertieren, sondern nur eine kxk-Matrix. Dies führt zu Vereinfachung der Formeln und  Ersparnissen in den Berechnungen. So erhalten wir:
 \begin{equation}
   \hspace*{2.0cm}
   \label{eq:squared-error-4}
@@ -1541,8 +1541,8 @@ Unser Ziel ist die Minimierung des $\mathtt{SSE}(\mathbf{w})$ durch die Wahl des
 \hspace*{1.3cm}
 $\nabla \mathtt{SSE}(\mathbf{w}) = \mathbf{0}$,
 \\[0.2cm]
-d.h. der \href{https://en.wikipedia.org/wiki/Gradient}{Gradient} \index{gradient} von $\mathtt{SSE}(\mathbf{w})$ in Bezug auf $\mathbf{w}$ muss Null sein. \\
-Zur Vorbereitung der Berechnung von $\nabla \mathtt{SSE}(\mathbf{w})$, berechnen wir zunächst den Gradienten von zwei einfacheren Funktionen.\\[0.4cm]
+d.h. der \href{https://en.wikipedia.org/wiki/Gradient}{Gradient} \index{Gradient} von $\mathtt{SSE}(\mathbf{w})$ in Bezug auf $\mathbf{w}$ muss Null sein. \\
+Zur Vorbereitung der Berechnung von $\nabla \mathtt{SSE}(\mathbf{w})$, berechnen wir zunächst den Gradienten \index{Gradient}von zwei einfacheren Funktionen.\\[0.4cm]
 \textbf{********************** Zwischenrechnung *******************}\\[0.4cm]
 %
 Angenommen die Funktion $f:\mathbb{R}^n \rightarrow \mathbb{R}$ ist definiert als:
@@ -1613,7 +1613,7 @@ Der Beweis dieser Aussage ist eine Übungsaufgabe "Übung 5.3".\\[0.2cm]
 \textbf{************ Ende der Zwischenrechnung ********************}\\
 \subsubsection{Ableitung der Normalform}
 %
-Als nächstes leiten wir die so genannte {\color{blue}{Normalform}} \index{normal equation} für die Lineare Regression ab. Zu diesem Zweck   erweitern wir zuerst das Produkt im der Gleichung (6):
+Als nächstes leiten wir die so genannte {\color{blue}{Normalform}} \index{Normalform} für die Lineare Regression ab. Zu diesem Zweck   erweitern wir zuerst das Produkt im der Gleichung (6):
 \\[0.2cm]
 \hspace*{-0.2cm}
 $
@@ -1680,7 +1680,7 @@ Dies kann umgeschrieben werden zu
  \colorbox{blue}{\framebox{\colorbox{gray!40}{\framebox{
  $ \bigl(X^\top \cdot X\bigr) \cdot \mathbf{w} = X^\top \cdot \mathbf{\widetilde{y}}$}}}} 
 \end{equation}
-Diese Gleichung nennt man {\color{blue}{Normalform}}.  \index{normal equation}\. Nutzen wir die Gleichungen (A') so können wir jetzt leicht per Matrizen-Multiplikation die Komponenten der (kxk)-Produktmatrix $ X^\top \cdot X $ und den (1xk)-Vektor $ X^\top \cdot \widetilde{y} $ berechnen. Damit sind alle Faktoren der {\color{blue}{Normalform}} bekannt:
+Diese Gleichung nennt man {\color{blue}{Normalform}}.  \index{Normalform}\. Nutzen wir die Gleichungen (A') so können wir jetzt leicht per Matrizen-Multiplikation die Komponenten der (kxk)-Produktmatrix $ X^\top \cdot X $ und den (1xk)-Vektor $ X^\top \cdot \widetilde{y} $ berechnen. Damit sind alle Faktoren der {\color{blue}{Normalform}} bekannt:
 \\[0.3cm]
 \hspace*{-0.3cm}
 $ X^\top \cdot X := \left(
@@ -1956,7 +1956,7 @@ Beachte die Hinweise im Skript. Nutze die Ergebnisse des Beispieles der Berechnu
 %
 \subsubsection{Übung 5.10 - "Beweis zur Anmerkung (A-5.2) Fall (k=2)"}
 %
-Beweise die Aussage von Anmerkung (A-5.4) im Fall k=2 und lerne dabei die "Allgemeinen Berechnungen zum LSF-Verfahren (ohne Bias-Trick)" besser kennen. \\ Beachte die Hinweise im Skript. Nutze die Ergebnisse des Beispieles der Berechnung der inversen Matrix zu einer symmetrischen (3x3)-Matrix (Unterkapitel (5.4.1)).
+Beweise die Aussage von Anmerkung (A-5.4) im Fall k=2 und lerne dabei die "Allgemeinen Berechnungen zum LSF-Verfahren (ohne Bias-Trick)" besser kennen. \\ Beachte die Hinweise im Skript. Nutze die Ergebnisse des Beispieles der Berechnung der inversen Matrix\index{Inverse} zu einer symmetrischen (3x3)-Matrix (Unterkapitel (5.4.1)).
 
 \subsubsection{Übung 5.1 - "Python-Pgm zu sLR-Verfahren(Iowa Housing Prices)"}
 %
@@ -2216,7 +2216,7 @@ Schreiben Sie den Python Code zur Generierung der zwei Hyperebenen im 2-dim. Bei
 \textbf{Neuronale Faltungsnetzwerke} sind eine spezielle Art von künstlichen neuronalen Netzwerken, die hauptsächlich für die Verarbeitung von strukturierten Daten wie Bildern oder anderen Gitterdaten entwickelt wurden. Sie sind besonders effektiv bei der Extraktion von Merkmalen aus solchen Daten, was sie ideal für Aufgaben wie Bilderkennung und Bildklassifikation macht.
 \\
 Der Name "Faltungsnetzwerke" leitet sich von der \textbf{Faltungsoperation} ab, die in diesen Netzwerken eine wichtige Rolle spielt. Diese Operation ermöglicht es, lokale Merkmale oder Muster in den Eingabedaten zu erkennen, indem sie über die Daten "geschoben" wird. Diese Merkmale werden dann auf höheren Ebenen des Netzwerks kombiniert, um komplexere Muster und Strukturen zu identifizieren.
-\\Convolutional Neural Networks (CNNs) sind eine spezielle Art von \textbf {Deep-Learning-Modellen}. Insgesamt bezieht sich "Deep Learning" auf den Einsatz von neuronalen Netzwerken mit mehreren Schichten (daher "tief") für das Lernen von Darstellungen und Mustern in Daten. CNNs sind nur eine von vielen Architekturen im Bereich des Deep Learning.\\
+\\Convolutional Neural Networks (CNNs)\index{CNN} sind eine spezielle Art von \textbf {Deep-Learning-Modellen}. Insgesamt bezieht sich "Deep Learning" auf den Einsatz von neuronalen Netzwerken mit mehreren Schichten (daher "tief") für das Lernen von Darstellungen und Mustern in Daten. CNNs sind nur eine von vielen Architekturen im Bereich des Deep Learning.\\
 Eine besonders interessante Variante von CNN sind die sogenannten tiefen neuronalen Netzwerke (Englisch: "Deep Neuronal Networks (DNN)"). Ein DNN besteht neben dem Eingabe- und Ausgabe-Schicht noch aus sehr vielen weiteren "versteckten" Schichten ("Hidden Layers"). Jede Schicht(Layer) enthält eine bestimmte Anzahl von Neuronen oder Aktivierungseinheiten.\\
 DNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispiel in der Bilderkennung, Gesichtserkennung, medizinischen Bildverarbeitung und sogar in der natürlichen Sprachverarbeitung (mit Modellen wie den sogenannten "Convolutional Seq2Seq" Modellen) weit verbreitet.\\
 ***\\
@@ -2225,14 +2225,14 @@ DNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispi
 **** Referenz: [Math for DL] ******** 
 \subsection{Mathematische Grundlagen von CNN}
 %
-Die mathematischen Grundlagen des Convolutional Neural Networks (CNN) beruhen auf Konzepten aus linearen Algebra, partiellen Ableitungen und Faltung (Convolution). Ein CNN ist eine spezielle Art von neuronalem Netzwerk, das häufig in der Bild- und Sprachverarbeitung eingesetzt wird, aufgrund seiner Fähigkeit, räumliche Strukturen in Daten zu erkennen.\\
+Die mathematischen Grundlagen des Convolutional Neural Networks (CNN)\index{CNN} beruhen auf Konzepten aus linearen Algebra, partiellen Ableitungen und Faltung (Convolution). Ein CNN ist eine spezielle Art von neuronalem Netzwerk, das häufig in der Bild- und Sprachverarbeitung eingesetzt wird, aufgrund seiner Fähigkeit, räumliche Strukturen in Daten zu erkennen.\\
 \subsubsection{Liste der wichtigsten mathematische Methoden}
 Hier sind die wichtigen mathematischen Grundlagen eines Convolutional Neural Networks:\\
 %
 \textbf{1. Lineare Algebra:}\\
 CNNs verwenden Matrizenoperationen, um Gewichte und Aktivierungen zu berechnen. Ein typischer Schritt in einem CNN ist die lineare Transformation, bei der Eingabedaten durch eine Gewichtsmatrix multipliziert und ein Bias addiert wird. Dies erzeugt die Aktivierungen der nächsten Schicht.\\
 \textbf{2. Faltung (Convolution):}\\
-Die Faltung ist ein zentrales Konzept in CNNs. In einem CNN werden Filter (auch Kernel genannt) verwendet, um räumliche Merkmale aus den Eingabedaten zu extrahieren. Die Faltung erfolgt durch das Verschieben des Filters über die Eingabedaten und die Berechnung des Punktprodukts zwischen dem Filter und dem überlappenden Teil der Daten. Das Ergebnis ist ein sogenanntes Aktivierungsmuster oder Feature-Map, das die erkannten Merkmale anzeigt.\\
+Die Faltung ist ein zentrales Konzept in CNNs. In einem CNN\index{CNN} werden Filter (auch Kernel genannt) verwendet, um räumliche Merkmale aus den Eingabedaten zu extrahieren. Die Faltung erfolgt durch das Verschieben des Filters über die Eingabedaten und die Berechnung des Punktprodukts zwischen dem Filter und dem überlappenden Teil der Daten. Das Ergebnis ist ein sogenanntes Aktivierungsmuster oder Feature-Map, das die erkannten Merkmale anzeigt.\\
 \textbf{3. Nichtlinearität (Aktivierungsfunktionen):}\\
 Nach der Faltung wird in den meisten Schichten des CNN eine Nichtlinearität eingeführt, um die Expressivität des Netzwerks zu erhöhen. Eine Aktivierungsfunktion wie die ReLU (Rectified Linear Unit) wird oft verwendet, um negative Werte zu eliminieren und nichtlineare Verzerrungen in den Daten zu erzeugen.\\
 \textbf{4. Pooling:}\\
@@ -2244,7 +2244,7 @@ CNNs bestehen aus mehreren Schichten, darunter Eingabeschicht, Faltungsschichten
 \\
 Diese mathematischen Grundlagen ermöglichen es Convolutional Neural Networks, Merkmale aus Eingabedaten zu extrahieren und komplexe Muster zu lernen, was zu einer effektiven Verarbeitung von Bildern, Videos, Sprache und anderen räumlichen Daten führt.
 %
-\subsubsection{Mathematische Definition eines tiefen Neuronalen Netzes (DNN)}
+\subsubsection{Mathematische Definition eines tiefen Neuronalen Netzes (DNN)\index{DNN}}
 %
 Ein tiefes neuronales Netzwerk besteht aus $L$ Schichten, wobei $L$ normalerweise größer oder gleich 3 ist. Jede Schicht $l$, wobei $l = 1, 2, \ldots, L$, enthält eine bestimmte Anzahl von Neuronen oder Aktivierungseinheiten.\\
 %
@@ -2260,10 +2260,10 @@ Die Aktivierungsfunktion führt eine Nichtlinearität in die Reaktion des Neuron
 %
 Die Gewichtungen und Schwellenwerte der Neuronen in einem tiefen neuronalen Netzwerk werden normalerweise in einem Trainingsprozess erlernt, der auf Daten basiert. Dies geschieht oft mithilfe von Verfahren wie dem Backpropagation-Algorithmus und Optimierungsalgorithmen wie dem Gradientenabstiegsverfahren.\\[0.2cm]
 %
-\textbf{Mathematische Definition eines DNN's:}\\
+\textbf{Mathematische Definition eines DNN's:}\index{DNN}\\
 Die mathematische Darstellung eines tiefen neuronalen Netzwerks kann komplex sein und hängt von den genauen Architekturen und Hyperparametern ab, die für ein bestimmtes Problem festgelegt wurden. In der Regel wird die gesamte Transformation eines Netzwerks von der Eingabe zur Ausgabe als eine Funktion $f(x; \phi)$ dargestellt, wobei $x$ die Eingabe ist und $\phi$ die Parameter des Netzwerks sind.\\[0.2cm]
 Die Verkettung künstlicher Neuronen führt zu Kompositionen von affinen linearen Abbildungen und Aktivierungsfunktionen.\\
-In den folgenden zwei Bildern sehen wir ein Beispiel für einer solche Komposition und daraus folgend die mathematische Definition eines (Deep) Neuronalen Netz (DNN): 
+In den folgenden zwei Bildern sehen wir ein Beispiel für einer solche Komposition und daraus folgend die mathematische Definition eines (Deep) Neuronalen Netz (DNN)\index{DNN}: 
 \begin{figure}[ht]
   \centering
   \hspace*{-0.5cm} 
@@ -2703,7 +2703,7 @@ $ X^\top \cdot y = \left(
   \right) \quad (B'_{k=1})
 $     
 \\[0.3cm]
-Für die Inverse Matrix $(X^\top \cdot X)^{(-1)}$ erhalten wir: \\[0.2cm]
+Für die Inverse Matrix\index{Inverse} $(X^\top \cdot X)^{(-1)}$ erhalten wir: \\[0.2cm]
 \hspace*{+3.2cm}
 $ (X^\top \cdot X)^{(-1)} = \left(
   \begin{array}{c}
@@ -2755,7 +2755,7 @@ Die {\color{red}{sLR-Gerade}} ist im folgenden Bild sichtbar:
   \centering
   \hspace*{-0.1cm} 
   \includegraphics[width=0.9\textwidth]{Iowa-Housing-Prices}
-  \caption{sLR-Gerade im Beispiel. "Iowa-Housing-Prices"}     
+  \caption{{\color{red}{sLR-Gerade}} im Beispiel "Iowa-Housing-Prices"}     
   \label{fig:Iowa-HP}
 \end{figure}
 
@@ -2870,7 +2870,7 @@ Weitere Kapitel Texte \\
 
 \clearpage % Seite wechseln
 
-\printindex
+{\color{blue}{\printindex}}
 
 
 \end{document}
