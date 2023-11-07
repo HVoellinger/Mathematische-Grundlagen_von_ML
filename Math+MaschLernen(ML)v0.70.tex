@@ -47,6 +47,7 @@
 \usepackage{stackengine} % für \stackengine
 \usepackage{theorem}
 
+\usepackage{hyperref}  % Include the hyperref package
 \usepackage{makeidx}
 \makeindex 
 
@@ -88,10 +89,10 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.68 (Datum: 25.10.2023) ist nicht final!!! \\
+Diese Version V0.70 (Datum: 6.11.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.68.pdf} \\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.70.pdf} \\
 \vspace{0.4cm}
 \begin{large}
 Dieses Skript wurde generiert mit \LaTeX\  
@@ -550,7 +551,7 @@ Ab hier bis Ende der Übungen sind die Folien der Vorlesung ML  zu nutzen und di
 Ein \textbf{Regressionsmodell im Machine Learning} ist ein statistisches Modell, das dazu verwendet wird, die Beziehung zwischen einer abhängigen (oder Ziel-) Variable ("Target") und einer oder mehreren unabhängigen (oder erklärenden) Variablen (Features") zu analysieren und zu beschreiben. Das Hauptziel der Regression besteht darin, Vorhersagen für die abhängige Variable zu treffen, basierend auf den Werten der unabhängigen Variablen.\\
 Die Grundidee hinter einem Regression ist es, eine Funktion zu finden, die die bestmögliche Anpassung an die gegebenen Daten bietet. Je nach Art der Daten und der Beziehung zwischen den Variablen gibt es verschiedene Arten von Regressionsmodellen, darunter:\\[0.2cm] 
 % 
-1. \textbf{Lineare Regression}: Hierbei handelt es sich um das einfachste Regressionsmodell, bei dem versucht wird, eine lineare Beziehung zwischen den unabhängigen und abhängigen Variablen zu finden.\\[0.2cm]
+1. \textbf{Lineare Regression}\index{Lineare Regression} Hierbei handelt es sich um das einfachste Regressionsmodell, bei dem versucht wird, eine lineare Beziehung zwischen den unabhängigen und abhängigen Variablen zu finden.\\[0.2cm]
 %  
 2. \textbf{Polynominale - oder auch Multidim. Regression}: Diese erweitert die lineare Regression, indem sie Polynome höheren Grades verwendet, um komplexere Beziehungen zwischen den Variablen zu modellieren.\\[0.2cm]
 % 
@@ -568,7 +569,7 @@ Die Grundidee hinter einem Regression ist es, eine Funktion zu finden, die die b
 
 In unserem Skript fokussieren wir uns auf die \textbf{Lineare Regressionen (LR)}.
 Das LR Modell geht von einer linearen Beziehung zwischen den Variablen aus, was bedeutet, dass Änderungen in den unabhängigen Variablen ("Features") mit konstanten Veränderungen in der abhängigen Variable (Target") einhergehen.\\
-Die lineare Regression nutzt eine Methode, die als \textbf{"Methode der kleinsten Quadrate"} bezeichnet wird, um die besten Schätzwerte für die Koeffizienten zu finden. Diese Methode minimiert die quadratischen Abweichungen zwischen den beobachteten Werten und den vom Modell vorhergesagten Werten. \\
+Die lineare Regression \index{Lineare Regression}  nutzt eine Methode, die als \textbf{"Methode der kleinsten Quadrate"} bezeichnet wird, um die besten Schätzwerte für die Koeffizienten zu finden. Diese Methode minimiert die quadratischen Abweichungen zwischen den beobachteten Werten und den vom Modell vorhergesagten Werten. \\
 Sei k die Anzahl der unabhängigen Variablen dann sprechen wir bei k = 1 von einer {\color{blue}{"Einfachen (simple) Linearen Regression" (sLR)}} und bei $k\geqslant 2.$ von einer {\color{blue}{"Multidimensionalen (multiplen) Linearen Regression"(mLR)}}.\\
 Eine Trainingsmenge von n Datenpunkten $\lbrace P_j \rbrace$ in $\mathbb{R}^{k+1} $ wird dargestellt als Vektor: 
 \begin{center}
@@ -606,29 +607,26 @@ Ein bewegtes Bild davon liegt in der Referenz [HVö-5]:
 
 \subsection{Kennzahlen  $ R^2 $ und $ adj.{R^2} $ }
 %
-Für die Definition der \textbf{simple Linear Regression (sLR)}\index{Simple Linear Regression (sLR)} und \textbf{multiple Linear Regression (mLR)} \index{Multiple Linear Regression (mLR)} brauchen wir einige Kennzahlen für die Datenpunkte ("Beobachtungspunkte") aus der Trainingsmenge\index{Trainingsmenge} (\textit{observation points).}\index{Observation Points}\\
-Diese Kennzahlen sind \textbf{Sum of Squares Total (SST)}\index{SST} ,\textbf{ Sum of Squares Error (SSE)}\index{SSE} und \textbf{Sum of Squares Regression (SSR)}\index{SSR}
+Für die Definition der \textbf{simple Linear Regression (sLR)}\index{Simple Linear Regression (sLR)|hyperpage} und \textbf{multiple Linear Regression (mLR)} \index{Multiple Linear Regression (mLR)|hyperpage} brauchen wir einige Kennzahlen für die Datenpunkte ("Beobachtungspunkte") aus der Trainingsmenge\index{Trainingsmenge} (\textit{observation points).}
+Diese Kennzahlen sind \textbf{Sum of Squares Total (SST)},\textbf{ Sum of Squares Error (SSE)} und \textbf{Sum of Squares Regression (SSR)}
 %
 \subsubsection{Definition der sLR Kennzahl $ R^2 $}
 %
-Das Bestimmtheitsmaß, auch ”Determinationskoeffizient” (von lateinisch: ”Determination”
-”Abgrenzung, Bestimmung“ bzw. ”determinare” ”eingrenzen“, ” festlegen“, ”bestimmen“ und ”coefficere” ”mitwirken“), bezeichnet mit $R^2$, ist in der Statistik
-eine Kennzahl zur Beurteilung der Anpassungsgüte einer Regressionsanalyse.\\
+Das Bestimmtheitsmaß $R^2$\index{Bestimmtheitsmaß $R^2$}, auch ”Determinationskoeffizient” (von lateinisch: ”Determination”
+”Abgrenzung, Bestimmung“ bzw. ”determinare” ”eingrenzen“, ” festlegen“, ”bestimmen“ und ”coefficere” ”mitwirken“), bezeichnet mit $R^2$, ist in der Statistik eine Kennzahl zur Beurteilung der Anpassungsgüte einer Regressionsanalyse.\\
 Das Bestimmtheitsmaß beruht auf der ”Quadratsummenzerlegung”, bei der die totale
 Quadratsumme in die durch das Regressionsmodell erklärte Quadratsumme einerseits
 und in die Residuenquadratsumme (oder auch ”Fehlerquadratsummen”) andererseits
 zerlegt wird.\\[0.2cm]
 Weil das Bestimmtheitsmaß durch die Aufnahme zusätzlicher Variablen wächst und
 die Gefahr der Überanpassung besteht, wird für praktische Anwendungen meist das
-”adjustierte Bestimmtheitsmaß” verwendet. Das adjustierte Bestimmtheitsmaß bestraft
-im Gegensatz zum unadjustierten Bestimmtheitsmaß die Aufnahme jeder neu
-hinzugenommenen abhängigen und unabhängigen Variable.\\[0.2cm]
+”adjustierte Bestimmtheitsmaß” \index{Adjustiertes Bestimmtheitsmaß $Adj.R^2$} verwendet. Das adjustierte Bestimmtheitsmaß bestraft im Gegensatz zum unadjustierten Bestimmtheitsmaß die Aufnahme jeder neu hinzugenommenen abhängigen und unabhängigen Variable.\\[0.2cm]
 Die Regressiongerade $f(x)$ als Schätzer (Modellfunktion) für den Zusammenhang von
 Größe und Gewicht der Probanden. $f(xi) = f_i $  ist das geschätzte Gewicht des
 Probanden bei einer gegebenen Größe $x_i$.\\[0.2cm]
 Der Restfehler (das Residuum) $\varepsilon_i$ stellt die Differenz zwischen dem Messwert $y_i$ und dem Schätzwert $f_i$ dar.\\[0.2cm]
 %
-Die Definition der Kennzahl $R^2$ \index{$R^2$} benutzt die Kennzahlen SST und SSE). SSR wird für die eigentliche Definition von $R^2$ nicht genutzt. Wir brauchen diese Kennzahl aber später im Kapitel. Sei n = (Anzahl der Beobachtungen) dann definieren wir der Einfachheit halber: 
+Die Definition der Kennzahl $R^2$ \index{Bestimmtheitsmaß $R^2$} benutzt die Kennzahlen SST und SSE). SSR wird für die eigentliche Definition von $R^2$ nicht genutzt. Wir brauchen diese Kennzahl aber später im Kapitel. Sei n = (Anzahl der Beobachtungen) dann definieren wir der Einfachheit halber: 
 \begin{center}
 $ f_i = f(x_i)\quad $ und $ \quad \overline{x} = \frac{1}{n} \sum\limits_{i=1}^n (x_i) ; \quad \overline{y} = \frac{1}{n} \sum\limits_{i=1}^n (y_i) $\\
 \end{center} 
@@ -639,12 +637,12 @@ $ f_i = f(x_i)\quad $ und $ \quad \overline{x} = \frac{1}{n} \sum\limits_{i=1}^n
 %
 SST, SSE und SSR sind gegeben durch die folgenden Definitionen. Ohne Verlust der Allgemeinheit (o.A.) können wir dabei annehmen das SST größer als Null ist:
 \begin{center}
-$ \texttt{(D-5.1): Sum of Squares Total (SST) := } \sum\limits_{i=1}^n \Bigl(y_i - \overline{y})\Bigr)^2 $ 
-$ \texttt{(D-5.2): Sum of Squares Error (SSE) := } \sum\limits_{i=1}^n \Bigl(y_i - f_i\Bigr)^2 = \sum\limits_{i=1}^n \varepsilon_i^2 $
-$ \texttt{(D-5.3): Sum of Squares Regression (SSR) := } \sum\limits_{i=1}^n \Bigl(f_i - \overline{y})\Bigr)^2 $  
+$ \texttt{(D-5.1): Sum of Squares Total (SST) := } \sum\limits_{i=1}^n \Bigl(y_i - \overline{y})\Bigr)^2 $ \index{Sum of Squares Total (SST)}
+$ \texttt{(D-5.2): Sum of Squares Error (SSE) := } \sum\limits_{i=1}^n \Bigl(y_i - f_i\Bigr)^2 = \sum\limits_{i=1}^n \varepsilon_i^2 $ \index{Sum of Squares Error (SSE)}
+$ \texttt{(D-5.3): Sum of Squares Regression (SSR) := } \sum\limits_{i=1}^n \Bigl(f_i - \overline{y})\Bigr)^2 $ \index{Sum of Squares Regression (SSR)} 
 \end{center}
 % Zeilenfüller
-Für die Definition von $R^2$\index{$R^2$}  brauchen wir Sum of Squares Error (SSE) und Sum of Squares Total (SST). Die Definition von $R^2$ ist gegeben durch die Differenz von 1 und dem Quotienten SSE/SST. Wir nennen $R^2$ in Deutsch auch {\color{blue}{"Bestimmtheitsgrad"}}: \index{Bestimmtheitsgrad}\\
+Für die Definition von $R^2$ brauchen wir Sum of Squares Error (SSE) und Sum of Squares Total (SST). Die Definition von $R^2$ ist gegeben durch die Differenz von 1 und dem Quotienten SSE/SST. Wir nennen $R^2$ in Deutsch auch {\color{blue}{"Bestimmtheitsgmaß"}}: \index{Bestimmtheitsmaß $R^2$}\\
 \begin{center}
 \texttt{(D-5.4):}
 \begin{Large}  
@@ -653,22 +651,23 @@ Für die Definition von $R^2$\index{$R^2$}  brauchen wir Sum of Squares Error (S
 \end{center}
 % 
 \textbf{Anmerkungen und Definition von $MSE$}:\\[0.2cm]
-Bei der Nutzung von Python-Programmen, insbesondere bei der Nutzung der NumPy Bibliothek, wird oft noch eine weitere Kennzahl ("Measure") zur Messung der Güte der Regression benutzt. Diese Kennzahl ist  {\color{blue}{"Mean Squared Error" $(MSE)$}} \index{MSE} und ist eine Abwandlung der Definition von SSE (D-5.2). $ MSE$ ist definiert durch:
+Bei der Nutzung von Python-Programmen, insbesondere bei der Nutzung der NumPy Bibliothek, wird oft noch eine weitere Kennzahl ("Measure") zur Messung der Güte der Regression benutzt. Diese Kennzahl ist  {\color{blue}{"Mean Squared Error" $(MSE)$}} \index{Mean Squared Error (MSE)} und ist eine Abwandlung der Definition von SSE (D-5.2). $ MSE$ ist definiert durch:
 \begin{center}
 $ \texttt{(D-5.5): Mean Squared Error (MSE) := } \frac{1}{n} \cdot \sum\limits_{i=1}^n \Bigl( y_i - f_i \Bigr)^2 = \frac{1}{n} \cdot \sum\limits_{i=1}^n \varepsilon_i^2 $ \\
 \end{center} 
 %
-\textbf{Erläuterungen zu obigen Definition}:\\[0.4 cm]
+\textbf{Erläuterungen zu obigen Definitionen}:\\[0.3 cm]
 %
-In der einfachen linearen Regression haben die Begriffe SSE, SSR und SST folgende Bedeutungen:
+In der einfachen linearen Regression haben die Begriffe SSE, SSR, SST und MSE folgende Bedeutungen:
 \begin{itemize}
-\item \textbf{SSE (Sum of Squares Error)}: SSE\index{SSE}  steht für die ”Summe der quadrierten Fehler (”Error”)”. In der Literatur wird dies manchmal auch als ”Sum of Squares Residuals” bezeichnet. Wir wählen aber lieber den Begriff ”Error” um auch mit der Abkürzung SSE konsistent zu sein. SSE misst die Gesamtmenge der Abweichungen zwischen den beobachteten Datenpunkten $y_i$ und den vorhergesagten Werten $ f_i $ der Regressionsgeraden. Es repräsentiert die nicht erklärte Variation in den Daten. 
+\item \textbf{SSE (Sum of Squares Error)}:\index{Sum of Squares Error (SSE)}\\SSE steht für die ”Summe der quadrierten Fehler (”Error”)”. In der Literatur wird dies manchmal auch als ”Sum of Squares Residuals” bezeichnet. Wir wählen aber lieber den Begriff ”Error” um auch mit der Abkürzung SSE konsistent zu sein. SSE misst die Gesamtmenge der Abweichungen zwischen den beobachteten Datenpunkten $y_i$ und den vorhergesagten Werten $ f_i $ der Regressionsgeraden. Es repräsentiert die nicht erklärte Variation in den Daten. 
     
-\item \textbf{SSR (Sum of Squares Regression)}: SSR steht für die "Summe der quadrierten Abweichungen der Regression" (Sum of Squares Regression). Die SSR misst die Variation, die durch die Regression erklärt wird. Sie quantifiziert die Summe der quadrierten Distanzen zwischen den vorhergesagten Werten \(\hat{y}_i\) und dem Mittelwert \(\bar{y}\) der abhängigen Variable.
+\item \textbf{SSR (Sum of Squares Regression)}:\index{Sum of Squares Regression (SSR)} \\
+SSR steht für die "Summe der quadrierten Abweichungen der Regression" (Sum of Squares Regression)\index{Sum of Squares Regression (SSR)}. Die SSR misst die Variation, die durch die Regression erklärt wird. Sie quantifiziert die Summe der quadrierten Distanzen zwischen den vorhergesagten Werten \(\hat{y}_i\) und dem Mittelwert \(\bar{y}\) der abhängigen Variable.
     
-\item \textbf{SST (Total Sum of Squares)}: SST steht für die "Gesamtsumme der quadrierten Abweichungen" (Total Sum of Squares). Die SST misst die Gesamtvariation der beobachteten Werte \(y_i\) um ihren Mittelwert \(\bar{y}\). Es ist die Summe der quadrierten Abweichungen jedes Datenpunkts von \(\bar{y}\).
+\item \textbf{SST (Sum of Squares Total)}:\index{Sum of Squares Total (SST)} \\ SST steht für die "Gesamtsumme der quadrierten Abweichungen" (Sum of Squares Total). Die SST misst die Gesamtvariation der beobachteten Werte \(y_i\) um ihren Mittelwert \(\bar{y}\). Es ist die Summe der quadrierten Abweichungen jedes Datenpunkts von \(\bar{y}\).
 
-\item \textbf{MSE (Mean Squared Error)}: Die MSE-Kennzahl ist eine weit verbreitete Metrik zur Beurteilung der Güte einer linearen Regression, einem statistischen Verfahren zur Vorhersage von abhängigen Variablen anhand von unabhängigen Variablen. Die MSE-Kennzahl quantifiziert, wie gut die Regressionsgerade die tatsächlichen Datenpunkte approximiert.Insgesamt ist der MSE eine nützliche Kennzahl, um die Genauigkeit eines linearen Regressionsmodells zu bewerten. Es ist jedoch wichtig zu beachten, dass je nach Anwendungsfall auch andere Metriken in Betracht gezogen werden können, um die Vorhersagequalität zu beurteilen.
+\item \textbf{MSE (Mean Squared Error)}:\index{Mean Squared Error (MSE)}\\ Die MSE-Kennzahl ist eine weit verbreitete Metrik zur Beurteilung der Güte einer linearen Regression, einem statistischen Verfahren zur Vorhersage von abhängigen Variablen anhand von unabhängigen Variablen. Die MSE-Kennzahl quantifiziert, wie gut die Regressionsgerade die tatsächlichen Datenpunkte approximiert.Insgesamt ist der MSE eine nützliche Kennzahl, um die Genauigkeit eines linearen Regressionsmodells zu bewerten. Es ist jedoch wichtig zu beachten, dass je nach Anwendungsfall auch andere Metriken in Betracht gezogen werden können, um die Vorhersagequalität zu beurteilen.
 \end{itemize}
 %
 Die Beziehung zwischen den Kennzahlen SST, SSE und SSR kann durch die Gleichung \(SST = SSR + SSE\) für optimale Regressionsgeraden ausgedrückt werden. Diese Gleichung zeigt, wie die Gesamtvariation der abhängigen Variable in die Variation, die durch die Regression erklärt wird (SSR), und die nicht erklärte Variation (SSE) aufgeteilt wird.\\[0.2 cm]
@@ -1063,7 +1062,7 @@ Die inverse Matrix $A^{-1}$ ist dann die resultierende 3x3-Matrix.\\
 Dieser LaTeX-Code zeigt die korrekte Berechnung der inversen Matrix für die gegebene symmetrische 3x3-Matrix A unter Verwendung des Laplace'schen Entwicklungssatzes (siehe oben).\\[0.4cm]
 Auch hier wird empfohlen bei dieser Rechnung eine Probe zu machen, indem man jetzt mit den konkreten Werten die Gleichung: $A \cdot A^{(-1)} = E (Einheitsmatrix)$ nachrechnet.\\[0.3cm]
 %
-\textbf{Python-Programm zur Berechnung der obigen Inversen\index{Inverse}:}\\[0.2cm] 
+\textbf{Python-Programm zur Berechnung der obigen Inversen:}\\[0.2cm] 
 %
 Wir entwickeln ein Python Programm als Jupyter Notebook. Du kannst dieses Code-Snippet in einem Jupyter Notebook ausführen. Importiere die benötigte NumPy-Bibliothek.\\ 
 Das Notebook erstellt eine symmetrische 3x3-Matrix A, berechnet Det(A) und Adj(A), woraus sich Inv(A) ergibt. Insgesamt besteht das Programm aus 4 Schritten. 
@@ -1423,7 +1422,7 @@ $ f \bigl(\mathbf{x}^{(i)}\bigr)$ eine  genaue Approximation von $y^{(i)}$ ist, 
 $\forall i\in\{1,\cdots,n\}:f \bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$. \\[0.4cm]
 \end{large}
 %
-Um die Gleichung $ f\bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$ zu berechnen nutzen wir wieder die {\color{blue}{Summe der  quadratischen Fehler "Sum of Squared Errors"}}\index{SSE} (: 
+Um die Gleichung $ f\bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$ zu berechnen nutzen wir wieder die {\color{blue}{Summe der  quadratischen Fehler "Sum of Squared Errors"}} 
 \begin{equation}
   \label{eq:squared-error-1}
   \mathtt{SSE} := \sum\limits_{i=1}^{n} \Bigl(f\bigl(\mathbf{x}^{(i)}\bigr) - y^{(i)}\Bigr)^2. 
@@ -2866,7 +2865,7 @@ Weitere Kapitel Texte \\
 
 \newpage
 
-\begin{LARGE} Indexverzeichnis \end{LARGE}
+%\begin{LARGE} Indexverzeichnis \end{LARGE}
 
 \clearpage % Seite wechseln
 
