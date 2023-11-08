@@ -122,10 +122,6 @@ Dieses Skript wurde generiert mit \LaTeX\
 
 \newpage
 
-\printindex
-
-\newpage
-
 \pagenumbering{arabic} % arabische Seitennummerierung für den Hauptteil
  
 \renewcommand{\labelenumi}{(\alph{enumi})}
@@ -207,7 +203,7 @@ Diese sechs ML Verfahren sind:\\
 
 1. Mathematik zum k-Means-Algorithmus ("Euklidische Geometrie")\\
 
-2. Entscheidungsbäume mit GINI-Index \index{GINI} und ID3-Verfahren \index{ID3}(Statistik)\\
+2. Entscheidungsbäume mit GINI-Index und ID3-Verfahren (Statistik)\\
 
 3. Lineare Regression und "Best Fit" Verfahren der Analysis (AN)\\
 
@@ -235,7 +231,7 @@ Am Ende kommt noch ein Kapitel \textbf{Anhang} in den sechs weitere ML-Verfahren
 
 \section{Mathematik zum "k-Means-Algorithmus" \\}
 
-Ein \textbf{k-Means-Algorithmus}ist ein Verfahren der Euklidischen Geometrie. Dabei wird aus einer Menge von ähnlichen Objekten eine vorher bekannte Anzahl von k Gruppen ("Clustern") gebildet.\\
+Ein {\color{blue}{k-Means-Algorithmus}}\index{k-Means-Algorithmus} ist ein Verfahren der Euklidischen Geometrie. Dabei wird aus einer Menge von ähnlichen Objekten eine vorher bekannte Anzahl von k Gruppen ("Clustern") gebildet.\\
 Der Algorithmus ist eine der am häufigsten verwendeten Techniken zur Gruppierung von Objekten, da er schnell die Zentren der Cluster findet. Dabei bevorzugt der Algorithmus Gruppen mit geringer Varianz und ähnlicher Größe.\\
 Der Algorithmus hat starke Ähnlichkeiten mit dem "Erwartungs-Maximierungs-Algorithmus (EM-Algorithmus)" und zeichnet sich durch seine Einfachheit aus.\\
 Erweiterungen sind der $"k-Median-Algorithmus"$ und der $"k-Means++ Algorithmus" $.\\
@@ -271,7 +267,7 @@ Da die Suche nach der optimalen Lösung schwer ist, wird im Normalfall ein appro
 
 \subsubsection{Lloyd-Algorithmus}
 
-Der am häufigsten verwendete k-Means-Algorithmus ist der \textbf{Lloyd-Algorithmus}, der oft als "der k-Means-Algorithmus" bezeichnet wird, obwohl Lloyd diesen Namen nicht verwendet hat. Lloyds Algorithmus besteht aus drei Schritten:\\[0.2cm]
+Der am häufigsten verwendete {\color{blue}{k-Means-Algorithmus}} \index{k-Means-Algorithmus} ist der \textbf{Lloyd-Algorithmus}, der oft als "der k-Means-Algorithmus" bezeichnet wird, obwohl Lloyd diesen Namen nicht verwendet hat. Lloyds Algorithmus besteht aus drei Schritten:\\[0.2cm]
 \textbf{1. Initialisierung:} Wähle $k$ zufällige Mittelwerte ("Means"): $ \mathbf m_1^{(1)}, \ldots, \mathbf m_k^{(1)} $ aus dem Datensatz.\\
 \textbf{2. Zuordnung:} Jedes Datenobjekt wird demjenigen Cluster zugeordnet, bei dem die Cluster-Varianz am wenigsten erhöht wird.
 \begin{center}
@@ -311,7 +307,7 @@ Ab hier bis Ende der Section sind die Folien der Vorlesung ML  zu nutzen und die
 \subsection{k-Means-Clustering für IRIS Blumen}
 
 
-Der in diesem Beispiel verwendete Datensatz ist der berühmte \textbf{IRIS-Blumen Datensatz}. Er besteht aus 150 Einträgen der Irisblume, die jeweils durch vier Merkmale beschrieben werden: Kelchblattlänge, Kelchblattbreite, Blütenblattlänge und
+Der in diesem Beispiel verwendete Datensatz ist der berühmte {\color{blue}{IRIS-Blumen Datensatz}} \index{IRIS-Blumen Datensatz} Er besteht aus 150 Einträgen der Irisblume, die jeweils durch vier Merkmale beschrieben werden: Kelchblattlänge, Kelchblattbreite, Blütenblattlänge und
 Blütenblattbreite. \\[0.2cm]
 Zusätzlich ist der spezifische Typ der Irisblume angegeben. Es gibt drei Arten
 der Schwertlilienpflanze: Iris Setosa, Iris Versicolor und Iris Virginica.\\
@@ -334,7 +330,7 @@ Siehe Lösungen in meinem Github:\\
 %
 Die Konfusion-Matrix zeigt, dass alle 50 setosa-Blüten richtig klassifiziert wurden.\\ 48 versicolor-Blüten wurden richtig klassifiziert, aber 14 wurden falsch erkannt. \\ 36 virginica-Blüten wurden richtig beschriftet und 2 virginica-Blüten wurden fälschlicherweise als virginica-Blüten klassifiziert.\\[0.2cm]
 %
-Insgesamt funktionieren  Clustering und Klassifizierung mit k-Means im IRIS-Datensatz gut. Mit einer Genauigkeit von 89 Prozent ist der Algorithmus ein gutes Hilfsmittel, um ein Modell für die Vorhersage der genauen Art der Irisblüte zu erstellen.\\
+Insgesamt funktionieren  Clustering und Klassifizierung mit k-Means im {\color{blue}{IRIS-Blumen Datensatz}} \index{IRIS-Blumen Datensatz} gut. Mit einer Genauigkeit von 89 Prozent ist der Algorithmus ein gutes Hilfsmittel, um ein Modell für die Vorhersage der genauen Art der Irisblüte zu erstellen.\\
 Wie die Konfusion-Matrix zeigt, ist die Klassifikation zu 100\% genau
 für die Setosa-Blüten und über 94\% für die Versicolor-Arten. Es scheitert nur bei der genauen Virginica-Blüten mit einer Genauigkeit von "nur" 77\%.\\
 Das Modell von k-Means kann jedoch noch weiter verbessert werden, wie andere  Implementierungen wie k-means++ zeigen. Es verbessert außerdem die Wahl der anfänglichen Zentren.
@@ -402,7 +398,7 @@ ab hier bis Ende der section sind die Folien der Vorlesung ML  zu nutzen und die
 \subsubsection{Entropie: ID3-Verfahren}
 
 
-\textbf{Iterative Dichotomiser3 (ID3)} ist ein Algorithmus, der zur Entscheidungsfindung bei Entscheidungsbäumen eingesetzt wird.\\
+{\color{blue}{Iterative Dichotomiser3 (ID3)}} \index{ID3-Verfahren} ist ein Algorithmus, der zur Entscheidungsfindung bei Entscheidungsbäumen eingesetzt wird.\\
 Der australische Forscher J. Ross Quinlan publizierte diesen Algorithmus erstmals im Jahr 1986. ID3 war in seinen ersten Jahren sehr einflussreich. Er findet auch heute noch in einigen Produkten Verwendung. ID3 gilt als Vorgänger des [C4.5]-Algorithmus.\\
 %
 ID3 wird verwendet, wenn bei großer Datenmenge viele verschiedene Attribute von Bedeutung sind und deshalb ein Entscheidungsbaum ohne große Berechnungen generiert werden soll. Somit entstehen meist einfache Entscheidungsbäume. Es kann aber nicht garantiert werden, dass keine besseren Bäume möglich wären.\\[0.2cm]
@@ -411,8 +407,8 @@ ID3 wird verwendet, wenn bei großer Datenmenge viele verschiedene Attribute von
 Die Basisstruktur von ID3 ist iterativ. Es werden zu jedem noch nicht benutzten Attribut Entropien bezüglich der Trainingsmenge berechnet. Das Attribut mit dem höchsten Informationsgewinn (Englisch: \textit{Information Gain IG}) bzw. der kleinsten Entropie, wird gewählt und daraus ein neuer Baum-Knoten generiert.\\[0.1cm]
 Das Verfahren terminiert, wenn alle Trainingsinstanzen klassifiziert wurden, d.h. wenn jedem Blattknoten eine Klassifikation zugeordnet ist.\\[0.1cm]
 Der Informationstheoretische Verständnis des Begriffes \textbf {Entropie} geht auf Claude Elwood Shannon zurück und existiert seit etwa 1948. In diesem Jahr veröffentlichte Shannon seine fundamentale Arbeit:\\
- "A Mathematical Theory of Communication" \\ (\url{http://math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf})\\
-und prägte damit die moderne Informationstheorie.\\
+ "A Mathematical Theory of Communication" (\url{http://math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf}) und prägte damit die moderne Informationstheorie.\\
+ 
 Die Entropie wird üblicherweise mit einem großen griechischen Eta  \text{H} bezeichnet. Claude Elwood Shannon definierte die Entropie $ \mathrm{H} $ einer diskreten, gedächtnislosen Quelle (diskreten Zufallsvariable) $ X $ über einem endlichen, aus Zeichen bestehenden Alphabet $ Z=\{z_1, z_2, \dots, z_m\}$ wie folgt:\\[0.2cm]
 Zunächst ordnet man jeder Wahrscheinlichkeit $ p $ eines Ereignisses seinen Informationsgehalt $ I(z) = -\log_2 p_z $ zu. Dann ist die \textbf{Entropie eines Zeichens} definiert als der Erwartungswert des Informationsgehalts: \
 \begin{center}
@@ -439,7 +435,7 @@ Wenn die einzelnen Zeichen stochastisch voneinander unabhängig sind, dann gilt
 %
 Vergleiche auch Blockentropie: \url{https://de.wikipedia.org/wiki/Bedingte_Entropie#Blockentropie}.\\[0.4cm]
 % 
-\textbf{Auswahl der Attribute ("Merkmale"):}\\[0.3cm]
+\textbf{Definition des {\color{blue}{ID3-Verfahrens}} \index{ID3-Verfahren} und Auswahl der Attribute ("Merkmale"):}\\[0.3cm]
 Sei $ T $ die Menge der Trainingsbeispiele mit ihrer jeweiligen Klassifizierung, $ a \in A $ das zu prüfende Attribut aus der Menge der verfügbaren Attribute, $ V(a) $ die Menge der möglichen Attributwerte von $ a $ und $ T_ v$ die Untermenge von $ T $, für die das Attribut $ a $ den Wert $ v $ annimmt. \\
 Der Informationsgewinn, der durch Auswahl des Attributs $ a $ erzielt wird, errechnet sich dann als Differenz der Entropie von $ T $ und der erwarteten durchschnittlichen Entropie von $ T $ bei Fixierung von $ a $:\\
 \begin{center}
@@ -455,7 +451,9 @@ Siehe auch folgenden Weblink:\\
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Homework_H4.5-DecTree_ID3_Praesentation.pdf}\\[0.2cm]
 
 
-\subsection{Beispiele für Gini-Index \index{GINI} - und Entropie-Verfahren }
+\subsection{Beispiele für Gini-Index - und Entropie-Verfahren }
+
+
 
 
 \subsubsection{Beispiele für Gini-Index Verfahren}
@@ -551,7 +549,7 @@ Ab hier bis Ende der Übungen sind die Folien der Vorlesung ML  zu nutzen und di
 Ein \textbf{Regressionsmodell im Machine Learning} ist ein statistisches Modell, das dazu verwendet wird, die Beziehung zwischen einer abhängigen (oder Ziel-) Variable ("Target") und einer oder mehreren unabhängigen (oder erklärenden) Variablen (Features") zu analysieren und zu beschreiben. Das Hauptziel der Regression besteht darin, Vorhersagen für die abhängige Variable zu treffen, basierend auf den Werten der unabhängigen Variablen.\\
 Die Grundidee hinter einem Regression ist es, eine Funktion zu finden, die die bestmögliche Anpassung an die gegebenen Daten bietet. Je nach Art der Daten und der Beziehung zwischen den Variablen gibt es verschiedene Arten von Regressionsmodellen, darunter:\\[0.2cm] 
 % 
-1. \textbf{Lineare Regression}\index{Lineare Regression} Hierbei handelt es sich um das einfachste Regressionsmodell, bei dem versucht wird, eine lineare Beziehung zwischen den unabhängigen und abhängigen Variablen zu finden.\\[0.2cm]
+1. \textbf{{\color{blue}{Lineare Regression}}}: \index{Lineare Regression} Hierbei handelt es sich um das einfachste Regressionsmodell, bei dem versucht wird, eine lineare Beziehung zwischen den unabhängigen und abhängigen Variablen zu finden.\\[0.2cm]
 %  
 2. \textbf{Polynominale - oder auch Multidim. Regression}: Diese erweitert die lineare Regression, indem sie Polynome höheren Grades verwendet, um komplexere Beziehungen zwischen den Variablen zu modellieren.\\[0.2cm]
 % 
@@ -569,7 +567,7 @@ Die Grundidee hinter einem Regression ist es, eine Funktion zu finden, die die b
 
 In unserem Skript fokussieren wir uns auf die \textbf{Lineare Regressionen (LR)}.
 Das LR Modell geht von einer linearen Beziehung zwischen den Variablen aus, was bedeutet, dass Änderungen in den unabhängigen Variablen ("Features") mit konstanten Veränderungen in der abhängigen Variable (Target") einhergehen.\\
-Die lineare Regression \index{Lineare Regression}  nutzt eine Methode, die als \textbf{"Methode der kleinsten Quadrate"} bezeichnet wird, um die besten Schätzwerte für die Koeffizienten zu finden. Diese Methode minimiert die quadratischen Abweichungen zwischen den beobachteten Werten und den vom Modell vorhergesagten Werten. \\
+Die  {\color{blue}{lineare Regression}} \index{Lineare Regression} nutzt eine Methode, die als \textbf{"Methode der kleinsten Quadrate"} bezeichnet wird, um die besten Schätzwerte für die Koeffizienten zu finden. Diese Methode minimiert die quadratischen Abweichungen zwischen den beobachteten Werten und den vom Modell vorhergesagten Werten. \\
 Sei k die Anzahl der unabhängigen Variablen dann sprechen wir bei k = 1 von einer {\color{blue}{"Einfachen (simple) Linearen Regression" (sLR)}} und bei $k\geqslant 2.$ von einer {\color{blue}{"Multidimensionalen (multiplen) Linearen Regression"(mLR)}}.\\
 Eine Trainingsmenge von n Datenpunkten $\lbrace P_j \rbrace$ in $\mathbb{R}^{k+1} $ wird dargestellt als Vektor: 
 \begin{center}
@@ -607,12 +605,12 @@ Ein bewegtes Bild davon liegt in der Referenz [HVö-5]:
 
 \subsection{Kennzahlen  $ R^2 $ und $ adj.{R^2} $ }
 %
-Für die Definition der \textbf{simple Linear Regression (sLR)}\index{Simple Linear Regression (sLR)|hyperpage} und \textbf{multiple Linear Regression (mLR)} \index{Multiple Linear Regression (mLR)|hyperpage} brauchen wir einige Kennzahlen für die Datenpunkte ("Beobachtungspunkte") aus der Trainingsmenge\index{Trainingsmenge} (\textit{observation points).}
+Für die Definition der \textbf{{\color{blue}{simple Linear Regression (sLR)}}}\index{Simple Linear Regression (sLR)|hyperpage} und \textbf{{\color{blue}{multiple Linear Regression (mLR)}}} \index{Multiple Linear Regression (mLR)|hyperpage} brauchen wir einige Kennzahlen für die Datenpunkte ("Beobachtungspunkte") aus der  {\color{blue}{Trainingsmenge}}\index{Trainingsmenge} (\textit{observation points).}
 Diese Kennzahlen sind \textbf{Sum of Squares Total (SST)},\textbf{ Sum of Squares Error (SSE)} und \textbf{Sum of Squares Regression (SSR)}
 %
 \subsubsection{Definition der sLR Kennzahl $ R^2 $}
 %
-Das Bestimmtheitsmaß $R^2$\index{Bestimmtheitsmaß $R^2$}, auch ”Determinationskoeffizient” (von lateinisch: ”Determination”
+Das {\color{blue}{Bestimmtheitsmaß $R^2$}} \index{Bestimmtheitsmaß $R^2$}, auch ”Determinationskoeffizient” (von lateinisch: ”Determination”
 ”Abgrenzung, Bestimmung“ bzw. ”determinare” ”eingrenzen“, ” festlegen“, ”bestimmen“ und ”coefficere” ”mitwirken“), bezeichnet mit $R^2$, ist in der Statistik eine Kennzahl zur Beurteilung der Anpassungsgüte einer Regressionsanalyse.\\
 Das Bestimmtheitsmaß beruht auf der ”Quadratsummenzerlegung”, bei der die totale
 Quadratsumme in die durch das Regressionsmodell erklärte Quadratsumme einerseits
@@ -620,13 +618,13 @@ und in die Residuenquadratsumme (oder auch ”Fehlerquadratsummen”) anderersei
 zerlegt wird.\\[0.2cm]
 Weil das Bestimmtheitsmaß durch die Aufnahme zusätzlicher Variablen wächst und
 die Gefahr der Überanpassung besteht, wird für praktische Anwendungen meist das
-”adjustierte Bestimmtheitsmaß” \index{Adjustiertes Bestimmtheitsmaß $Adj.R^2$} verwendet. Das adjustierte Bestimmtheitsmaß bestraft im Gegensatz zum unadjustierten Bestimmtheitsmaß die Aufnahme jeder neu hinzugenommenen abhängigen und unabhängigen Variable.\\[0.2cm]
+{\color{blue}{adjustierte Bestimmtheitsmaß}} \index{Adjustiertes Bestimmtheitsmaß} $Adj.R^2$ verwendet. Das adjustierte Bestimmtheitsmaß bestraft im Gegensatz zum unadjustierten Bestimmtheitsmaß die Aufnahme jeder neu hinzugenommenen abhängigen und unabhängigen Variable.\\[0.2cm]
 Die Regressiongerade $f(x)$ als Schätzer (Modellfunktion) für den Zusammenhang von
 Größe und Gewicht der Probanden. $f(xi) = f_i $  ist das geschätzte Gewicht des
 Probanden bei einer gegebenen Größe $x_i$.\\[0.2cm]
 Der Restfehler (das Residuum) $\varepsilon_i$ stellt die Differenz zwischen dem Messwert $y_i$ und dem Schätzwert $f_i$ dar.\\[0.2cm]
 %
-Die Definition der Kennzahl $R^2$ \index{Bestimmtheitsmaß $R^2$} benutzt die Kennzahlen SST und SSE). SSR wird für die eigentliche Definition von $R^2$ nicht genutzt. Wir brauchen diese Kennzahl aber später im Kapitel. Sei n = (Anzahl der Beobachtungen) dann definieren wir der Einfachheit halber: 
+Die Definition des {\color{blue}{Bestimmtheitsmaß $R^2$}} \index{Bestimmtheitsmaß $R^2$} benutzt die Kennzahlen SST und SSE). SSR wird für die eigentliche Definition von $R^2$ nicht genutzt. Wir brauchen diese Kennzahl aber später im Kapitel. Sei n = (Anzahl der Beobachtungen) dann definieren wir der Einfachheit halber: 
 \begin{center}
 $ f_i = f(x_i)\quad $ und $ \quad \overline{x} = \frac{1}{n} \sum\limits_{i=1}^n (x_i) ; \quad \overline{y} = \frac{1}{n} \sum\limits_{i=1}^n (y_i) $\\
 \end{center} 
@@ -660,7 +658,8 @@ $ \texttt{(D-5.5): Mean Squared Error (MSE) := } \frac{1}{n} \cdot \sum\limits_{
 %
 In der einfachen linearen Regression haben die Begriffe SSE, SSR, SST und MSE folgende Bedeutungen:
 \begin{itemize}
-\item \textbf{SSE (Sum of Squares Error)}:\index{Sum of Squares Error (SSE)}\\SSE steht für die ”Summe der quadrierten Fehler (”Error”)”. In der Literatur wird dies manchmal auch als ”Sum of Squares Residuals” bezeichnet. Wir wählen aber lieber den Begriff ”Error” um auch mit der Abkürzung SSE konsistent zu sein. SSE misst die Gesamtmenge der Abweichungen zwischen den beobachteten Datenpunkten $y_i$ und den vorhergesagten Werten $ f_i $ der Regressionsgeraden. Es repräsentiert die nicht erklärte Variation in den Daten. 
+\item \textbf{SSE (Sum of Squares Error)}:\index{Sum of Squares Error (SSE)} \\ 
+SSE steht für die ”Summe der quadrierten Fehler (”Error”)”. In der Literatur wird dies manchmal auch als ”Sum of Squares Residuals” bezeichnet. Wir wählen aber lieber den Begriff ”Error” um auch mit der Abkürzung SSE konsistent zu sein. SSE misst die Gesamtmenge der Abweichungen zwischen den beobachteten Datenpunkten $y_i$ und den vorhergesagten Werten $ f_i $ der Regressionsgeraden. Es repräsentiert die nicht erklärte Variation in den Daten. 
     
 \item \textbf{SSR (Sum of Squares Regression)}:\index{Sum of Squares Regression (SSR)} \\
 SSR steht für die "Summe der quadrierten Abweichungen der Regression" (Sum of Squares Regression)\index{Sum of Squares Regression (SSR)}. Die SSR misst die Variation, die durch die Regression erklärt wird. Sie quantifiziert die Summe der quadrierten Distanzen zwischen den vorhergesagten Werten \(\hat{y}_i\) und dem Mittelwert \(\bar{y}\) der abhängigen Variable.
