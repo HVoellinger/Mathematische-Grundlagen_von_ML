@@ -89,7 +89,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.70 (Datum: 6.11.2023) ist nicht final!!! \\
+Diese Version V0.70 (Datum: 10.11.2023) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.70.pdf} \\
@@ -1967,13 +1967,13 @@ Erzeuge ein Python Pgm. (Jupyter Notebook) für eine sLR-Verfahren mit den Daten
 
 
 Wir zeigen hier Text-Klassifikation mit dem \textbf{Naive Bayes- Klassifikator} ("Bayes Learning" via "naïve Bayes Classifier"). Grundlage ist das Bayes-Theorem ("Bayes Rule"), welches sich mit bedingten Wahrscheinlichkeiten befasst.\\
-Die Naive-Bayes-Textklassifikation ist eine Methode des maschinellen Lernens, die auf dem Naive-Bayes-Theorem basiert und häufig zur Kategorisierung von Textdaten verwendet wird. Sie ist besonders nützlich für Anwendungen wie Spam-Erkennung, Sentiment-Analyse, Themenklassifikation und mehr.\\
+Die {\color{blue}{Naive-Bayes-Textklassifikation}} \index{Naive-Bayes-Textklassifikation} ist eine Methode des maschinellen Lernens, die auf dem Naive-Bayes-Theorem basiert und häufig zur Kategorisierung von Textdaten verwendet wird. Sie ist besonders nützlich für Anwendungen wie Spam-Erkennung, Sentiment-Analyse, Themenklassifikation und mehr.\\
 
 Der Ansatz ist "naiv", weil er eine starke Unabhängigkeitsannahme zwischen den Features (Wörtern) macht, was in der Praxis oft nicht der Fall ist.
 
 \subsection{Eine Einführung in den naiven Bayes-Klassifikator}
 
-Hier ist eine grundlegende Erklärung, wie die Naive-Bayes-Textklassifikation funktioniert:\\
+Hier ist eine grundlegende Erklärung, wie die {\color{blue}{Naive-Bayes-Textklassifikation}} \index{Naive-Bayes-Textklassifikation} funktioniert:\\
 
 \begin{figure}[htb]
   \centering
@@ -2071,12 +2071,12 @@ Definiere einen Algorithmus in Python (benutze Jupyter Notebook) um obige Berech
 
 \newpage
 
-\section{Verfahren der "Support Vector Machines" (SVM)\\}
-
+\section{Verfahren der Support Vector Machines (SVM)\\} 
+%
 *** Referenzen: [Wiki-SVM]; [SVM-Def] und  [TK + SVM]*****\\
-
-Wichtig zum Verständnis von SVM ist die Beschreibung einiger mathematischen Grundlagen
-der SVM. Diese sind in der Tat traditionelle Lineare Algebra und keine "Rocket Science". Es geht bei diesem Klassifikationsproblem darum optimale Hyperebenen zu finden die die Klassen "gut" trennen.
+%
+Wichtig zum Verständnis von {\color{blue}{Support Vector Machines (SVM)}}\index{Support Vector Machines} ist die Beschreibung einiger mathematischen Grundlagen der SVM.\\
+Diese sind in der Tat traditionelle Lineare Algebra und keine "Rocket Science". Es geht bei diesem Klassifikationsproblem darum optimale Hyperebenen zu finden die die Klassen "gut" trennen.
 Dies kann man etwa auch gut am Beispiel von Text-Klassifikationen sehen. Text-Klassifikatiion hat sehr viel mit SVM zu tun. Vergleichen Sie dazu die Beispiele die in der Referenz [TK + SVM] zu sehen sind.
 \subsection{Grundlegende mathematische Funktionsweise}
 Das Hauptziel der SVM besteht darin, eine optimale Trennung (Klassifikation) zwischen zwei Klassen von Datenpunkten in einem mehrdimensionalen Raum zu finden. Die SVM sucht eine Hyperebene, die die beiden Klassen maximal voneinander trennt, wobei der Abstand zwischen der Hyperebene und den nächsten Datenpunkten (den sogenannten Support-Vektoren) maximiert wird.
@@ -2089,7 +2089,7 @@ Für eine lineare SVM ist die mathematische Darstellung der Hyperebene dann gege
 \end{center}
 Hier ist "$w$" der Gewichtsvektor, der senkrecht zur Hyperebene zeigt und die Richtung der Trennung bestimmt. "$b$" ist der Bias (auch Verschiebungsparameter genannt), der die Verschiebung der Hyperebene entlang der "$w$"-Achse steuert. Es gelten dabei die folgenden \textbf{matematischen Bedingungen}\\
 \textbf{1. Lineare Trennbarkeit:}\\
-Die SVM hat bestimmte Trennbedingungen, die während des Trainingsprozesses erfüllt werden sollen:
+Die {\color{blue}{SVM}} \index{Support Vector Machines} hat bestimmte Trennbedingungen, die während des Trainingsprozesses erfüllt werden sollen:
 Die Punkte jeder Klasse müssen auf unterschiedlichen Seiten der Hyperebene liegen.\\
 Mathematisch ausgedrückt gilt für positive Beispiele ($y_i = 1$): $w \cdot x_i + b \geq 1$\\
 und für negative Beispiele ($y_i = -1$): $w \cdot x_i + b \leq -1$\\
@@ -2100,7 +2100,7 @@ Der Abstand (Margin) zwischen den nächsten Datenpunkten (Support-Vektoren) und 
 Unter den Bedingungen: $y_i \cdot (w \cdot x_i + b) \geq 1$ für alle Datenpunkte ${(x_i,y_i)}$
 \end{center}
 \textbf{3. Kernel-Trick:}\\
-In Fällen, in denen die Daten nicht linear separierbar sind, kann der sogenannte Kernel-Trick angewendet werden. Der Kernel-Trick ermöglicht es, die Daten in einen höherdimensionalen Raum zu transformieren, in dem sie linear separierbar werden. Beliebte Kernel-Funktionen sind beispielsweise der lineare Kernel, der polynomiale Kernel und der RBF (Radial Basis Function) Kernel.\\
+In Fällen, in denen die Daten nicht linear separierbar sind, kann der sogenannte  {\color{blue}{Kernel-Trick}} \index{Kernel-Trick} angewendet werden. Der Kernel-Trick ermöglicht es, die Daten in einen höherdimensionalen Raum zu transformieren, in dem sie linear separierbar werden. Beliebte Kernel-Funktionen sind beispielsweise der lineare Kernel, der polynomiale Kernel und der RBF (Radial Basis Function) Kernel.\\
 
 \textbf{Anmerkung: Wie kommt es zu dem Namen "Kernel-Trick"?}\\
 Der Name "Kernel" kommt daher, dass in der mathematischen Darstellung der SVM die Funktion, die die Datenpunkte in den höherdimensionalen Raum transformiert, als Kernel-Funktion bezeichnet wird.\\
@@ -2111,7 +2111,7 @@ Dies sind die grundlegenden mathematischen Grundlagen der Support Vector Machine
 
 \subsection{Funktionsweise im Detail}
 
-Ausgangsbasis für den Bau einer Support Vector Machine ist eine Menge von Trainingsobjekten, für die jeweils bekannt ist, welcher Klasse sie zugehören. Jedes Objekt wird durch einen Vektor in einem Vektorraum repräsentiert. Aufgabe der Support Vector Machine ist es, in diesen Raum eine Hyperebene einzupassen, die als Trennfläche fungiert und die Trainingsobjekte in zwei Klassen teilt. Der Abstand derjenigen Vektoren, die der Hyperebene am nächsten liegen, wird dabei maximiert. Dieser breite, leere Rand soll später dafür sorgen, dass auch Objekte, die nicht genau den Trainingsobjekten entsprechen, möglichst zuverlässig klassifiziert werden.
+Ausgangsbasis für den Bau einer {\color{blue}{Support Vector Machine}} \index{Support Vector Machines}ist eine Menge von Trainingsobjekten, für die jeweils bekannt ist, welcher Klasse sie zugehören. Jedes Objekt wird durch einen Vektor in einem Vektorraum repräsentiert. Aufgabe der Support Vector Machine ist es, in diesen Raum eine Hyperebene einzupassen, die als Trennfläche fungiert und die Trainingsobjekte in zwei Klassen teilt. Der Abstand derjenigen Vektoren, die der Hyperebene am nächsten liegen, wird dabei maximiert. Dieser breite, leere Rand soll später dafür sorgen, dass auch Objekte, die nicht genau den Trainingsobjekten entsprechen, möglichst zuverlässig klassifiziert werden.
 \begin{center} 
 \includegraphics{SVM-Konzept} 
 \end{center}
@@ -2123,9 +2123,9 @@ Eine Hyperebene kann nicht "verbogen" werden, sodass eine saubere Trennung mit e
 \begin{center}  
 \includegraphics{Trennbarkeit}
 \end{center}
-Diese Bedingung ist für reale Trainingsobjektmengen im Allgemeinen nicht erfüllt. Support Vector Machines verwenden im Fall nichtlinear trennbarer Daten den \textbf{Kernel-Trick}, um eine nichtlineare Klassengrenze einzuziehen.\\
+Diese Bedingung ist für reale Trainingsobjektmengen im Allgemeinen nicht erfüllt. Support Vector Machines verwenden im Fall nichtlinear trennbarer Daten den {\color{blue}{Kernel-Trick}}\index{Kernel-Trick}, um eine nichtlineare Klassengrenze einzuziehen.\\
 
-\subsubsection{Kernel-Trick}
+\subsubsection{Kernel-Trick} 
 Die Idee dahinter ist, den Vektorraum in einen höherdimensionalen Raum zu überführen, wo die Objekte linear trennbar sind und dort eine Hyperebene zu definieren. In einem Raum mit genügend hoher Dimensionsanzahl – im Zweifelsfall unendlich – wird auch die verschachtelteste Vektormenge linear trennbar. In diesem höherdimensionalen Raum wird nun die trennende Hyperebene bestimmt. Bei der Rücktransformation in den niedrigerdimensionalen Raum wird die lineare Hyperebene zu einer nichtlinearen, unter Umständen sogar nicht zusammenhängenden Hyperfläche, welche die Trainingsvektoren sauber in zwei Klassen trennt.\\
 Bei diesem Vorgang stellen sich zwei Probleme: Die Hochtransformation ist enorm rechenintensiv und die Darstellung der Trennfläche im niedrigdimensionalen Raum im Allgemeinen unwahrscheinlich komplex und damit praktisch unbrauchbar. An dieser Stelle setzt der \textbf{Kernel-Trick} an. \\ Verwendet man zur Beschreibung der Trennfläche geeignete Kernelfunktionen, die im Hochdimensionalen die Hyperebene beschreiben und trotzdem im Niedrigdimensionalen "gutartig" bleiben, so ist es möglich, die Hin- und Rücktransformation umzusetzen, ohne sie tatsächlich rechnerisch ausführen zu müssen. Auch hier genügt ein Teil der Vektoren, nämlich wiederum die Stützvektoren, um die Klassengrenze vollständig zu beschreiben.\\
 Sowohl lineare als auch nichtlineare Support Vector Machines lassen sich durch zusätzliche \textbf{Schlupfvariablen} flexibler gestalten. Die Schlupfvariablen erlauben es dem Klassifikator, einzelne Objekte falsch zu klassifizieren, "bestrafen" aber gleichzeitig jede derartige Fehleinordnung. Auf diese Weise wird zum einen Überanpassung vermieden, zum anderen wird die benötigte Anzahl an Stützvektoren gesenkt.
