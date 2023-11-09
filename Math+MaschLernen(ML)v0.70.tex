@@ -363,20 +363,20 @@ Es gibt verschiedene mathematische Verfahren und Techniken, die bei der Konstruk
 \textbf{1. Entropie und Informationsgewinn:}\\
 Die Entropie ist ein Maß für die Unordnung oder Unsicherheit in einem Datensatz. Beim Konstruieren eines Entscheidungsbaums wird der Informationsgewinn verwendet, um festzustellen, wie gut eine Funktion (Attribut) den Datensatz in Bezug auf die Zielvariable aufteilt. Der Informationsgewinn wird oft in Form von Entropieänderungen zwischen den ursprünglichen und den aufgeteilten Datensätzen gemessen.\\[0.2cm]
 %
-\textbf{2. Gini-Index \index{GINI}}\\
+\textbf{2. Gini-Index}\\
 Der Gini-Index misst die Wahrscheinlichkeit, dass eine zufällig ausgewählte Instanz falsch klassifiziert wird, wenn sie zufällig nach den Klassenverteilungen in einem Teilbaum ausgewählt wird. Ein niedriger Gini-Index deutet auf eine homogene Verteilung der Klassen hin.\\[0.2cm]
 %
 \textbf{3. Reduktion des quadratischen Fehlers (Regression):}\\
-Bei Entscheidungsbäumen für Regression werden mathematische Kriterien wie die Reduktion des quadratischen Fehlers verwendet, um die besten Aufteilungen der Daten zu finden, die zu einer geringeren Varianz der Zielvariablen führen.\\\\[0.2cm]
+Bei Entscheidungsbäumen für Regression werden mathematische Kriterien wie die Reduktion des quadratischen Fehlers verwendet, um die besten Aufteilungen der Daten zu finden, die zu einer geringeren Varianz der Zielvariablen führen.\\[0.2cm]
 %
 \textbf{4. Cost-Complexity-Pruning:}\\
-Nach dem Konstruieren eines Entscheidungsbaums können zu viele Verzweigungen zu Overfitting führen. Das Cost-Complexity-Pruning verwendet eine Kostenfunktion, um die Qualität eines Baums in Bezug auf seine Komplexität zu bewerten. Durch Entfernen von Verzweigungen, die nur geringfügig zur Verbesserung der Modellgenauigkeit beitragen, kann die Generalisierungsfähigkeit des Baums verbessert werden.\\\\[0.2cm]
+Nach dem Konstruieren eines Entscheidungsbaums können zu viele Verzweigungen zu Overfitting führen. Das Cost-Complexity-Pruning verwendet eine Kostenfunktion, um die Qualität eines Baums in Bezug auf seine Komplexität zu bewerten. Durch Entfernen von Verzweigungen, die nur geringfügig zur Verbesserung der Modellgenauigkeit beitragen, kann die Generalisierungsfähigkeit des Baums verbessert werden.\\[0.2cm]
 %
 \textbf{5. CART (Classification and Regression Trees):}\\
-Der CART-Algorithmus verwendet eine rekursive Zweig- und Bindemethode, um einen Baum zu erstellen. Er sucht nach der besten Spaltung eines Datensatzes anhand des Gini-Index\index{GINI} (für Klassifikation) oder der Reduzierung des quadratischen Fehlers (für Regression).\\\\[0.2cm]
+Der CART-Algorithmus verwendet eine rekursive Zweig- und Bindemethode, um einen Baum zu erstellen. Er sucht nach der besten Spaltung eines Datensatzes anhand des Gini-Index (für Klassifikation) oder der Reduzierung des quadratischen Fehlers (für Regression).\\[0.2cm]
 %
 \textbf{6. Random Forests und Boosting:}\\
-Diese Ansätze basieren auf Entscheidungsbäumen, werden jedoch durch die Kombination mehrerer Bäume oder das Hinzufügen von Gewichten zu den Instanzen verbessert. Sie nutzen mathematische Methoden, um die Vorhersagegenauigkeit und Robustheit zu erhöhen.\\\\[0.2cm]
+Diese Ansätze basieren auf Entscheidungsbäumen, werden jedoch durch die Kombination mehrerer Bäume oder das Hinzufügen von Gewichten zu den Instanzen verbessert. Sie nutzen mathematische Methoden, um die Vorhersagegenauigkeit und Robustheit zu erhöhen.\\[0.2cm]
 %
 \textbf{6. Hyperparameter-Optimierung:}\\
 Die Wahl der Hyperparameter, wie beispielsweise die maximale Tiefe des Baums oder die Mindestanzahl der Instanzen in einem Blatt, beeinflusst die Leistung des Entscheidungsbaums. Mathematische Verfahren wie Rastersuche oder Bayes'sche Optimierung können verwendet werden, um die besten Hyperparameter für das Modell zu finden.\\[0.2cm]
@@ -384,11 +384,58 @@ Die Wahl der Hyperparameter, wie beispielsweise die maximale Tiefe des Baums ode
 \textbf{Zusammenfassung}:
 Diese Verfahren sind alle Teil des Prozesses der Konstruktion, Anpassung und Optimierung von Entscheidungsbäumen im maschinellen Lernen. Die Wahl des geeigneten Verfahrens hängt von der Art des Problems und den Daten ab, mit denen Sie arbeiten.\\[0.4cm]
 
-\subsection{Mathematische Grundlagen Gini-Index \index{GINI} - und Entropie-Verfahren }
+\subsection{Mathematische Grundlagen Gini-Index und Entropie-Verfahren}
 
 
-\subsubsection{Gini-Index Verfahren \index{GINI}}
-
+\subsubsection{Gini-Index Verfahren}
+%
+Die {\color{blue}{Gini-Index Verfahren}}\index{Gini-Index Verfahren} ist eine Technik zur Aufteilung von Entscheidungsbäumen, insbesondere im Kontext von Klassifikationsproblemen. Der Gini-Index misst die Unreinheit oder den Mischungsgrad der Daten an einem bestimmten Punkt im Baum.\\
+Der Gini-Index wird für jede potenzielle Aufteilung der Daten in Betracht gezogen, und die Aufteilung mit dem niedrigsten Gini-Index wird ausgewählt. Ein Gini-Index von $0$ bedeutet perfekte Reinheit, was darauf hindeutet, dass alle Beispiele in einem bestimmten Ast des Baumes der gleichen Klasse angehören.\\[0.2cm]
+Die Formel für den Gini-Index lautet:
+%
+\[ Gini(D) = 1 - \sum_{i=1}^{k} (p_i)^2 \]
+%
+Dabei ist \(D\) der Datensatz an einem bestimmten Punkt im Baum, \(k\) die Anzahl der Klassen, und \(p_i\) ist der Anteil der Datenpunkte in der Klasse \(i\).\\[0.2cm]
+Bei der Aufteilung eines Knotens in einem Entscheidungsbaum werden die Daten in Teilgruppen aufgeteilt, und der Gini-Index für jede Teilgruppe wird berechnet. Der gewichtete Durchschnitt der Gini-Indizes der Teilgruppen wird dann als Maß für die Unreinheit des geteilten Knotens verwendet. Der Split mit dem niedrigsten gewichteten Gini-Index wird ausgewählt.\\
+Das Gini-Index-Verfahren ist eine beliebte Methode in Entscheidungsbäumen, weil es effizient ist und gut mit kategorialen und numerischen Daten umgehen kann. Es wird oft in Algorithmen wie dem CART (Classification and Regression Trees) verwendet.\\[0.2cm]
+\textbf{Beschreibung des Verfahrens an einem einfachen Beispiel:}\\
+%
+Angenommen, wir haben einen Datensatz mit zwei Klassen (A und B) und zwei Merkmalen (Merkmal 1 und Merkmal 2). Die Zielvariable ist die Klassenzugehörigkeit (A oder B).
+%
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Beispiel & Merkmal 1 & Merkmal 2 & Klasse \\
+\hline
+1 & 2 & 3 & A \\
+2 & 1 & 4 & A \\
+3 & 3 & 2 & B \\
+4 & 4 & 1 & B \\
+\hline
+\end{tabular}
+\end{center}
+%
+Wir möchten einen Entscheidungsbaum erstellen, um die Klasse vorherzusagen. Beginnen wir mit dem Wurzelknoten. Um den Gini-Index zu berechnen, betrachten wir jede mögliche Aufteilung und wählen diejenige mit dem geringsten Gini-Index.
+%
+Angenommen, wir betrachten die Aufteilung nach Merkmal 1:
+%
+\begin{enumerate}
+    \item Teilgruppe für (Merkmal 1) $\leq$ 2:
+        \begin{itemize}
+            \item Beispiele: 1, 2
+            \item Gini-Index: $1 - (1/2)^2 - (1/2)^2 = 0.5$
+        \end{itemize}
+    \item Teilgruppe für (Merkmal 1) $ > $ 2:
+        \begin{itemize}
+            \item Beispiele: 3, 4
+            \item Gini-Index: $1 - (1/2)^2 - (1/2)^2 = 0.5$
+        \end{itemize}
+\end{enumerate}
+%
+Der gewichtete Durchschnitt der Gini-Indizes beträgt $0.5 \times \frac{2}{4} + 0.5 \times \frac{2}{4} = 0.5$. Das ist der Gini-Index für die Aufteilung nach Merkmal 1.\\[0.2cm]
+Wir würden denselben Prozess für Merkmal 2 durchführen und dann die Aufteilung wählen, die den geringsten gewichteten Gini-Index hat.
+Das ist im Wesentlichen, wie das {\color{blue}{Gini-Index Verfahren}}\index{Gini-Index Verfahren} in einem Entscheidungsbaum angewendet wird.\\[0.5cm]
+%
 {\color{red}{*******************************************************************\\ 
 ab hier bis Ende der section sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
 ********************************************************************\\}}
@@ -396,8 +443,7 @@ ab hier bis Ende der section sind die Folien der Vorlesung ML  zu nutzen und die
 
 
 \subsubsection{Entropie: ID3-Verfahren}
-
-
+%
 {\color{blue}{Iterative Dichotomiser3 (ID3)}} \index{ID3-Verfahren} ist ein Algorithmus, der zur Entscheidungsfindung bei Entscheidungsbäumen eingesetzt wird.\\
 Der australische Forscher J. Ross Quinlan publizierte diesen Algorithmus erstmals im Jahr 1986. ID3 war in seinen ersten Jahren sehr einflussreich. Er findet auch heute noch in einigen Produkten Verwendung. ID3 gilt als Vorgänger des [C4.5]-Algorithmus.\\
 %
@@ -603,7 +649,7 @@ Ein bewegtes Bild davon liegt in der Referenz [HVö-5]:
 .....\\
 
 
-\subsection{Kennzahlen  $ R^2 $ und $ adj.{R^2} $ }
+\subsection{Kennzahlen  $ R^2 $ und $ Adj.{R^2} $ }
 %
 Für die Definition der \textbf{{\color{blue}{simple Linear Regression (sLR)}}}\index{Simple Linear Regression (sLR)|hyperpage} und \textbf{{\color{blue}{multiple Linear Regression (mLR)}}} \index{Multiple Linear Regression (mLR)|hyperpage} brauchen wir einige Kennzahlen für die Datenpunkte ("Beobachtungspunkte") aus der  {\color{blue}{Trainingsmenge}}\index{Trainingsmenge} (\textit{observation points).}
 Diese Kennzahlen sind \textbf{Sum of Squares Total (SST)},\textbf{ Sum of Squares Error (SSE)} und \textbf{Sum of Squares Regression (SSR)}
@@ -618,8 +664,8 @@ und in die Residuenquadratsumme (oder auch ”Fehlerquadratsummen”) anderersei
 zerlegt wird.\\[0.2cm]
 Weil das Bestimmtheitsmaß durch die Aufnahme zusätzlicher Variablen wächst und
 die Gefahr der Überanpassung besteht, wird für praktische Anwendungen meist das
-{\color{blue}{adjustierte Bestimmtheitsmaß}} \index{Adjustiertes Bestimmtheitsmaß} $Adj.R^2$ verwendet. Das adjustierte Bestimmtheitsmaß bestraft im Gegensatz zum unadjustierten Bestimmtheitsmaß die Aufnahme jeder neu hinzugenommenen abhängigen und unabhängigen Variable.\\[0.2cm]
-Die Regressiongerade $f(x)$ als Schätzer (Modellfunktion) für den Zusammenhang von
+{\color{blue}{adjustierte Bestimmtheitsmaß $Adj.R^2$}} \index{Adjustiertes Bestimmtheitsmaß $Adj.R^2$} verwendet. Das adjustierte Bestimmtheitsmaß bestraft im Gegensatz zum unadjustierten Bestimmtheitsmaß die Aufnahme jeder neu hinzugenommenen abhängigen und unabhängigen Variable.\\[0.2cm]
+Die Regressionsgerade $f(x)$ als Schätzer (Modellfunktion) für den Zusammenhang von
 Größe und Gewicht der Probanden. $f(xi) = f_i $  ist das geschätzte Gewicht des
 Probanden bei einer gegebenen Größe $x_i$.\\[0.2cm]
 Der Restfehler (das Residuum) $\varepsilon_i$ stellt die Differenz zwischen dem Messwert $y_i$ und dem Schätzwert $f_i$ dar.\\[0.2cm]
@@ -760,12 +806,12 @@ Leicht können dann die folgenden 3 Aussagen bewiesen werden: \\
     \item Analog: \( \sum((x_i - \bar{x})(y_i - \bar{y})) = \sum(x_i \cdot y_i) - n \cdot \bar{x} \cdot \bar{y} \quad \)   q.e.d. \\[0.3cm]
 \end{enumerate}   
 %     
-\subsubsection{Definition der mLR-Kennzahl adj.R²}
+\subsubsection{Definition der mLR-Kennzahl Adj.R²}
 %
 In diesem Abschnitt definieren wir die Theorie der \href{https://en.wikipedia.org/wiki/Linear_regression}{"mutiple linear regression"}.\\
 In einem {\color{blue}{multiplen Regression Problem}} arbeiten wir mit $n$ Datenpaaren $\langle\mathbf{x}^{(i)}, y^{(i)} \rangle \in \mathbb{R}^{k+1} $ 
 wobei $\mathbf{x}^{(i)} \in \mathbb{R}^k$ und $y^{(i)} \in \mathbb{R}$ für alle $i \in \{1,\cdots,n\}$.  \\
-Die Zahl $k$ ist die Anzahl der unabhängigen {\color{blue}{Features ("Prädiktoren") $ {\mathbf{x}^{(i)}} $ } }, und {\color{blue}{$ y^{(i)}$}} ist die abhängige {\color{blue}{Zielvariable ("target column")}}. Die Datenpaare nennen wir auch {\color{blue}{Trainings-Menge}}. Unser Ziel ist es die folgende Funktion:  
+Die Zahl $k$ ist die Anzahl der unabhängigen {\color{blue}{Features ("Prädiktoren") $ {\mathbf{x}^{(i)}} $ } }, und {\color{blue}{$ y^{(i)}$}} ist die abhängige {\color{blue}{Zielvariable ("target column")}}. Die Datenpaare nennen wir auch {\color{blue}{Trainings-Menge}}\index{Trainingsmenge}. Unser Ziel ist es die folgende Funktion:  
 \\[0.2cm]
 \hspace*{1.3cm}
 \begin{large}
@@ -779,24 +825,24 @@ $ F\bigl(\mathbf{x}^{(i)}\bigr)$ eine  genaue Approximation von $y^{(i)}$ ist,  
 $\forall i\in\{1,\cdots,n\}:F\bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$. \\[0.4cm]
 \end{large}
 %
-Die Kennzahl adj.R², wobei "adj." für "adjustiert" (angepasst) steht, soll nun genauer definiert werden. Die adj.R² ist eine modifizierte Version des gewöhnlichen R² ("Bestimmtheitsmaß").\\
-Während das normale R² die Proportion der abhängigen Variabilität erklärt, kann das adj.R² bei Modellen mit mehreren unabhängigen Variablen ("Prädiktoren") nützlicher sein, da es für die Anzahl der verwendeten Prädiktoren oder Kovariaten in einem Modell nutzt.\\
+Die {\color{blue}{Kennzahl $Adj.R^2$}}\index{Adjustiertes Bestimmtheitsmaß $Adj.R^2$}, wobei "Adj." für "Adjustiert" (angepasst) steht, soll nun genauer definiert werden. Die Adj.R² ist eine modifizierte Version des gewöhnlichen R² ("Bestimmtheitsmaß").\\
+Während das normale R² die Proportion der abhängigen Variabilität erklärt, kann das Adj.R² bei Modellen mit mehreren unabhängigen Variablen ("Prädiktoren") nützlicher sein, da es für die Anzahl der verwendeten Prädiktoren oder Kovariaten in einem Modell nutzt.\\
 Bezeichnen wir n = Anzahl der Beobachtungen (Datenpunke) und k = Anzahl der unabhängigen Variablen (Prädiktoren) und definieren wir df := n-k-1 ("Anzahl der Freiheitsgrade"). Dann ergibt sich, unter Nutzung von (D-5.4), folgende Formel:\\[0.1cm]
 
 \begin{center}
 \texttt{(D-5.5)}
 \begin{large}
-\textbf{$ \quad adj.R^2 := 1 - (1 - R^2) \cdot (\frac{n-1}{n-k-1}) = 1 - (\frac{SSE}{SST}) \cdot (\frac{n-1}{n-k-1}) $}  \\[0.6cm] 
+\textbf{$ \quad Adj.R^2 := 1 - (1 - R^2) \cdot (\frac{n-1}{n-k-1}) = 1 - (\frac{SSE}{SST}) \cdot (\frac{n-1}{n-k-1}) $}  \\[0.6cm] 
 \end{large}     
 \end{center}
 %
-Das adj.R² berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktoren") im Modell und passt das gewöhnliche R² an, um zu verhindern, dass es aufgrund von Überanpassung ("Overfitting") zu optimistisch wird. Ein höheres adj.R² zeigt an, dass ein größerer Anteil der Variabilität im abhängigen Wert von den unabhängigen Variablen im Modell erklärt wird, wobei jedoch die Anzahl der Prädiktoren berücksichtigt wird. Zusammenfassend ergibt sich folgende Übersicht:\\
+Das Adj.R² berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktoren") im Modell und passt das gewöhnliche R² an, um zu verhindern, dass es aufgrund von Überanpassung ("Overfitting") zu optimistisch wird. Ein höheres Adj.R² zeigt an, dass ein größerer Anteil der Variabilität im abhängigen Wert von den unabhängigen Variablen im Modell erklärt wird, wobei jedoch die Anzahl der Prädiktoren berücksichtigt wird. Zusammenfassend ergibt sich folgende Übersicht:\\
 
 \begin{center}
 \includegraphics{Adj.R²-Definition}\\
 \end{center}
 %
-\textbf{Sprechweise:} Wir sagen eine Hyperebene ist eine \textbf{"optimale"} (mLR)- Hyperebene wenn adj.R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "mLR-Hyperebene".\\ 
+\textbf{Sprechweise:} Wir sagen eine Hyperebene ist eine \textbf{"optimale"} (mLR)- Hyperebene wenn Adj.R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "mLR-Hyperebene".\\ 
 
 
 
@@ -2214,8 +2260,8 @@ Schreiben Sie den Python Code zur Generierung der zwei Hyperebenen im 2-dim. Bei
 \textbf{Neuronale Faltungsnetzwerke} sind eine spezielle Art von künstlichen neuronalen Netzwerken, die hauptsächlich für die Verarbeitung von strukturierten Daten wie Bildern oder anderen Gitterdaten entwickelt wurden. Sie sind besonders effektiv bei der Extraktion von Merkmalen aus solchen Daten, was sie ideal für Aufgaben wie Bilderkennung und Bildklassifikation macht.
 \\
 Der Name "Faltungsnetzwerke" leitet sich von der \textbf{Faltungsoperation} ab, die in diesen Netzwerken eine wichtige Rolle spielt. Diese Operation ermöglicht es, lokale Merkmale oder Muster in den Eingabedaten zu erkennen, indem sie über die Daten "geschoben" wird. Diese Merkmale werden dann auf höheren Ebenen des Netzwerks kombiniert, um komplexere Muster und Strukturen zu identifizieren.
-\\Convolutional Neural Networks (CNNs)\index{CNN} sind eine spezielle Art von \textbf {Deep-Learning-Modellen}. Insgesamt bezieht sich "Deep Learning" auf den Einsatz von neuronalen Netzwerken mit mehreren Schichten (daher "tief") für das Lernen von Darstellungen und Mustern in Daten. CNNs sind nur eine von vielen Architekturen im Bereich des Deep Learning.\\
-Eine besonders interessante Variante von CNN sind die sogenannten tiefen neuronalen Netzwerke (Englisch: "Deep Neuronal Networks (DNN)"). Ein DNN besteht neben dem Eingabe- und Ausgabe-Schicht noch aus sehr vielen weiteren "versteckten" Schichten ("Hidden Layers"). Jede Schicht(Layer) enthält eine bestimmte Anzahl von Neuronen oder Aktivierungseinheiten.\\
+\\{\color{blue}{Convolutional Neural Networks (CNNs)}}\index{Convolutional Neural Network (CNN)} sind eine spezielle Art von \textbf {Deep-Learning-Modellen}. Insgesamt bezieht sich "Deep Learning" auf den Einsatz von neuronalen Netzwerken mit mehreren Schichten (daher "tief") für das Lernen von Darstellungen und Mustern in Daten. CNNs sind nur eine von vielen Architekturen im Bereich des Deep Learning.\\
+Eine besonders interessante Variante von CNN sind die sogenannten tiefen neuronalen Netzwerke (Englisch: {\color{blue}{Deep Neural Networks (DNNs)}}                      \index{Deep Neural Network (DNN)}). Ein DNN besteht neben dem Eingabe- und Ausgabe-Schicht noch aus sehr vielen weiteren "versteckten" Schichten ("Hidden Layers"). Jede Schicht(Layer) enthält eine bestimmte Anzahl von Neuronen oder Aktivierungseinheiten.\\
 DNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispiel in der Bilderkennung, Gesichtserkennung, medizinischen Bildverarbeitung und sogar in der natürlichen Sprachverarbeitung (mit Modellen wie den sogenannten "Convolutional Seq2Seq" Modellen) weit verbreitet.\\
 ***\\
 ***\\ Weitere Kapitel Texte \\
@@ -2223,14 +2269,14 @@ DNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispi
 **** Referenz: [Math for DL] ******** 
 \subsection{Mathematische Grundlagen von CNN}
 %
-Die mathematischen Grundlagen des Convolutional Neural Networks (CNN)\index{CNN} beruhen auf Konzepten aus linearen Algebra, partiellen Ableitungen und Faltung (Convolution). Ein CNN ist eine spezielle Art von neuronalem Netzwerk, das häufig in der Bild- und Sprachverarbeitung eingesetzt wird, aufgrund seiner Fähigkeit, räumliche Strukturen in Daten zu erkennen.\\
+Die mathematischen Grundlagen des {\color{blue}{Convolutional Neural Networks (CNN)}}\index{Convolutional Neural Network (CNN)} beruhen auf Konzepten aus linearen Algebra, partiellen Ableitungen und Faltung (Convolution). Ein CNN ist eine spezielle Art von neuronalem Netzwerk, das häufig in der Bild- und Sprachverarbeitung eingesetzt wird, aufgrund seiner Fähigkeit, räumliche Strukturen in Daten zu erkennen.\\
 \subsubsection{Liste der wichtigsten mathematische Methoden}
 Hier sind die wichtigen mathematischen Grundlagen eines Convolutional Neural Networks:\\
 %
 \textbf{1. Lineare Algebra:}\\
 CNNs verwenden Matrizenoperationen, um Gewichte und Aktivierungen zu berechnen. Ein typischer Schritt in einem CNN ist die lineare Transformation, bei der Eingabedaten durch eine Gewichtsmatrix multipliziert und ein Bias addiert wird. Dies erzeugt die Aktivierungen der nächsten Schicht.\\
 \textbf{2. Faltung (Convolution):}\\
-Die Faltung ist ein zentrales Konzept in CNNs. In einem CNN\index{CNN} werden Filter (auch Kernel genannt) verwendet, um räumliche Merkmale aus den Eingabedaten zu extrahieren. Die Faltung erfolgt durch das Verschieben des Filters über die Eingabedaten und die Berechnung des Punktprodukts zwischen dem Filter und dem überlappenden Teil der Daten. Das Ergebnis ist ein sogenanntes Aktivierungsmuster oder Feature-Map, das die erkannten Merkmale anzeigt.\\
+Die Faltung ist ein zentrales Konzept in CNNs. In einem CNN werden Filter (auch Kernel genannt) verwendet, um räumliche Merkmale aus den Eingabedaten zu extrahieren. Die Faltung erfolgt durch das Verschieben des Filters über die Eingabedaten und die Berechnung des Punktprodukts zwischen dem Filter und dem überlappenden Teil der Daten. Das Ergebnis ist ein sogenanntes Aktivierungsmuster oder Feature-Map, das die erkannten Merkmale anzeigt.\\
 \textbf{3. Nichtlinearität (Aktivierungsfunktionen):}\\
 Nach der Faltung wird in den meisten Schichten des CNN eine Nichtlinearität eingeführt, um die Expressivität des Netzwerks zu erhöhen. Eine Aktivierungsfunktion wie die ReLU (Rectified Linear Unit) wird oft verwendet, um negative Werte zu eliminieren und nichtlineare Verzerrungen in den Daten zu erzeugen.\\
 \textbf{4. Pooling:}\\
@@ -2242,9 +2288,9 @@ CNNs bestehen aus mehreren Schichten, darunter Eingabeschicht, Faltungsschichten
 \\
 Diese mathematischen Grundlagen ermöglichen es Convolutional Neural Networks, Merkmale aus Eingabedaten zu extrahieren und komplexe Muster zu lernen, was zu einer effektiven Verarbeitung von Bildern, Videos, Sprache und anderen räumlichen Daten führt.
 %
-\subsubsection{Mathematische Definition eines tiefen Neuronalen Netzes (DNN)\index{DNN}}
+\subsubsection{Mathematische Definition eines tiefen Neuronalen Netzes (DNN)}
 %
-Ein tiefes neuronales Netzwerk besteht aus $L$ Schichten, wobei $L$ normalerweise größer oder gleich 3 ist. Jede Schicht $l$, wobei $l = 1, 2, \ldots, L$, enthält eine bestimmte Anzahl von Neuronen oder Aktivierungseinheiten.\\
+Ein {\color{blue}{tiefes neuronales Netzwerk}}\index{Deep Neural Network (DNN)} besteht aus $L$ Schichten, wobei $L$ normalerweise größer oder gleich 3 ist. Jede Schicht $l$, wobei $l = 1, 2, \ldots, L$, enthält eine bestimmte Anzahl von Neuronen oder Aktivierungseinheiten.\\
 %
 Jedes Neuron in einer Schicht $l$ erhält Eingaben von den Neuronen in der vorherigen Schicht $(l-1)$ und berechnet eine gewichtete Summe dieser Eingaben. Diese gewichtete Summe wird normalerweise mit einer Aktivierungsfunktion $\phi$ aktiviert, um die Ausgabe des Neurons zu erzeugen.\\[0.1cm]
 Ein künstliches Neuron mit Gewichten $w_1, \ldots, w_n \in \mathbb{R}$, Bias $b \in \mathbb{R}$ und Aktivierungsfunktion $\rho : \mathbb{R} \rightarrow \mathbb{R}$ kann man also wie folgt definierten:
@@ -2258,10 +2304,10 @@ Die Aktivierungsfunktion führt eine Nichtlinearität in die Reaktion des Neuron
 %
 Die Gewichtungen und Schwellenwerte der Neuronen in einem tiefen neuronalen Netzwerk werden normalerweise in einem Trainingsprozess erlernt, der auf Daten basiert. Dies geschieht oft mithilfe von Verfahren wie dem Backpropagation-Algorithmus und Optimierungsalgorithmen wie dem Gradientenabstiegsverfahren.\\[0.2cm]
 %
-\textbf{Mathematische Definition eines DNN's:}\index{DNN}\\
+\textbf{Mathematische Definition eines DNN's:}\\
 Die mathematische Darstellung eines tiefen neuronalen Netzwerks kann komplex sein und hängt von den genauen Architekturen und Hyperparametern ab, die für ein bestimmtes Problem festgelegt wurden. In der Regel wird die gesamte Transformation eines Netzwerks von der Eingabe zur Ausgabe als eine Funktion $f(x; \phi)$ dargestellt, wobei $x$ die Eingabe ist und $\phi$ die Parameter des Netzwerks sind.\\[0.2cm]
 Die Verkettung künstlicher Neuronen führt zu Kompositionen von affinen linearen Abbildungen und Aktivierungsfunktionen.\\
-In den folgenden zwei Bildern sehen wir ein Beispiel für einer solche Komposition und daraus folgend die mathematische Definition eines (Deep) Neuronalen Netz (DNN)\index{DNN}: 
+In den folgenden zwei Bildern sehen wir ein Beispiel für einer solche Komposition und daraus folgend die mathematische Definition eines (Deep) Neuronalen Netz (DNN): 
 \begin{figure}[ht]
   \centering
   \hspace*{-0.5cm} 
