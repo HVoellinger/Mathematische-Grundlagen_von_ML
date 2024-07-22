@@ -156,7 +156,8 @@ Neben der Brücke zwischen Mathematik und ML, die den Hauptfokus der Arbeit dars
 Über diese Brücke fließen nicht nur Daten sondern auch Metadaten. Metadaten sind für das Verständnis eines DWH sehr wichtig. Siehe auch dazu die Vorlesung zu Thema DWH [HVö-LecDWH23].\\
 Diese Metadaten spielen jedoch auch ein wertvolle Rolle bei der Entwicklung von ML Algorithmen und Modellen. Insbesondere wenn wir hier an das Thema vom Aufbau grosser Sprachmodelle (aka LLM) denken. Die Idee besteht darin, das Wissen dieser Metadaten in die sogenannten "Knowledge Graphen" (KG) zu übertragen. Die KGs können LLMs verbessern, indem sie externes Wissen für Inferenz und Interpretierbarkeit zur Verfügung zu stellen. Die Rolle von KGs und ihr Zusammenspiel mit LLMs ist sehr gut in der Referenz [LLMsAnd KGs] beschrieben.\\
 KGs sind jedoch schwer zu konstruieren und entwickeln sich von Natur aus weiter, was eine Herausforderung für die bestehenden Methoden der KGs darstellt. Aus diesem Grund ist der Beitrag den die Metadaten des DWH/Data-Management leisten können so wichtig. \\
-Siehe hierzu auch das Kapitel im Anhang über LLM's (i.e. ChatGPT). \\[0.2cm] 
+Siehe hierzu auch das Kapitel im Anhang über LLM's (i.e. ChatGPT)\index{ChatGPT}.
+\\[0.2cm] 
 %
 Wo stecken also diese Metadaten im DWH? Hier möchte ich beispielhaft zwei Werkzeuge erwähnen und zwar die Werkzeuge zur Datenmodellierung (z.B. Infosphere Data Architect -IDA) und Data Governance (z.B. Infosphere Governance Catalog - IGC). Beide Werkzeuge wurden ausführlich in der DWH Vorlesung (siehe [HVö-LecDWH23], Seite 25 und Seiten 130-132) besprochen. \\[0.1cm] 
 \subsubsection{Details zu IDA und IGC}
@@ -604,7 +605,7 @@ Wir führen nun die beiden Verfahren an einem Datensatz "Playing Tennis Game" du
 \subsubsection{"Playing Tennis Game" Datensatz}
 
 Bei Trainingsdaten handelt es such um einen berühmten Datensatz aus der Welt des maschinellen Lernens, nämlich den Wetterdatensatz "Playing Tennis Game". Die Entscheidung (Spiel Y oder N) ist dabei  basierend auf den Wetterbedingungen. Wir bauen einen entsprechenden  Entscheidungsbaum auf.\\
-In der ersten Zeile stehen die entsprechenden {\color{red}{vier Bedingungen ("Features"): OUTLOOK, TEMP, HUMIDITY und WINDY}} \index{Bedingungen ("Features")}  und die {\color{blue}{Zielvariable("Label")}} \index{Zielvariable ("Label")} {\color{blue}{PLAY}}.\\
+In der ersten Zeile stehen die entsprechenden {\color{red}{vier Bedingungen ("Features"): OUTLOOK, TEMP, HUMIDITY und WINDY}} \index{Bedingungen ("Features")}  und die {\color{blue}{Zielvariable ("Label")}} \index{Zielvariable ("Label")} {\color{blue}{PLAY}}.\\
 In den anschließenden 14 Zeilen stehen die Trainingsdaten.\\[0.2cm]
 %
 \renewcommand{\arraystretch}{1.2} % Zusätzlicher vertikaler Abstand in der Tabelle
@@ -801,9 +802,9 @@ Ein bewegtes Bild davon liegt in der Referenz [HVö-GitML20]:
 .....\\
 
 
-\subsection{Kennzahlen  $ R^2 $ und $ Adj.{R^2} $ }
+\subsection{Kennzahlen $ R^2 $ und $ Adj.R^2 $ }
 %
-Für die Definition der \textbf{{\color{blue}{simple Linear Regression (sLR)}}}\index{Simple Linear Regression (sLR)|hyperpage} und \textbf{{\color{blue}{multiple Linear Regression (mLR)}}} \index{Multiple Linear Regression (mLR)|hyperpage} brauchen wir einige Kennzahlen für die Datenpunkte ("Beobachtungspunkte") aus der  {\color{blue}{Trainingsmenge}}\index{Trainingsmenge} (\textit{observation points).}
+Für die Definition der \textbf{{\color{blue}{simple Linear Regression (sLR)}}}\index{Simple Linear Regression (sLR)} und \textbf{\color{blue}{multiple Linear Regression (mLR)}} \index{Multiple Linear Regression (mLR)} brauchen wir einige Kennzahlen für die Datenpunkte ("Beobachtungspunkte") aus der {\color{blue}{Trainingsmenge}} \index{Trainingsmenge} (\textit{observation points}).
 Diese Kennzahlen sind \textbf{Sum of Squares Total (SST)},\textbf{ Sum of Squares Error (SSE)} und \textbf{Sum of Squares Regression (SSR)}
 %
 \subsubsection{Definition der sLR Kennzahl $ R^2 $}
@@ -816,7 +817,7 @@ und in die Residuenquadratsumme (oder auch ”Fehlerquadratsummen”) anderersei
 zerlegt wird.\\[0.2cm]
 Weil das Bestimmtheitsmaß durch die Aufnahme zusätzlicher Variablen wächst und
 die Gefahr der Überanpassung besteht, wird für praktische Anwendungen meist das
-{\color{blue}{adjustierte Bestimmtheitsmaß $Adj.R^2$}} \index{Adjustiertes Bestimmtheitsmaß $Adj.R^2$} verwendet. Das adjustierte Bestimmtheitsmaß bestraft im Gegensatz zum unadjustierten Bestimmtheitsmaß die Aufnahme jeder neu hinzugenommenen abhängigen und unabhängigen Variable.\\[0.2cm]
+{\color{blue}{adjustierte Bestimmtheitsmaß $Adj.R^2$}} \index{Adj.Bestimmtheitsmaß $Adj.R^2$} verwendet. Das adjustierte Bestimmtheitsmaß bestraft im Gegensatz zum unadjustierten Bestimmtheitsmaß die Aufnahme jeder neu hinzugenommenen abhängigen und unabhängigen Variable.\\[0.2cm]
 Die Regressionsgerade $f(x)$ als Schätzer (Modellfunktion) für den Zusammenhang von
 Größe und Gewicht der Probanden. $f(xi) = f_i $  ist das geschätzte Gewicht des
 Probanden bei einer gegebenen Größe $x_i$.\\[0.2cm]
@@ -886,7 +887,7 @@ $ \frac{\color{blue}{SSE}}{\color{red}{SST}} $.\\[8.8cm]
   \label{fig:SSE-SST-1}
 \end{figure}
 %
-\subsubsection{Eigenschaften und Theoreme zu $R^2$ $(k \geqslant 2$ } 
+\subsubsection{Eigenschaften und Theoreme zu $R^2$ $(k \geqslant 2$) } 
 
 Nun wollen wir die ersten offensichtlichen mathematische Aussagen zu R² machen. \\
 Zur leichteren Schreibweise nutze ich die folgenden Notationen:\\
@@ -958,12 +959,12 @@ Leicht können dann die folgenden 3 Aussagen bewiesen werden: \\
     \item Analog: \( \sum((x_i - \bar{x})(y_i - \bar{y})) = \sum(x_i \cdot y_i) - n \cdot \bar{x} \cdot \bar{y} \quad \)   q.e.d. \\[0.3cm]
 \end{enumerate}   
 %     
-\subsubsection{Definition der mLR-Kennzahl Adj.R²}
+\subsubsection{Definition der mLR-Kennzahl $Adj.R^2$}
 %
 In diesem Abschnitt definieren wir die Theorie der \href{https://en.wikipedia.org/wiki/Linear_regression}{"mutiple linear regression"}.\\
 In einem {\color{blue}{multiplen Regression Problem}} arbeiten wir mit $n$ Datenpaaren $\langle\mathbf{x}^{(i)}, y^{(i)} \rangle \in \mathbb{R}^{k+1} $ 
 wobei $\mathbf{x}^{(i)} \in \mathbb{R}^k$ und $y^{(i)} \in \mathbb{R}$ für alle $i \in \{1,\cdots,n\}$.  \\
-Die Zahl $k$ ist die Anzahl der unabhängigen {\color{blue}{Features ("Prädiktoren") $ {\mathbf{x}^{(i)}} $ } }, und {\color{blue}{$ y^{(i)}$}} ist die abhängige {\color{blue}{Zielvariable ("target column")}}. Die Datenpaare nennen wir auch {\color{blue}{Trainings-Menge}}\index{Trainingsmenge}. Unser Ziel ist es die folgende Funktion:  
+Die Zahl $k$ ist die Anzahl der unabhängigen {\color{blue}{Features ("Prädiktoren") $ {\mathbf{x}^{(i)}} $ } }, und {\color{blue}{$ y^{(i)}$}} ist die abhängige {\color{blue}{Zielvariable ("target column")}}. Die Datenpaare nennen wir auch {\color{blue}{Trainings-Menge}} \index{Trainingsmenge}. Unser Ziel ist es die folgende Funktion:  
 \\[0.2cm]
 \hspace*{1.3cm}
 \begin{large}
@@ -977,7 +978,7 @@ $ F\bigl(\mathbf{x}^{(i)}\bigr)$ eine  genaue Approximation von $y^{(i)}$ ist,  
 $\forall i\in\{1,\cdots,n\}:F\bigl(\mathbf{x}^{(i)}\bigr) \approx y^{(i)}$. \\[0.4cm]
 \end{large}
 %
-Die {\color{blue}{Kennzahl $Adj.R^2$}}\index{Adjustiertes Bestimmtheitsmaß $Adj.R^2$}, wobei "Adj." für "Adjustiert" (angepasst) steht, soll nun genauer definiert werden. Die Adj.R² ist eine modifizierte Version des gewöhnlichen R² ("Bestimmtheitsmaß").\\
+Die {\color{blue}{Kennzahl $Adj.R^2$}} \index{Adj.Bestimmtheitsmaß $Adj.R^2$}, wobei "Adj." für "Adjustiert" (angepasst) steht, soll nun genauer definiert werden. Die Adj.R² ist eine modifizierte Version des gewöhnlichen R² ("Bestimmtheitsmaß").\\
 Während das normale R² die Proportion der abhängigen Variabilität erklärt, kann das Adj.R² bei Modellen mit mehreren unabhängigen Variablen ("Prädiktoren") nützlicher sein, da es für die Anzahl der verwendeten Prädiktoren oder Kovariaten in einem Modell nutzt.\\
 Bezeichnen wir n = Anzahl der Beobachtungen (Datenpunke) und k = Anzahl der unabhängigen Variablen (Prädiktoren) und definieren wir df := n-k-1 ("Anzahl der Freiheitsgrade"). Dann ergibt sich, unter Nutzung von (D-5.4), folgende Formel:\\[0.1cm]
 
@@ -988,15 +989,13 @@ Bezeichnen wir n = Anzahl der Beobachtungen (Datenpunke) und k = Anzahl der unab
 \end{large}     
 \end{center}
 %
-Das Adj.R² berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktoren") im Modell und passt das gewöhnliche R² an, um zu verhindern, dass es aufgrund von Überanpassung ("Overfitting") zu optimistisch wird. Ein höheres Adj.R² zeigt an, dass ein größerer Anteil der Variabilität im abhängigen Wert von den unabhängigen Variablen im Modell erklärt wird, wobei jedoch die Anzahl der Prädiktoren berücksichtigt wird. Zusammenfassend ergibt sich folgende Übersicht:\\
+Das $Adj.R^2$ berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktoren") im Modell und passt das gewöhnliche R² an, um zu verhindern, dass es aufgrund von Überanpassung ("Overfitting") zu optimistisch wird. Ein höheres Adj.R² zeigt an, dass ein größerer Anteil der Variabilität im abhängigen Wert von den unabhängigen Variablen im Modell erklärt wird, wobei jedoch die Anzahl der Prädiktoren berücksichtigt wird. Zusammenfassend ergibt sich folgende Übersicht:\\
 
 \begin{center}
 \includegraphics{Adj.R²-Definition}\\
 \end{center}
 %
 \textbf{Sprechweise:} Wir sagen eine Hyperebene ist eine \textbf{"optimale"} (mLR)- Hyperebene wenn Adj.R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "mLR-Hyperebene".\\ 
-
-
 
 
 \subsection{"Least Square Fit"(LSF) Verfahren für LR}
@@ -2413,9 +2412,9 @@ Schreiben Sie den Python Code zur Generierung der zwei Hyperebenen im 2-dim. Bei
 
 \textbf{Neuronale Faltungsnetzwerke} sind eine spezielle Art von künstlichen neuronalen Netzwerken, die hauptsächlich für die Verarbeitung von strukturierten Daten wie Bildern oder anderen Gitterdaten entwickelt wurden. Sie sind besonders effektiv bei der Extraktion von Merkmalen aus solchen Daten, was sie ideal für Aufgaben wie Bilderkennung und Bildklassifikation macht.
 \\
-Der Name "Faltungsnetzwerke" leitet sich von der \textbf{Faltungsoperation} ab, die in diesen Netzwerken eine wichtige Rolle spielt. Diese Operation ermöglicht es, lokale Merkmale oder Muster in den Eingabedaten zu erkennen, indem sie über die Daten "geschoben" wird. Diese Merkmale werden dann auf höheren Ebenen des Netzwerks kombiniert, um komplexere Muster und Strukturen zu identifizieren.
-\\{\color{blue}{Faltungsnetzwerke)}}\index{Faltungsnetzwerke)} sind eine spezielle Art von \textbf {Deep-Learning-Modellen}. Insgesamt bezieht sich "Deep Learning" auf den Einsatz von neuronalen Netzwerken mit mehreren Schichten (daher "tief") für das Lernen von Darstellungen und Mustern in Daten. Faltungsnetztwerke sind nur eine von vielen Architekturen im Bereich des Deep Learning.\\
-. Ein DNN besteht neben dem Eingabe- und Ausgabe-Schicht noch aus sehr vielen weiteren "versteckten" Schichten ("Hidden Layers"). Jede Schicht(Layer) enthält eine bestimmte Anzahl von Neuronen oder Aktivierungseinheiten.\\
+Der Name "Faltungsnetzwerke" leitet sich von der \textbf{Faltungsoperation} ab, die in diesen Netzwerken eine wichtige Rolle spielt. Diese Operation ermöglicht es, lokale Merkmale oder Muster in den Eingabedaten zu erkennen, indem sie über die Daten "geschoben" wird. Diese Merkmale werden dann auf höheren Ebenen des Netzwerks kombiniert, um komplexere Muster und Strukturen zu identifizieren.\\
+{\color{blue}{Faltungsnetzwerke)}}\index{Faltungsnetzwerke)} sind eine spezielle Art von \textbf {Deep-Learning-Modellen}. Insgesamt bezieht sich "Deep Learning" auf den Einsatz von neuronalen Netzwerken mit mehreren Schichten (daher "tief") für das Lernen von Darstellungen und Mustern in Daten. Faltungsnetztwerke sind nur eine von vielen Architekturen im Bereich des Deep Learning.\\
+Ein DNN besteht neben dem Eingabe- und Ausgabe-Schicht noch aus sehr vielen weiteren "versteckten" Schichten ("Hidden Layers"). Jede Schicht(Layer) enthält eine bestimmte Anzahl von Neuronen oder Aktivierungseinheiten.\\
 DNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispiel in der Bilderkennung, Gesichtserkennung, medizinischen Bildverarbeitung und sogar in der natürlichen Sprachverarbeitung (mit Modellen wie den sogenannten "Convolutional Seq2Seq" Modellen) weit verbreitet.\\
 \subsection{Anwendung von DNN - "ChatGPT"}
 %
@@ -2426,7 +2425,7 @@ Aber lassen wir ChatGPT mal selbst sprechen und stellen entsprechende Fragen ans
   \hspace*{-0.1cm} 
   \includegraphics[width=1.\textwidth]{ChatGPT ist ein tiefes neuronales Netz}
   \caption{ChatGPT ist ein tiefes neuronales Netz} 
-  \label{fig:ChatGPt=DNN}
+  \label{fig:ChatGPT=DNN}
 \end{figure}
 \begin{figure}[tp]
   \centering
@@ -2733,7 +2732,7 @@ technologischen Fortschritt darstellt, nutzen sie weitestgehend bestehende Techn
 Generative KI-Modelle sind fortgeschrittene, auf maschinellem Lernen beruhende Modelle, die darauf ausgelegt sind, neue, zur Zeit so bislang nicht existierende Inhalte zu erzeugen.\\
 Sie basieren hauptsächlich auf zwei speziellen Typen von neuronalen Netzen: "Generative Adversarial Networks" (GANs) oder "Transformer-Netzwerken".\\
 Damit unterscheiden sie sich von anderen KI-Modellen, die nur für Vorhersagen oder Klassifikationen konzipiert sind oder andere spezifische Funktionen erfüllen.
-Die beiden derzeit bedeutendsten generativen KI-Modelle, ChatGPT und GPT-4, sind Transformer-Modelle. Vereinfacht ausgedrückt, lernen texterzeugende Transformer die Muster und Strukturen aus einem großen Datensatz menschlicher Sprache und nutzen dieses Wissen, um neuen,zusammenhängenden Text zu erzeugen.\\
+Die beiden derzeit bedeutendsten generativen KI-Modelle ChatGPT \index{ChatGPT} und GPT-4, sind Transformer-Modelle. Vereinfacht ausgedrückt, lernen texterzeugende Transformer die Muster und Strukturen aus einem großen Datensatz menschlicher Sprache und nutzen dieses Wissen, um neuen,zusammenhängenden Text zu erzeugen.\\
 %
 Dazu wird der Eingabetext durch mehrere Schichten von neuronalen Netzwerken verarbeitet, welche die relevanten Merkmale und Muster in der Eingabe extrahieren und verarbeiten. Der Eingabetext wird dabei als Matrix von Wort-Umgebungen repräsentiert, die Bedeutungen und Beziehungen zwischen den Wörtern in der Eingabe erfassen.\\
 Die Ausgabe des Transformers ist eine Wahrscheinlichkeitsverteilung über die Wörter im
@@ -2766,22 +2765,19 @@ Hier sind einige Schlüsselaspekte, wie Mathematik in Bezug auf LLMs relevant is
 
 \textbf{9. Rekursive und iterative Prozesse:} In einigen Textgenerationsaufgaben verwenden LLMs rekursive oder iterative Prozesse. Mathematische Konzepte wie Rekursion und Iteration sind hier von Bedeutung.\\
 
-.....\\
 \subsubsection{ChatGPT}
-
-\textit{Es schreibt Gedichte, Raptexte, es besteht Zertifizierungen von Softwareherstellern, absolviert MBA-Prüfungen, kann Referate und Reiseberichte schreiben, die Stringtheorie erklären und Computerspiele programmieren. Es schreibt Aufsätze basierend auf Fakten, erfindet manches vollkommen frei und halluziniert gelegentlich. \\
-Beim Weltwirtschaftsforum in Davos sprechen führende CEOs leidenschaftlich darüber, und Google hat ernsthaft Angst davor.}\\
-
-
-Die Rede ist natürlich von ChatGPT, einem Dialogsystem, das die Errungenschaften der generativen Künstlichen Intelligenz auf einfachste Weise der breiten Öffentlichkeit zugänglich macht und damit wie ein Schaufenster in die Zukunft wirkt. \\
+%
+Es schreibt Gedichte, Raptexte, es besteht Zertifizierungen von Softwareherstellern, absolviert MBA-Prüfungen, kann Referate und Reiseberichte schreiben, die Stringtheorie erklären und Computerspiele programmieren. Es schreibt Aufsätze basierend auf Fakten, erfindet manches vollkommen frei und halluziniert gelegentlich. \\
+Beim Weltwirtschaftsforum in Davos sprechen führende CEOs leidenschaftlich darüber, und Google hat ernsthaft Angst davor.\\
+%
+Die Rede ist natürlich von ChatGPT \index{ChatGPT}, einem Dialogsystem, das die Errungenschaften der generativen Künstlichen Intelligenz auf einfachste Weise der breiten Öffentlichkeit zugänglich macht und damit wie ein Schaufenster in die Zukunft wirkt. \\
 Mit ChatGPT wird das bereits seit längerem existierende GPT-3 (bzw.
 genau genommen GPT-3.5) plötzlich für jedermann nutzbar und erfährt ein gewaltiges Medienecho.
-
+%
 \begin{center}
 \includegraphics{ChatGPT-Text1} 
 \end{center}
-
-
+%
 \newpage
 
 \section{Lösungen / Lösungshinweise zu den Übungen \\}
@@ -2822,7 +2818,7 @@ Für eine Lösung vergleiche:\\
 
 \subsection{Lösungshinweise zu Übungen Kapitel 5}
 %
-\hspace*{-0.3cm} Weitere Hilfe \textbf{[HVö-GitML20]:} 
+\hspace*{0.1cm} Weitere Hilfe \textbf{[HVö-GitML20]:}\\ 
 \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}
 %
 \subsubsection{Lösungshinweise zu Übung 5.1}
@@ -3088,13 +3084,13 @@ Weitere Kapitel Texte \\
 
 *** Weitere Referenzen ***\\
 
-\newpage
-
+%\section{Indexverzeichnis}
+%
 %\begin{LARGE} Indexverzeichnis \end{LARGE}
-
-\clearpage % Seite wechseln
+%\textbf{Indexverzeichnis:} \\[0.3cm] 
+%
+%\clearpage % Seite wechseln
 
 {\color{blue}{\printindex}}
-
 
 \end{document}
