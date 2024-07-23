@@ -90,7 +90,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.80 (Datum: 20.07.2024) ist nicht final!!! \\
+Diese Version V0.80 (Datum: 23.07.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.80.pdf} \\
@@ -143,11 +143,11 @@ Dies ist leider sehr schade und ist zudem beim Lösen von ML Fragestellungen ein
 %
 Das Ziel der Ausarbeitung ist es deshalb zu zeigen wie nützlich mathematische Ideen bei der Lösung der Fragestellungen des Maschinellen Lernens (aka: \url{https://en.wikipedia.org/wiki/Machine_learning}) sind.\\
 Hierfür werden wir mit vielen anschaulichen, aber nicht trivialen Beispielen starten, mit deren Hilfe wir die Arbeitsweise des mathematischen Verfahrens leichter erkennen können. Die Studenten können die prinzipiellen Arbeitsweisen und Methoden der Algorithmen somit erkennen. Die Studenten werden zudem durch geeignete Übungsbeispiele angeregt die Beispiele zu Verallgemeinern. Zu jedem Kapitel gibt es Übungen, die das im Kapitel Gelernte nochmals an konkreten Fragestellungen und Problemen erproben und vertiefen. \\
-Musterlösungen bzw. Hinweise zur Lösung der Übungen findet man am Ende des Skriptes. Die Umsetzung dieser Beispiele in allgemeine mathematische Aussagen unter Nutzung des mathematischen Kalküls wird damit leichter und verständlicher vorbereitet (nach dem Prinzip: „Vom Speziellen zum Allgemeinen“). \\[0.2cm]\\
+Musterlösungen bzw. Hinweise zur Lösung der Übungen findet man am Ende des Skriptes. Die Umsetzung dieser Beispiele in allgemeine mathematische Aussagen unter Nutzung des mathematischen Kalküls wird damit leichter und verständlicher vorbereitet (nach dem Prinzip: „Vom Speziellen zum Allgemeinen“). \\[0.1cm]
 Es werden zudem zahlreiche Hinweise auf vertiefende Anwendungen oder Informationen durch Internet-Links oder weiterführende Literatur gegeben. An vielen Stellen werden konkrete Umsetzungsbeispiele mit Werkzeugen wie \textit{KNIME Analytics Platform} gezeigt. \\
-Die Umsetzung dieser Beispiele in allgemeine mathematische Aussagen unter  Nutzung des mathematischen Kalküls wird damit leichter und verständlicher vorbereitet.\\[0.2cm]
+Die Umsetzung dieser Beispiele in allgemeine mathematische Aussagen unter  Nutzung des mathematischen Kalküls wird damit leichter und verständlicher vorbereitet.\\[0.1cm]
 %
-Die Beziehungen ("Brücken") zwischen Mathematik, Maschinellen Lernen (ML) und Data Science (DL) (insbesondere \href{https://en.wikipedia.org/wiki/Data_mining}{Data Mining} werden konkret gebaut und anschließend beispielhaft "beschritten" (siehe auch "3-Insel-Bild" von der Titelseite).\\\\[0.3cm] 
+Die Beziehungen ("Brücken") zwischen Mathematik, Maschinellen Lernen (ML) und Data Science (DL) (insbesondere \href{https://en.wikipedia.org/wiki/Data_mining}{Data Mining} werden konkret gebaut und anschließend beispielhaft "beschritten" (siehe auch "3-Insel-Bild" von der Titelseite).\\[0.2cm] 
 %
 Die Leser sollen befähigt werden, die Mathematik hinter den ML Anwendungen zu verstehen um mögliche weitere sinnvolle Ergänzungen und Erweiterungen, die sich aus den mathematischen Erkenntnissen ergeben, zu entwickeln.\\
 
@@ -161,7 +161,9 @@ Siehe hierzu auch das Kapitel im Anhang über LLM's (i.e. ChatGPT)\index{ChatGPT
 %
 Wo stecken also diese Metadaten im DWH? Hier möchte ich beispielhaft zwei Werkzeuge erwähnen und zwar die Werkzeuge zur Datenmodellierung (z.B. Infosphere Data Architect -IDA) und Data Governance (z.B. Infosphere Governance Catalog - IGC). Beide Werkzeuge wurden ausführlich in der DWH Vorlesung (siehe [HVö-LecDWH23], Seite 25 und Seiten 130-132) besprochen. \\[0.1cm] 
 \subsubsection{Details zu IDA und IGC}
-\textbf{IDA:} IBM InfoSphere Data Architect ist eine kollaborative Lösung für die Modellierung und das Design von Unternehmensdaten, die das Integrationsdesign für Business Intelligence-, Master Data Management- und Service-orientierte Architekturinitiativen vereinfacht und beschleunigt. IDA ermöglicht die Zusammenarbeit mit Anwendern in jedem Schritt des Datendesignprozesses, vom Projektmanagement über das Anwendungsdesign bis hin zum Datendesign. Das Tool hilft dabei, Prozesse, Dienste, Anwendungen und Datenarchitekturen aufeinander abzustimmen. Sehen Sie in [DHBW-Moodle] das Video: 'Demo-Infosphere Data Architect (IDA).mp4' .\\[2.2cm]
+\textbf{IDA:} IBM InfoSphere Data Architect ist eine kollaborative Lösung für die Modellierung und das Design von Unternehmensdaten, die das Integrationsdesign für Business Intelligence-, Master Data Management- und Service-orientierte Architekturinitiativen vereinfacht und beschleunigt. IDA ermöglicht die Zusammenarbeit mit Anwendern in jedem Schritt des Datendesignprozesses, vom Projektmanagement über das Anwendungsdesign bis hin zum Datendesign. Das Tool hilft dabei, Prozesse, Dienste, Anwendungen und Datenarchitekturen aufeinander abzustimmen. Sehen Sie in [DHBW-Moodle] das Video: 'Demo-Infosphere Data Architect (IDA).mp4'. \\
+Als weiteres Hilfsmittel zur Erstellung von Domänen spezifischen Datenmodellen bietet die Firma IBM auch eine Reihe von Industriemodellen an, siehe etwa "BDW" (Banking Data Warehouse) oder "IIW"  (Insurance Information Warehouse). Vergleiche hierzu auch die Referenz [BDW+IIW]. Weitere Industriemodelle gibt es aber auch für die Domänen "Financial Services (FSDM)", "Healthcare (HDM)", "Telecommunications (TDW)", "Retail (RDW)" und "Energy and Utilities" (EUDM). \\
+Diese Datenmodelle sind darauf ausgelegt, die spezifischen Anforderungen der jeweiligen Branche zu erfüllen und bieten vordefinierte Datenstrukturen, die die Implementierung und Anpassung beschleunigen können. Sie unterstützen auch die Einhaltung von Branchenstandards und gesetzlichen Anforderungen, was für Unternehmen von großer Bedeutung ist. Siehe [GIM-BFMDM].\\[2.2cm]
 %
 \begin{figure}[htp]
   \centering
@@ -173,7 +175,8 @@ Wo stecken also diese Metadaten im DWH? Hier möchte ich beispielhaft zwei Werkz
 \\[6.2cm] 
 %
 \textbf{IGC:} IBM InfoSphere Information Governance Catalog (IGC) ist ein interaktives, webbasiertes Tool, mit dem Benutzer ein Unternehmensvokabular und ein Klassifizierungssystem in einem zentralen Katalog erstellen, verwalten und gemeinsam nutzen können. Es hilft den Anwendern, die geschäftliche Bedeutung ihrer technischen Assets zu verstehen und bietet Such-, Browse- und Abfragefunktionen. Darüber hinaus können die Benutzer Asset-Sammlungen erstellen und Berichte über den Datenfluss zwischen Assets erstellen. Siehe in [DHBW-Moodle] die folgenden Dokumente und Videos:
-'Geführte IGC Demo.pdf'; Geführte IGC Demo - Deutsch.pdf'; 'Demo-IGC-Teil1.mp4'; 'Demo-IGC-Teil2.mp4' und 'Demo Qutput-IGC-Teil2-Data Lineage.pdf'. \\[0.2cm] 
+'Geführte IGC Demo.pdf'; Geführte IGC Demo - Deutsch.pdf'; 'Demo-IGC-Teil1.mp4'; 'Demo-IGC-Teil2.mp4' und 'Demo Qutput-IGC-Teil2-Data Lineage.pdf'. \\
+In allen oben erwähnten Industriemodellen werden auch komplette Business Glossare für IGC mitgeliefert. \\[0.2cm] 
 %
 \begin{figure}[htp]
   \centering
@@ -196,7 +199,7 @@ Im nächsten Beispiel sehen wir wie Technische Assets (z.B. Spaltennamen einer T
   \caption{Business Term mit zugehörigen technischen Assets}
   \label{fig:IGC-BT+TA}
 \end{figure}
-\\[3.2cm]
+\\[1.2cm]
 Im obigen Beispiel sehen wir den Geschäftsbegriff „Buchungskreis“, zu dem das Feld mit dem Namen „BUKRS“ in 7 Tabellen in verschiedenen Datenschichten des DWH gehört. 
 Diese Information erklärt die betriebswirtschaftliche Bedeutung dieses Feldes und gibt auch an, wo dieses Feld im DWH vorkommt. Dies ist sowohl für die Analyse/Auswertung der Daten als auch für den Datenpopulationsprozess (ETL) beim Laden der Daten in das DWH von entscheidender Bedeutung. Zudem ist diese Strukturierung bei Bau eines LLM Modells in ML sehr hilfreich.\\
 Eine weitere nützliche Info ist die sogenannte "Data Lineage", die den kompletten Verarbeitungsprozess (inklusive und Datenablagen) im DWH abbildet. Die Data Lineage liefert auch eine Abhängigkeitsanalyse ("Impact Analysis") wenn sich etwa Felder in den Quellsystemen eines DWHs verändern.\\
@@ -214,8 +217,8 @@ Im nachfolgenden Bild sehen wir ein Beispiel für einen Data-Lineage Graphen fü
   \caption{Data Lineage für einen BI Report in IGC}
   \label{fig:IGC-DataLineage}
 \end{figure}\\[0.2cm]
-\textbf{Zusammenfassung - Nutzen für ein LLM:} Zusammengefasst ist Data Governance beim Aufbau eines LLMs von zentraler Bedeutung, um sicherzustellen, dass die Datenqualität hoch ist, Bias minimiert wird, Datenschutz und -sicherheit gewährleistet sind, Transparenz und Verantwortlichkeit gefördert werden und letztlich ein leistungsfähiges, genaues und vertrauenswürdiges Modell entsteht. \\[0.1cm]
-Weiterführende bzw. vertiefende Literatur zu diesem Thema findet man unter den Referenzen \textbf{[TDWI-Feature Learning]} oder unter \textbf{[TDWI-Datenflüsse]}.  \\[0.2cm]
+\textbf{Nutzen für ein LLM:} Zusammengefasst ist Data Governance beim Aufbau eines LLMs von zentraler Bedeutung, um sicherzustellen, dass die Datenqualität hoch ist, Bias minimiert wird, Datenschutz und -sicherheit gewährleistet sind, Transparenz und Verantwortlichkeit gefördert werden und letztlich ein leistungsfähiges, genaues und vertrauenswürdiges Modell entsteht. \\[0.1cm]
+Weiterführende bzw. vertiefende Literatur zu diesem Thema findet man auch unter den Referenzen \textbf{[TDWI-Feature Learning]} oder unter \textbf{[TDWI-Datenflüsse]}.  \\[0.2cm]
 %
 \subsection{Überblick über die Mathematischen Methoden}
 Die mathematischen Grundlagen des Maschinellen Lernens ("Machine Learning") umfassen mehrere Bereiche der Mathematik, die für das Verständnis und die Entwicklung von Machine Learning Algorithmen von Bedeutung sind.
@@ -3048,9 +3051,15 @@ Weitere Kapitel Texte \\
 %
 \textbf{[HVö-LecML20]} - Hermann Völlinger: Script of the Lecture "Machine Learning: Concepts and Algorithms"; DHBW Stuttgart; WS2020; \url{http://www.dhbw-stuttgart.de/~hvoellin/}\\[0.2cm]  
 %
-\textbf{[HVö-GitML20]} - Hermann Völlinger: GitHub to the Lecture "Machine Learning: Concepts and Algorithms"; \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\[0.2cm] 
+\textbf{[HVö-GitML20]} - Hermann Völlinger: GitHub to the Lecture "Machine Learning: Concepts and Algorithms";\\ 
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\[0.2cm] 
 %
 \textbf{[DHBW-Moodle]} - DHBW-Moodle for TINF19D: "Directory of supporting Information for the DWH Lecture"; \textit{Kurs: T3INF4304-3-Data Warehouse (dhbw-stuttgart.de)}\\[0.2cm] 
+%
+\textbf{[GIM-BFMDW]} - IBM General Information Manual (GIM): "IBM Banking and Financial Markets Data Warehouse";  https://www.ibm.com/downloads/cas/A3ZR8JQY. \\[0.2cm] 
+%
+\textbf{[BDW+IIW]} - H. Völlinger und A. Tarabrin: "MODELLE MIT INDUSTRIEMUSTER:
+MODERNE INFORMATIONSARCHITEKTUREN FÜR BRANCHENSPEZIFISCHE LÖSUNGEN"; Übersichtsartikel in der Zeitschrift Objektspektrum 1/2013.\\[0.2cm] 
 %
 \textbf{[TDWI-DatenFlüsse]} - TDWI BI-Spektrum 05/2023 - Fachartikel "Der (Daten-)Weg ist das Ziel - Datenflüsse besser verstehen"; A. Weininger u.a.\\[0.2cm] 
 %
