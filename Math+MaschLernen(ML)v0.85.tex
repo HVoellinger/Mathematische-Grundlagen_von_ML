@@ -628,14 +628,13 @@ Das Entscheidungsbaum-Modell wird mit criterion="gini" erstellt, um den Gini-Ind
 4. Modellbewertung:\\
 Die Genauigkeit des Modells wird berechnet, indem das trainierte Modell auf die Testdaten angewendet wird.\\
 5. Visualisierung:\\
-Der Entscheidungsbaum wird mithilfe der plot\_tree-Funktion von matplotlib visualisiert. Die Visualisierung zeigt die Aufteilungen basierend auf den Features des Iris-Datensatzes.\\
-Voraussetzungen:\\
-Man benötigst die Bibliotheken scikit-learn und matplotlib. Sind diese noch nicht installiert sind, kann man dies mit dem Befehl "pip install scikit-learn matplotlib" tun.\\[0.1cm]
+Der Entscheidungsbaum wird mithilfe der plot\_tree-Funktion von matplotlib visualisiert. Die Visualisierung zeigt die Aufteilungen basierend auf den Features des Iris-Datensatzes.\\[0.2cm]
+\textbf{Voraussetzungen:} Man benötigst die Bibliotheken scikit-learn und matplotlib. Sind diese noch nicht installiert sind, kann man dies mit dem Befehl "pip install scikit-learn matplotlib" tun.\\[0.1cm]
 %
 \begin{figure}[htp]
   \centering
-  \hspace*{-0.5cm} 
-  \includegraphics[width=1.25\textwidth]{Python-Bsp-Dec-GINI}
+  \hspace*{-0.9cm} 
+  \includegraphics[width=1.12\textwidth]{Python-Bsp-Dec-GINI}
   \caption{Python Pgm. zu IRIS-Daten mit GINI-Index-Verfahren}     
   \label{fig:Pyt-Bsp-GINI}
 \end{figure}
@@ -739,25 +738,12 @@ Im Folgenden ist ein einfacher Entscheidungsbaum dargestellt:
 %
 .\\[0.5cm]
 %
-Als nächstes sehen wir ein \textbf{Python-Beispiel} für eine Anwendung dieses Verfahrens auf den bekannten Iris-Blumen Datensatz.\textbf{Erklärung des Codes:}\\
-Die Schritte sind analog wie beim GINI-Index-Verfahren.\\
-*************************************************************************
-1. Laden des Iris-Datensatzes:\\
-Der Iris-Datensatz enthält Merkmale von Iris-Blumen und deren Klassifikation in drei Klassen.\\
-2. Trainings- und Testdatensatz:\\
-Der Datensatz wird in Trainings- und Testdaten aufgeteilt. 70 Prozent der Daten werden zum Trainieren verwendet, 30 Prozent zum Testen.\\
-3. Erstellung des Entscheidungsbaummodells mit Gini-Index:\\
-Das Entscheidungsbaum-Modell wird mit criterion="gini" erstellt, um den Gini-Index als Kriterium zu verwenden.\\
-4. Modellbewertung:\\
-Die Genauigkeit des Modells wird berechnet, indem das trainierte Modell auf die Testdaten angewendet wird.\\
-5. Visualisierung:\\
-Der Entscheidungsbaum wird mithilfe der plot\_tree-Funktion von matplotlib visualisiert. Die Visualisierung zeigt die Aufteilungen basierend auf den Features des Iris-Datensatzes.\\
-Voraussetzungen:\\
-Man benötigst die Bibliotheken scikit-learn und matplotlib. Sind diese noch nicht installiert sind, kann man dies mit dem Befehl "pip install scikit-learn matplotlib" tun.\\[0.6cm]
+Als nächstes sehen wir ein \textbf{Python-Beispiel} für eine Anwendung dieses Verfahrens auf den bekannten Iris-Blumen Datensatz. Die Schritte sind analog wie beim GINI-Index-Verfahren.\\
+%
 \begin{figure}[htp]
   \centering
-  \hspace*{-0.2cm} 
-  \includegraphics[width=1.2\textwidth]{Python-Bsp-Dec-Endropie}
+  \hspace*{-0.9cm} 
+  \includegraphics[width=1.22\textwidth]{Python-Bsp-Dec-Endropie}
   \caption{Python Pgm. zu IRIS-Daten mit Endropie-Verfahren}     
   \label{fig:Pyt-Bsp-Endropie}
 \end{figure}
@@ -818,38 +804,45 @@ Als Hilfe siehe auch die Lösung im Github:\\
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Homework_H4.5-DecTree_ID3.pdf}
 %
 \subsection{GINI-Index "Predictive Maintenance"}
-Im Spezialfalll "Predictive Maintennace" (auf Deutsch: vorher-schauende Wartung) betrachten wir stetige Wertbereiche. In diesem Fall werden "Grenzwerte" berechnet, siehe Zeile 4 in der folgenden Wertetabelle:\\[0.5cm]
-\hspace*{-1.0cm}   
-\includegraphics[width=1.2\textwidth]{stetige Wertematrix} \\[0.2cm]   
+Im Spezialfalll "Predictive Maintennace" (auf Deutsch: "Vorher-schauende Wartung") betrachten wir stetige Wertebereiche. In diesem Fall werden "Grenzwerte" berechnet, siehe Zeile 4 in der folgenden Wertetabelle:\\[0.4cm]
+\begin{figure}[htp]
+  \centering
+  \hspace*{-0.9cm} 
+  \includegraphics[width=1.20\textwidth]{stetige Wertematrix}
+  \caption{Stetige Wertetabelle für Entscheidungsbaum "Predictive Maintenance"}     
+  \label{fig:Steige-Wertetabelle}
+\end{figure}
+\\[0.4cm]   
 %
-Wir berechnen den Gini-Index der ersten Zelle Gini(55):\\[0.2cm]
+Wir berechnen den Gini-Index der ersten Zelle \textbf{Gini(55)}:\\[0.2cm]
 %
 Gini(55) = $Frq(\leq 55)\cdot Gini(\leq 55)$+ Frq($ > 55$)* Gini($ > 55$)\\
 %
 wobei Frq(X):= $\frac{Anzahl \quad aller \quad Werte \quad in \quad der \quad  Zelle}{Anzahl \quad aller \quad Werte \quad in \quad den \quad 4 \quad Zellen}$.\\[0.2cm]
 Wir berechnen:  $Gini(\leq 55)=1-0²-0²=1$ \\
-Gini($ > 55$)=1-(3/10)²-(7/10)²=(100-9-49)/100=42/100=0.42\\
-Also folgt: Gini(55)=0/10*1+10/10*0.42=0.420\\[0.3cm]
-Analog bei der zweiten Zelle Gini(65): \\
+Gini($ > 55$)=1-(3/10)²-(7/10)²=(100-9-49)/100=42/100=0.42.\\
+Also folgt: Gini(55)=0/10*1+10/10*0.42=\textbf{0.420}.\\[0.3cm]
+Analog bei der zweiten Zelle \textbf{Gini(65)}: \\
 $Gini(\le 65)=1-0²-1²=0$\\
 Gini($ > 65$)=1-(3/9)²-(6/9)²=(81-9-36)/81=36/81=4/9\\
-Also folgt Gini(65)=1/10*0+9/10*4/9=0.400\\
+Also folgt Gini(65)=1/10*0+9/10*4/9=\textbf{0.400}.\\[0.3cm]
 Nachdem alle Gini Werte berechnet wurden, suchen wir die Zelle mit dem geringsten Gini-Wert, dies ist Gini(97). Hier wird der Entscheidungsbaum geteilt. \\
 Rest analog wie bei nicht stetigen Werten.\\[0.2cm]
 \subsubsection{Konkretes Beispiel für "Predictive Maintenance" in der Industrie}
 Dieser Anwendungsfall für Predictive Analysis (Maintenance) ist ein konkretes Projekt von IBM und BMW mit dem Ziel, die Qualität der Produktionsprozesse zu verbessern.\\
 Es handelt sich hierbei um Daten einer Metallguss-Gießerei für den Guss von Metallteilen. Die Features für die Qualität der Gießerei sind dabei "Temperatur", "Druck und "Füllstand". Durch dieses Verfahren kann der "Ausschuss"(Abfall) der Gießerei um 20-30 Prozent verbessert werden.\\
-Die konkrete Berechnung dieses Beispiels wir als Übung 4.2 durchgeführt.\\[0.2cm]
+Die konkrete Berechnung dieses Beispiels wir als Übung 4.3 durchgeführt.\\[0.2cm]
 \begin{figure}[htp]
   \hspace*{-0.5cm} 
   \includegraphics[width=1.15\textwidth]{PredMaint-Metallguss}
   \caption{Daten und Ergebnisse einer Metallguss-Gießerei}
   \label{fig:PredMaint-Metallguss}
 \end{figure}
-%
+\\[0.8cm]
+
 \newpage
 
-\subsection{Übungen zu Kapitel 4}
+\subsection{Übungen zu Kapitel 4\\}
 %
 \subsubsection{Übung 4.1 - Berechne das "Tennis Bsp." mit ID3- und GINI-Index Verfahren}
 Gruppenarbeit (2 Personen): Nutze die "Tennis" Daten aus Kapitel 4.3.1.\\
@@ -2945,27 +2938,26 @@ Bei vielen Aufgaben werden Lösungshinweise gegeben mit den die Übungen dann se
 Teil A: \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Solution_of_Homework_3.1_with_Entropy.pdf}
 \\[0.2cm]
 %
-Teil B: \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Solution_of_Homework_3.1_with_Gini-Index.pdf}\\ 
+Teil B: \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Solution_of_Homework_3.1_with_Gini-Index.pdf}
 %
-
 \subsubsection{Lösungshinweise zu Übung 4.2}
 %
-Teil A: \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H4.5-DecTree_ID3.pdf}\\
+Teil A: \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H4.5-DecTree_ID3.pdf}
 %
 \subsubsection{Lösungshinweise zu Übung 4.3}
 %
 Für eine Lösung vergleiche:\\
-\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Solution_of_Homework_3.2-Version2.xlsx}\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Solution_of_Homework_3.2-Version2.xlsx}
 %
 \subsubsection{Lösungshinweise zu Übung 4.4}
 %
 Für eine Lösung vergleiche:\\
-{\color{red}{******** kein Lösungshinweis verfügbar ****************}}
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/ML4-Homework-H4_3-JupyterNotebook.pdf}
 %
 \subsubsection{Lösungshinweise zu Übung 4.5}
 %
 Für eine Lösung vergleiche:\\
-\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H4.4-Summary_Article.pdf}\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H4.4-Summary_Article.pdf}
 %
 \newpage
 
