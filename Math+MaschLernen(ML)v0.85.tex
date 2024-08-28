@@ -2592,31 +2592,23 @@ Ein mögliches Ergebnis könnte wie folgt aussehen: \\[5.5cm]
 
 \subsection{Übungen zum Kapitel 7}
 
-
-
-{\color{red}{*******************************************************************\\ 
-ab hier bis Ende der Übungen sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
-********************************************************************\\}}
-%
 \subsubsection{Übung 7.1 - Einfaches Kernel-Trick(2D nach 3D)- Beispiel}
 %
 Berechnen Sie analog zum Kapitel (7.3) ein einfaches und anschauliches Beispiel für eine Support Vector Machine (SVM) mit einem Kernel-Trick von 2D nach 3D in einem Jupyter Notebook.\\
 Sie nehmen wieder 2 Klassen +1 und -1 mit jetzt 5 Daten-Punkten. Wählen Sie eine passende Transformation von 2D nach 3D.\\
-Gegen Sie die SVM-Ebene an mit Ebenen-Gleichung (Normalvektor), Stützvektoren an. Visualisieren Sie die Punkte und Trennlinie in 2D und in 3D \\[0.2cm]\\
+Gegen Sie die SVM-Ebene an mit Ebenen-Gleichung (Normalvektor), Stützvektoren an. Visualisieren Sie die Punkte und Trennlinie in 2D und in 3D. \\
+
 \subsubsection{Übung 7.2 - Vergleich Polymonischer Kernel mit RBF Kernel}
 %
-In dieser Übung erstellen wir einen Datensatz mit Punkten, die konzentrische Kreise bilden, die im ursprünglichen Merkmalsraum nicht linear separierbar sind. Wir verwenden dann zwei SVM-Modelle: eines mit einem Polynomischen Kernel und ein anderes mit einem RBF-Kernel (Radial Basis Function). Der RBF-Kernel wendet effektiv den Kernel-Trick an, indem er die Daten in einen höherdimensionalen Raum transformiert, in dem sie linear trennbar werden. Die Entscheidungsgrenzen und Datenpunkte werden grafisch dargestellt, um den Unterschied zwischen den beiden Kerneln zu verdeutlichen.
-Der RBF-Kernel wird in der Praxis häufig verwendet, um nicht linear trennbare Daten zu verarbeiten, und ist eine der wichtigsten Anwendungen des Kernel-Tricks in der SVM.
-Hier ein Beispiel Notebook:\\[0.5cm]
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-RBF+Polyn-Kernel.pdf}}\\[0.5cm]
-
+In dieser Übung erstellen wir einen Datensatz mit Punkten, die konzentrische Kreise bilden, die im ursprünglichen Merkmalsraum nicht linear separierbar sind. Wir verwenden dann zwei SVM-Modelle: eines mit einem Polynomischen Kernel und ein anderes mit einem RBF-Kernel (Radial Basis Function). Der RBF-Kernel wendet effektiv den Kernel-Trick an, indem er die Daten in einen höherdimensionalen Raum transformiert, in dem sie linear trennbar werden. Die Entscheidungsgrenzen und Datenpunkte werden grafisch dargestellt, um den Unterschied zwischen den beiden Kerneln zu verdeutlichen.\\
+Der RBF-Kernel wird in der Praxis häufig verwendet, um nicht linear trennbare Daten zu verarbeiten, und ist eine der wichtigsten Anwendungen des Kernel-Tricks in der SVM.\\
 
 \subsubsection{Übung 7.3 - Python Code zu Hyperebenen}
 Schreiben Sie den Python Code zur Generierung der zwei Hyperebenen im 2-dim. Beispiel zum Kernel-Trick. Animieren Sie die Grafik, so dass sie sich dreht. 
 
 \newpage
 
-\section{Neuronale Netzwerk,i.e.Tiefe Neuronale Netzwerke }
+\section{Neuronale Netzwerk, insbesondere Tiefe Neuronale Netzwerke }
 
 \textbf{Neuronale Faltungsnetzwerke} sind eine spezielle Art von künstlichen neuronalen Netzwerken, die hauptsächlich für die Verarbeitung von strukturierten Daten wie Bildern oder anderen Gitterdaten entwickelt wurden. Sie sind besonders effektiv bei der Extraktion von Merkmalen aus solchen Daten, was sie ideal für Aufgaben wie Bilderkennung und Bildklassifikation macht.
 \\
@@ -2626,21 +2618,21 @@ Ein DNN besteht neben dem Eingabe- und Ausgabe-Schicht noch aus sehr vielen weit
 DNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispiel in der Bilderkennung, Gesichtserkennung, medizinischen Bildverarbeitung und sogar in der natürlichen Sprachverarbeitung (mit Modellen wie den sogenannten "Convolutional Seq2Seq" Modellen) weit verbreitet.\\
 \subsection{Anwendung von DNN - "ChatGPT"}
 %
-{\color{blue}{ChatGPT)}} \index{ChatGPT}ist eine der bekanntesten Anwendungen von DNN's mit erstaunlichen Ergebnissen.
+{\color{blue}{ChatGPT}} \index{ChatGPT}ist eine der bekanntesten Anwendungen von DNN's mit erstaunlichen Ergebnissen.
 Aber lassen wir ChatGPT mal selbst sprechen und stellen entsprechende Fragen ans Tool:\\
 \begin{figure}[tp]
   \centering
   \hspace*{-0.1cm} 
-  \includegraphics[width=1.\textwidth]{ChatGPT ist ein tiefes neuronales Netz}
-  \caption{ChatGPT ist ein tiefes neuronales Netz} 
+  \includegraphics[width=1.\textwidth]{ChatGPT ist ein tiefes neuronales Netzwerk}
+  \caption{ChatGPT ist ein tiefes neuronales Netzwerk} 
   \label{fig:ChatGPT=DNN}
 \end{figure}
 \begin{figure}[tp]
   \centering
   \hspace*{-0.1cm} 
-  \includegraphics[width=1.\textwidth]{ChatGPT nutzen Generative Pretrained Transformer(CPT)}
-  \caption{ChatGPT nutzen Generative Pretrained Transformer(CPT)}     
-  \label{fig:ChatGPt-Transformer}
+  \includegraphics[width=1.\textwidth]{ChatGPT nutzen Generative Pretrained Transformer (GPT)}
+  \caption{ChatGPT nutzen Generative Pretrained Transformer (GPT)}     
+  \label{fig:ChatGPT-Transformer}
 \end{figure}
 \\[10.2cm] 
 ***\\ Weitere Kapitel Texte \\
@@ -2699,7 +2691,7 @@ In den folgenden zwei Bildern sehen wir ein Beispiel für einer solche Kompositi
   \centering
   \hspace*{-0.5cm} 
   \includegraphics[width=1.15\textwidth]{Definition-Deep-NN}
-  \caption{Definition eines (Deep) Neuronalen Netzes}.\\[0.2cm]      
+  \caption{Definition eines Tiefen (Deep) Neuronalen Netzwerkes}.\\[0.2cm]      
   \label{fig:def-DNN}
 \end{figure}\\
 %
@@ -3222,7 +3214,13 @@ Lösung mit Python Code siehe: \url{https://github.com/HVoellinger/Lecture-Notes
 Hier ist ein beispielhafter Python-Code zur Generierung der zwei Hyperebenen im 2-dim. Beispiel zum Kernel-Trick. Eine animierte Darstellung des Ergebnisses kann man in meinem GitHub anschauen: \\[0.3cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Kernel-Trick_Animation.gif} \\[0.3cm]
 %
-Hier noch die entsprechenden Python Codeblöcke (1-3):
+\subsubsection{Lösungshinweise zu Übung 7.2}
+Hier ein Beispiel Notebook:\\[0.2cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-RBF+Polyn-Kernel.pdf}}\\[0.2cm] 
+
+\subsubsection{Lösungshinweise zu Übung 7.3}
+
+Hier noch die entsprechenden drei Python Codeblöcke zur Übung 7.1:
 %
 \begin{figure}[htp]
   \centering
@@ -3238,13 +3236,7 @@ Hier noch die entsprechenden Python Codeblöcke (1-3):
   \includegraphics[width=1.1\textwidth]{Kernel-Hyperebene-Code-Bild2}
   \caption{Codeblock(3) zum Kernel-Trick Beispiel}
   \label{fig:SVM_Ebenen}
-\end{figure}
-%
-\newpage
-\subsubsection{Lösungshinweise zu Übung 7.2} 
-... \\[0.8cm]
-\subsubsection{Lösungshinweise zu Übung 7.3}
-... \\[0.8cm]
+\end{figure}\\[0.2cm]
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 8}
