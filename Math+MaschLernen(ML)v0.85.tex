@@ -98,7 +98,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.85 (Datum: 18.08.2024) ist nicht final!!! \\
+Diese Version V0.85 (Datum: 28.08.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.85.pdf} \\
@@ -374,14 +374,14 @@ Ab hier bis Ende der Section sind die Folien der Vorlesung ML  zu nutzen und die
 
 
 \begin{center}
-\hspace*{-2.0cm}   
-\includegraphics[width=1.0\textwidth]{K-Means-Python-Bild1}
-\hspace*{-2.0cm}   
-\includegraphics[width=1.0\textwidth]{K-Means-Python-Bild2}
-\hspace*{-2.0cm} 
-\includegraphics[width=1.0\textwidth]{K-Means-Python-Bild3}
-\hspace*{-2.0cm} 
-\includegraphics[width=1.0\textwidth]{K-Means-Python-Bild4}
+\hspace*{-1.0cm}   
+\includegraphics[width=1.2\textwidth]{K-Means-Python-Bild1}
+\hspace*{-1.0cm}   
+\includegraphics[width=1.2\textwidth]{K-Means-Python-Bild2}
+\hspace*{-1.0cm} 
+\includegraphics[width=1.2\textwidth]{K-Means-Python-Bild3}
+\hspace*{-1.0cm} 
+\includegraphics[width=1.2\textwidth]{K-Means-Python-Bild4}
 \end{center}
 
 \subsection{k-Means-Clustering für IRIS Blumen}
@@ -491,7 +491,7 @@ Wenn ein Entscheidungsbaum trainiert wird, wird der Gini-Index für potenzielle 
 Das Gini-Index-Verfahren ist eine beliebte Methode in Entscheidungsbäumen, weil es effizient ist und gut mit kategorialen und numerischen Daten umgehen kann. Es wird oft in Algorithmen wie dem CART (Classification and Regression Trees) verwendet.\\[0.2cm]
 \textbf{Beschreibung des Verfahrens an einem einfachen Beispiel:}\\
 %
-Angenommen, wir haben einen Datensatz mit zwei Klassen (A und B) und zwei Merkmalen (Merkmal 1 und Merkmal 2). Die Zielvariable ist die Klassenzugehörigkeit (A oder B). 
+Angenommen, wir haben einen Datensatz mit einer {\color{red}{Klassenzughörigkeit}} (A oder B) und zwei {\color{blue}{Merkmalen}} (Merkmal 1 und Merkmal 2). Die Zielvariable ist die Klassenzugehörigkeit (A oder B). 
 %
 \begin{table}[h]
 \centering
@@ -499,7 +499,7 @@ Angenommen, wir haben einen Datensatz mit zwei Klassen (A und B) und zwei Merkma
   \label{tab:Beispiel-Tabelle}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\color{red}{Beispiel} & \color{red}{Merkmal 1} & \color{red}{Merkmal 2} & \color{red}{Klasse} \\
+\color{black}{Beispiel} & \color{blue}{Merkmal 1} & \color{blue}{Merkmal 2} & \color{red}{Klasse} \\
 \hline
 1 & 2 & 3 & A \\
 2 & 1 & 4 & A \\
@@ -838,12 +838,14 @@ Die konkrete Berechnung dieses Beispiels wir als Übung 4.3 durchgeführt.\\[0.2
   \caption{Daten und Ergebnisse einer Metallguss-Gießerei}
   \label{fig:PredMaint-Metallguss}
 \end{figure}
-\\[0.8cm]
+\\[8.8cm]
+Als nächstes folgen nun die Übungen zu Kapitel 4.\\
 
 \newpage
 
-\subsection{Übungen zu Kapitel 4\\}
+\subsection{Übungen zu Kapitel 4}
 %
+.\\
 \subsubsection{Übung 4.1 - Berechne das "Tennis Bsp." mit ID3- und GINI-Index Verfahren}
 Gruppenarbeit (2 Personen): Nutze die "Tennis" Daten aus Kapitel 4.3.1.\\
 Teil A: Benutze das ID3 ("Iterative Dichotomoiser 3")-Verfahren zur Berechnung des Entscheidungsbaumes. Führe die Schritte des entsprechenden Algorithmus manuell durch.\\[0.2cm]
@@ -1117,11 +1119,15 @@ Bezeichnen wir n = Anzahl der Beobachtungen (Datenpunke) und k = Anzahl der unab
 \end{large}     
 \end{center}
 %
-Das $Adj.R^2$ berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktoren") im Modell und passt das gewöhnliche R² an, um zu verhindern, dass es aufgrund von Überanpassung ("Overfitting") zu optimistisch wird. Ein höheres Adj.R² zeigt an, dass ein größerer Anteil der Variabilität im abhängigen Wert von den unabhängigen Variablen im Modell erklärt wird, wobei jedoch die Anzahl der Prädiktoren berücksichtigt wird. Zusammenfassend ergibt sich folgende Übersicht:\\
-
-\begin{center}
-\includegraphics{Adj.R²-Definition}\\
-\end{center}
+Das $Adj.R^2$ berücksichtigt die Anzahl der unabhängigen Variablen ("Prädiktoren") im Modell und passt das gewöhnliche R² an, um zu verhindern, dass es aufgrund von Überanpassung ("Overfitting") zu optimistisch wird. Ein höheres Adj.R² zeigt an, dass ein größerer Anteil der Variabilität im abhängigen Wert von den unabhängigen Variablen im Modell erklärt wird, wobei jedoch die Anzahl der Prädiktoren berücksichtigt wird. Zusammenfassend ergibt sich folgende Übersicht:
+\begin{figure}[htp]
+  \centering
+  \hspace*{-0.7cm} 
+  \includegraphics[width=1.15\textwidth]{Adj.R²-Definition}
+  \caption{Zusammenfassung der Formeln der Linearen Regression}     
+  \label{fig:Zus-Formeln-LR}
+\end{figure}
+\\[10.5cm]
 %
 \textbf{Sprechweise:} Wir sagen eine Hyperebene ist eine \textbf{"optimale"} (mLR)- Hyperebene wenn Adj.R² maximal ist (dies ist analog zu SSE ist minimal). Oftmals wird in der Literatur auch der Zusatz "optimale" weggelassen und man sagt nur "mLR-Hyperebene".\\ 
 
@@ -2298,17 +2304,65 @@ Der Ansatz ist "naiv", weil er eine starke Unabhängigkeitsannahme zwischen den 
 
 \subsection{Eine Einführung in den naiven Bayes-Klassifikator}
 
-Hier ist eine grundlegende Erklärung, wie die {\color{blue}{Naive-Bayes-Textklassifikation}} \index{Naive-Bayes-Textklassifikation} funktioniert:\\
+%Der Satz von Bayes ist ein grundlegender Satz in der Wahrscheinlichkeitstheorie, der die Beziehung zwischen bedingten Wahrscheinlichkeiten beschreibt. Er wird oft verwendet, um die Wahrscheinlichkeit eines Ereignisses zu berechnen, wenn man bereits Wissen über ein anderes Ereignis hat.\
+%
+Formell lautet der Satz von Bayes:
 
-\begin{figure}[htb]
-  \centering
-  \hspace*{-1.5cm} 
-  \includegraphics[width=1.2\textwidth]{Naive-Bayes-Learning}
-  \caption{Screenshots zum Naive-Bayes-Learning}
-\label{fig:NB_Learning}
-\end{figure}
+\[
+P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
+\]
 
+Hier sind die einzelnen Bestandteile:
 
+\begin{itemize}
+    \item \( P(A|B) \): Die bedingte Wahrscheinlichkeit, dass das Ereignis \( A \) eintritt, gegeben, dass \( B \) bereits eingetreten ist.
+    \item \( P(B|A) \): Die bedingte Wahrscheinlichkeit, dass das Ereignis \( B \) eintritt, gegeben, dass \( A \) bereits eingetreten ist.
+    \item \( P(A) \): Die \textit{a-priori} Wahrscheinlichkeit, dass das Ereignis \( A \) eintritt.
+    \item \( P(B) \): Die \textit{a-priori} Wahrscheinlichkeit, dass das Ereignis \( B \) eintritt.
+\end{itemize}
+%
+\textbf{Anwendung}
+%
+Der Satz von Bayes wird häufig in Situationen verwendet, in denen man Rückschlüsse auf Ursachen auf der Grundlage von beobachteten Ergebnissen ziehen möchte. Ein klassisches Beispiel ist die medizinische Diagnose:
+
+\begin{itemize}
+    \item \( A \) könnte die Hypothese sein, dass eine Person eine bestimmte Krankheit hat.
+    \item \( B \) könnte ein positiver Test auf diese Krankheit sein.
+\end{itemize}
+%
+Mit dem Satz von Bayes kann man die Wahrscheinlichkeit berechnen, dass eine Person tatsächlich krank ist ( \( P(A|B) \) ), wenn bekannt ist, dass der Test positiv ausgefallen ist.
+%
+\textbf{Beispiel}
+%
+Angenommen, 1\% der Bevölkerung hat eine bestimmte Krankheit ( \( P(A) = 0{,}01 \) ), und ein Test auf diese Krankheit ist in 99\% der Fälle positiv, wenn die Person die Krankheit hat ( \( P(B|A) = 0{,}99 \) ). Der Test ist aber auch in 5\% der Fälle positiv, wenn die Person die Krankheit nicht hat ( \( P(B|\neg A) = 0{,}05 \) ). Wir wollen wissen, wie hoch die Wahrscheinlichkeit ist, dass eine Person, die positiv getestet wurde, tatsächlich krank ist.
+%
+Der Satz von Bayes gibt uns:
+
+\[
+P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} = \frac{0{,}99 \cdot 0{,}01}{P(B)}
+\]
+%
+Die Wahrscheinlichkeit \( P(B) \) kann berechnet werden als:
+
+\[
+P(B) = P(B|A) \cdot P(A) + P(B|\neg A) \cdot P(\neg A)
+\]
+
+\[
+P(B) = 0{,}99 \cdot 0{,}01 + 0{,}05 \cdot 0{,}99 = 0{,}0099 + 0{,}0495 = 0{,}0594
+\]
+%
+Nun können wir \( P(A|B) \) berechnen:
+
+\[
+P(A|B) = \frac{0{,}99 \cdot 0{,}01}{0{,}0594} \approx 0{,}1667
+\]
+%
+Das bedeutet, dass die Wahrscheinlichkeit, dass eine Person tatsächlich krank ist, wenn der Test positiv ist, etwa 16,67\% beträgt.\\
+
+\subsection{Anwendungen des naiven Bayes-Klassifikator}
+
+%
 \textbf{1. Naive-Bayes-Theorem:}\\
 Das Naive-Bayes-Theorem ist eine statistische Formel, die auf dem Satz von Wahrscheinlichkeitsregeln beruht, bekannt als \textbf{Bayes-Theorem}. Es gibt an, wie Wahrscheinlichkeiten nach der Anwendung neuer Informationen aktualisiert werden. Für die Textklassifikation bedeutet dies, dass wir die Wahrscheinlichkeit berechnen, mit der ein Dokument einer bestimmten Klasse (z. B. "Positiv" oder "Negativ") angehört, basierend auf den darin enthaltenen Wörtern.\\
 \textbf{2. Feature-Extraktion:}\\
@@ -2319,80 +2373,106 @@ Für jede Klasse wird die Wahrscheinlichkeit berechnet, dass ein gegebenes Dokum
 Das Dokument wird der Klasse zugeordnet, für die die berechnete Wahrscheinlichkeit am höchsten ist. Dies wird oft durch den Satz von Klassenlabels erreicht, die im Trainingsprozess erlernt wurden.\\
 \textbf{5. Laplace-Glättung:}\\
 Ein Problem bei der Verwendung von Wahrscheinlichkeiten auf der Grundlage von Trainingsdaten ist, dass einige Wörter möglicherweise in bestimmten Klassen überhaupt nicht vorkommen. Dies könnte dazu führen, dass die berechnete Wahrscheinlichkeit null wird und das Modell nicht in der Lage ist, Vorhersagen für diese Klasse zu treffen. Um dieses Problem zu mildern, wird oft die Laplace-Glättung verwendet, um die Wahrscheinlichkeiten leicht zu verschieben.\\[0.2cm]
-
+%
 \textbf{Zusammenfassung:}\\
-Naive-Bayes-Klassifikatoren sind einfach zu implementieren, schnell und können auch bei begrenzten Trainingsdaten gut funktionieren. Allerdings kann die starke Unabhängigkeitsannahme zwischen den Features in einigen Fällen zu weniger genauen Vorhersagen führen, insbesondere wenn es komplexe Abhängigkeiten zwischen den Wörtern gibt. Dennoch ist die Naive-Bayes-Textklassifikation eine nützliche Methode, um eine erste Annäherung an die Klassifikation von Textdaten zu erhalten.\\
+Naive-Bayes-Klassifikatoren sind einfach zu implementieren, schnell und können auch bei begrenzten Trainingsdaten gut funktionieren. Allerdings kann die starke Unabhängigkeitsannahme zwischen den Features in einigen Fällen zu weniger genauen Vorhersagen führen, insbesondere wenn es komplexe Abhängigkeiten zwischen den Wörtern gibt. Dennoch ist die Naive-Bayes-Textklassifikation eine nützliche Methode, um eine erste Annäherung an die Klassifikation von Textdaten zu erhalten.
 
 \subsection{Mathematische Grundlagen bei Textklassifikatoren}
-{\color{red}{*******************************************************************\\ 
-ab hier bis Ende der section sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
-********************************************************************\\}}
 
-\
-\subsubsection{Bayes-Learning für Texte}
+\subsubsection{Anwendung in der Textklassifikation}
+%
+Bei der Textklassifikation wird \( P(T|C) \) als Produkt der Wahrscheinlichkeiten der einzelnen Wörter in \( T \) gegeben \( C \) berechnet. Das heißt:
 
-\begin{center} 
-\hspace*{-1.5cm} 
-\includegraphics[width=1.2\textwidth]{Bayes-Rule01}
-\end{center}
+\[
+P(T|C) = P(w_1|C) \cdot P(w_2|C) \cdot \ldots \cdot P(w_n|C)
+\]
+%
+Hierbei sind \( w_1, w_2, \ldots, w_n \) die Wörter im Text \( T \). Der Klassifikator wählt dann die Klasse \( C \) mit der höchsten posterioren Wahrscheinlichkeit \( P(C|T) \).\\[0.2cm]
+%
+\textbf{Beispiel: Spam-Filter:}\\
+Stellen wir uns vor, wir möchten eine E-Mail als "Spam" oder "Nicht-Spam" klassifizieren. Angenommen, wir haben eine E-Mail mit den Wörtern "win", "money", "now". Wir wollen die Wahrscheinlichkeit berechnen, dass diese E-Mail Spam ist, d. h. \( P(\text{Spam}|\text{win, money, now}) \).
+\[
+P(\text{Spam}|\text{win, money, now}) \propto P(\text{win}|\text{Spam}) \cdot P(\text{money}|\text{Spam}) \cdot P(\text{now}|\text{Spam}) \cdot P(\text{Spam})
+\]
+%
+Die Klasse, die die höchste Wahrscheinlichkeit \( P(\text{Spam}|\text{win, money, now}) \) oder\\ \( P(\text{Nicht-Spam}|\text{win, money, now}) \) hat, wird ausgewählt.\\[0.2cm]
+%
+\textbf{Zusammenfassung}\\
+Bayessches Lernen für Texte, insbesondere in der Form des Naive Bayes-Klassifikators, ist eine effiziente und weit verbreitete Methode zur Textklassifikation. Es nutzt den Satz von Bayes, um auf der Grundlage von Wortwahrscheinlichkeiten und \textit{a-priori} Klassenwahrscheinlichkeiten die wahrscheinlichste Klasse für einen Text zu bestimmen.  
 
-\subsubsection{"Laplace Glättung"}
+\subsubsection{"Laplace-Glättung"}
+Die Laplace-Glättung (auch als Laplace-Smoothing oder additive Glättung bekannt) ist eine Technik, die in der Wahrscheinlichkeitstheorie und im maschinellen Lernen verwendet wird, um das Problem der Nullwahrscheinlichkeiten zu vermeiden. Dieses Problem tritt auf, wenn bestimmte Ereignisse in den Trainingsdaten nicht beobachtet wurden und daher eine Wahrscheinlichkeit von Null haben, was in vielen Modellen unerwünscht ist.\\
+%
+\textbf{Hintergrund}\\
+Betrachten wir ein Beispiel aus der Textklassifikation mit einem Naive Bayes-Klassifikator. Der Klassifikator berechnet die Wahrscheinlichkeit einer Klasse \(C\) gegeben einem Text \(T\) basierend auf der Häufigkeit von Wörtern in der Trainingsdatenmenge. Wenn ein Wort in den Trainingsdaten für eine bestimmte Klasse nicht vorkommt, würde der Naive Bayes-Klassifikator eine Wahrscheinlichkeit von Null für diese Klasse berechnen, was dazu führen könnte, dass die Klasse insgesamt ausgeschlossen wird, selbst wenn sie sonst sehr wahrscheinlich wäre.\\
+%
+\textbf{Definition}\\
+Die Laplace-Glättung löst dieses Problem, indem sie zu jeder beobachteten Häufigkeit eine kleine positive Konstante hinzufügt. Wenn man eine Konstante von 1 verwendet, lautet die Formel für die berechnete Wahrscheinlichkeit eines Wortes \( w_i \) in einer Klasse \( C \):
 
-\begin{center} 
-\hspace*{-1.5cm} 
-\includegraphics[width=1.2\textwidth]{Bayes-Rule02}
-\end{center}
+\[
+P(w_i|C) = \frac{\text{Anzahl der Vorkommen von } w_i \text{ in } C + 1}{\text{Gesamtanzahl der Wörter in } C + V}
+\]
+Dabei ist \( V \) die Gesamtzahl der verschiedenen Wörter im Vokabular (also die Anzahl der möglichen Wörter).\\
+%
+\textbf{Anwendung}\\
+%
+Wenn wir die Laplace-Glättung auf alle Wörter anwenden, sorgt dies dafür, dass kein Wort eine Wahrscheinlichkeit von Null erhält, selbst wenn es in den Trainingsdaten nicht vorkommt. Dadurch wird sichergestellt, dass das Modell besser generalisiert und auch mit Wörtern umgehen kann, die während des Trainings nicht gesehen wurden.\\
+%
+\textbf{Beispiel}\\
+Angenommen, wir haben zwei Klassen, "Spam" und "Nicht-Spam", und wir berechnen die Wahrscheinlichkeiten von Wörtern in diesen Klassen. Wenn das Wort "Gewinn" in der Klasse "Spam" dreimal und in der Klasse "Nicht-Spam" nie vorkommt, würde ohne Glättung \( P(\text{Gewinn}|\text{Nicht-Spam}) = 0 \) sein. \\
+Mit Laplace-Glättung berechnen wir jedoch:
+
+\[
+P(\text{Gewinn}|\text{Nicht-Spam}) = \frac{0 + 1}{\text{Anzahl der Wörter in Nicht-Spam} + V}
+\]
+%
+Das Wort "Gewinn" erhält also eine kleine, aber nicht-null Wahrscheinlichkeit in der Klasse "Nicht-Spam", was verhindert, dass die Klasse "Nicht-Spam" ausgeschlossen wird, nur weil "Gewinn" nicht in den Trainingsdaten vorkommt.\\[0.2cm]
+\textbf{Zusammenfassung}\\
+Die Laplace-Glättung ist eine einfache, aber wirkungsvolle Methode, um die Robustheit von Modellen zu erhöhen, indem sie das Problem von Nullwahrscheinlichkeiten verhindert. Sie wird häufig in Naive Bayes-Klassifikatoren und anderen probabilistischen Modellen eingesetzt, insbesondere in Situationen mit spärlichen Daten.\\
 
 \subsection{Konkrete Anwendung des naiven Bayes-Klassifikator}
 
-\begin{center}
-\hspace*{-1.cm}   
-\includegraphics[width=1.2\textwidth]{Bayes-Text-Classification01}
-\includegraphics[width=1.1\textwidth]{Bayes-Text-Classification02}
-\includegraphics[width=1.1\textwidth]{Bayes-Text-Classification03}
-\end{center}
+Als Beispiel für eine Textklassifikation unter Anwendung der Laplace-Glättung betrachten wir sechs gelabelte Trainingsdatensätze die in den zwei Klassen "Sports" oder "Not Sports" zugeordnet sind. 
+\begin{table}[h]
+\centering
+  \caption{Trainingsdatensatz zur Textklassifikation}
+  \label{tab:Textklassifikation-Datensatz}
+\begin{tabular}{|c|c|c|}
+\hline  
+\color{black}{No.} & \color{blue}{Trainingsdatensatz} & \color{red} {Klasse} \\
+\hline
+0 & A great game & Sports \\
+1 & The election was over & Not Sports \\
+2 & Very clean match & Sports \\
+3 & A clean but forgettable game & Sports \\
+4 & It was a close election & Not Sports \\
+5 & A very close game & Sports \\
+\hline
+\end{tabular}
+\end{table}\\[0.1cm]
+% 
+Als \textbf{Zieldatensatz} haben wir den Satz "A very close game". Es ist nun eine Klassifikation dieses Satzes durchzuführen (siehe Übung 6.1)\\
+Zusatzfrage (Übung 6.2): Was wird passieren wenn wir den Zieldatensatz ändern auf  “Hermann plays a very clean game”\\
+Die Lösung dieser Aufgabe wird einmal manuell als Übung 6.1 und Übung 6.2 ausgeführt und einmal als Python Programm (Übung 6.3)\\
+Betrachte also die folgende Tabelle mit den Trainingsdaten:\\[0.2cm]
 
-\begin{center}  
-\hspace*{-2.8cm} 
-\includegraphics{Bayes-Beispiel01}
-\end{center}
-
-\begin{center}  
-\hspace*{-2.5cm} 
-\includegraphics{Bayes-Beispiel02}
-\end{center}\begin{center}  
-
-\hspace*{-1.8cm} 
-\includegraphics{Bayes-Beispiel03}
-\end{center}
-
+  
 \newpage
 
 \subsection{Übungen zum Kapitel 6}
 
-{\color{red}{*******************************************************************\\ ab hier bis Ende der Übungen sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
-********************************************************************\\}}
-.....\\
-
-
-
 \subsubsection{Übung 6.1 - Bsp. einer Bayes-Texklassifikation}
 
-Analog dem Beispiel aus obigen Kapitel soll die Bayes- Textklassifikation für einen weiteren Zielsatz mit den gleichen \textbf{"gelabelten" Trainingsdaten} durchgeführt werden. Wir suchen jetzt eine Klassifikation für den Zielsatz \textbf{"Hermann plays a TT match"}:\\   
+Lösen Sie manuell das Beispiel aus obigen Kapitel unter Benutzung der  Bayes-Textklassifikation (beachte dabei die Laplace-Glättung).   
 
-\begin{center} 
-\includegraphics[width=0.8\textwidth]{Bayes-Learning-Übungen}
-\end{center}
+\subsubsection{Übung 6.2 - Bsp. einer Bayes-Texklassifikation mit neuem Zielsatz }
 
-\textbf{Zusatzfrage:} Wie verändert sich das Ergebnis wenn ich als Zielsatz: \textbf{"Hermann plays a very clean game"} eingebe? 
+Analog zu Trainingsdaten aus der Übung 6.1 soll die Bayes-Textklassifikation für einen weiteren Zielsatz mit den gleichen \textbf{"gelabelten" Trainingsdaten} durchgeführt werden. Wir suchen jetzt eine Klassifikation für den Zielsatz \textbf{"Hermann plays a TT match"}   
 
-
-\subsubsection{Übung 6.2 - Bayes-Textklassifikation in Python}
+\subsubsection{Übung 6.3 - Bayes-Textklassifikation in Python mit neuem Zielsatz}
 
 Definiere einen Algorithmus in Python (benutze Jupyter Notebook) um obige Berechnung zu automatisieren. Tipp: Vergleich analoge Beispiele in \textbf{[HVö-GitML20]} - \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\
 
-\subsubsection{Übung 6.3}:
-*** Weitere Kapitel Texte *** 
 
 \newpage
 
@@ -2499,8 +2579,8 @@ Ein solches Beispiel soll als Übungsbeispiel in Übung(7.1) gerechnet werden\\[
 Um ein einfaches und anschauliches Beispiel für eine Support Vector Machine (SVM) mit einem Kernel-Trick von 2D nach 3D in einem Jupyter Notebook zu erstellen, können Sie den folgenden Python-Code verwenden. Der Code 
 verwendet die scikit-learn Bibliothek für die SVM und die matplotlib Bibliothek zum Plotten. Zur Programmierung in Python importieren wir zuerst die erforderlichen Bibliotheken.... Hier das komplette Notebook:\\[0.2cm]
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-Kernel-2D-3D.pdf}}\\
-Ein mögliches Ergebnis könnte wie folgt aussehen: \\
-\begin{figure}[tp]
+Ein mögliches Ergebnis könnte wie folgt aussehen: \\[5.5cm]
+\begin{figure}[htp]
   \centering
   \hspace*{-0.1cm} 
   \includegraphics[width=1.\textwidth]{SVM-Kernel(2D-3D)-Beispiel}
@@ -2703,9 +2783,9 @@ E &= E_1 + E_2 \approx 0.2748 + 0.0236 \approx 0.2983
 Unser Ziel bei der Backpropagation ist es, die einzelnen Gewichte im Netz so zu aktualisieren, dass die tatsächliche Ausgabe näher an der Zielausgabe liegt, wodurch der Fehler für jedes Ausgangsneuron und das Netz als Ganzes minimiert wird.\\
 In der nachfolgenden Grafik ist das Vorgehen schematisch dargestellt. Insbesondere kommt die \textbf{Kettenregel von "geschachtelten" Funktionen} zur Anwendung (siehe Vorlesung "Analysis I + II"):
 
-\begin{figure}[htb]
+\begin{figure}[htp]
   \centering
-  \vspace*{0.5cm}
+  \vspace*{0.2cm}
  \includegraphics{Backpropagation-BP} 
   \vspace*{-0.5cm}
   \caption{Backpropagation-Rückwärtslauf}
@@ -3122,24 +3202,22 @@ Die {\color{red}{sLR-Gerade}} ist im folgenden Bild sichtbar:
 
 \subsubsection{Lösungshinweise zu Übung 6.1}
 
-\begin{center} 
-\includegraphics[width=1.1\textwidth]{Naive-Bayes-Ueb61_Hinweis}
-\end{center}
-\textbf{Zusatzfrage:} Das Ergebnis dreht sich um wenn Sie als Zielsatz \textbf{"Hermann plays a very clean game"} eingeben.\\................
+Manuelle Berechnung siehe: \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H3.2-Bayes_Learning_for_Text_Classification-Folien.pdf}\\
 
 \subsubsection{Lösungshinweise zu Übung 6.2}
 
-\begin{center} 
-\includegraphics[width=1.1\textwidth]{Naive-Bayes-Ueb62_Hinweis}
-\end{center}
+\textbf{Zusatzfrage:} Das Ergebnis dreht sich um wenn Sie als Zielsatz \textbf{"Hermann plays a very clean game"} eingeben.\\
+Berechnung analog wie bei Lösung von Übung 6.1\\
 
 \subsubsection{Lösungshinweise zu Übung 6.3}
 
+Lösung mit Python Code siehe: \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H3.2-Bayes_Learning_for_Text_Classification.pdf}
+\\[0.2cm]
 
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 7}
-... \\[0.8cm]
+
 \subsubsection{Lösungshinweise zu Übung 7.1}
 Hier ist ein beispielhafter Python-Code zur Generierung der zwei Hyperebenen im 2-dim. Beispiel zum Kernel-Trick. Eine animierte Darstellung des Ergebnisses kann man in meinem GitHub anschauen: \\[0.3cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Kernel-Trick_Animation.gif} \\[0.3cm]
