@@ -23,7 +23,6 @@
 %\usepackage[margin=0in,paperwidth=596pt,paperheight=842pt]{geometry}
 \usepackage[all]{hypcap}
 
-
 \usepackage{geometry}
 \usepackage{xcolor}
 \definecolor{mygray}{gray}{0.3}
@@ -366,68 +365,106 @@ MacQueen führte mit dem Begriff k-Means einen anderen Algorithmus ein:
 2. Weise jedes neue Element dem Cluster zu, bei dem sich die Varianz am wenigsten erhöht, und aktualisiere das Clusterzentrum.
 \\[0.3cm]Während es ursprünglich – vermutlich – nicht vorgesehen war, kann man auch diesen Algorithmus iterieren, um ein besseres Ergebnis zu erhalten.
 
-\subsection{Python Programm zum k-Means-Clustering}
-
-{\color{red}{***********************************************************************\\ 
-Ab hier bis Ende der Section sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen...\\
-************************************************************************}}\\[0.2cm]
-
-
-\begin{center}
-\hspace*{-1.0cm}   
-\includegraphics[width=1.2\textwidth]{K-Means-Python-Bild1}
-\hspace*{-1.0cm}   
-\includegraphics[width=1.2\textwidth]{K-Means-Python-Bild2}
-\hspace*{-1.0cm} 
-\includegraphics[width=1.2\textwidth]{K-Means-Python-Bild3}
-\hspace*{-1.0cm} 
-\includegraphics[width=1.2\textwidth]{K-Means-Python-Bild4}
-\end{center}
-
-\subsection{k-Means-Clustering für IRIS Blumen}
-
-
+\subsection{Beschreibung Python Programm zum k-Means-Clustering}
+%
+Hier ist die Beschreibung des M-Means-Algorithmus zur Klassifikation der Iris-Blumen.\\
 Der in diesem Beispiel verwendete Datensatz ist der berühmte {\color{blue}{IRIS-Blumen Datensatz}} \index{IRIS-Blumen Datensatz} Er besteht aus 150 Einträgen der Irisblume, die jeweils durch vier Merkmale beschrieben werden: Kelchblattlänge, Kelchblattbreite, Blütenblattlänge und
 Blütenblattbreite. \\[0.2cm]
-Zusätzlich ist der spezifische Typ der Irisblume angegeben. Es gibt drei Arten
-der Schwertlilienpflanze: Iris Setosa, Iris Versicolor und Iris Virginica.\\
+Zusätzlich ist der spezifische Typ der Irisblume angegeben. Es gibt drei Arten der Schwertlilienpflanze: Iris Setosa, Iris Versicolor und Iris Virginica.\\
 Jede Art ist mit mit 50 Einträgen im Datensatz vertreten. Die Merkmale sind in Zentimetern angegeben. Die Abbildung unten zeigt wie die Daten im Datenrahmen dargestellt werden. Der Datensatz wurde erstmals von Ronald Fisher, einem britischen Biologen, in einem Aufsatz aus dem Jahr 1936 vorgestellt. Er ist eines der am häufigsten verwendeten Beispiele für statistischen Klassifizierung-Algorithmen beim Maschinellen Lernen. \\
 Die Abbildung unten zeigt die ersten fünf Einträge des Datensatzes. Der Datensatz ist in der Python-Bibliothek scikit-learn enthalten.\\ 
+%
+Der \textbf{M-Means}-Algorithmus (oft als \textbf{K-Means} bezeichnet, wobei „K“ hier „M“ ist) ist ein gängiges unüberwachtes Lernverfahren zur Clusteranalyse, bei dem Datenpunkte in \( M \) Cluster unterteilt werden. In der Klassifikation der Iris-Blumen wird dieser Algorithmus verwendet, um die Blumen basierend auf ihren Merkmalen (z.B. Kelchblatt- und Kronblattlänge) in Gruppen zu unterteilen.
 
-\begin{figure}[htp]
-  \centering
-  \hspace*{-0.1cm} 
-  \includegraphics[width=0.9\textwidth]{IRIS-Dataset-First_Entries}\\
-  \caption{Die ersten 5 Entries im IRIS Datensatz}
-  \label{fig:Iris_DS}
-\end{figure}
+\subsubsection{Laden der Iris-Daten}
 %
-Siehe Lösungen in meinem Github:\\ 
+Zuerst wird das Iris-Dataset geladen. Das Iris-Dataset ist ein klassisches Beispiel in der Datenanalyse und enthält vier Merkmale für drei Arten von Iris-Blumen: \textit{Iris Setosa}, \textit{Iris Versicolor} und \textit{Iris Virginica}: \\[0.2cm]
 %
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/k-means-HVoe.pdf} \\
+$ from\quad sklearn.datasets\quad import\quad load\_iris $ \\
+$ import \quad pandas \quad as \quad pd $ \\[0.2cm]
 %
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/k-means-HVoe.tex}\\[0.3cm]
+Laden der Iris-Daten:\\[0.2cm]
+$ iris = load\_iris()$ \\
+$df = pd.DataFrame(iris.data, columns=iris.feature\_names)$ 
+
+\subsubsection{Anwenden des k-Means-Algorithmus}
+%
+Nun wird der M-Means-Algorithmus angewendet. Hierbei wird der Wert M (Anzahl der Cluster) angegeben, um die Daten in entsprechende Gruppen zu unterteilen:\\[0.2cm]
+%
+$ from\quad sklearn.cluster\quad import\quad KMeans $ \\
+$ Anzahl\quad der\quad Cluster\quad M $ \\
+$ M = 3 $ \\[0.2cm]
+%
+M-Means (K-Means) initialisieren und anpassen:\\C
+$ kmeans = KMeans(n\_clusters = M, random\_state = 42) $\\
+$ kmeans.fit(df) $ \\[0.2cm]
+%
+Zuweisung der Clusterlabels zu den Datenpunkten:\\[0.2cm]
+$ df['Cluster'] = kmeans.labels\_ $
+
+\subsubsection{Visualisierung der Cluster}
+%
+Die resultierenden Cluster können visuell dargestellt werden, um die Verteilung der Iris-Daten zu analysieren. Dies kann mithilfe von Matplotlib oder Seaborn geschehen: \\[0.2cm]
+%
+$ import\quad matplotlib.pyplot\quad as\quad plt $\\
+$ import\quad seaborn\quad as\quad sns $ \\[0.2cm]
+%
+Paarweise Visualisierung der Daten mit den Cluster-Zuweisungen: \\[0.2cm]
+$ sns.pairplot(df,\quad hue =\quad 'Cluster',\quad palette =\quad 'viridis') $\\
+$ plt.show()$\\
+
+\subsubsection{Evaluierung der Ergebnisse}
+%
+Die Ergebnisse können durch Vergleichen der Cluster mit den tatsächlichen Arten der Iris-Blumen validiert werden, die im Datensatz enthalten sind: \\[0.2cm]
+%
+$ from\quad sklearn.metrics\quad import\quad accuracy_score $\\
+$ from\quad scipy.stats\quad import\quad mode $ \\[0.2cm]
+%
+Cluster-Labels mit den tatsächlichen Labels vergleichen: \\[0.2cm]
+$ labels = kmeans.labels\_  $ \\
+$ true\_labels = iris.target $ \\[0.2cm]
+%
+Anpassung der Cluster-Labels an die tatsächlichen Labels (bei Bedarf): \\[0.2cm]
+$ mapped\_labels =  [mode(true\_labels[labels == i])\quad [0]\quad [0]\quad for\quad i\quad in\quad range(M)] $ \\[0.2cm]
+%
+Accuracy berechnen:\\[0.2cm]
+$ accuracy = accuracy_score(true\_labels, [mapped\_labels[label]\quad for\quad label\quad in\quad labels]) $   \\
+$ print(f"Accuracy: {accuracy:.2f}")$ 
+
+\subsubsection{Zusammenfassung}
+
+Das Python-Programm zur Klassifikation der Iris-Blumen mit dem M-Means-Algorithmus umfasst das Laden der Daten, das Anwenden des Algorithmus mit einer definierten Cluster-Anzahl, die Visualisierung der Resultate und eine Evaluierung der Cluster-Genauigkeit. Der M-Means-Algorithmus klassifiziert die Blumen anhand ihrer Merkmale in Gruppen, die mit den drei Arten von Iris-Blumen korrespondieren.
+
+\subsection{Python-Beispiel für k-Means-Clustering für IRIS Blumen}
+%
+Dieser Abschnitt beschreibt ein Code-Beispiele für den M-Means-Algorithmus zur Klassifikation der Iris-Blumen und enthält Python-Code für die Durchführung der Analyse. Es umfasst das Laden der Daten, die Anwendung des Algorithmus, die Visualisierung der Cluster und die Evaluierung der Ergebnisse.Siehe Lösungen in meinem Github:\\ 
+%
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/k-means-HVoe.pdf} \\[0.2cm]
 %
 Die Konfusion-Matrix zeigt, dass alle 50 setosa-Blüten richtig klassifiziert wurden.\\ 48 versicolor-Blüten wurden richtig klassifiziert, aber 14 wurden falsch erkannt. \\ 36 virginica-Blüten wurden richtig beschriftet und 2 virginica-Blüten wurden fälschlicherweise als virginica-Blüten klassifiziert.\\[0.2cm]
 %
 Insgesamt funktionieren  Clustering und Klassifizierung mit k-Means im {\color{blue}{IRIS-Blumen Datensatz}} \index{IRIS-Blumen Datensatz} gut. Mit einer Genauigkeit von 89 Prozent ist der Algorithmus ein gutes Hilfsmittel, um ein Modell für die Vorhersage der genauen Art der Irisblüte zu erstellen.\\
 Wie die Konfusion-Matrix zeigt, ist die Klassifikation zu 100\% genau
-für die Setosa-Blüten und über 94\% für die Versicolor-Arten. Es scheitert nur bei der genauen Virginica-Blüten mit einer Genauigkeit von "nur" 77\%.\\
+für die Setosa-Blüten und über 94\% für die Versicolor-Arten. Es scheitert nur bei der genauen Virginica-Blüten mit einer Genauigkeit von "nur" 77\%.\\[0.2cm]
 Das Modell von k-Means kann jedoch noch weiter verbessert werden, wie andere  Implementierungen wie k-means++ zeigen. Es verbessert außerdem die Wahl der anfänglichen Zentren.
-
+%
 \newpage
 
-{\color{red}{***********************************************************************\\ 
-Ab hier bis Ende der Übungen sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen...\\
-************************************************************************}}\\[0.2cm]
 \subsection{Übungen zum Kapitel 3}
-.....\\
-\subsubsection{Übung 3.1 - nnn1}
-TEXT\\
-\subsubsection{Übung 3.2 - nnn2}
-.....\\
-\subsubsection{Übung 3.3 - ...............}
 
+\subsubsection{Übung 3.1 - Manuelle Berechnung von "kleinem" k-Means-Cluster}
+Berechnen Sie manuell ein 3-Means-Cluster mit den folgenden Punkten: \\
+%
+$ df = pd.DataFrame\quad(x', y') $ wobei:\\
+'x': [12, 20, 28, 18, 29, 33, 24, 45, 45, 52, 51, 52, 55, 53, 55, 61, 64, 69, 72], und \\
+'y': [39, 36, 30, 52, 54, 46, 55, 59, 63, 70, 66, 63, 58, 23, 14, 8, 19, 7, 24] sind \\[0.2cm]
+Folgen Sie den Anweisungen aus \url{https://benalexkeen.com/k-means-clustering-in-Python/} um zu dn 3 Clustern zu kommen.
+
+\subsubsection{Übung 3.2 - Erstelle ein Python Programm für Übung 3.1}
+Nutzen Sie dabei die Bibliothek "scikit-learn". Nutzen Sie dabei auch die Hinweise aus den Anweisungen der Übung 3.1.
+
+\subsubsection{Übung 3.3 - ...............}
+.....\\
 
 \newpage
 
@@ -495,7 +532,7 @@ Angenommen, wir haben einen Datensatz mit einer {\color{red}{Klassenzughörigkei
 %
 \begin{table}[h]
 \centering
-  \caption{Beispiel zur Knotenberechnung (Gini)}
+  \caption{Beispiel zur Knotenberechnung (GINI)}
   \label{tab:Beispiel-Tabelle}
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -2618,45 +2655,68 @@ Ein DNN besteht neben dem Eingabe- und Ausgabe-Schicht noch aus sehr vielen weit
 DNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispiel in der Bilderkennung, Gesichtserkennung, medizinischen Bildverarbeitung und sogar in der natürlichen Sprachverarbeitung (mit Modellen wie den sogenannten "Convolutional Seq2Seq" Modellen) weit verbreitet.\\
 \subsection{Anwendung von DNN - "ChatGPT"}
 %
-{\color{blue}{ChatGPT}} \index{ChatGPT}ist eine der bekanntesten Anwendungen von DNN's mit erstaunlichen Ergebnissen.
-Aber lassen wir ChatGPT mal selbst sprechen und stellen entsprechende Fragen ans Tool:\\
-\begin{figure}[tp]
-  \centering
-  \hspace*{-0.1cm} 
-  \includegraphics[width=1.\textwidth]{ChatGPT ist ein tiefes neuronales Netzwerk}
-  \caption{ChatGPT ist ein tiefes neuronales Netzwerk} 
-  \label{fig:ChatGPT=DNN}
-\end{figure}
-\begin{figure}[tp]
-  \centering
-  \hspace*{-0.1cm} 
-  \includegraphics[width=1.\textwidth]{ChatGPT nutzen Generative Pretrained Transformer (GPT)}
-  \caption{ChatGPT nutzen Generative Pretrained Transformer (GPT)}     
-  \label{fig:ChatGPT-Transformer}
-\end{figure}
-\\[10.2cm] 
-***\\ Weitere Kapitel Texte \\
-***\\
+{\color{blue}{ChatGPT}} \index{ChatGPT}ist eine der bekanntesten Anwendungen von DNN's mit erstaunlichen Ergebnissen.\\
+ChatGPT basiert auf einem tiefen neuronalen Netzwerk. Genauer gesagt, es ist ein Beispiel für ein sogenanntes ßtextbf{"Transformer-Modell"}, das eine spezielle Art von tiefem neuronalen Netzwerk darstellt. Transformer-Modelle sind dafür bekannt, sehr große und komplexe Datenmengen zu verarbeiten, was sie ideal für Aufgaben wie die Verarbeitung und Generierung natürlicher Sprache macht.\\
+Im Kern besteht das Modell aus mehreren Schichten von Neuronen, die in einer hierarchischen Struktur angeordnet sind. Diese Schichten sind in der Lage, komplexe Muster und Beziehungen in Daten zu erkennen und zu verarbeiten. In jedem Schritt der Verarbeitung durchläuft die Eingabe durch viele Schichten des Netzwerks, wobei jede Schicht die Daten auf eine andere Weise transformiert, bis am Ende eine Antwort generiert wird.\\
+%
+In diesem Sinne kann man sagen, dass ChatGPT auf einem sehr großen und tiefen neuronalen Netzwerk basiert, das speziell darauf trainiert wurde, menschliche Sprache zu verstehen und darauf zu reagieren.
+\subsubsection{Die Transformer-Architektur}
+%
+Die Transformer-Architektur wurde erstmals in dem 2017 veröffentlichten Paper \textit{"Attention is All You Need"} von Vaswani et al. vorgestellt. Sie hat die Verarbeitung natürlicher Sprache revolutioniert und weitgehend frühere Ansätze wie rekurrente neuronale Netze (RNNs) und Long Short-Term Memory-Netzwerke (LSTMs) ersetzt. Hier sind die Hauptkomponenten der Transformer-Architektur: \\[0.2cm]
+%
+\textbf{1. Encoder-Decoder-Struktur}\\
+Der Transformer besteht aus zwei Hauptteilen: einem \textbf{Encoder} und einem \textbf{Decoder}.\\
+\begin{itemize}
+    \item \textbf{Encoder}: Der Encoder besteht aus mehreren identischen Schichten, die die Eingabesequenz verarbeiten. Jede Schicht hat zwei Hauptkomponenten: eine Selbstaufmerksamkeits-Schicht (\textit{Self-Attention Layer}) und eine Feedforward-Schicht (\textit{Fully Connected Layer}).
+    \item \textbf{Decoder}: Der Decoder ist ähnlich aufgebaut wie der Encoder, aber mit einer zusätzlichen Schicht für die Aufmerksamkeit auf die Ausgabe des Encoders (\textit{Encoder-Decoder Attention}). Der Decoder erzeugt die Ausgabe Sequenz für Sequenz.
+\end{itemize}
+%
+\textbf{2. Self-Attention Mechanismus}\\
+Der \textbf{Self-Attention Mechanismus} (oder \textit{Scaled Dot-Product Attention}) ermöglicht es dem Modell, zu bestimmen, welche Teile der Eingabesequenz (oder der vorherigen Ausgaben) für die aktuelle Position am wichtigsten sind. Bei Self-Attention wird für jedes Wort in der Eingabesequenz berechnet, wie stark es auf alle anderen Wörter in der Sequenz achten sollte. Das Resultat ist eine gewichtete Summe, die diese Abhängigkeiten berücksichtigt.\\[0.2cm]
+%
+\textbf{3. Multi-Head Attention}\\
+Anstelle einer einzigen Self-Attention-Berechnung verwendet der Transformer \textbf{Multi-Head Attention}. Das bedeutet, dass mehrere Self-Attention-Berechnungen parallel durchgeführt werden, die dann zusammengeführt werden. Dies erlaubt es dem Modell, unterschiedliche Beziehungen und Aspekte der Sequenz gleichzeitig zu erfassen.\\[0.2cm]
+%
+\textbf{4. Position-Encoding}\\
+Da Transformer-Modelle keine rekurrente Struktur haben, wird die Reihenfolge der Eingabesequenz nicht explizit erfasst. Stattdessen verwendet das Modell \textbf{Position-Encoding}, um Informationen über die Reihenfolge der Sequenzpositionen hinzuzufügen.\\[0.2cm]
+%
+\textbf{5. Feedforward Neural Network}\\
+Nach der Multi-Head Attention folgt eine \textbf{Feedforward-Schicht}, die unabhängig auf jede Position in der Sequenz angewendet wird. Diese Schicht besteht aus zwei vollständig verbundenen Netzwerken mit einer nichtlinearen Aktivierungsfunktion dazwischen.\\[0.2cm]
+%
+\textbf{6. Residual Connections und Layer Normalization}\\
+Jede Subschicht im Encoder und Decoder ist von einer \textbf{Residual Connection} umgeben, die das Ergebnis der Subschicht mit ihrem Input kombiniert. Danach wird \textbf{Layer Normalization} angewendet, was die Konvergenz während des Trainings unterstützt.\\[0.2cm]
+%
+\textbf{7. Softmax Layer}\\
+Am Ende des Decoders steht eine \textbf{Softmax-Schicht}, die die Wahrscheinlichkeit für jedes Wort im Vokabular berechnet und das wahrscheinlichste Wort auswählt, um die Ausgabe zu erzeugen.\\
+\subsubsection{Vorteile der Transformer-Architektur}
+\begin{itemize}
+    \item \textbf{Parallelisierung}: Im Gegensatz zu RNNs, die sequenziell arbeiten, erlaubt der Transformer durch Self-Attention parallele Berechnungen, was das Training beschleunigt.
+    \item \textbf{Langfristige Abhängigkeiten}: Self-Attention ermöglicht es dem Modell, langfristige Abhängigkeiten innerhalb der Daten besser zu erfassen.
+    \item \textbf{Skalierbarkeit}: Transformer-Modelle können sehr groß skaliert werden, was ihre Leistung bei großen Datenmengen verbessert.
+\end{itemize}
+
+\subsubsection{Anwendungen}
+Transformer-Modelle wie GPT (\textit{Generative Pre-trained Transformer}), BERT (\textit{Bidirectional Encoder Representations from Transformers}) und T5 (\textit{Text-To-Text Transfer Transformer}) haben bahnbrechende Ergebnisse in vielen NLP-Aufgaben erzielt, darunter maschinelle Übersetzung, Textklassifikation, Fragebeantwortung und Textgenerierung. \\[0.2cm] 
 **** Referenz: [Math for DL] ******** 
 \subsection{Mathematische Grundlagen von Faltungsnetzwerken}
 %
-Die mathematischen Grundlagen des {\color{blue}{Faltungsnetzwerke: Englisch auch oft Convolutional Neural Networks (CNN)genannt }}\index{Convolutional Neural Network (CNN)} beruhen auf Konzepten aus linearen Algebra, partiellen Ableitungen und Faltung (Convolution). Ein CNN ist eine spezielle Art von neuronalem Netzwerk, das häufig in der Bild- und Sprachverarbeitung eingesetzt wird, aufgrund seiner Fähigkeit, räumliche Strukturen in Daten zu erkennen.\\
+Die mathematischen Grundlagen des {\color{blue}{Faltungsnetzwerke: Englisch auch oft Convolutional Neural Networks (CNN)genannt }}\index{Convolutional Neural Network (CNN)} beruhen auf Konzepten aus linearen Algebra, partiellen Ableitungen und Faltung (Convolution). Ein CNN ist eine spezielle Art von neuronalem Netzwerk, das häufig in der Bild- und Sprachverarbeitung eingesetzt wird, aufgrund seiner Fähigkeit, räumliche Strukturen in Daten zu erkennen.
 \subsubsection{Liste der wichtigsten mathematische Methoden}
 Hier sind die wichtigen mathematischen Grundlagen eines Convolutional Neural Networks:\\
 %
 \textbf{1. Lineare Algebra:}\\
-CNNs verwenden Matrizenoperationen, um Gewichte und Aktivierungen zu berechnen. Ein typischer Schritt in einem CNN ist die lineare Transformation, bei der Eingabedaten durch eine Gewichtsmatrix multipliziert und ein Bias addiert wird. Dies erzeugt die Aktivierungen der nächsten Schicht.\\
+CNNs verwenden Matrizenoperationen, um Gewichte und Aktivierungen zu berechnen. Ein typischer Schritt in einem CNN ist die lineare Transformation, bei der Eingabedaten durch eine Gewichtsmatrix multipliziert und ein Bias addiert wird. Dies erzeugt die Aktivierungen der nächsten Schicht.\\[0.2cm]
 \textbf{2. Faltung (Convolution):}\\
-Die Faltung ist ein zentrales Konzept in CNNs. In einem CNN werden Filter (auch Kernel genannt) verwendet, um räumliche Merkmale aus den Eingabedaten zu extrahieren. Die Faltung erfolgt durch das Verschieben des Filters über die Eingabedaten und die Berechnung des Punktprodukts zwischen dem Filter und dem überlappenden Teil der Daten. Das Ergebnis ist ein sogenanntes Aktivierungsmuster oder Feature-Map, das die erkannten Merkmale anzeigt.\\
-\textbf{3. Nichtlinearität (Aktivierungsfunktionen):}\\
-Nach der Faltung wird in den meisten Schichten des CNN eine Nichtlinearität eingeführt, um die Expressivität des Netzwerks zu erhöhen. Eine Aktivierungsfunktion wie die ReLU (Rectified Linear Unit) wird oft verwendet, um negative Werte zu eliminieren und nichtlineare Verzerrungen in den Daten zu erzeugen.\\
+Die Faltung ist ein zentrales Konzept in CNNs. In einem CNN werden Filter (auch Kernel genannt) verwendet, um räumliche Merkmale aus den Eingabedaten zu extrahieren. Die Faltung erfolgt durch das Verschieben des Filters über die Eingabedaten und die Berechnung des Punktprodukts zwischen dem Filter und dem überlappenden Teil der Daten. Das Ergebnis ist ein sogenanntes Aktivierungsmuster oder Feature-Map, das die erkannten Merkmale anzeigt.\\[0.2cm]
+\textbf{3. Nichtlinearität (Aktivierungsfunktionen):}?\\
+Nach der Faltung wird in den meisten Schichten des CNN eine Nichtlinearität eingeführt, um die Expressivität des Netzwerks zu erhöhen. Eine Aktivierungsfunktion wie die ReLU (Rectified Linear Unit) wird oft verwendet, um negative Werte zu eliminieren und nichtlineare Verzerrungen in den Daten zu erzeugen.\\[0.2cm]
 \textbf{4. Pooling:}\\
-Pooling ist ein weiterer wichtiger Schritt in CNNs, um die räumliche Dimension der Daten zu reduzieren und die Invarianz gegenüber leichten Translationen zu erreichen. Typischerweise wird Max-Pooling angewendet, bei dem der maximalste Wert aus einem kleinen Ausschnitt der Daten beibehalten wird.\\
+Pooling ist ein weiterer wichtiger Schritt in CNNs, um die räumliche Dimension der Daten zu reduzieren und die Invarianz gegenüber leichten Translationen zu erreichen. Typischerweise wird Max-Pooling angewendet, bei dem der maximalste Wert aus einem kleinen Ausschnitt der Daten beibehalten wird.\\[0.2cm]
 \textbf{5. Backpropagation:}\\
-Wie bei anderen neuronalen Netzwerken werden CNNs mit dem Backpropagation-Algorithmus trainiert. Backpropagation verwendet die Kettenregel der partiellen Ableitungen, um die Gewichte des Netzwerks so anzupassen, dass der Fehler zwischen den vorhergesagten und tatsächlichen Ausgaben minimiert wird.\\
+Wie bei anderen neuronalen Netzwerken werden CNNs mit dem Backpropagation-Algorithmus trainiert. Backpropagation verwendet die Kettenregel der partiellen Ableitungen, um die Gewichte des Netzwerks so anzupassen, dass der Fehler zwischen den vorhergesagten und tatsächlichen Ausgaben minimiert wird.\\[0.2cm]
 \textbf{6. Mehrschichtige Struktur:}\\
-CNNs bestehen aus mehreren Schichten, darunter Eingabeschicht, Faltungsschichten, Aktivierungsschichten, Pooling-Schichten und einer Ausgabeschicht. Die tieferen Schichten sind in der Lage, einfache Merkmale zu lernen, während die höheren Schichten komplexere Merkmale und Kombinationen von Merkmalen erfassen können.
-\\
+CNNs bestehen aus mehreren Schichten, darunter Eingabeschicht, Faltungsschichten, Aktivierungsschichten, Pooling-Schichten und einer Ausgabeschicht.\\
+Die tieferen Schichten sind in der Lage, einfache Merkmale zu lernen, während die höheren Schichten komplexere Merkmale und Kombinationen von Merkmalen erfassen können.\\
 Diese mathematischen Grundlagen ermöglichen es Convolutional Neural Networks, Merkmale aus Eingabedaten zu extrahieren und komplexe Muster zu lernen, was zu einer effektiven Verarbeitung von Bildern, Videos, Sprache und anderen räumlichen Daten führt.
 %
 \subsubsection{Mathematische Definition eines tiefen Neuronalen Netzes (DNN)}
@@ -2982,25 +3042,20 @@ genau genommen GPT-3.5) plötzlich für jedermann nutzbar und erfährt ein gewal
 \section{Lösungen / Lösungshinweise zu den Übungen \\}
 
 Bei vielen Aufgaben werden Lösungshinweise gegeben mit den die Übungen dann selbstständig gelöst werden können. Bei einfachen Rechenaufgaben, deren Lösungsweg klar vorgegeben ist, wird lediglich das Ergebnis der Rechnung genannt.\\
-{\color{red}{*******************************************************************\\ ab hier bis Ende der Hinweise sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
-********************************************************************\\}}
 
-
-
-***\\
 \subsection{Lösungshinweise zu Übungen Kapitel 3}
 
-\hspace*{-1.8cm} Weitere Hilfe unter \textbf{[HVö-GitML20]} \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\
-
+Weitere Hilfe unter: \\
+\textbf{[HVö-GitML20]} \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\
 
 \subsubsection{Lösungshinweise zu Übung 3.1}
-
-
-.....\\
+Manuelle Berechnung siehe:\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H3.4_k-Means_Overview.pdf}\\
 
 \subsubsection{Lösungshinweise zu Übung 3.2} 
 
-
+Analog zur Lösung von Übung 3.1. Python Code siehe:\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H3.4_k-Means_Clustering.pdf}
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 4}
@@ -3194,16 +3249,18 @@ Die {\color{red}{sLR-Gerade}} ist im folgenden Bild sichtbar:
 
 \subsubsection{Lösungshinweise zu Übung 6.1}
 
-Manuelle Berechnung siehe: \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H3.2-Bayes_Learning_for_Text_Classification-Folien.pdf}\\
+Manuelle Berechnung siehe:\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H3.2-Bayes_Learning_for_Text_Classification-Folien.pdf}\\
 
 \subsubsection{Lösungshinweise zu Übung 6.2}
 
-\textbf{Zusatzfrage:} Das Ergebnis dreht sich um wenn Sie als Zielsatz \textbf{"Hermann plays a very clean game"} eingeben.\\
-Berechnung analog wie bei Lösung von Übung 6.1\\
+\textbf{Zusatzfrage:} \\
+Das Ergebnis dreht sich um wenn Sie als Zielsatz \textbf{"Hermann plays a very clean game"} eingeben.Berechnung analog wie bei Lösung von Übung 6.1\\
 
 \subsubsection{Lösungshinweise zu Übung 6.3}
 
-Lösung mit Python Code siehe: \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H3.2-Bayes_Learning_for_Text_Classification.pdf}
+Lösung mit Python Code siehe:\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H3.2-Bayes_Learning_for_Text_Classification.pdf}
 \\[0.2cm]
 
 \newpage
