@@ -97,7 +97,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.85 (Datum: 28.08.2024) ist nicht final!!! \\
+Diese Version V0.85 (Datum: 30.08.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.85.pdf} \\
@@ -434,7 +434,14 @@ $ print(f"Accuracy: {accuracy:.2f}")$
 \subsubsection{Zusammenfassung}
 
 Das Python-Programm zur Klassifikation der Iris-Blumen mit dem M-Means-Algorithmus umfasst das Laden der Daten, das Anwenden des Algorithmus mit einer definierten Cluster-Anzahl, die Visualisierung der Resultate und eine Evaluierung der Cluster-Genauigkeit. Der M-Means-Algorithmus klassifiziert die Blumen anhand ihrer Merkmale in Gruppen, die mit den drei Arten von Iris-Blumen korrespondieren.
+\subsection{Manuelle Berecnung eines einfachen 3-Means-Clusters}
+%
+Für sehr einfache Situationen lässt sich der K-Means-Algorithmus auch manuell berechnen, indem  wir die entsprechenden Abstandsformeln (siehe oben) händisch berechned. \\
+Durch ein solche kleine Übung wird der Algorithmus besser eintrainiert und auch besser verstanden.
 
+\subsubsection{Konkretes Beispiel}
+Angenommen, wir haben die folgenden fünf Datenpunkte = {(2, 3), (3, 3), (6, 7), (8, 8), (10, 10)} in einem zweidimensionalen Raum: \\
+Wir möchten diese Punkte in k = 3 Cluster gruppieren. Diese Aufgabe wird in der Übung 3.1 durchgeführt. 
 \subsection{Python-Beispiel für k-Means-Clustering für IRIS Blumen}
 %
 Dieser Abschnitt beschreibt ein Code-Beispiele für den M-Means-Algorithmus zur Klassifikation der Iris-Blumen und enthält Python-Code für die Durchführung der Analyse. Es umfasst das Laden der Daten, die Anwendung des Algorithmus, die Visualisierung der Cluster und die Evaluierung der Ergebnisse.Siehe Lösungen in meinem Github:\\ 
@@ -452,16 +459,16 @@ Das Modell von k-Means kann jedoch noch weiter verbessert werden, wie andere  Im
 
 \subsection{Übungen zum Kapitel 3}
 
-\subsubsection{Übung 3.1 - Manuelle Berechnung von "kleinem" k-Means-Cluster}
-Berechnen Sie manuell ein 3-Means-Cluster mit den folgenden Punkten: \\
+\subsubsection{Übung 3.1 - Manuelle Berechnung von "kleine" k-Means-Clustern}
+Berechnen Sie manuell das Beispiel im Unterabschnitt 3.4.1. Nach mehreren Iterationen (in diesem einfachen Beispiel könnten bereits 2 Iterationen ausreichen) würden wir eine stabile Zuordnung und endgültige Zentroiden haben. 
+
+\subsubsection{Übung 3.2 - Erstelle ein Python Programm für Übung 3.1}
+Berechnen Sie per Python Pgm. ein 3-Means-Cluster mit den folgenden Punkten: \\
 %
 $ df = pd.DataFrame\quad(x', y') $ wobei:\\
 'x': [12, 20, 28, 18, 29, 33, 24, 45, 45, 52, 51, 52, 55, 53, 55, 61, 64, 69, 72], und \\
 'y': [39, 36, 30, 52, 54, 46, 55, 59, 63, 70, 66, 63, 58, 23, 14, 8, 19, 7, 24] sind \\[0.2cm]
-Folgen Sie den Anweisungen aus \url{https://benalexkeen.com/k-means-clustering-in-Python/} um zu dn 3 Clustern zu kommen.
-
-\subsubsection{Übung 3.2 - Erstelle ein Python Programm für Übung 3.1}
-Nutzen Sie dabei die Bibliothek "scikit-learn". Nutzen Sie dabei auch die Hinweise aus den Anweisungen der Übung 3.1.
+Folgen Sie den Anweisungen aus \url{https://benalexkeen.com/k-means-clustering-in-Python/} um zu dn 3 Clustern zu kommen. Nutzen Sie dabei die Bibliothek "scikit-learn". 
 
 \subsubsection{Übung 3.3 - ...............}
 .....\\
@@ -481,7 +488,7 @@ Es gibt verschiedene mathematische Verfahren und Techniken, die bei der Konstruk
 Die Entropie ist ein Maß für die Unordnung oder Unsicherheit in einem Datensatz. Beim Konstruieren eines Entscheidungsbaums wird der Informationsgewinn verwendet, um festzustellen, wie gut eine Funktion (Attribut) den Datensatz in Bezug auf die Zielvariable aufteilt. Der Informationsgewinn wird oft in Form von Entropieänderungen zwischen den ursprünglichen und den aufgeteilten Datensätzen gemessen.\\[0.2cm]
 %
 \textbf{2. Gini-Index}\\
-Der Gini-Index misst die Wahrscheinlichkeit, dass eine zufällig ausgewählte Instanz falsch klassifiziert wird, wenn sie zufällig nach den Klassenverteilungen in einem Teilbaum ausgewählt wird. Ein niedriger Gini-Index deutet auf eine homogene Verteilung der Klassen hin.\\[0.2cm]
+Der Gini-Index\footnote{Der Gini-Index, auch bekannt als Gini-Koeffizient, wurde von dem italienischen Statistiker und Soziologen Corrado Gini entwickelt. Corrado Gini lebte von 1884 bis 1965 und war ein bedeutender Wissenschaftler, der sich intensiv mit statistischen Methoden und deren Anwendung in der Sozialwissenschaft befasste.} misst die Wahrscheinlichkeit, dass eine zufällig ausgewählte Instanz falsch klassifiziert wird, wenn sie zufällig nach den Klassenverteilungen in einem Teilbaum ausgewählt wird. Ein niedriger Gini-Index deutet auf eine homogene Verteilung der Klassen hin.\\[0.2cm]
 %
 \textbf{3. Reduktion des quadratischen Fehlers (Regression):}\\
 Bei Entscheidungsbäumen für Regression werden mathematische Kriterien wie die Reduktion des quadratischen Fehlers verwendet, um die besten Aufteilungen der Daten zu finden, die zu einer geringeren Varianz der Zielvariablen führen.\\[0.2cm]
@@ -2334,9 +2341,9 @@ Erzeuge ein Python Pgm. (Jupyter Notebook) für eine sLR-Verfahren mit den Daten
 \section{Text-Klassifikation via Naive-Bayes Verfahren \\}
 
 
-Wir zeigen hier Text-Klassifikation mit dem \textbf{Naive Bayes- Klassifikator} ("Bayes Learning" via "naïve Bayes Classifier"). Grundlage ist das Bayes-Theorem ("Bayes Rule"), welches sich mit bedingten Wahrscheinlichkeiten befasst.\\
+Wir zeigen hier Text-Klassifikation mit dem \textbf{Naive Bayes- Klassifikator} ("Bayes Learning" via "naïve Bayes Classifier"). Grundlage ist das Bayes-Theorem\footnote{Die Bayes'sche Regel, auch bekannt als Bayes' Theorem, wurde nach dem englischen Mathematiker und presbyterianischen Pfarrer Thomas Bayes benannt. Bayes lebte von 1701 bis 1761 und formulierte das nach ihm benannte Theorem in einem Essay mit dem Titel "An Essay towards solving a Problem in the Doctrine of Chances," der posthum 1763 von seinem Freund Richard Price veröffentlicht wurde} ("Bayes Rule"), welches sich mit bedingten Wahrscheinlichkeiten befasst.\\
 Die {\color{blue}{Naive-Bayes-Textklassifikation}} \index{Naive-Bayes-Textklassifikation} ist eine Methode des maschinellen Lernens, die auf dem Naive-Bayes-Theorem basiert und häufig zur Kategorisierung von Textdaten verwendet wird. Sie ist besonders nützlich für Anwendungen wie Spam-Erkennung, Sentiment-Analyse, Themenklassifikation und mehr.\\
-
+%
 Der Ansatz ist "naiv", weil er eine starke Unabhängigkeitsannahme zwischen den Features (Wörtern) macht, was in der Praxis oft nicht der Fall ist.
 
 \subsection{Eine Einführung in den naiven Bayes-Klassifikator}
@@ -2438,7 +2445,7 @@ Die Klasse, die die höchste Wahrscheinlichkeit \( P(\text{Spam}|\text{win, mone
 Bayessches Lernen für Texte, insbesondere in der Form des Naive Bayes-Klassifikators, ist eine effiziente und weit verbreitete Methode zur Textklassifikation. Es nutzt den Satz von Bayes, um auf der Grundlage von Wortwahrscheinlichkeiten und \textit{a-priori} Klassenwahrscheinlichkeiten die wahrscheinlichste Klasse für einen Text zu bestimmen.  
 
 \subsubsection{"Laplace-Glättung"}
-Die Laplace-Glättung (auch als Laplace-Smoothing oder additive Glättung bekannt) ist eine Technik, die in der Wahrscheinlichkeitstheorie und im maschinellen Lernen verwendet wird, um das Problem der Nullwahrscheinlichkeiten zu vermeiden. Dieses Problem tritt auf, wenn bestimmte Ereignisse in den Trainingsdaten nicht beobachtet wurden und daher eine Wahrscheinlichkeit von Null haben, was in vielen Modellen unerwünscht ist.\\
+Die Laplace-Glättung\footnote{Die Laplace-Glättung wurde nach dem französischen Mathematiker und Astronomen Pierre-Simon Laplace benannt. Pierre-Simon Laplace lebte von 1749 bis 1827 und war einer der bedeutendsten Mathematiker und Wissenschaftler seiner Zeit. Er entwickelte viele Konzepte in der Wahrscheinlichkeitstheorie und der Statistik, die bis heute von grundlegender Bedeutung sind.} (auch als Laplace-Smoothing oder additive Glättung bekannt) ist eine Technik, die in der Wahrscheinlichkeitstheorie und im maschinellen Lernen verwendet wird, um das Problem der Nullwahrscheinlichkeiten zu vermeiden. Dieses Problem tritt auf, wenn bestimmte Ereignisse in den Trainingsdaten nicht beobachtet wurden und daher eine Wahrscheinlichkeit von Null haben, was in vielen Modellen unerwünscht ist.\\
 %
 \textbf{Hintergrund}\\
 Betrachten wir ein Beispiel aus der Textklassifikation mit einem Naive Bayes-Klassifikator. Der Klassifikator berechnet die Wahrscheinlichkeit einer Klasse \(C\) gegeben einem Text \(T\) basierend auf der Häufigkeit von Wörtern in der Trainingsdatenmenge. Wenn ein Wort in den Trainingsdaten für eine bestimmte Klasse nicht vorkommt, würde der Naive Bayes-Klassifikator eine Wahrscheinlichkeit von Null für diese Klasse berechnen, was dazu führen könnte, dass die Klasse insgesamt ausgeschlossen wird, selbst wenn sie sonst sehr wahrscheinlich wäre.\\
@@ -3049,12 +3056,12 @@ Weitere Hilfe unter: \\
 \textbf{[HVö-GitML20]} \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\
 
 \subsubsection{Lösungshinweise zu Übung 3.1}
-Manuelle Berechnung siehe:\\
-\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H3.4_k-Means_Overview.pdf}\\
+Manuelle Berechnung, siehe:\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Manuelle_Berechnung_zu_k-Means-Algorithmus.pdf}\\
 
 \subsubsection{Lösungshinweise zu Übung 3.2} 
 
-Analog zur Lösung von Übung 3.1. Python Code siehe:\\
+Python Code zur Übung 3.2, siehe:\\
 \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H3.4_k-Means_Clustering.pdf}
 \newpage
 
