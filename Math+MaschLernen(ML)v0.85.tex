@@ -440,8 +440,27 @@ Für sehr einfache Situationen lässt sich der K-Means-Algorithmus auch manuell 
 Durch ein solche kleine Übung wird der Algorithmus besser eintrainiert und auch besser verstanden.
 
 \subsubsection{Konkretes Beispiel}
-Angenommen, wir haben die folgenden fünf Datenpunkte = {(2, 3), (3, 3), (6, 7), (8, 8), (10, 10)} in einem zweidimensionalen Raum: \\
-Wir möchten diese Punkte in k = 3 Cluster gruppieren. Diese Aufgabe wird in der Übung 3.1 durchgeführt. 
+Angenommen, wir haben die folgenden fünf Datenpunkte = {(2, 3), (3, 3), (6, 7), (8, 8), (10, 10)} in einem zweidimensionalen Raum: 
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    % Achsen
+    \draw[->] (0,0) -- (11,0) node[right] {x};
+    \draw[->] (0,0) -- (0,11) node[above] {y};
+
+    % Gitterlinien
+    \draw[help lines] (0,0) grid (11,11);
+
+    % Punkte
+    \filldraw[blue] (2,3) circle (2pt) node[anchor=north east] {(2,3)};
+    \filldraw[blue] (3,3) circle (2pt) node[anchor=north east] {(3,3)};
+    \filldraw[blue] (6,7) circle (2pt) node[anchor=north east] {(6,7)};
+    \filldraw[blue] (8,8) circle (2pt) node[anchor=south west] {(8,8)};
+    \filldraw[blue] (10,10) circle (2pt) node[anchor=south west] {(10,10)};
+\end{tikzpicture}
+\end{center} 
+%
+Wir möchten diese Punkte in k = 3 Cluster gruppieren. Diese Aufgabe wird in der Übung 3.1 durchgeführt.\\
+
 \subsection{Python-Beispiel für k-Means-Clustering für IRIS Blumen}
 %
 Dieser Abschnitt beschreibt ein Code-Beispiele für den M-Means-Algorithmus zur Klassifikation der Iris-Blumen und enthält Python-Code für die Durchführung der Analyse. Es umfasst das Laden der Daten, die Anwendung des Algorithmus, die Visualisierung der Cluster und die Evaluierung der Ergebnisse.Siehe Lösungen in meinem Github:\\ 
@@ -3053,11 +3072,12 @@ Bei vielen Aufgaben werden Lösungshinweise gegeben mit den die Übungen dann se
 \subsection{Lösungshinweise zu Übungen Kapitel 3}
 
 Weitere Hilfe unter: \\
-\textbf{[HVö-GitML20]} \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}\\
-
+\textbf{[HVö-GitML20]} \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020}
+ 
 \subsubsection{Lösungshinweise zu Übung 3.1}
 Manuelle Berechnung, siehe:\\
-\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Manuelle_Berechnung_zu_k-Means-Algorithmus.pdf}\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Manuelle_Berechnung_zu_k-Means-Algorithmus.pdf}\\[0.2cm]
+Die Plausibilität der Lösung ergibt sich trivial aus der Anfangssituation.
 
 \subsubsection{Lösungshinweise zu Übung 3.2} 
 
