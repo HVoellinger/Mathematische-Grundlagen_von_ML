@@ -97,7 +97,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.85 (Datum: 30.08.2024) ist nicht final!!! \\
+Diese Version V0.85 (Datum: 01.09.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.85.pdf} \\
@@ -395,7 +395,7 @@ $ from\quad sklearn.cluster\quad import\quad KMeans $ \\
 $ Anzahl\quad der\quad Cluster\quad M $ \\
 $ M = 3 $ \\[0.2cm]
 %
-M-Means (K-Means) initialisieren und anpassen:\\C
+M-Means (K-Means) initialisieren und anpassen:\\[0.2cm]
 $ kmeans = KMeans(n\_clusters = M, random\_state = 42) $\\
 $ kmeans.fit(df) $ \\[0.2cm]
 %
@@ -411,7 +411,7 @@ $ import\quad seaborn\quad as\quad sns $ \\[0.2cm]
 %
 Paarweise Visualisierung der Daten mit den Cluster-Zuweisungen: \\[0.2cm]
 $ sns.pairplot(df,\quad hue =\quad 'Cluster',\quad palette =\quad 'viridis') $\\
-$ plt.show()$\\
+$ plt.show()$
 
 \subsubsection{Evaluierung der Ergebnisse}
 %
@@ -434,28 +434,48 @@ $ print(f"Accuracy: {accuracy:.2f}")$
 \subsubsection{Zusammenfassung}
 
 Das Python-Programm zur Klassifikation der Iris-Blumen mit dem M-Means-Algorithmus umfasst das Laden der Daten, das Anwenden des Algorithmus mit einer definierten Cluster-Anzahl, die Visualisierung der Resultate und eine Evaluierung der Cluster-Genauigkeit. Der M-Means-Algorithmus klassifiziert die Blumen anhand ihrer Merkmale in Gruppen, die mit den drei Arten von Iris-Blumen korrespondieren.
-\subsection{Manuelle Berecnung eines einfachen 3-Means-Clusters}
+\subsection{Manuelle Berechnung eines einfachen 3-Means-Clusters}
 %
 Für sehr einfache Situationen lässt sich der K-Means-Algorithmus auch manuell berechnen, indem  wir die entsprechenden Abstandsformeln (siehe oben) händisch berechned. \\
 Durch ein solche kleine Übung wird der Algorithmus besser eintrainiert und auch besser verstanden.
 
 \subsubsection{Konkretes Beispiel}
-Angenommen, wir haben die folgenden fünf Datenpunkte = {(2, 3), (3, 3), (6, 7), (8, 8), (10, 10)} in einem zweidimensionalen Raum: 
-\begin{center}
-\begin{tikzpicture}[scale=0.8]
-    % Achsen
-    \draw[->] (0,0) -- (11,0) node[right] {x};
-    \draw[->] (0,0) -- (0,11) node[above] {y};
+Angenommen, wir haben die folgenden acht Datenpunkte = {((1, 1), (2, 1), (4, 3), (5, 4), (6, 7), (8, 8), (3, 3), (7, 7)} in einem zweidimensionalen Raum: 
 
-    % Gitterlinien
-    \draw[help lines] (0,0) grid (11,11);
+\begin{center}
+\begin{tikzpicture}
+    % Achsen
+    \draw[->] (0,0) -- (9,0) node[anchor=north west] {X-Achse};
+    \draw[->] (0,0) -- (0,9) node[anchor=south east] {Y-Achse};
 
     % Punkte
-    \filldraw[blue] (2,3) circle (2pt) node[anchor=north east] {(2,3)};
-    \filldraw[blue] (3,3) circle (2pt) node[anchor=north east] {(3,3)};
-    \filldraw[blue] (6,7) circle (2pt) node[anchor=north east] {(6,7)};
-    \filldraw[blue] (8,8) circle (2pt) node[anchor=south west] {(8,8)};
-    \filldraw[blue] (10,10) circle (2pt) node[anchor=south west] {(10,10)};
+    \filldraw[blue] (1,1) circle (2pt) node[anchor=north east] {P1};
+    \filldraw[blue] (2,1) circle (2pt) node[anchor=north east] {P2};
+    \filldraw[blue] (4,3) circle (2pt) node[anchor=north east] {P3};
+    \filldraw[blue] (5,4) circle (2pt) node[anchor=north east] {P4};
+    \filldraw[blue] (6,7) circle (2pt) node[anchor=north east] {P5};
+    \filldraw[blue] (8,8) circle (2pt) node[anchor=north east] {P6};
+    \filldraw[blue] (3,3) circle (2pt) node[anchor=north east] {P7};
+    \filldraw[blue] (7,7) circle (2pt) node[anchor=north east] {P8};
+
+    % Gitterlinien
+    \draw[gray, thin, dashed] (1,0) -- (1,9);
+    \draw[gray, thin, dashed] (2,0) -- (2,9);
+    \draw[gray, thin, dashed] (3,0) -- (3,9);
+    \draw[gray, thin, dashed] (4,0) -- (4,9);
+    \draw[gray, thin, dashed] (5,0) -- (5,9);
+    \draw[gray, thin, dashed] (6,0) -- (6,9);
+    \draw[gray, thin, dashed] (7,0) -- (7,9);
+    \draw[gray, thin, dashed] (8,0) -- (8,9);
+
+    \draw[gray, thin, dashed] (0,1) -- (9,1);
+    \draw[gray, thin, dashed] (0,2) -- (9,2);
+    \draw[gray, thin, dashed] (0,3) -- (9,3);
+    \draw[gray, thin, dashed] (0,4) -- (9,4);
+    \draw[gray, thin, dashed] (0,5) -- (9,5);
+    \draw[gray, thin, dashed] (0,6) -- (9,6);
+    \draw[gray, thin, dashed] (0,7) -- (9,7);
+    \draw[gray, thin, dashed] (0,8) -- (9,8);
 \end{tikzpicture}
 \end{center} 
 %
