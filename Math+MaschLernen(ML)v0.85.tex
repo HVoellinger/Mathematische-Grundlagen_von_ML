@@ -502,15 +502,16 @@ Das Modell von k-Means kann jedoch noch weiter verbessert werden, wie andere  Im
 Berechnen Sie manuell das Beispiel im Unterabschnitt 3.4.1. Nach mehreren Iterationen (in diesem einfachen Beispiel könnten bereits 2 Iterationen ausreichen) würden wir eine stabile Zuordnung und endgültige Zentroiden haben. 
 
 \subsubsection{Übung 3.2 - Erstelle ein Python Programm für Übung 3.1}
-Berechnen Sie per Python Pgm. ein 3-Means-Cluster mit den folgenden Punkten: \\
+Berechnen Sie erst manuell und anschließend per Python Programm (benutze den scikit k-Means Umsetzung) um die Cluster mit diesen Daten und berechnen. \\
+Der Datenrahmen ist definiert durch die folgenden Punkten: \\
 %
 $ df = pd.DataFrame\quad(x', y') $ wobei:\\
 'x': [12, 20, 28, 18, 29, 33, 24, 45, 45, 52, 51, 52, 55, 53, 55, 61, 64, 69, 72], und \\
 'y': [39, 36, 30, 52, 54, 46, 55, 59, 63, 70, 66, 63, 58, 23, 14, 8, 19, 7, 24] sind \\[0.2cm]
-Folgen Sie den Anweisungen aus \url{https://benalexkeen.com/k-means-clustering-in-Python/} um zu dn 3 Clustern zu kommen. Nutzen Sie dabei die Bibliothek "scikit-learn". 
+Folgen Sie den Anweisungen aus \url{https://benalexkeen.com/k-means-clustering-in-Python/} um zu den 3 Clustern zu kommen. Nutzen Sie dabei die Bibliothek "scikit-learn". 
 
-\subsubsection{Übung 3.3 - ...............}
-.....\\
+\subsubsection{Übung 3.3 - Python Lösung zur Übung 3.1}
+Berechnen Sie per Python Pgm. analog zur Übung 3.2. auch die Datenpunkte von Übung 3.1(nutze die scikit-learn Python Bibliothek).
 
 \newpage
 
@@ -3097,12 +3098,19 @@ Weitere Hilfe unter: \\
 \subsubsection{Lösungshinweise zu Übung 3.1}
 Manuelle Berechnung, siehe:\\
 \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Manuelle_Berechnung_zu_k-Means-Algorithmus.pdf}\\[0.2cm]
-Die Plausibilität der Lösung ergibt sich trivial aus der Anfangssituation.
+Die Plausibilität der Lösung ergibt sich sehr einfach aus der Anfangssituation. Siehe auch Lösung zur Übung 3.3.
 
 \subsubsection{Lösungshinweise zu Übung 3.2} 
 
 Python Code zur Übung 3.2, siehe:\\
 \url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Homework_H3.4_k-Means_Clustering.pdf}
+
+\subsubsection{Lösungshinweise zu Übung 3.3} 
+
+Python Code zur Übung 3.3, siehe:\\
+\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/Beispiel-3-Means-Cluster.pdf}
+
+
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 4}
