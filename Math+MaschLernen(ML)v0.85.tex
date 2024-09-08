@@ -97,7 +97,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.85 (Datum: 01.09.2024) ist nicht final!!! \\
+Diese Version V0.85 (Datum: 08.09.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.85.pdf} \\
@@ -2663,7 +2663,7 @@ Ein solches Beispiel soll als Übungsbeispiel in Übung(7.1) gerechnet werden\\[
 Um ein einfaches und anschauliches Beispiel für eine Support Vector Machine (SVM) mit einem Kernel-Trick von 2D nach 3D in einem Jupyter Notebook zu erstellen, können Sie den folgenden Python-Code verwenden. Der Code 
 verwendet die scikit-learn Bibliothek für die SVM und die matplotlib Bibliothek zum Plotten. Zur Programmierung in Python importieren wir zuerst die erforderlichen Bibliotheken.... Hier das komplette Notebook:\\[0.2cm]
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-Kernel-2D-3D.pdf}}\\
-Ein mögliches Ergebnis könnte wie folgt aussehen: \\[5.5cm]
+Ein mögliches Ergebnis könnte wie folgt aussehen: \\[0.5cm]
 \begin{figure}[htp]
   \centering
   \hspace*{-0.1cm} 
@@ -2796,48 +2796,123 @@ In den folgenden zwei Bildern sehen wir ein Beispiel für einer solche Kompositi
 %
 \begin{figure}[ht]
   \centering
-  \hspace*{-0.5cm} 
-  \includegraphics[width=1.15\textwidth]{Definition-Deep-NN}
+  \hspace*{-0.2cm} 
+  \includegraphics[width=1.1\textwidth]{Definition-Deep-NN}
   \caption{Definition eines Tiefen (Deep) Neuronalen Netzwerkes}.\\[0.2cm]      
   \label{fig:def-DNN}
 \end{figure}\\
 %
 \newpage
 %
-{\color{red}{*******************************************************************\\ab hier werden weitere mathematischen Grundlagen bald eingefügt werden\\
-********************************************************************\\}}
+{\color{red}{*****************************************************************\\
+ab hier werden weitere mathematischen Grundlagen bald eingefügt werden\\
+******************************************************************}}
 %
-\newpage
 \subsection{Einfaches Beispiel - Rückwärtspropagierung}
 %
 Die Rückwärtspropagierung ("Backpropagation") erfolgt um die Gewichte zu aktualisieren und den Fehler zu minimieren. Durch diese Schritte werden die Gewichte des neuronalen Netzwerks iterativ angepasst, um den \textbf{Fehler zwischen den vorhergesagten und tatsächlichen Ausgaben zu minimieren} und bessere Vorhersagen zu machen. Der Vorgang wird für jeden Eingabedatensatz und seine zugehörige Ausgabe wiederholt, bis das Netzwerk trainiert ist.
-\\Lassen Sie uns einfaches Beispiel für den Backpropagation-Prozess für ein sehr einfaches neuronales Netz mit nur einer versteckten Schicht ("Hidden Layer") durchgehen. Insgesamt haben ein neuronales Netzwerk mit zwei Eingängen, zwei versteckten Neuronen und zwei Ausgangsneuronen. Zusätzlich werden die versteckten Neuronen und die Ausgangsneuronen einen Bias (aka: Verzerrungen") enthalten. An diesem 3-Schichten CNN können wir den kompletten Backpropagation Prozess beispielhaft berechnen:\\
-\textbf{Eingabeschicht ("Input Layer" mit 2 "Input Nodes" $(i_1,i_2)$) $\Rightarrow$ Verarbeitunsschicht ("Hidden Layer" mit 2 "Hidden Nodes "$(h_1,h_2)$ ) $\Rightarrow$ Ausgabeschicht ("Output Layer" mit 2 "Output Nodes" $(o_1,o_2)$).} \\ 
-Um ein paar Zahlen zu haben, mit denen man arbeiten kann, sind hier die {\color{red}{anfänglichen Gewichte}}, die {\color{orange}{Bias("Verzerrungen")}} und die {\color{blue}{Trainingsinputs/-outputs}} angegeben:\\
+\\Lassen Sie uns einfaches Beispiel für den Backpropagation-Prozess für ein sehr einfaches neuronales Netz mit nur einer versteckten Schicht ("Hidden Layer") durchgehen. Insgesamt haben ein neuronales Netzwerk mit zwei Eingängen, zwei versteckten Neuronen und zwei Ausgangsneuronen. Zusätzlich werden die versteckten Neuronen und die Ausgangsneuronen einen Bias (aka: Verzerrungen") enthalten. An diesem 3-Schichten CNN können wir den kompletten Backpropagation Prozess beispielhaft berechnen. Siehe das nachfolgende Diagramm mit Beispielwerten:\\
 
-\begin{center}
-\includegraphics{Backpropagation_Example3} 
-\end{center}
+\begin{tikzpicture}[scale=1.2, transform shape]
 
+% Input Layer
+\node[draw, circle] (I1) at (0,2) {$x_1 = 0.05$};
+\node[draw, circle] (I2) at (0,0) {$x_2 = 0.10$};
+
+% Hidden Layer
+\node[draw, circle] (H1) at (4,2) {$h_1$};
+\node[draw, circle] (H2) at (4,0) {$h_2$};
+
+% Output Layer
+\node[draw, circle] (O1) at (8,2) {$y_1$};
+\node[draw, circle] (O2) at (8,0) {$y_2$};
+
+% Input to Hidden Layer Weights
+\draw[->] (I1) -- (H1) node[midway, above] {$w^{(1)}_{11} = 0.15$};
+\draw[->] (I1) -- (H2) node[midway, above] {$w^{(1)}_{12} = 0.25$};
+\draw[->] (I2) -- (H1) node[midway, below] {$w^{(1)}_{21} = 0.20$};
+\draw[->] (I2) -- (H2) node[midway, below] {$w^{(1)}_{22} = 0.30$};
+
+% Hidden to Output Layer Weights
+\draw[->] (H1) -- (O1) node[midway, above] {$w^{(2)}_{11} = 0.40$};
+\draw[->] (H1) -- (O2) node[midway, above] {$w^{(2)}_{12} = 0.50$};
+\draw[->] (H2) -- (O1) node[midway, below] {$w^{(2)}_{21} = 0.45$};
+\draw[->] (H2) -- (O2) node[midway, below] {$w^{(2)}_{22} = 0.55$};
+
+% Biases as text only (no circles)
+\node at (3, 4) {$b^{(1)} = 0.35$};
+\node at (7, 4) {$b^{(2)} = 0.60$};
+
+% Bias connections (dashed lines)
+\draw[->, dashed] (3, 4) -- (H1);
+\draw[->, dashed] (3, 4) -- (H2);
+\draw[->, dashed] (7, 4) -- (O1);
+\draw[->, dashed] (7, 4) -- (O2);
+
+\end{tikzpicture}
+
+
+\subsubsection*{Voraussetzungen des Beispiels:}
+
+\begin{itemize}
+    \item 2 Eingabeknoten: \( x_1 = 0.05 \), \( x_2 = 0.10 \)
+    \item 2 versteckte Knoten: \( h_1, h_2 \)
+    \item 2 Ausgabeknoten: \( y_1, y_2 \)
+    \item Lernrate: \( \eta = 0.5 \)
+\end{itemize}
+%
+\textbf{Gewichte und Biases:}
+\[
+W^{(1)} = \begin{pmatrix} 0.15 & 0.25 \\ 0.20 & 0.30 \end{pmatrix}, \quad
+b^{(1)} = \begin{pmatrix} 0.35 \\ 0.35 \end{pmatrix}
+\]
+\[
+W^{(2)} = \begin{pmatrix} 0.40 & 0.50 \\ 0.45 & 0.55 \end{pmatrix}, \quad
+b^{(2)} = \begin{pmatrix} 0.60 \\ 0.60 \end{pmatrix}
+\]
+%
+\textbf{Zielausgaben:}
+\[
+y_{\text{target}, 1} = 0.01, \quad y_{\text{target}, 2} = 0.99
+\]
+
+
+%
 \subsubsection{Berechnungen zum Vorwärtsdurchlauf ("Forward Pass")}
 Der Vorwärtsdurchlauf (englisch: forward pass) bei Convolutional Neural Networks (CNNs) ist der Prozess, bei dem die Eingabedaten durch das Netzwerk propagiert werden, um eine Vorhersage oder Ausgabe zu generieren. Während des Vorwärtsdurchlaufs werden die Daten Schicht für Schicht verarbeitet, wobei die Gewichtungen, Aktivierungen und Pooling-Operationen angewendet werden, um schließlich die Ausgabe zu erhalten.\\
-Berechnen wir zunächst die gewichtete Summe ($h_1, h_2$) und glätten dann den  Wertebereich durch die \textbf{logistische Funktion} $\sigma(z) := \frac{1}{1 + e^{-z}}$) (siehe auch die Anmerkung dazu weiter unten im Text) um die Ausgaben der versteckten Schicht zu erhalten.\\ Wir bezeichne diese mit Großbuchstaben $(H_1,H_2)$:
-\\ 
+Berechnen wir zunächst die gewichtete Summe ($z^{(1)}_1, z^{(1)}_2$) und glätten dann den  Wertebereich durch die \textbf{logistische Funktion} $\sigma(z) := \frac{1}{1 + e^{-z}}$) (siehe auch die Anmerkung dazu weiter unten im Text) um die Ausgaben der versteckten Schicht zu erhalten.\\[0.4cm]
+1. Berechnung der Nettoeingänge für die versteckte Schicht:
 \[
-\begin{aligned}
-h_1 &= (i_1 \cdot w_1) + (i_2 \cdot w_2) + b_1 = (0.05 \cdot 0.15) + (0.1 \cdot 0.25) + 0.35 = 0.3775 \\
-h_2 &= (i_1 \cdot w_3) + (i_2 \cdot w_4) + b_1 = (0.05 \cdot 0.2) + (0.1 \cdot 0.3) + 0.35 = 0.3925\\
-H_1 &= \sigma(h_1) = \frac{1}{1 + e^{-0.3775}} \approx 0.5933 \\
-H_2 &= \sigma(h_2) = \frac{1}{1 + e^{-0.3925}} \approx 0.5969 \\
-\end{aligned}\]
-Wir wiederholen diesen Vorgang für die Neuronen der Ausgabeschicht und verwenden die Ausgaben der Neuronen der versteckten Schicht als Eingaben. Wir bezeichnen die Ergebnisse Ausgabeschicht mit Großbuchstaben $(O_1,O_2)$:$(i_1,i_2)$\\
+z^{(1)}_1 = x_1 \cdot w^{(1)}_{11} + x_2 \cdot w^{(1)}_{21} + b^{(1)}_1 = 0.05 \cdot 0.15 + 0.10 \cdot 0.20 + 0.35 = 0.3775
+\]
 \[
-\begin{aligned}
-o_1 &= (a_1 \cdot w_5) + (a_2 \cdot w_6) + b_2 = (0.5933 \cdot 0.4) + (0.5969 \cdot 0.45) + 0.6 \approx 1.1059 \\
-O_1 &= \sigma(o_1) \approx 0.7514\\
-o_2 &= (a_1 \cdot w_7) + (a_2 \cdot w_8) + b_2 = (0.5933 \cdot 0.5) + (0.5969 \cdot 0.55) + 0.6 \approx 1.2249 \\
-O_2 &= \sigma(o_2) \approx 0.7729\\
-\end{aligned}
+z^{(1)}_2 = x_1 \cdot w^{(1)}_{12} + x_2 \cdot w^{(1)}_{22} + b^{(1)}_2 = 0.05 \cdot 0.25 + 0.10 \cdot 0.30 + 0.35 = 0.3925
+\]\\
+%
+2. Aktivierung der versteckten Knoten mit der Sigmoid-Funktion:
+\[
+h_1 = \sigma(z^{(1)}_1) = \frac{1}{1 + e^{-0.3775}} = 0.59327
+\]
+\[
+h_2 = \sigma(z^{(1)}_2) = \frac{1}{1 + e^{-0.3925}} = 0.59688
+\]\\
+Wir wiederholen diesen Vorgang für die Neuronen der Ausgabeschicht und verwenden die Ausgaben der Neuronen der versteckten Schicht als Eingaben. \\[0.4cm]
+%
+3. Berechnung der Nettoeingänge für die Ausgabeschicht:
+\[
+z^{(2)}_1 = h_1 \cdot w^{(2)}_{11} + h_2 \cdot w^{(2)}_{21} + b^{(2)}_1 = 0.59327 \cdot 0.40 + 0.59688 \cdot 0.45 + 0.60 = 1.1059
+\]
+\[
+z^{(2)}_2 = h_1 \cdot w^{(2)}_{12} + h_2 \cdot w^{(2)}_{22} + b^{(2)}_2 = 0.59327 \cdot 0.
+	5 + 0.59688 \cdot 0.55 + 0.60 = 1.22492
+\]\\
+%
+4. Aktivierung der Ausgabeknoten:
+\[
+y_1 = \sigma(z^{(2)}_1) = \frac{1}{1 + e^{-1.1059}} = 0.75136
+\]
+\[
+y_2 = \sigma(z^{(2)}_2) = \frac{1}{1 + e^{-1.22492}} = 0.77293
 \]
 \\
 \textbf{Anmerkung zur "logistischen Funktion":}
@@ -2863,76 +2938,179 @@ Die Sigmoid-Funktion ist eine nichtlineare Funktion, die eine kontinuierliche Au
 \end{tikzpicture}
 \end{center}
 \textbf{Bemerkung}: Die Sigmoid-Aktivierung wurde früher häufiger verwendet, hat jedoch in einigen Situationen Probleme wie das Verschwinden von Gradienten verursacht. Aus diesem Grund verwenden moderne CNN-Architekturen oft ReLU (Rectified Linear Unit) und ihre Varianten als Aktivierungsfunktionen, da sie das Problem des Verschwindens von Gradienten verringern und zur schnelleren Konvergenz des Lernprozesses beitragen können.
-
 \subsubsection{Berechnungen des Fehlers/Verlustes "Error/Loss":}
-
+%
 Wir können nun den Fehler für jedes Ausgangsneuron mit Hilfe der quadratischen Fehlerfunktion berechnen und sie addieren, um den Gesamtfehler zu erhalten.\\
-Anmerkung: Die $\frac{1}{2}$ ist enthalten, damit der Exponent beim späteren Differenzieren aufgehoben wird. Das Ergebnis wird schließlich ohnehin mit einer Lernrate $\eta$ multipliziert, so dass es keine Rolle spielt, dass wir hier eine Konstante einführen. \\ Bezeichne den Fehler ("Error") pro Ausgabeneuron wieder mit Großbuchstaben $(E_1,E_2)$ und den Gesamtfehler als $E$, so ergibt sich: 
-\[ 
-\begin{aligned}
-E_1 &= \frac{1}{2} \cdot (b_1 - y_{\text{target1}})^2 \approx \frac{1}{2} \cdot (0.7514 - 0.01)^2 \approx 0.2748
-\\
-E_2 &= \frac{1}{2} \cdot (b_2 - y_{\text{target2}})^2 \approx \frac{1}{2} \cdot (0.7729 - 0.99)^2 \approx 0.0236 
-\\
-E &= E_1 + E_2 \approx 0.2748 + 0.0236 \approx 0.2983
-\end{aligned} 
+Anmerkung: Die $\frac{1}{2}$ ist enthalten, damit der Exponent beim späteren Differenzieren aufgehoben wird. Das Ergebnis wird schließlich ohnehin mit einer Lernrate $\eta$ multipliziert, so dass es keine Rolle spielt, dass wir hier eine Konstante einführen. \\ Bezeichne den Fehler ("Loss") pro Ausgabeneuron wieder mit Großbuchstaben $(L_1,L_2)$ und den Gesamtfehler als $L$, so ergibt sich. Verwende die Mean Squared Error (MSE) als Fehlerfunktion:
+\[
+L = \frac{1}{2} \left( (L_1)^2 + (L_2)^2 \right) = \frac{1}{2} \left( (y_{\text{target},1} - y_1)^2 + (y_{\text{target},2} - y_2)^2 \right) 
 \]
-\\
+\[
+L = \frac{1}{2} \left( (0.01 - 0.75136)^2 + (0.99 - 0.77293)^2 \right) = 0.29837
+\]
+
 \subsubsection{Rückwärtsdurchlauf "Backward Pass":}
 Unser Ziel bei der Backpropagation ist es, die einzelnen Gewichte im Netz so zu aktualisieren, dass die tatsächliche Ausgabe näher an der Zielausgabe liegt, wodurch der Fehler für jedes Ausgangsneuron und das Netz als Ganzes minimiert wird.\\
-In der nachfolgenden Grafik ist das Vorgehen schematisch dargestellt. Insbesondere kommt die \textbf{Kettenregel von "geschachtelten" Funktionen} zur Anwendung (siehe Vorlesung "Analysis I + II"):
+Insbesondere kommt die \textbf{Kettenregel von "geschachtelten" Funktionen} (siehe Diagramm unten) zur Anwendung (siehe auch Vorlesung "Analysis I + II").Insgesamt sind vier Schritte durchzuführen:\\[0.4cm]
+%
+1. Als erstes berechnet man nun den Fehler in der Ausgabeschicht:\\[0.2cm]
+Zur Berechnung der Fehler und Gewichtsgradienten in der Ausgabeschicht nutzen wir Logik der Prozesse im folgenden Diagramm:\\[4.2cm]
+\begin{figure}[htp]
+  \centering
+  \hspace*{-0.5cm}
+  \includegraphics[width=1.1\textwidth]{Backpropagation-BP-01} 
+  \caption{Backpropagation-Rückwärtslauf (Ausgabeschicht)}
+  \label{fig:BP-Rückw-01}
+\end{figure}.\\[0.2cm]
+%
+%
+Wie man leicht sieht, ergibt sich der Fehler in der Ausgabeschicht $
+\delta^{(2)}_i $ durch:\\
+\[
+\delta^{(2)}_1 = (y_1 - y_{\text{target},1}) \cdot \sigma'(z^{(2)}_1) \quad wobei \quad gilt: \] 
+\[
+\sigma'(z^{(2)}_1) = y_1 \cdot (1 - y_1) = 0.75136 \cdot (1 - 0.75136) = 0.18681
+\]
+\[
+Damit \quad gilt: \quad \delta^{(2)}_1 = (0.75136 - 0.01) \cdot 0.18681 = 0.13812
+\]\\
+\[
+\delta^{(2)}_2 = (y_2 - y_{\text{target},2}) \cdot \sigma'(z^{(2)}_2)\quad wobei \quad gilt: \]
+\[
+\sigma'(z^{(2)}_2) = y_2 \cdot (1 - y_2) = 0.77293 \cdot (1 - 0.77293) = 0.17544
+\]
+\[
+Damit \quad gilt: \quad \delta^{(2)}_2 = (0.77293 - 0.99) \cdot 0.17544 = -0.03853
+\]\\
+%
+2. Gewichtsgradienten für die Ausgabeschicht:\\[0.2cm]
+Zur Berechnung der Gewichtsgradienten in der Ausgabeschicht nutzen wir die Kettenregel. Man erhält (siehe Übung 8.2): \\ 
+\[ \frac{\partial L}{\partial w^{(2)}_{ij}} = \delta^{(2)}_i \cdot h_j \]
+%
+Der Beweis dieser Aussage ist Teil der Übung 8.2. Somit ergibt sich für die Ausgabeschicht:\\ 
+\[
+\frac{\partial L}{\partial w^{(2)}_{11}} = \delta^{(2)}_1 \cdot h_1 = 0.13812 \cdot 0.59327 = 0.08195
+\]
+\[
+\frac{\partial L}{\partial w^{(2)}_{12}} = \delta^{(2)}_1 \cdot h_2 = 0.13812 \cdot 0.59688 = 0.08243
+\]
+\[
+\frac{\partial L}{\partial w^{(2)}_{21}} = \delta^{(2)}_2 \cdot h_1 = -0.03853 \cdot 0.59327 = -0.02287
+\]
+\[
+\frac{\partial L}{\partial w^{(2)}_{22}} = \delta^{(2)}_2 \cdot h_2 = -0.03853 \cdot 0.59688 = -0.02299
+\]\\
+3. Fehler in der versteckten Schicht:\\[0.2cm]
+Zur Berechnung der Fehler und Gewichtsgradienten in der versteckten Schicht Ausgabeschicht nutzen wir die Logik der Prozesse im folgenden Diagramm: \\[6.2cm]
 
 \begin{figure}[htp]
   \centering
-  \vspace*{0.2cm}
- \includegraphics{Backpropagation-BP} 
-  \vspace*{-0.5cm}
-  \caption{Backpropagation-Rückwärtslauf}
-\end{figure}
-{\color{red}{*******************************************************************\\ ******* ab hier bis Ende subsection ist dass noch anzupassen ******* \\
-********************************************************************\\}}
+  \hspace*{+0.2cm}
+  \includegraphics[width=0.9\textwidth]{Backpropagation-BP-02} 
+  \caption{Backpropagation-Rückwärtslauf (versteckte Schicht)}
+  \label{fig:BP-Rückw-02}
+\end{figure}.\\[4.2cm]
+%
+Der Fehler in der versteckten Schicht $\delta^{(1)}_i $ ergibt sich nach obigem Diagramm:\\
 \[
-\begin{aligned}
-\frac{\partial \text{loss}}{\partial a_3} &= a_3 - y_{\text{target}} \approx 0.6685 - 1 \approx -0.3315 \\
-\frac{\partial a_3}{\partial z_3} &= a_3 \cdot (1 - a_3) \approx 0.6685 \cdot (1 - 0.6685) \approx 0.2241 \\
-\frac{\partial \text{loss}}{\partial w_5} &= \frac{\partial \text{loss}}{\partial a_3} \cdot \frac{\partial a_3}{\partial z_3} \cdot a_1 \approx -0.3315 \cdot 0.2241 \cdot 0.6682 \approx -0.0664 \\
-\frac{\partial \text{loss}}{\partial w_6} &= \frac{\partial \text{loss}}{\partial a_3} \cdot \frac{\partial a_3}{\partial z_3} \cdot a_2 \approx -0.3315 \cdot 0.2241 \cdot 0.8909 \approx -0.0497 \\
-\frac{\partial \text{loss}}{\partial b_3} &= \frac{\partial \text{loss}}{\partial a_3} \cdot \frac{\partial a_3}{\partial z_3} \approx -0.3315 \cdot 0.2241 \approx -0.0743 \\
-\end{aligned}
-\] \\[0.2cm]
-
-Wir multiplizieren die Gewichte $w_i$ und die Biases $b_i$ mit einer Lernrate (e.g., $\eta = 0.1$):\\
-
+\delta^{(1)}_1 = (\delta^{(2)}_1 \cdot w^{(2)}_{11} + \delta^{(2)}_2 \cdot w^{(2)}_{21}) \cdot \sigma'(z^{(1)}_1) \quad wobei \quad gilt:
+\]
 \[
-\begin{aligned}
-w_5' &= w_5 - \eta \cdot \frac{\partial \text{loss}}{\partial w_5} \approx 0.2 - 0.1 \cdot (-0.0664) \approx 0.3066 \\
-w_6' &= w_6 - \eta \cdot \frac{\partial \text{loss}}{\partial w_6} \approx 0.4 - 0.1 \cdot (-0.0497) \approx 0.7050 \\
-b_3' &= b_3 - \eta \cdot \frac{\partial \text{loss}}{\partial b_3} \approx 0.1 - 0.1 \cdot (-0.0743) \approx 0.2074 \\
-\end{aligned}
+\sigma'(z^{(1)}_1) = h_1 \cdot (1 - h_1) = 0.59327 \cdot (1 - 0.59327) = 0.24106
+\]
+\[
+Also: \quad \delta^{(1)}_1 = (0.13812 \cdot 0.40 + -0.03853 \cdot 0.50) \cdot 0.24106 = 0.01367
+\]\\
+\[
+\delta^{(1)}_2 = (\delta^{(2)}_1 \cdot w^{(2)}_{12} + \delta^{(2)}_2 \cdot w^{(2)}_{22}) \cdot \sigma'(z^{(1)}_2) \quad wobei \quad gilt:
+\]
+\[
+\sigma'(z^{(1)}_2) = h_2 \cdot (1 - h_2) = 0.59688 \cdot (1 - 0.59688) = 0.24062
+\]
+\[
+Also: \quad \delta^{(1)}_2 = (0.13812 \cdot 0.45 + -0.03853 \cdot 0.55) \cdot 0.24062 = 0.01427
+\]\\
+4. Gewichtsgradienten für die versteckte Schicht\\[0.4cm]
+%
+Die Fehlerwerte der versteckten Schicht (\(\delta^{(1)}_1\) und \(\delta^{(1)}_2\)) wurden bereits berechnet:
+\[
+\delta^{(1)}_1 = 0.01367, \quad \delta^{(1)}_2 = 0.01427
+\]
+\\
+Nun berechnen wir die Gradienten der Gewichte für die versteckte Schicht.
+Zur Berechnung der Gewichtsgradienten in der Ausgabeschicht nutzen wir die wieder die Kettenregel. Der Beweis ist wieder Teil der Übung 8.2: \\ 
+\[ \frac{\partial L}{\partial w^{(1)}_{ij}} = \delta^{(1)}_i \cdot x_j \]
+%
+Somit ergibt sich für die versteckte Schicht:\\ 
+\[
+\frac{\partial L}{\partial w^{(1)}_{11}} = \delta^{(1)}_1 \cdot x_1 = 0.01367 \cdot 0.05 = 0.0006835
+\]
+\[
+\frac{\partial L}{\partial w^{(1)}_{12}} = \delta^{(1)}_1 \cdot x_2 = 0.01367 \cdot 0.10 = 0.001367
+\]
+\[
+\frac{\partial L}{\partial w^{(1)}_{21}} = \delta^{(1)}_2 \cdot x_1 = 0.01427 \cdot 0.05 = 0.0007135
+\]
+\[
+\frac{\partial L}{\partial w^{(1)}_{22}} = \delta^{(1)}_2 \cdot x_2 = 0.01427 \cdot 0.10 = 0.001427
 \]
 
-In ähnlicher Weise werden die Gradienten berechnet und die Gewichte und Verzerrungen für die Verbindungen zwischen der Eingabeschicht und der verborgenen Schicht aktualisiert.
+\subsubsection*{Schritt 4: Aktualisierung der Gewichte:}
 
+Verwenden wir nun die Lernrate \(\eta = 0.5\), um die Gewichte zu aktualisieren, so erhält man:\\
+
+- Neue Gewichte in der Ausgabeschicht:
+\[
+w^{(2)}_{11} = 0.40 - 0.5 \cdot 0.08195 = 0.359025
+\]
+\[
+w^{(2)}_{12} = 0.45 - 0.5 \cdot 0.08243 = 0.408785
+\]
+\[
+w^{(2)}_{21} = 0.50 - 0.5 \cdot (-0.02287) = 0.511435
+\]
+\[
+w^{(2)}_{22} = 0.55 - 0.5 \cdot (-0.02299) = 0.561495
+\]\\
+
+- Neue Gewichte in der versteckten Schicht:
+
+\[
+w^{(1)}_{11} = 0.15 - 0.5 \cdot 0.0006835 = 0.149658
+\]
+\[
+w^{(1)}_{12} = 0.25 - 0.5 \cdot 0.001367 = 0.2493165
+\]
+\[
+w^{(1)}_{21} = 0.20 - 0.5 \cdot 0.0007135 = 0.19964325
+\]
+\[
+w^{(1)}_{22} = 0.30 - 0.5 \cdot 0.001427 = 0.2992865
+\] \\[0.4cm]
+%
+In ähnlicher Weise werden die Gradienten berechnet und die Gewichte und Verzerrungen für die Verbindungen zwischen der Eingabeschicht und der verborgenen Schicht aktualisiert.\\
+%
 Dieser Prozess des Vorwärtsdurchlaufs, der Verlustberechnung und des Rückwärtsdurchlaufs wird iterativ über den gesamten Trainingsdatensatz wiederholt, um die Gewichte und Verzerrungen zu aktualisieren, bis das Netzwerk lernt, genaue Vorhersagen zu treffen.\\[0.2cm]
-
+%
+\textbf{Zusammenfassung:} Wir haben nun alle unsere Gewichte aktualisiert! Als wir die Eingaben von 0,05 und 0,1 ursprünglich weiterleiteten, betrug der Fehler des Netzwerks 0,298371109 (siehe Unterkapitel 8.3.2). Nach dieser ersten Runde der Backpropagation ist der Gesamtfehler nun auf 0,291027924 gesunken. Das mag nicht viel erscheinen, aber wenn man diesen Prozess beispielsweise 10.000 Mal wiederholt (siehe Übung 8.3), sinkt der Fehler auf 0,0000351085. Wenn wir jetzt 0,05 und 0,1 vorwärts einspeisen, erzeugen die beiden Ausgangsneuronen 0,015912196 (gegenüber 0,01 Ziel) und 0,984065734 (gegenüber 0,99 Ziel).\\[0.2cm]
+%
 Weitere Details unter folgenden \textbf{Referenzen:} [BackP-Exam] und [BackP-Scikit] 
-{\color{red}{*******************************************************************\\ ****************  Ende Anpassung für diese Subsection ************** \\
-********************************************************************\\}}
-
  
 \newpage
 
 \subsection{Übungen zum Kapitel 8}
 
-{\color{red}{*******************************************************************\\ 
-ab hier bis Ende der Übungen sind die Folien der Vorlesung ML  zu nutzen und diese sind in Latex umzusetzen\\
-********************************************************************\\}}  
-.....\\
 \subsubsection{Übung 8.1 - CNN Architekur}
 TEXT\\
-\subsubsection{Übung 8.2 - Beispiel Backpropagation}
-.....\\
-\subsubsection{Übung 8.3 - ...............}
+
+
+\subsubsection{Übung 8.2 - Formeln per Kettenrgel für Gewichtsgradienten}
+Nutze die Kettenregel der partiellen Ableitungen zur Herleitung der zwei Formeln für Ausgabeschicht 
+\[ \frac{\partial L}{\partial w^{(2)}_{ij}} = \delta^{(2)}_i \cdot h_j \] uns versteckte Schicht 
+\[ \frac{\partial L}{\partial w^{(1)}_{ij}} = \delta^{(1)}_i \cdot x_j \] 
+
+\subsubsection{Übung 8.3 - Jupyter Notebook zur Fehlerberechnung bei Backpropagation}
+Entwickle ein Jupyter Notebook zur Fehlerberechnung bei Backpropagation. Wie groß ist der Fehler nach 10000 Iterationen?
 
 \newpage
 
@@ -3356,10 +3534,15 @@ Hier noch die entsprechenden drei Python Codeblöcke zur Übung 7.1:
 \subsubsection{Lösungshinweise zu Übung 8.1}
 .....\\
 \subsubsection{Lösungshinweise zu Übung 8.2}
-Weitere Kapitel Texte \\
-***\\
-***\\
-***
+%
+Siehe folgende Referenz: \textbf{[BackP-Exam]}\\
+\url{https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/} 
+oder allgemeiner (Wikipedia über Backpropagation):\\
+\url{http://en.wikipedia.org/wiki/Backpropagation#Finding_the_derivative_of_the_error}
+
+\subsubsection{Lösungshinweise zu Übung 8.3}
+Hier ein Beispiel Notebook:\\[0.2cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Backpropagation-Jupyter Notebook.pdf}}  
 
 \newpage
 
