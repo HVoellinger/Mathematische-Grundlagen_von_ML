@@ -2703,7 +2703,7 @@ DNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispi
 \subsection{Anwendung von DNN - "ChatGPT"}
 %
 {\color{blue}{ChatGPT}} \index{ChatGPT}ist eine der bekanntesten Anwendungen von DNN's mit erstaunlichen Ergebnissen.\\
-ChatGPT basiert auf einem tiefen neuronalen Netzwerk. Genauer gesagt, es ist ein Beispiel für ein sogenanntes ßtextbf{"Transformer-Modell"}, das eine spezielle Art von tiefem neuronalen Netzwerk darstellt. Transformer-Modelle sind dafür bekannt, sehr große und komplexe Datenmengen zu verarbeiten, was sie ideal für Aufgaben wie die Verarbeitung und Generierung natürlicher Sprache macht.\\
+ChatGPT basiert auf einem tiefen neuronalen Netzwerk. Genauer gesagt, es ist ein Beispiel für ein sogenanntes \textbf{"Transformer-Modell"}, das eine spezielle Art von tiefem neuronalen Netzwerk darstellt. Transformer-Modelle sind dafür bekannt, sehr große und komplexe Datenmengen zu verarbeiten, was sie ideal für Aufgaben wie die Verarbeitung und Generierung natürlicher Sprache macht.\\
 Im Kern besteht das Modell aus mehreren Schichten von Neuronen, die in einer hierarchischen Struktur angeordnet sind. Diese Schichten sind in der Lage, komplexe Muster und Beziehungen in Daten zu erkennen und zu verarbeiten. In jedem Schritt der Verarbeitung durchläuft die Eingabe durch viele Schichten des Netzwerks, wobei jede Schicht die Daten auf eine andere Weise transformiert, bis am Ende eine Antwort generiert wird.\\
 %
 In diesem Sinne kann man sagen, dass ChatGPT auf einem sehr großen und tiefen neuronalen Netzwerk basiert, das speziell darauf trainiert wurde, menschliche Sprache zu verstehen und darauf zu reagieren.
@@ -2747,7 +2747,7 @@ Transformer-Modelle wie GPT (\textit{Generative Pre-trained Transformer}), BERT 
 **** Referenz: [Math for DL] ******** 
 \subsection{Mathematische Grundlagen von Faltungsnetzwerken}
 %
-Die mathematischen Grundlagen des {\color{blue}{Faltungsnetzwerke: Englisch auch oft Convolutional Neural Networks (CNN)genannt }}\index{Convolutional Neural Network (CNN)} beruhen auf Konzepten aus linearen Algebra, partiellen Ableitungen und Faltung (Convolution). Ein CNN ist eine spezielle Art von neuronalem Netzwerk, das häufig in der Bild- und Sprachverarbeitung eingesetzt wird, aufgrund seiner Fähigkeit, räumliche Strukturen in Daten zu erkennen.
+Die mathematischen Grundlagen des {\color{blue}{Faltungsnetzwerke}}, Englisch auch oft {\color{blue}{Convolutional Neural Networks (CNN)}}\index{Convolutional Neural Network (CNN)} genannt, beruhen auf Konzepten aus linearen Algebra, partiellen Ableitungen und Faltung (Convolution). Ein CNN ist eine spezielle Art von neuronalem Netzwerk, das häufig in der Bild- und Sprachverarbeitung eingesetzt wird, aufgrund seiner Fähigkeit, räumliche Strukturen in Daten zu erkennen.
 \subsubsection{Liste der wichtigsten mathematische Methoden}
 Hier sind die wichtigen mathematischen Grundlagen eines Convolutional Neural Networks:\\
 %
@@ -2804,7 +2804,7 @@ In den folgenden zwei Bildern sehen wir ein Beispiel für einer solche Kompositi
 %
 \newpage
 %
-{\color{red}{*****************************************************************\\
+{\color{red} {*****************************************************************\\
 ab hier werden weitere mathematischen Grundlagen bald eingefügt werden\\
 ******************************************************************}}
 %
@@ -2937,6 +2937,20 @@ Die Sigmoid-Funktion ist eine nichtlineare Funktion, die eine kontinuierliche Au
 \end{axis}
 \end{tikzpicture}
 \end{center}
+Die \textbf{Ableitung der Sigmoid-Funktion} ist:
+\[
+\sigma'(x) = \frac{d}{dx} \left( \frac{1}{1 + e^{-x}} \right)
+\]
+
+Durch Anwendung der Kettenregel ergibt sich:
+\[
+\sigma'(x) = \frac{e^{-x}}{(1 + e^{-x})^2}
+\]
+
+Da \(\sigma(x) = \frac{1}{1 + e^{-x}}\), lässt sich die Ableitung auch wie folgt schreiben:
+\[
+\sigma'(x) = \sigma(x) \cdot (1 - \sigma(x))
+\]
 \textbf{Bemerkung}: Die Sigmoid-Aktivierung wurde früher häufiger verwendet, hat jedoch in einigen Situationen Probleme wie das Verschwinden von Gradienten verursacht. Aus diesem Grund verwenden moderne CNN-Architekturen oft ReLU (Rectified Linear Unit) und ihre Varianten als Aktivierungsfunktionen, da sie das Problem des Verschwindens von Gradienten verringern und zur schnelleren Konvergenz des Lernprozesses beitragen können.
 \subsubsection{Berechnungen des Fehlers/Verlustes "Error/Loss":}
 %
@@ -2954,7 +2968,7 @@ Unser Ziel bei der Backpropagation ist es, die einzelnen Gewichte im Netz so zu 
 Insbesondere kommt die \textbf{Kettenregel von "geschachtelten" Funktionen} (siehe Diagramm unten) zur Anwendung (siehe auch Vorlesung "Analysis I + II").Insgesamt sind vier Schritte durchzuführen:\\[0.4cm]
 %
 1. Als erstes berechnet man nun den Fehler in der Ausgabeschicht:\\[0.2cm]
-Zur Berechnung der Fehler und Gewichtsgradienten in der Ausgabeschicht nutzen wir Logik der Prozesse im folgenden Diagramm:\\[4.2cm]
+Zur Berechnung der Fehler und Gewichtsgradienten in der Ausgabeschicht nutzen wir die Logik der Prozesse im folgenden Diagramm:\\[4.2cm]
 \begin{figure}[htp]
   \centering
   \hspace*{-0.5cm}
@@ -2973,7 +2987,8 @@ Wie man leicht sieht, ergibt sich der Fehler in der Ausgabeschicht $
 \]
 \[
 Damit \quad gilt: \quad \delta^{(2)}_1 = (0.75136 - 0.01) \cdot 0.18681 = 0.13812
-\]\\
+\]
+Analog gilt auch für den zweiten Ausgabeknoten:
 \[
 \delta^{(2)}_2 = (y_2 - y_{\text{target},2}) \cdot \sigma'(z^{(2)}_2)\quad wobei \quad gilt: \]
 \[
@@ -3020,7 +3035,8 @@ Der Fehler in der versteckten Schicht $\delta^{(1)}_i $ ergibt sich nach obigem 
 \]
 \[
 Also: \quad \delta^{(1)}_1 = (0.13812 \cdot 0.40 + -0.03853 \cdot 0.50) \cdot 0.24106 = 0.01367
-\]\\
+\]
+Analog gilt auch für den zweiten versteckten Knoten:
 \[
 \delta^{(1)}_2 = (\delta^{(2)}_1 \cdot w^{(2)}_{12} + \delta^{(2)}_2 \cdot w^{(2)}_{22}) \cdot \sigma'(z^{(1)}_2) \quad wobei \quad gilt:
 \]
@@ -3037,8 +3053,7 @@ Die Fehlerwerte der versteckten Schicht (\(\delta^{(1)}_1\) und \(\delta^{(1)}_2
 \delta^{(1)}_1 = 0.01367, \quad \delta^{(1)}_2 = 0.01427
 \]
 \\
-Nun berechnen wir die Gradienten der Gewichte für die versteckte Schicht.
-Zur Berechnung der Gewichtsgradienten in der Ausgabeschicht nutzen wir die wieder die Kettenregel. Der Beweis ist wieder Teil der Übung 8.2: \\ 
+Nun berechnen wir die Gradienten der Gewichte für die versteckte Schicht. Zur Berechnung der Gewichtsgradienten in der Ausgabeschicht nutzen wir die wieder die Kettenregel. Der Beweis ist wieder Teil der Übung 8.2: \\ 
 \[ \frac{\partial L}{\partial w^{(1)}_{ij}} = \delta^{(1)}_i \cdot x_j \]
 %
 Somit ergibt sich für die versteckte Schicht:\\ 
@@ -3071,7 +3086,7 @@ w^{(2)}_{21} = 0.50 - 0.5 \cdot (-0.02287) = 0.511435
 \]
 \[
 w^{(2)}_{22} = 0.55 - 0.5 \cdot (-0.02299) = 0.561495
-\]\\
+\]
 
 - Neue Gewichte in der versteckten Schicht:
 
@@ -3092,7 +3107,8 @@ In ähnlicher Weise werden die Gradienten berechnet und die Gewichte und Verzerr
 %
 Dieser Prozess des Vorwärtsdurchlaufs, der Verlustberechnung und des Rückwärtsdurchlaufs wird iterativ über den gesamten Trainingsdatensatz wiederholt, um die Gewichte und Verzerrungen zu aktualisieren, bis das Netzwerk lernt, genaue Vorhersagen zu treffen.\\[0.2cm]
 %
-\textbf{Zusammenfassung:} Wir haben nun alle unsere Gewichte aktualisiert! Als wir die Eingaben von 0,05 und 0,1 ursprünglich weiterleiteten, betrug der Fehler des Netzwerks 0,298371109 (siehe Unterkapitel 8.3.2). Nach dieser ersten Runde der Backpropagation ist der Gesamtfehler nun auf 0,291027924 gesunken. Das mag nicht viel erscheinen, aber wenn man diesen Prozess beispielsweise 10.000 Mal wiederholt (siehe Übung 8.3), sinkt der Fehler auf 0,0000351085. Wenn wir jetzt 0,05 und 0,1 vorwärts einspeisen, erzeugen die beiden Ausgangsneuronen 0,015912196 (gegenüber 0,01 Ziel) und 0,984065734 (gegenüber 0,99 Ziel).\\[0.2cm]
+\textbf{Zusammenfassung:} Wir haben nun alle unsere Gewichte aktualisiert! Als wir die Eingaben von 0,05 und 0,1 ursprünglich weiterleiteten, betrug der Fehler des Netzwerks 0,298371109 (siehe Unterkapitel 8.3.2). Nach dieser ersten Runde der Backpropagation ist der Gesamtfehler nun auf 0,291027924 gesunken. \\
+Das mag nicht viel erscheinen, aber wenn man diesen Prozess beispielsweise 10.000 Mal wiederholt (siehe Übung 8.3), sinkt der Fehler auf 0,0000351085. Wenn wir jetzt 0,05 und 0,1 vorwärts einspeisen, erzeugen die beiden Ausgangsneuronen 0,015912196 (gegenüber 0,01 Ziel) und 0,984065734 (gegenüber 0,99 Ziel).\\[0.2cm]
 %
 Weitere Details unter folgenden \textbf{Referenzen:} [BackP-Exam] und [BackP-Scikit] 
  
@@ -3110,7 +3126,7 @@ Nutze die Kettenregel der partiellen Ableitungen zur Herleitung der zwei Formeln
 \[ \frac{\partial L}{\partial w^{(1)}_{ij}} = \delta^{(1)}_i \cdot x_j \] 
 
 \subsubsection{Übung 8.3 - Jupyter Notebook zur Fehlerberechnung bei Backpropagation}
-Entwickle ein Jupyter Notebook zur Fehlerberechnung bei Backpropagation. Wie groß ist der Fehler nach 10000 Iterationen?
+Entwickle ein Jupyter Notebook zur Fehlerberechnung bei Backpropagation.\\ Wie groß ist der Fehler nach 10.000 Iterationen bei unserem obigen Beispiel?
 
 \newpage
 
@@ -3502,7 +3518,7 @@ Lösung mit Python Code siehe:\\
 
 \subsubsection{Lösungshinweise zu Übung 7.1}
 Hier ist ein beispielhafter Python-Code zur Generierung der zwei Hyperebenen im 2-dim. Beispiel zum Kernel-Trick. Eine animierte Darstellung des Ergebnisses kann man in meinem GitHub anschauen: \\[0.3cm]
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Kernel-Trick_Animation.gif} \\[0.3cm]
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/Kernel-Trick_Animation.gif} \\[0.2cm]
 %
 \subsubsection{Lösungshinweise zu Übung 7.2}
 Hier ein Beispiel Notebook:\\[0.2cm]
@@ -3542,7 +3558,7 @@ oder allgemeiner (Wikipedia über Backpropagation):\\
 
 \subsubsection{Lösungshinweise zu Übung 8.3}
 Hier ein Beispiel Notebook:\\[0.2cm]
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Backpropagation-Jupyter Notebook.pdf}}  
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Backpropagation-JupyterNotebook.pdf}}  
 
 \newpage
 
