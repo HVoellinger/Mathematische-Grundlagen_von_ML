@@ -97,7 +97,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.85 (Datum: 08.09.2024) ist nicht final!!! \\
+Diese Version V0.85 (Datum: 11.09.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.85.pdf} \\
@@ -2916,7 +2916,7 @@ y_2 = \sigma(z^{(2)}_2) = \frac{1}{1 + e^{-1.22492}} = 0.77293
 \]
 \\
 \textbf{Anmerkung zur "logistischen Funktion":}
-\\Die Sigmoid-Funktion $\sigma(z)$ glättet den Wertebereich und ist aufgrund ihres kontinuierlichen Verlaufs gut für die Berechnung von Gradienten bei der Rückwärtspropagation (Backpropagation) geeignet. Sie wird in CNNs und anderen neuronalen Netzwerken häufig verwendet, um die Aktivierungsstärke eines Neurons zu modulieren.\\
+\\Die Sigmoid-Funktion $\sigma(z)$ \index{Sigmoid-Funktion} glättet den Wertebereich und ist aufgrund ihres kontinuierlichen Verlaufs gut für die Berechnung von Gradienten bei der Rückwärtspropagation (Backpropagation) geeignet. Sie wird in CNNs und anderen neuronalen Netzwerken häufig verwendet, um die Aktivierungsstärke eines Neurons zu modulieren.\\
 Die Sigmoid-Funktion ist eine nichtlineare Funktion, die eine kontinuierliche Ausgabe zwischen 0 und 1 erzeugt. Der folgende Graph zeigt den S-förmigen Verlauf der logistischen Funktion  $\sigma(z)$ über den Bereich von z=-6 bis z=+6:\\
 \begin{center}
 \begin{tikzpicture}
@@ -2937,21 +2937,24 @@ Die Sigmoid-Funktion ist eine nichtlineare Funktion, die eine kontinuierliche Au
 \end{axis}
 \end{tikzpicture}
 \end{center}
-Die \textbf{Ableitung der Sigmoid-Funktion} ist:
-\[
-\sigma'(x) = \frac{d}{dx} \left( \frac{1}{1 + e^{-x}} \right)
-\]
-
-Durch Anwendung der Kettenregel ergibt sich:
+%
+\textbf{Warum verwendet man die Sigmoid-Funktion \index{Sigmoid-Funktion}im Backpropagation-Prozess?}\\[0.2cm]
+%
+Die \textbf{Sigmoid-Funktion} wird aus mehreren Gründen im Backpropagation-Prozess neuronaler Netze verwendet:\\[0.2cm]
+1. \textbf{Glättung und Nichtlinearität}: Die Sigmoid-Funktion ist eine nichtlineare Aktivierungsfunktion, die die Eingabe auf einen Bereich zwischen 0 und 1 transformiert. Dies hilft, komplexe Muster und nichtlineare Beziehungen in den Daten zu modellieren, was entscheidend für neuronale Netze ist.\\[0.2cm]
+2. \textbf{Ableitbarkeit}: Die Sigmoid-Funktion ist leicht ableitbar, was für das Backpropagation-Verfahren, das auf dem Gradientenabstieg basiert, von zentraler Bedeutung ist. Die Ableitung der Sigmoid-Funktion lässt sich mit Hilfe der Kettenregel leicht berechnen. Durch Anwendung der Kettenregel ergibt sich:
 \[
 \sigma'(x) = \frac{e^{-x}}{(1 + e^{-x})^2}
 \]
-
 Da \(\sigma(x) = \frac{1}{1 + e^{-x}}\), lässt sich die Ableitung auch wie folgt schreiben:
 \[
 \sigma'(x) = \sigma(x) \cdot (1 - \sigma(x))
 \]
-\textbf{Bemerkung}: Die Sigmoid-Aktivierung wurde früher häufiger verwendet, hat jedoch in einigen Situationen Probleme wie das Verschwinden von Gradienten verursacht. Aus diesem Grund verwenden moderne CNN-Architekturen oft ReLU (Rectified Linear Unit) und ihre Varianten als Aktivierungsfunktionen, da sie das Problem des Verschwindens von Gradienten verringern und zur schnelleren Konvergenz des Lernprozesses beitragen können.
+Diese einfache Form der Ableitung ermöglicht eine effiziente Berechnung während der Gewichtsaktualisierung im Backpropagation-Prozess.\\[0.2cm]
+3. \textbf{Wahrscheinlichkeitsinterpretation}: Da die Ausgaben der Sigmoid-Funktion im Bereich von 0 bis 1 liegen, können sie als Wahrscheinlichkeiten interpretiert werden, was besonders in binären Klassifikationsproblemen nützlich ist.\\[0.2cm]
+4. \textbf{Vermeidung von extremen Werten}: Die Sigmoid-Funktion beschränkt die Ausgaben auf einen festgelegten Bereich (zwischen 0 und 1), was hilft, extrem große Werte zu vermeiden, die das Lernen destabilisieren könnten.\\[0.3cm]
+\textbf{Nachteile und moderne Alternativen}\\
+Ein Nachteil der Sigmoid-Funktion ist das Problem des \textbf{vanishing gradient}, bei dem die Ableitungen für sehr positive oder negative Eingaben zu kleinen Werten (nahe 0) führen können, was den Lernprozess verlangsamt. Aus diesem Grund werden in modernen neuronalen Netzen häufig alternative Aktivierungsfunktionen wie die \textbf{ReLU} (Rectified Linear Unit) verwendet, um dieses Problem zu umgehen.\\
 \subsubsection{Berechnungen des Fehlers/Verlustes "Error/Loss":}
 %
 Wir können nun den Fehler für jedes Ausgangsneuron mit Hilfe der quadratischen Fehlerfunktion berechnen und sie addieren, um den Gesamtfehler zu erhalten.\\
@@ -2999,7 +3002,7 @@ Damit \quad gilt: \quad \delta^{(2)}_2 = (0.77293 - 0.99) \cdot 0.17544 = -0.038
 \]\\
 %
 2. Gewichtsgradienten für die Ausgabeschicht:\\[0.2cm]
-Zur Berechnung der Gewichtsgradienten in der Ausgabeschicht nutzen wir die Kettenregel. Man erhält (siehe Übung 8.2): \\ 
+Zur Berechnung der Gewichtsgradienten in der Ausgabeschicht nutzen wir die Kettenregel. Man erhält (siehe Übung 8.1): \\ 
 \[ \frac{\partial L}{\partial w^{(2)}_{ij}} = \delta^{(2)}_i \cdot h_j \]
 %
 Der Beweis dieser Aussage ist Teil der Übung 8.2. Somit ergibt sich für die Ausgabeschicht:\\ 
@@ -3053,7 +3056,7 @@ Die Fehlerwerte der versteckten Schicht (\(\delta^{(1)}_1\) und \(\delta^{(1)}_2
 \delta^{(1)}_1 = 0.01367, \quad \delta^{(1)}_2 = 0.01427
 \]
 \\
-Nun berechnen wir die Gradienten der Gewichte für die versteckte Schicht. Zur Berechnung der Gewichtsgradienten in der Ausgabeschicht nutzen wir die wieder die Kettenregel. Der Beweis ist wieder Teil der Übung 8.2: \\ 
+Nun berechnen wir die Gradienten der Gewichte für die versteckte Schicht. Zur Berechnung der Gewichtsgradienten in der Ausgabeschicht nutzen wir die wieder die Kettenregel. Der Beweis ist wieder Teil der Übung 8.1: \\ 
 \[ \frac{\partial L}{\partial w^{(1)}_{ij}} = \delta^{(1)}_i \cdot x_j \]
 %
 Somit ergibt sich für die versteckte Schicht:\\ 
@@ -3086,7 +3089,7 @@ w^{(2)}_{21} = 0.50 - 0.5 \cdot (-0.02287) = 0.511435
 \]
 \[
 w^{(2)}_{22} = 0.55 - 0.5 \cdot (-0.02299) = 0.561495
-\]
+\] \\
 
 - Neue Gewichte in der versteckten Schicht:
 
@@ -3107,8 +3110,9 @@ In ähnlicher Weise werden die Gradienten berechnet und die Gewichte und Verzerr
 %
 Dieser Prozess des Vorwärtsdurchlaufs, der Verlustberechnung und des Rückwärtsdurchlaufs wird iterativ über den gesamten Trainingsdatensatz wiederholt, um die Gewichte und Verzerrungen zu aktualisieren, bis das Netzwerk lernt, genaue Vorhersagen zu treffen.\\[0.2cm]
 %
-\textbf{Zusammenfassung:} Wir haben nun alle unsere Gewichte aktualisiert! Als wir die Eingaben von 0,05 und 0,1 ursprünglich weiterleiteten, betrug der Fehler des Netzwerks 0,298371109 (siehe Unterkapitel 8.3.2). Nach dieser ersten Runde der Backpropagation ist der Gesamtfehler nun auf 0,291027924 gesunken. \\
-Das mag nicht viel erscheinen, aber wenn man diesen Prozess beispielsweise 10.000 Mal wiederholt (siehe Übung 8.3), sinkt der Fehler auf 0,0000351085. Wenn wir jetzt 0,05 und 0,1 vorwärts einspeisen, erzeugen die beiden Ausgangsneuronen 0,015912196 (gegenüber 0,01 Ziel) und 0,984065734 (gegenüber 0,99 Ziel).\\[0.2cm]
+\textbf{Zusammenfassung (inklusive Ergebnisse der Übungen):}\\
+Wir haben nun alle unsere Gewichte aktualisiert! Als wir die Eingaben von 0,05 und 0,1 ursprünglich weiterleiteten, betrug der Fehler des Netzwerks 0,298371109 (siehe Unterkapitel 8.3.2). Nach dieser ersten Runde der Backpropagation ist der Gesamtfehler nun auf 0,291055 (Übung 8.2) gesunken. \\
+Das mag nicht viel erscheinen, aber wenn man diesen Prozess beispielsweise 10.000 Mal wiederholt (siehe Übung 8.3), sinkt der Fehler auf 0,0000351085. \\[0.2cm]
 %
 Weitere Details unter folgenden \textbf{Referenzen:} [BackP-Exam] und [BackP-Scikit] 
  
@@ -3116,14 +3120,14 @@ Weitere Details unter folgenden \textbf{Referenzen:} [BackP-Exam] und [BackP-Sci
 
 \subsection{Übungen zum Kapitel 8}
 
-\subsubsection{Übung 8.1 - CNN Architekur}
-TEXT\\
 
-
-\subsubsection{Übung 8.2 - Formeln per Kettenrgel für Gewichtsgradienten}
+\subsubsection{Übung 8.1 - Formeln per Kettenregel für Gewichtsgradienten}
 Nutze die Kettenregel der partiellen Ableitungen zur Herleitung der zwei Formeln für Ausgabeschicht 
 \[ \frac{\partial L}{\partial w^{(2)}_{ij}} = \delta^{(2)}_i \cdot h_j \] uns versteckte Schicht 
 \[ \frac{\partial L}{\partial w^{(1)}_{ij}} = \delta^{(1)}_i \cdot x_j \] 
+
+\subsubsection{Übung 8.2 - Berechnung des Fehlers nach einer Iteration}
+Zeigen Sie das der Fehler nach einer Iteration für unser Beispiel auf 0,291027924 sinkt. 
 
 \subsubsection{Übung 8.3 - Jupyter Notebook zur Fehlerberechnung bei Backpropagation}
 Entwickle ein Jupyter Notebook zur Fehlerberechnung bei Backpropagation.\\ Wie groß ist der Fehler nach 10.000 Iterationen bei unserem obigen Beispiel?
@@ -3547,14 +3551,17 @@ Hier noch die entsprechenden drei Python Codeblöcke zur Übung 7.1:
 
 \subsection{Lösungshinweise zu Übungen Kapitel 8}
 
+
 \subsubsection{Lösungshinweise zu Übung 8.1}
-.....\\
-\subsubsection{Lösungshinweise zu Übung 8.2}
 %
 Siehe folgende Referenz: \textbf{[BackP-Exam]}\\
 \url{https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/} 
 oder allgemeiner (Wikipedia über Backpropagation):\\
 \url{http://en.wikipedia.org/wiki/Backpropagation#Finding_the_derivative_of_the_error}
+
+\subsubsection{Lösungshinweise zu Übung 8.2}
+Siehe:\\[0.2cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Forwardpropagation-Beispiel.pdf}}
 
 \subsubsection{Lösungshinweise zu Übung 8.3}
 Hier ein Beispiel Notebook:\\[0.2cm]
