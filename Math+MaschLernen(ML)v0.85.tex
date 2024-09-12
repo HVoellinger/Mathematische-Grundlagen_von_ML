@@ -97,7 +97,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.85 (Datum: 11.09.2024) ist nicht final!!! \\
+Diese Version V0.85 (Datum: 12.09.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.85.pdf} \\
@@ -2756,7 +2756,7 @@ CNNs verwenden Matrizenoperationen, um Gewichte und Aktivierungen zu berechnen. 
 \textbf{2. Faltung (Convolution):}\\
 Die Faltung ist ein zentrales Konzept in CNNs. In einem CNN werden Filter (auch Kernel genannt) verwendet, um räumliche Merkmale aus den Eingabedaten zu extrahieren. Die Faltung erfolgt durch das Verschieben des Filters über die Eingabedaten und die Berechnung des Punktprodukts zwischen dem Filter und dem überlappenden Teil der Daten. Das Ergebnis ist ein sogenanntes Aktivierungsmuster oder Feature-Map, das die erkannten Merkmale anzeigt.\\[0.2cm]
 \textbf{3. Nichtlinearität (Aktivierungsfunktionen):}?\\
-Nach der Faltung wird in den meisten Schichten des CNN eine Nichtlinearität eingeführt, um die Expressivität des Netzwerks zu erhöhen. Eine Aktivierungsfunktion wie die ReLU (Rectified Linear Unit) wird oft verwendet, um negative Werte zu eliminieren und nichtlineare Verzerrungen in den Daten zu erzeugen.\\[0.2cm]
+Nach der Faltung wird in den meisten Schichten des CNN eine Nichtlinearität eingeführt, um die Expressivität des Netzwerks zu erhöhen. Eine Aktivierungsfunktion wie die ReLU (Rectified Linear Unit)\index{Rectified Linear Unit(ReLu)} \footnote{Eine ReLU (Rectified Linear Unit) ist eine Aktivierungsfunktion, die häufig in neuronalen Netzen verwendet wird, insbesondere in Deep Learning-Modellen. Die ReLU-Funktion gibt den Eingabewert zurück, wenn dieser positiv ist, und 0, wenn der Eingabewert negativ ist.} wird oft verwendet, um negative Werte zu eliminieren und nichtlineare Verzerrungen in den Daten zu erzeugen.\\[0.2cm]
 \textbf{4. Pooling:}\\
 Pooling ist ein weiterer wichtiger Schritt in CNNs, um die räumliche Dimension der Daten zu reduzieren und die Invarianz gegenüber leichten Translationen zu erreichen. Typischerweise wird Max-Pooling angewendet, bei dem der maximalste Wert aus einem kleinen Ausschnitt der Daten beibehalten wird.\\[0.2cm]
 \textbf{5. Backpropagation:}\\
@@ -2778,7 +2778,7 @@ f(x_1, x_2, \ldots, x_n) = \rho\left(\sum_{i=1}^{n} w_i x_i + b\right)
 %
 In dieser Definition sind $x_1, x_2, \ldots, x_n$ die Eingabewerte, $w_1, w_2, \ldots, w_n$ die entsprechenden Gewichte und $b$ ist der Bias-Term. \\
 Die gewichtete Summe der Eingaben ($\sum_{i=1}^{n} w_i x_i + b$) wird durch die Aktivierungsfunktion $\rho$ geleitet, um die Ausgabe des künstlichen Neurons $f(x_1, x_2, \ldots, x_n)$ zu erzeugen.\\ 
-Die Aktivierungsfunktion führt eine Nichtlinearität in die Reaktion des Neurons ein und bestimmt das Verhalten des Neurons. Häufig verwendete Aktivierungsfunktionen sind unter anderem die Sigmoid-, ReLU (Rectified Linear Unit)- und Tangens hyperbolicus (tanh)-Funktionen.\\
+Die Aktivierungsfunktion führt eine Nichtlinearität in die Reaktion des Neurons ein und bestimmt das Verhalten des Neurons. Häufig verwendete Aktivierungsfunktionen sind unter anderem die Sigmoid-, ReLU (Rectified Linear Unit) \index{Rectified Linear Unit(ReLu)} - und Tangens hyperbolicus (tanh)-Funktionen.\\
 %
 Die Gewichtungen und Schwellenwerte der Neuronen in einem tiefen neuronalen Netzwerk werden normalerweise in einem Trainingsprozess erlernt, der auf Daten basiert. Dies geschieht oft mithilfe von Verfahren wie dem Backpropagation-Algorithmus und Optimierungsalgorithmen wie dem Gradientenabstiegsverfahren.\\[0.2cm]
 %
@@ -2954,11 +2954,11 @@ Diese einfache Form der Ableitung ermöglicht eine effiziente Berechnung währen
 3. \textbf{Wahrscheinlichkeitsinterpretation}: Da die Ausgaben der Sigmoid-Funktion im Bereich von 0 bis 1 liegen, können sie als Wahrscheinlichkeiten interpretiert werden, was besonders in binären Klassifikationsproblemen nützlich ist.\\[0.2cm]
 4. \textbf{Vermeidung von extremen Werten}: Die Sigmoid-Funktion beschränkt die Ausgaben auf einen festgelegten Bereich (zwischen 0 und 1), was hilft, extrem große Werte zu vermeiden, die das Lernen destabilisieren könnten.\\[0.3cm]
 \textbf{Nachteile und moderne Alternativen}\\
-Ein Nachteil der Sigmoid-Funktion ist das Problem des \textbf{vanishing gradient}, bei dem die Ableitungen für sehr positive oder negative Eingaben zu kleinen Werten (nahe 0) führen können, was den Lernprozess verlangsamt. Aus diesem Grund werden in modernen neuronalen Netzen häufig alternative Aktivierungsfunktionen wie die \textbf{ReLU} (Rectified Linear Unit) verwendet, um dieses Problem zu umgehen.\\
+Ein Nachteil der Sigmoid-Funktion ist das Problem des \textbf{vanishing gradient}, bei dem die Ableitungen für sehr positive oder negative Eingaben zu kleinen Werten (nahe 0) führen können, was den Lernprozess verlangsamt. Aus diesem Grund werden in modernen neuronalen Netzen häufig alternative Aktivierungsfunktionen wie die \textbf{ReLU} (Rectified Linear Unit) \index{Rectified Linear Unit(ReLu)} verwendet, um dieses Problem zu umgehen.\\
 \subsubsection{Berechnungen des Fehlers/Verlustes "Error/Loss":}
 %
 Wir können nun den Fehler für jedes Ausgangsneuron mit Hilfe der quadratischen Fehlerfunktion berechnen und sie addieren, um den Gesamtfehler zu erhalten.\\
-Anmerkung: Die $\frac{1}{2}$ ist enthalten, damit der Exponent beim späteren Differenzieren aufgehoben wird. Das Ergebnis wird schließlich ohnehin mit einer Lernrate $\eta$ multipliziert, so dass es keine Rolle spielt, dass wir hier eine Konstante einführen. \\ Bezeichne den Fehler ("Loss") pro Ausgabeneuron wieder mit Großbuchstaben $(L_1,L_2)$ und den Gesamtfehler als $L$, so ergibt sich. Verwende die Mean Squared Error (MSE) als Fehlerfunktion:
+Anmerkung: Die $\frac{1}{2}$ ist enthalten, damit der Exponent beim späteren Differenzieren aufgehoben wird. Das Ergebnis wird schließlich ohnehin mit einer Lernrate $\eta$ multipliziert, so dass es keine Rolle spielt, dass wir hier eine Konstante einführen. \\ Bezeichne den Fehler ("Loss") pro Ausgabeneuron wieder mit Großbuchstaben $(L_1,L_2)$ und den Gesamtfehler als $L$, so ergibt sich. Verwende die Mean Squared Error (MSE)\index{Mean Squared Error (MSE)}E als Fehlerfunktion:
 \[
 L = \frac{1}{2} \left( (L_1)^2 + (L_2)^2 \right) = \frac{1}{2} \left( (y_{\text{target},1} - y_1)^2 + (y_{\text{target},2} - y_2)^2 \right) 
 \]
@@ -2971,15 +2971,14 @@ Unser Ziel bei der Backpropagation ist es, die einzelnen Gewichte im Netz so zu 
 Insbesondere kommt die \textbf{Kettenregel von "geschachtelten" Funktionen} (siehe Diagramm unten) zur Anwendung (siehe auch Vorlesung "Analysis I + II").Insgesamt sind vier Schritte durchzuführen:\\[0.4cm]
 %
 1. Als erstes berechnet man nun den Fehler in der Ausgabeschicht:\\[0.2cm]
-Zur Berechnung der Fehler und Gewichtsgradienten in der Ausgabeschicht nutzen wir die Logik der Prozesse im folgenden Diagramm:\\[4.2cm]
-\begin{figure}[htp]
+Zur Berechnung der Fehler und Gewichtsgradienten in der Ausgabeschicht nutzen wir die Logik der Prozesse im folgenden Diagramm:\\[6.5cm]
+\begin{figure}[h]
   \centering
   \hspace*{-0.5cm}
   \includegraphics[width=1.1\textwidth]{Backpropagation-BP-01} 
   \caption{Backpropagation-Rückwärtslauf (Ausgabeschicht)}
   \label{fig:BP-Rückw-01}
-\end{figure}.\\[0.2cm]
-%
+\end{figure}.\\[4.5cm]
 %
 Wie man leicht sieht, ergibt sich der Fehler in der Ausgabeschicht $
 \delta^{(2)}_i $ durch:\\
@@ -3019,15 +3018,15 @@ Der Beweis dieser Aussage ist Teil der Übung 8.2. Somit ergibt sich für die Au
 \frac{\partial L}{\partial w^{(2)}_{22}} = \delta^{(2)}_2 \cdot h_2 = -0.03853 \cdot 0.59688 = -0.02299
 \]\\
 3. Fehler in der versteckten Schicht:\\[0.2cm]
-Zur Berechnung der Fehler und Gewichtsgradienten in der versteckten Schicht Ausgabeschicht nutzen wir die Logik der Prozesse im folgenden Diagramm: \\[6.2cm]
+Zur Berechnung der Fehler und Gewichtsgradienten in der versteckten Schicht Ausgabeschicht nutzen wir die Logik der Prozesse im folgenden Diagramm: \\[6.5cm]
 
-\begin{figure}[htp]
+\begin{figure}[h]
   \centering
   \hspace*{+0.2cm}
   \includegraphics[width=0.9\textwidth]{Backpropagation-BP-02} 
   \caption{Backpropagation-Rückwärtslauf (versteckte Schicht)}
   \label{fig:BP-Rückw-02}
-\end{figure}.\\[4.2cm]
+\end{figure}.\\[4.5cm]
 %
 Der Fehler in der versteckten Schicht $\delta^{(1)}_i $ ergibt sich nach obigem Diagramm:\\
 \[
@@ -3112,7 +3111,7 @@ Dieser Prozess des Vorwärtsdurchlaufs, der Verlustberechnung und des Rückwärt
 %
 \textbf{Zusammenfassung (inklusive Ergebnisse der Übungen):}\\
 Wir haben nun alle unsere Gewichte aktualisiert! Als wir die Eingaben von 0,05 und 0,1 ursprünglich weiterleiteten, betrug der Fehler des Netzwerks 0,298371109 (siehe Unterkapitel 8.3.2). Nach dieser ersten Runde der Backpropagation ist der Gesamtfehler nun auf 0,291055 (Übung 8.2) gesunken. \\
-Das mag nicht viel erscheinen, aber wenn man diesen Prozess beispielsweise 10.000 Mal wiederholt (siehe Übung 8.3), sinkt der Fehler auf 0,0000351085. \\[0.2cm]
+Das mag nicht viel erscheinen, aber wenn man diesen Prozess beispielsweise 10.000 Mal wiederholt (siehe Übung 8.3), sinkt der Fehler auf 0,0000351085. Nach 10.000 Iterationen liegt der wert der oberen Neurone bei 0,015912196 (vs. Zielwert: 0,01) und der Wert der unteren Neurone bei 0,984065734 (vs. Zielwert: 0,99). Der totale Fehler lässt sich nun leicht mit der MSE Formel zu 0,0000351085 berechnen. \\[0.4cm]
 %
 Weitere Details unter folgenden \textbf{Referenzen:} [BackP-Exam] und [BackP-Scikit] 
  
