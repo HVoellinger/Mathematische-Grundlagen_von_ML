@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\title{Minimierung einer Funktion mittels Stochastic Gradient Descent (SGD)}
+\author{Hermann Völlinger}
+\date{15.09.2024}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lösen des Beispiels mit Stochastic Gradient Descent (SGD)}
+
+Wir wollen die Funktion
+\[
+f(x) = x^4 - 3x^2 + 2
+\]
+mit Hilfe des \textit{Gradient Descent (SGD)} - Verfahrens minimieren.\\[0.6cm]
+Dieses vollständige LaTeX-Dokument beschreibt die Minimierung der Funktion 
+ mithilfe des SGD-Verfahrens und zeigt die ersten paar Iterationen in einer Tabelle.\\
+ 
+\subsection*{Schritt 1: Ableitung der Funktion}
+
+Die Ableitung von \( f(x) \) ist:
+\[
+f'(x) = 4x^3 - 6x
+\]
+
+\subsection*{Schritt 2: SGD-Update-Regel}
+
+Die Update-Regel des Gradientenabstiegs lautet:
+\[
+x_{\text{neu}} = x_{\text{alt}} - \eta f'(x_{\text{alt}})
+\]
+wobei \( \eta = 0.01 \) die Lernrate ist.
+
+\subsection*{Schritt 3: Iterationen}
+
+Wir starten mit einem zufälligen Wert \( x_0 = 0.5 \) und führen das SGD-Verfahren iterativ durch:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Iteration \( n \) & \( x_n \)     & \( f'(x_n) \)         & \( x_{\text{neu}} \)         & \( f(x_{\text{neu}}) \) \\
+\hline
+1                 & 0.5           & \( f'(0.5) = -1.25 \) & \( 0.5 - 0.01 \times (-1.25) = 0.5125 \) & \( 1.761 \)             \\
+2                 & 0.5125        & \( f'(0.5125) = -1.207 \) & \( 0.5125 - 0.01 \times (-1.207) = 0.52457 \) & \( 1.726 \)            \\
+3                 & 0.52457       & \( f'(0.52457) = -1.166 \) & \( 0.52457 - 0.01 \times (-1.166) = 0.53624 \) & \( 1.692 \)            \\
+4                 & 0.53624       & \( f'(0.53624) = -1.126 \) & \( 0.53624 - 0.01 \times (-1.126) = 0.5475 \)  & \( 1.659 \)            \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection*{Schritt 4: Stopkriterium}
+
+Das Verfahren wird fortgesetzt, bis die Differenz zwischen \( f(x) \) in aufeinanderfolgenden Iterationen kleiner als ein festgelegter Schwellenwert \begin{Large}$ \epsilon $\end{Large} = 0.0001  ist.
+
+\end{document}
