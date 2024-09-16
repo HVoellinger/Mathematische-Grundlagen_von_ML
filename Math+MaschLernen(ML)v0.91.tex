@@ -3309,16 +3309,16 @@ Backpropagation basiert auf Gradientenabstieg, der versucht, die Verlustfunktion
 %
 Betrachten wir eine einfach konstruierte zweidimensionale Funktion $ f(x) = x^2*sin(x)$ in einem bestimmten Wertebereich $ -2*Pi < x < 2*Pi $. \\
 %
-Diese Funktion hat sowohl ein lokales Minimum als auch ein globales Minimum. Schauen wir uns die Funktionskurve genauer an:
+Diese Funktion hat sowohl ein lokales Minimum als auch ein globales Minimum. Die Funktion hat außerhalb des Wertebereiches viele lokale Minima, da der Sinusanteil zu periodischen Oszillationen führt, die zu vielen lokalen Minima führen. Schauen wir uns die Funktionskurve im Wertebereich genauer an:
 
 \begin{itemize}
     \item Wenn \( x \approx - 2 \), hat die Funktion den Wert \( f(x) \approx -3 \), was ein lokales Minimum darstellt
     \item Wenn \(x \approx 6 \), ergibt sich \(f(x) \approx -25 \), was ein globales Minimum darstellt.
     \end{itemize}
-siehe auch:  \\
+Siehe auch:  \\
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Plot_SGD-Beispiel.pdf}}\\[0.3cm]
 %
-Wenn wir Backpropagation oder den Gradientenabstiegsalgorithmus verwenden, um das Minimum der Funktion \(f(x)\) zu finden, könnte der Algorithmus beim lokalen Minimum bei \(x = -1\) steckenbleiben, anstatt weiter zu iterieren, um das globale Minimum bei \(x = \pm \sqrt{3}\) zu erreichen.\\[0.4cm]
+Wenn wir Backpropagation oder den Gradientenabstiegs-Algorithmus verwenden, um das Minimum der Funktion (f(x) zu finden, könnte der Algorithmus beim lokalen Minimum bei $ x \approx -2 $ steckenbleiben, anstatt weiter zu iterieren, um das globale Minimum bei $ x \approx 6 $ zu erreichen.\\[0.4cm]
 %
 \underline{Lösungsmöglichkeiten}\\[0.1cm]
 
