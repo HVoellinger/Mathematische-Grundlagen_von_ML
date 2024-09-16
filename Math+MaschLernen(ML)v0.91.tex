@@ -3294,7 +3294,7 @@ Im Gegensatz zu den verschwindenden Gradienten können die Gradienten in tiefen 
     \item Verwendung von kleineren Lernraten, um zu große Aktualisierungen zu vermeiden.
 \end{itemize}
 %
-\subsubsection{Lokale Minima}
+ \subsubsection{Lokale Minima}
 
 Backpropagation basiert auf Gradientenabstieg, der versucht, die Verlustfunktion zu minimieren. Allerdings kann dieser Prozess in lokale Minima oder Sattelpunkte geraten, anstatt das globale Minimum zu erreichen. Dies ist insbesondere bei komplexen, hochdimensionalen Verlustlandschaften der Fall.\\
 
@@ -3307,19 +3307,16 @@ Backpropagation basiert auf Gradientenabstieg, der versucht, die Verlustfunktion
 %
 \underline{Lokales Minimum Problem: Ein einfaches Beispiel}\\[0.3cm]
 %
-Betrachten wir eine einfache zweidimensionale Funktion:
-\[
-f(x) = x^4 - 3x^2 + 2
-\]
+Betrachten wir eine einfach konstruierte zweidimensionale Funktion $ f(x) = x^2*sin(x)$ in einem bestimmten Wertebereich $ -2*Pi < x < 2*Pi $. \\
 %
-Diese Funktion hat sowohl ein lokales Minimum als auch ein globales Minimum. Schauen wir uns die Funktionskurve genauer an: \\
+Diese Funktion hat sowohl ein lokales Minimum als auch ein globales Minimum. Schauen wir uns die Funktionskurve genauer an:
 
 \begin{itemize}
-    \item Wenn \(x = 0\), hat die Funktion den Wert \(f(0) = 2\).
-    \item Wenn \(x = -1\), ergibt sich \(f(-1) = 0\), was ein lokales Minimum darstellt.
-    \item Wenn \(x = \pm \sqrt{3}\), ergibt sich \(f(\pm \sqrt{3}) = -2.25\), was das globale Minimum der Funktion ist.
-\end{itemize}
-%
+    \item Wenn \( x \approx - 2 \), hat die Funktion den Wert \( f(x) \approx -3 \), was ein lokales Minimum darstellt
+    \item Wenn \(x \approx 6 \), ergibt sich \(f(x) \approx -25 \), was ein globales Minimum darstellt.
+    \end{itemize}
+siehe auch:  \\
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Plot_SGD-Beispiel.pdf}}\\[0.3cm]
 %
 Wenn wir Backpropagation oder den Gradientenabstiegsalgorithmus verwenden, um das Minimum der Funktion \(f(x)\) zu finden, könnte der Algorithmus beim lokalen Minimum bei \(x = -1\) steckenbleiben, anstatt weiter zu iterieren, um das globale Minimum bei \(x = \pm \sqrt{3}\) zu erreichen.\\[0.4cm]
 %
@@ -3830,12 +3827,11 @@ Hier ein Beispiel Notebook:\\[0.2cm]
 Hier noch die entsprechenden drei Python Codeblöcke zur Übung 7.1:\\ 
 Es entsteht eine animierte gif-Datei im Download Verzeichnis des Rechners:\\[0.2cm]
 %
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Kernel-Hyperebene-Animation.pdf}}
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Plot_von_SGD-Beispiel.pdf}}
 
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 8}
-
 
 \subsubsection{Lösungshinweise zu Übung 8.1}
 %
@@ -3863,7 +3859,7 @@ Hier ein Beispiel Notebook:\\[0.2cm]
 \subsubsection{Lösungshinweise zu Übung 8.5}
 
 Latex-Beschreibung der Vorgehensweise: \\[0.2cm]
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SGD-Verfahren_Lokale-Minima.pdf}} 
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Plot_SGD-Beispiel.pdf}} 
 
 \newpage
 
