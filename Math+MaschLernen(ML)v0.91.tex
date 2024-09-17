@@ -97,7 +97,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.91 (Datum: 15.09.2024) ist nicht final!!! \\
+Diese Version V0.91 (Datum: 17.09.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.91.pdf} \\
@@ -3307,18 +3307,11 @@ Backpropagation basiert auf Gradientenabstieg, der versucht, die Verlustfunktion
 %
 \underline{Lokales Minimum Problem: Ein einfaches Beispiel}\\[0.3cm]
 %
-Betrachten wir eine einfach konstruierte zweidimensionale Funktion $ f(x) = x^2*sin(x)$ in einem bestimmten Wertebereich $ -2*Pi < x < 2*Pi $. \\
+Betrachten wir eine einfach konstruierte eindimensionale Funktion $ f(x) = x^4 - 4*X**2 + x + 3 $ in $ \mathbb{R}^2 $ mit lokalem Minima bei ca. x = 1,34 und globales Minima bei x = -1,47.  \\
+Diese Funktion hat sowohl ein lokales Minimum als auch ein globales Minimum. Siehe auch:  \\
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Plot_von_SGD-Beispiel.pdf}}\\[0.3cm]
 %
-Diese Funktion hat sowohl ein lokales Minimum als auch ein globales Minimum. Die Funktion hat außerhalb des Wertebereiches viele lokale Minima, da der Sinusanteil zu periodischen Oszillationen führt, die zu vielen lokalen Minima führen. Schauen wir uns die Funktionskurve im Wertebereich genauer an:
-
-\begin{itemize}
-    \item Wenn \( x \approx - 2 \), hat die Funktion den Wert \( f(x) \approx -3 \), was ein lokales Minimum darstellt
-    \item Wenn \(x \approx 6 \), ergibt sich \(f(x) \approx -25 \), was ein globales Minimum darstellt.
-    \end{itemize}
-Siehe auch:  \\
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Plot_SGD-Beispiel.pdf}}\\[0.3cm]
-%
-Wenn wir Backpropagation oder den Gradientenabstiegs-Algorithmus verwenden, um das Minimum der Funktion (f(x) zu finden, könnte der Algorithmus beim lokalen Minimum bei $ x \approx -2 $ steckenbleiben, anstatt weiter zu iterieren, um das globale Minimum bei $ x \approx 6 $ zu erreichen.\\[0.4cm]
+Wenn wir Backpropagation oder den Gradientenabstiegs-Algorithmus verwenden, um das Minimum der Funktion (f(x) zu finden, könnte der Algorithmus beim lokalen Minimum bei $ x \approx 1.34 $ steckenbleiben, anstatt weiter zu iterieren, um das globale Minimum bei $ x \approx -1,47 $ zu erreichen.\\[0.4cm]
 %
 \underline{Lösungsmöglichkeiten}\\[0.1cm]
 
@@ -3841,26 +3834,26 @@ oder allgemeiner (Wikipedia über Backpropagation):\\
 \url{http://en.wikipedia.org/wiki/Backpropagation#Finding_the_derivative_of_the_error}
 
 \subsubsection{Lösungshinweise zu Übung 8.2}
-Siehe:\\[0.2cm]
+Siehe:\\
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Forwardpropagation-Beispiel.pdf}}
 
 \subsubsection{Lösungshinweise zu Übung 8.3}
-Hier ein Beispiel Notebook:\\[0.2cm]
+Hier ein Beispiel Notebook:\\
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Backpropagation-JupyterNotebook.pdf}}  
 
 \subsubsection{Lösungshinweise zu Übung 8.4}
 
-Latex-Beschreibung der Vorgehensweise: \\[0.2cm]
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Backpropagation-Biasberechnung-Beispiel.pdf}} \\[0.6cm]
+Latex-Beschreibung der Vorgehensweise: \\
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Backpropagation-Biasberechnung-Beispiel.pdf}} \\[0.4cm]
 %
-Hier ein Beispiel Notebook:\\[0.2cm]
+Hier ein Beispiel Notebook:\\
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Iterationen_von_Biases-Jupyter Notebook.pdf}}  
 
 \subsubsection{Lösungshinweise zu Übung 8.5}
-
-Latex-Beschreibung der Vorgehensweise: \\[0.2cm]
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Plot_SGD-Beispiel.pdf}} 
-
+Latex-Beschreibung der Vorgehensweise: \\
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Plot_SGD-Beispiel.pdf}} \\[0.2cm]
+Lösungsansatz mit Python: \\[0.1cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Stochastic_Gradient_Descent-Beispiel.pdf}} 
 \newpage
 
 \section{Referenzen}
