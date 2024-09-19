@@ -97,7 +97,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.91 (Datum: 18.09.2024) ist nicht final!!! \\
+Diese Version V0.91 (Datum: 19.09.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.91.pdf} \\
@@ -233,7 +233,7 @@ Hier sind die wichtigsten \textbf{mathematische Konzepte und Grundlagen:}\\[0.3c
 %
 \textbf{1. Lineare Algebra:} Lineare Algebra ist ein grundlegender Bestandteil des Maschinellen Lernens "Machine Learning". Vektoren und Matrizen werden verwendet, um Daten darzustellen, und Operationen wie Skalierung, Addition, Multiplikation und Transformationen werden angewendet, um Berechnungen durchzuführen. Matrixoperationen wie Matrixmultiplikation und Matrixinversion sind wichtig für viele Algorithmen.\\[0.2cm]
 %
-\textbf{2. Differentialrechnung:} Differentialrechnung wird verwendet, um Funktionen zu analysieren und Optimierungsalgorithmen abzuleiten. Berechnung von Gradienten, Ableitungen, partielle Ableitungen und Optimierungsmethoden wie das Verfahren zum Gradientenabstieg sind entscheidend für das Trainieren von Modellen und das Anpassen von Parametern.\\[0.2cm]
+\textbf{2. Differentialrechnung:} Differentialrechnung wird verwendet, um Funktionen zu analysieren und Optimierungsalgorithmen abzuleiten. Berechnung von Gradienten, Ableitungen, partielle Ableitungen und Optimierungsmethoden wie das Verfahren zum Gradientenabstieg \index{Gradientenabstieg} sind entscheidend für das Trainieren von Modellen und das Anpassen von Parametern.\\[0.2cm]
 %
 \textbf{3. Wahrscheinlichkeitstheorie und Statistik:} Wahrscheinlichkeitstheorie und Statistik spielen eine wichtige Rolle im Machine Learning, insbesondere im Bereich des überwachten und nicht überwachten Lernens. Wahrscheinlichkeitsverteilungen, Schätzungen, Hypothesenbildung und statistische Modelle werden verwendet, um Muster in den Daten zu erkennen, Vorhersagen zu treffen und Unsicherheiten zu quantifizieren.\\[0.2cm]
 %
@@ -258,7 +258,7 @@ Das Gradientenabstiegsverfahren ist ein wichtiger Optimierungsalgorithmus in der
 \textbf{4. Bayes'sche Statistik (18. Jahrhundert):}\\
 Die Bayes'sche Statistik und das Bayes'sche Theorem, das auf dem Werk von Thomas Bayes basiert, sind grundlegende mathematische Konzepte, die in probabilistischen Machine-Learning-Modellen wie dem Naive Bayes-Klassifikator Anwendung finden.\\[0.2cm]
 \textbf{5. Entwicklung von neuronalen Netzen (1940er Jahre - heute):}\\
-Neuronale Netze, die in vielen modernen Machine-Learning-Anwendungen eine zentrale Rolle spielen, basieren auf mathematischen Modellen von künstlichen Neuronen und sind eng mit der Linearen Algebra und dem Konzept der Backpropagation verbunden.\\[0.2cm]
+Neuronale Netze, die in vielen modernen Machine-Learning-Anwendungen eine zentrale Rolle spielen, basieren auf mathematischen Modellen von künstlichen Neuronen und sind eng mit der Linearen Algebra und dem Konzept der Backpropagation \index{Backpropagation} verbunden.\\[0.2cm]
 \textbf{6. Entwicklung von tiefen neuronalen Netzen (2010er Jahre):}\\
 Die jüngste Entwicklung von tiefen neuronalen Netzen, die in Deep Learning eingesetzt werden, beruht auf fortgeschrittenen mathematischen Konzepten, insbesondere der Backpropagation, die es ermöglichen, komplexe Modelle zu trainieren.\\[0.3cm]
 %
@@ -1954,8 +1954,8 @@ Unser Ziel ist die Minimierung des $\mathtt{SSE}(\mathbf{w})$ durch die Wahl des
 \hspace*{1.3cm}
 $\nabla \mathtt{SSE}(\mathbf{w}) = \mathbf{0}$,
 \\[0.2cm]
-d.h. der \href{https://en.wikipedia.org/wiki/Gradient}{Gradient} \index{Gradient} von $\mathtt{SSE}(\mathbf{w})$ in Bezug auf $\mathbf{w}$ muss Null sein. \\
-Zur Vorbereitung der Berechnung von $\nabla \mathtt{SSE}(\mathbf{w})$, berechnen wir zunächst den Gradienten \index{Gradient}von zwei einfacheren Funktionen.\\[0.4cm]
+d.h. der \href{https://en.wikipedia.org/wiki/Gradient}{Gradient} von $\mathtt{SSE}(\mathbf{w})$ in Bezug auf $\mathbf{w}$ muss Null sein. \\
+Zur Vorbereitung der Berechnung von $\nabla \mathtt{SSE}(\mathbf{w})$, berechnen wir zunächst den Gradienten von zwei einfacheren Funktionen.\\[0.4cm]
 \textbf{********************** Zwischenrechnung *******************}\\[0.4cm]
 %
 Angenommen die Funktion $f:\mathbb{R}^n \rightarrow \mathbb{R}$ ist definiert als:
@@ -2760,7 +2760,7 @@ Nach der Faltung wird in den meisten Schichten des CNN eine Nichtlinearität ein
 \textbf{4. Pooling:}\\
 Pooling ist ein weiterer wichtiger Schritt in CNNs, um die räumliche Dimension der Daten zu reduzieren und die Invarianz gegenüber leichten Translationen zu erreichen. Typischerweise wird Max-Pooling angewendet, bei dem der maximalste Wert aus einem kleinen Ausschnitt der Daten beibehalten wird.\\[0.2cm]
 \textbf{5. Backpropagation:}\\
-Wie bei anderen neuronalen Netzwerken werden CNNs mit dem Backpropagation-Algorithmus trainiert. Backpropagation verwendet die Kettenregel der partiellen Ableitungen, um die Gewichte des Netzwerks so anzupassen, dass der Fehler zwischen den vorhergesagten und tatsächlichen Ausgaben minimiert wird.\\[0.2cm]
+Wie bei anderen neuronalen Netzwerken werden CNNs mit dem Backpropagation-Algorithmus \index{Backpropagation} trainiert. Backpropagation verwendet die Kettenregel der partiellen Ableitungen, um die Gewichte des Netzwerks so anzupassen, dass der Fehler zwischen den vorhergesagten und tatsächlichen Ausgaben minimiert wird.\\[0.2cm]
 \textbf{6. Mehrschichtige Struktur:}\\
 CNNs bestehen aus mehreren Schichten, darunter Eingabeschicht, Faltungsschichten, Aktivierungsschichten, Pooling-Schichten und einer Ausgabeschicht.\\
 Die tieferen Schichten sind in der Lage, einfache Merkmale zu lernen, während die höheren Schichten komplexere Merkmale und Kombinationen von Merkmalen erfassen können.\\
@@ -2780,7 +2780,7 @@ In dieser Definition sind $x_1, x_2, \ldots, x_n$ die Eingabewerte, $w_1, w_2, \
 Die gewichtete Summe der Eingaben ($\sum_{i=1}^{n} w_i x_i + b$) wird durch die Aktivierungsfunktion $\rho$ geleitet, um die Ausgabe des künstlichen Neurons $f(x_1, x_2, \ldots, x_n)$ zu erzeugen.\\ 
 Die Aktivierungsfunktion führt eine Nichtlinearität in die Reaktion des Neurons ein und bestimmt das Verhalten des Neurons. Häufig verwendete Aktivierungsfunktionen sind unter anderem die Sigmoid-, ReLU (Rectified Linear Unit) \index{Rectified Linear Unit(ReLu)} - und Tangens hyperbolicus (tanh)-Funktionen.\\
 %
-Die Gewichtungen und Schwellenwerte der Neuronen in einem tiefen neuronalen Netzwerk werden normalerweise in einem Trainingsprozess erlernt, der auf Daten basiert. Dies geschieht oft mithilfe von Verfahren wie dem Backpropagation-Algorithmus und Optimierungsalgorithmen wie dem Gradientenabstiegsverfahren.\\[0.2cm]
+Die Gewichtungen und Schwellenwerte der Neuronen in einem tiefen neuronalen Netzwerk werden normalerweise in einem Trainingsprozess erlernt, der auf Daten basiert. Dies geschieht oft mithilfe von Verfahren wie dem Backpropagation-Algorithmus und Optimierungsalgorithmen wie dem Gradientenabstiegsverfahren \index{Gradientenabstieg}.\\[0.2cm]
 %
 \textbf{Mathematische Definition eines DNN's:}\\
 Die mathematische Darstellung eines tiefen neuronalen Netzwerks kann komplex sein und hängt von den genauen Architekturen und Hyperparametern ab, die für ein bestimmtes Problem festgelegt wurden. In der Regel wird die gesamte Transformation eines Netzwerks von der Eingabe zur Ausgabe als eine Funktion $f(x; \phi)$ dargestellt, wobei $x$ die Eingabe ist und $\phi$ die Parameter des Netzwerks sind.\\[0.2cm]
@@ -3233,7 +3233,7 @@ Durch diesen Prozess lernt das neuronale Netzwerk, seine Biases so anzupassen, d
 %
 \textbf{Aktualisierung der Biases}\\[0.2cm]
 %
-Im Backpropagation-Algorithmus wird der Bias mit einem Lernschritt basierend auf dem berechneten Gradienten aktualisiert:\\[0.2cm]
+Im Backpropagation-Algorithmus \index{Backpropagation} wird der Bias mit einem Lernschritt basierend auf dem berechneten Gradienten aktualisiert:\\[0.2cm]
 
 \underline{Neue Biases für den Hidden Layer \( b_1 \):}
 \begin{align*}
@@ -3270,9 +3270,8 @@ Das mag nicht viel erscheinen, aber wenn man diesen Prozess beispielsweise 10.00
 %
 Weitere Details unter folgenden \textbf{Referenzen:} [BackP-Exam] und [BackP-Scikit] 
 %
-\subsection{Probleme der Backpropagation}
-
-Die Backpropagation (Rückwärtsausbreitung) ist eine zentrale Methode zum Trainieren von neuronalen Netzwerken. Obwohl sie weit verbreitet und effektiv ist, gibt es mehrere Probleme und Herausforderungen im Zusammenhang mit Backpropagation, insbesondere in tiefen neuronalen Netzwerken:
+\subsection{Probleme der Backpropagation} 
+Die Backpropagation (Rückwärtsausbreitung)\index{Backpropagation} ist eine zentrale Methode zum Trainieren von neuronalen Netzwerken. Obwohl sie weit verbreitet und effektiv ist, gibt es mehrere Probleme und Herausforderungen im Zusammenhang mit Backpropagation, insbesondere in tiefen neuronalen Netzwerken:
 %
 \subsubsection{Vanishing Gradients (verschwindende Gradienten)}
 
@@ -3296,18 +3295,18 @@ Im Gegensatz zu den verschwindenden Gradienten können die Gradienten in tiefen 
 %
  \subsubsection{Lokale Minima}
 
-Backpropagation basiert auf Gradientenabstieg, der versucht, die Verlustfunktion zu minimieren. Allerdings kann dieser Prozess in lokale Minima oder Sattelpunkte geraten, anstatt das globale Minimum zu erreichen. Dies ist insbesondere bei komplexen, hochdimensionalen Verlustlandschaften der Fall.\\
+Backpropagation basiert auf Gradientenabstieg \index{Gradientenabstieg}, der versucht, die Verlustfunktion zu minimieren. Allerdings kann dieser Prozess in lokale Minima oder Sattelpunkte geraten, anstatt das globale Minimum zu erreichen. Dies ist insbesondere bei komplexen, hochdimensionalen Verlustlandschaften der Fall.\\
 
 \textbf{Lösungsmöglichkeiten:}
 \begin{itemize}
-    \item Verwendung von Stochastic Gradient Descent (SGD) oder Varianten wie Adam, um die Wahrscheinlichkeit zu erhöhen, aus lokalen Minima zu entkommen.
+    \item Verwendung von Stochastic Gradient Descent (SGD)\index{Stochastic Gradient Descent} oder Varianten wie Adam, um die Wahrscheinlichkeit zu erhöhen, aus lokalen Minima zu entkommen.
     \item Erhöhte Modellkomplexität und mehr Daten können helfen, die Anzahl lokaler Minima zu verringern.
 \end{itemize}
 %
 %
 \underline{Lokales Minimum Problem: Ein einfaches Beispiel}\\[0.3cm]
 %
-Betrachten wir eine einfach konstruierte eindimensionale Funktion $ f(x) = x^4 - 4*X**2 + x + 3 $ in $ \mathbb{R}^2 $ mit lokalem Minima bei ca. x = 1,34 und globales Minima bei x = -1,47.  \\
+Betrachten wir eine einfach konstruierte eindimensionale Funktion $ f(x) = x^4 - 4x^2 + x + 3 $ in $ \mathbb{R}^2 $ mit lokalem Minima bei ca. x = 1,34 und globales Minima bei x = -1,47.  \\
 Diese Funktion hat sowohl ein lokales Minimum als auch ein globales Minimum. Siehe auch:  \\
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Plot_von_SGD-Beispiel.pdf}}\\[0.3cm]
 %
@@ -3854,6 +3853,7 @@ Latex-Beschreibung der Vorgehensweise: \\
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SGD-Verfahren_Lokale-Minima-neu.pdf}} \\[0.2cm]
 Lösungsansatz mit Python: \\[0.1cm]
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Plot_Beispiel_mit_SGD.pdf}} 
+
 \newpage
 
 \section{Referenzen}
