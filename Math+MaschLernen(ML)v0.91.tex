@@ -97,7 +97,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.91 (Datum: 19.09.2024) ist nicht final!!! \\
+Diese Version V0.91 (Datum: 29.09.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.91.pdf} \\
@@ -197,12 +197,12 @@ In allen oben erwähnten Industriemodellen werden auch komplette Business Glossa
 %
 \subsubsection{Nutzen der IDA und IGC Strukturen für ML}
 %
-Im nächsten Beispiel sehen wir wie Technische Assets (z.B. Spaltennamen einer Tabelle) mit fachlichen Begriffen ("Business Terms") verbunden werden. Dadurch erhalten wir eine fachliche Beschreibung und Kategorisierung/Strukturierung) der technischen Assets im DWH.\\ 
+Im nächsten Beispiel sehen wir wie Technische Assets (z.B. Spaltennamen einer Tabelle) mit fachlichen Begriffen ("Business Terms") verbunden werden. Dadurch erhalten wir eine fachliche Beschreibung und Kategorisierung/Strukturierung der technischen Assets im DWH.\\ 
 %
 \begin{figure}[htp]
   \centering
   \hspace*{-0.4cm} 
-  \includegraphics[width=1.05\textwidth]{Business Term mit zugehörigen technischen Assets}
+  \includegraphics[width=1.05\textwidth]{Business-Term_mit_TechAssets}
   \caption{Business Term mit zugehörigen technischen Assets}
   \label{fig:IGC-BT+TA}
 \end{figure}
@@ -326,18 +326,20 @@ den "Schwerpunkten" $ \boldsymbol \mu_i $ der Cluster $ S_i $.\\[0.2cm]
 %
 Diese Zielfunktion basiert auf der \textbf{Methode der kleinsten Quadrate} und man spricht auch von "Clustering durch Varianzminimierung", da die Summe der Varianzen der Cluster minimiert wird.\\[0.2cm]
 Da zudem $ \| \mathbf x_j - \boldsymbol \mu_i \|^2 $ die quadrierte "Euklidische Distanz" ist, ordnet k-Means effektiv jedes Objekt dem nächstgelegenen (nach Euklidischer Distanz) Clusterschwerpunkt zu.\\ 
-Eine Visualisierung der k-Means-Konvergenz Iterationen, sehen wir im der folgenden Figur.
+Eine Visualisierung der k-Means-Konvergenz Iterationen, sehen wir in der ersten Iteration $("Iteration_O")$ in der folgenden Figur.
 \newpage
 %
 \begin{figure}[htp]
   \centering
   \hspace*{-0.1cm} 
-  \includegraphics[width=0.7\textwidth]{k-Means-Konvergenz-Iteration0}
-  \caption{k-Means-Konvergenz-Iterationen(0-14)}
+  \includegraphics[width=0.7\textwidth]{K-Means_Konvergenz-Iteration0}
+  \caption{Erste 3-Means Konvergenz-Iteration0}
   \label{fig:k-Means-Iteration0}
 \end{figure}
 %
-Um eine Animation dieser 3-Means-Konvergenz mit insgesamt 15 Iterationen zu sehen können sie auch folgenden Link auf mein GitHub aufrufen:\\
+%
+Es ist nun relativ einfach daraus ein Python-Programm zu bauen um eine Animation dieser 3-Means-Konvergenz mit insgesamt 15 Iterationen (0...14) zu sehen.\\ 
+Sie können diese Animation mit folgenden Link auf meinem GitHub aufrufen:\\
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/k-Means-Konvergenz-Animation.gif}\\
 
 \subsection{k-Means Algorithmen}
@@ -511,7 +513,7 @@ $ df = pd.DataFrame\quad(x', y') $ wobei:\\
 Folgen Sie den Anweisungen aus \url{https://benalexkeen.com/k-means-clustering-in-Python/} um zu den 3 Clustern zu kommen. Nutzen Sie dabei die Bibliothek "scikit-learn". 
 
 \subsubsection{Übung 3.3 - Python Lösung zur Übung 3.1}
-Berechnen Sie per Python Pgm. analog zur Übung 3.2. auch die Datenpunkte von Übung 3.1(nutze die scikit-learn Python Bibliothek).
+Berechnen Sie per Python Pgm. analog zur Übung 3.2. auch die Datenpunkte von Übung 3.1 (nutze die scikit-learn Python Bibliothek).
 
 \newpage
 
@@ -2667,8 +2669,8 @@ Ein mögliches Ergebnis könnte wie folgt aussehen: \\[0.5cm]
 \begin{figure}[htp]
   \centering
   \hspace*{-0.1cm} 
-  \includegraphics[width=1.\textwidth]{SVM-Kernel(2D-3D)-Beispiel}
-  \caption{Kernel-Trick(2D-3D) Beispiel}    
+  \includegraphics[width=1.\textwidth]{SVM_Kernel-Trick(2D-3D)_Beispiel}
+  \caption{SVM Kernel-Trick(2D-3D) Beispiel}    
   \label{fig:SVM_2D-3D}
 \end{figure}
 %
@@ -3676,8 +3678,8 @@ Question 3': x= (25-15,164)/3,479=2,83[h] \\[0.3cm]
 Question 4: Zum Bestehen ist Homework besser (höherer Bias) und um jedoch insgesamt ein besseres Ergebnis zu erhalten ist die Examensvorbereitung besser (höherer "Slope" = "Lernkurve") und der Bestimmungswert $R^2$ ist besser.\\[0.3cm]	
 %
 \hspace*{0.0cm}Für eine komplette Lösung vergleiche:\\
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/LR-Calculation_of_Coeff.xlsx}
-
+Berechnungen als Excel zum Download: \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/LR-Calculation_of_Coeff.xlsx}\\
+PDF zu Anschauen der Berechnungen: \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/LR-Calculation_of_Coeff.pdf}\\
 
 \subsubsection{Lösungshinweise zu Übung 5.7}
 %
@@ -3689,7 +3691,7 @@ Question 3:  Examensvorbereitung x = (25-13,264)/2,488=4,72[h]\\ Homework y = (2
 Anmerkung: $adj.R^2$ ist geringer als $R^2$ für Examensvorbereitung, aber weit besser als $R^2$ bei Homework. Insgesamt ist somit diese Modell besser ("ausbalancierter" und geringerer Bias). \\[0.2cm]
 %	
 \hspace*{0.0cm}Für eine komplette Lösung vergleiche:\\
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/LR-Calculation_of_Coeff.xlsx}
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/LR-Calculation_of_Coeff.pdf}
 
 \subsubsection{Lösungshinweise zu Übung 5.8}
 %
@@ -3794,7 +3796,7 @@ Manuelle Berechnung siehe:\\
 \subsubsection{Lösungshinweise zu Übung 6.2}
 
 \textbf{Zusatzfrage:} \\
-Das Ergebnis dreht sich um wenn Sie als Zielsatz \textbf{"Hermann plays a very clean game"} eingeben.Berechnung analog wie bei Lösung von Übung 6.1\\
+Das Ergebnis dreht sich um, wenn Sie als Zielsatz \textbf{"Hermann plays a very clean game"} eingeben. Berechnung analog wie bei Lösung von Übung 6.1\\
 
 \subsubsection{Lösungshinweise zu Übung 6.3}
 
@@ -3819,7 +3821,7 @@ Hier ein Beispiel Notebook:\\[0.2cm]
 Hier noch die entsprechenden drei Python Codeblöcke zur Übung 7.1:\\ 
 Es entsteht eine animierte gif-Datei im Download Verzeichnis des Rechners:\\[0.2cm]
 %
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Plot_von_SGD-Beispiel.pdf}}
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Kernel-Hyperebene-Animation.pdf}}
 
 \newpage
 
@@ -3884,7 +3886,7 @@ Moderne Informationsstrukturen für brachenspezifische Lösungen"; Übersichtsar
 %
 \textbf{[LLMsAndKGs]} - "Unifying Large Language Models and Knowledge Graphs: A Roadmap"; JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021.\\[0.2cm] 
 %
-\textbf{[MathAndAI]} - Prof. Gitta Kutyniok (Uni München): "The Mathematics of Artificial Intelligence"; Übersichtsartikel, der aus einem eingeladenen Vortrag auf dem Internationalen Kongress der Mathematiker 2022 entstand.\\[0.2cm]  
+\textbf{[MathAndAI]} - Prof. Gitta Kutyniok (Uni München): "The Mathematics of Artificial Intelligence"; Übersichtsartikel, aus einem eingeladenen Vortrag auf dem Internationalen Kongress der Mathematiker 2022. \url{https://arxiv.org/pdf/2203.08890} \\[0.2cm]
 %
 \textbf{[Hands-on ML]} - Aurelien Geron "Hands-on Machine Learning with SciKit-Learn, Keras and Tensorflow"; Paperback, O'Reilly (2nd edition), 2019\\[0.2cm] 
 %
@@ -3892,7 +3894,7 @@ Moderne Informationsstrukturen für brachenspezifische Lösungen"; Übersichtsar
 %
 \textbf{[LA and Opt for ML]} - Charu C. Aggarwal "Linear Algebra and Optimization for Machine Learning"; Paperback, Springer Verlag, 2020.\\[0.2cm] 
 %
-\textbf{[Math for DL]} - Berner, Grohs, Kutyniok, and Petersen: "The Modern Mathematics of Deep Learning"; Review Paper; ResearchGate arXiv:2105.04026v1 [cs.LG] 9 May 2021; This review paper will appear as a book chapter in the book "Theory of Deep Learning" by Cambridge University Press\\[0.2cm] 
+\textbf{[Math for DL]} - Berner, Grohs, Kutyniok, and Petersen: "The Modern Mathematics of Deep Learning"; Review Dokumennt; ResearchGate arXiv: 9 Mai 2021; Dieser Review wir als Buch-Kapitel im Buch  "Theory of Deep Learning" in Cambridge University Press erscheinen. \url{https://arxiv.org/abs/2105.04026} \\[0.2cm] 
 %
 \textbf{[SVM-Def]} - "Was ist eine Support Vector Machine?"; 06.11.2019; Autor, Redakteur: Dipl.-Ing. (FH) Stefan Luber / Nico Litzel; \url{https://www.bigdata-insider.de/was-ist-eine-support-vector-machine-a-880134/}\\[0.2cm] 
 %
