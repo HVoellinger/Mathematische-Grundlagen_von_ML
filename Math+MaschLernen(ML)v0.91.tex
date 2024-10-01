@@ -97,7 +97,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.91 (Datum: 29.09.2024) ist nicht final!!! \\
+Diese Version V0.91 (Datum: 01.10.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.91.pdf} \\
@@ -2706,15 +2706,22 @@ DNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispi
 %
 {\color{blue}{ChatGPT}} \index{ChatGPT}ist eine der bekanntesten Anwendungen von DNN's mit erstaunlichen Ergebnissen.\\
 ChatGPT basiert auf einem tiefen neuronalen Netzwerk. Genauer gesagt, es ist ein Beispiel für ein sogenanntes \textbf{"Transformer-Modell"}, das eine spezielle Art von tiefem neuronalen Netzwerk darstellt. Transformer-Modelle sind dafür bekannt, sehr große und komplexe Datenmengen zu verarbeiten, was sie ideal für Aufgaben wie die Verarbeitung und Generierung natürlicher Sprache macht.\\
-Im Kern besteht das Modell aus mehreren Schichten von Neuronen, die in einer hierarchischen Struktur angeordnet sind. Diese Schichten sind in der Lage, komplexe Muster und Beziehungen in Daten zu erkennen und zu verarbeiten. In jedem Schritt der Verarbeitung durchläuft die Eingabe durch viele Schichten des Netzwerks, wobei jede Schicht die Daten auf eine andere Weise transformiert, bis am Ende eine Antwort generiert wird.\\
+Im Kern besteht das Modell aus mehreren Schichten von Neuronen, die in einer hierarchischen Struktur angeordnet sind. Diese Schichten sind in der Lage, komplexe Muster und Beziehungen in Daten zu erkennen und zu verarbeiten. In jedem Schritt der Verarbeitung durchläuft die Eingabe durch viele Schichten des Netzwerks, wobei jede Schicht die Daten auf eine andere Weise transformiert, bis am Ende eine Antwort generiert wird.\\[0.3cm]
+Die Entwicklung von ChatGPT besteht im Wesentlichen aus zwei Schritten:\\[0.2cm]
 %
-In diesem Sinne kann man sagen, dass ChatGPT auf einem sehr großen und tiefen neuronalen Netzwerk basiert, das speziell darauf trainiert wurde, menschliche Sprache zu verstehen und darauf zu reagieren.
+\textbf{1. Pretraining:} Pretraining ist einer der wichtigsten Schritte im Training von ChatGPT. In diesem Schritt wird das Modell mit einer riesigen Menge von Textdaten gefüttert, damit es allgemeine Sprachmuster und -strukturen lernt. \\
+%
+\textbf{2. Prompting:} Prompting hingegen ist die Art und Weise, wie ein Benutzer nach dem Training mit dem Modell interagiert. Es handelt sich um den Eingabeprozess, bei dem der Benutzer dem Modell eine Eingabe gibt, auf die es basierend auf seinem vorherigen Training antwortet.\\
+%
+\textbf{Anmerkung:} Prompting ist in gewisser Weise subjektiv, da es stark von der Formulierung und Absicht des menschlichen Benutzers abhängt. Die subjektive Meinung und das Feedback von menschlichen Trainern während des Trainingsprozesses spielen ebenfalls eine Rolle bei der Gestaltung des Verhaltens des Modells.\\[0.3cm]
+%
+\textbf{Zusammenfassung:} In diesem Sinne kann man sagen, dass ChatGPT auf einem sehr großen und tiefen neuronalen Netzwerk basiert, das speziell darauf trainiert wurde, menschliche Sprache zu verstehen und darauf zu reagieren.
 \subsubsection{Die Transformer-Architektur}
 %
 Die Transformer-Architektur wurde erstmals in dem 2017 veröffentlichten Paper \textit{"Attention is All You Need"} von Vaswani et al. vorgestellt. Sie hat die Verarbeitung natürlicher Sprache revolutioniert und weitgehend frühere Ansätze wie rekurrente neuronale Netze (RNNs) und Long Short-Term Memory-Netzwerke (LSTMs) ersetzt. Hier sind die Hauptkomponenten der Transformer-Architektur: \\[0.2cm]
 %
 \textbf{1. Encoder-Decoder-Struktur}\\
-Der Transformer besteht aus zwei Hauptteilen: einem \textbf{Encoder} und einem \textbf{Decoder}.\\
+Der Transformer besteht aus zwei Hauptteilen: einem \textbf{Encoder} und einem \textbf{Decoder}.
 \begin{itemize}
     \item \textbf{Encoder}: Der Encoder besteht aus mehreren identischen Schichten, die die Eingabesequenz verarbeiten. Jede Schicht hat zwei Hauptkomponenten: eine Selbstaufmerksamkeits-Schicht (\textit{Self-Attention Layer}) und eine Feedforward-Schicht (\textit{Fully Connected Layer}).
     \item \textbf{Decoder}: Der Decoder ist ähnlich aufgebaut wie der Encoder, aber mit einer zusätzlichen Schicht für die Aufmerksamkeit auf die Ausgabe des Encoders (\textit{Encoder-Decoder Attention}). Der Decoder erzeugt die Ausgabe Sequenz für Sequenz.
@@ -2736,7 +2743,8 @@ Nach der Multi-Head Attention folgt eine \textbf{Feedforward-Schicht}, die unabh
 Jede Subschicht im Encoder und Decoder ist von einer \textbf{Residual Connection} umgeben, die das Ergebnis der Subschicht mit ihrem Input kombiniert. Danach wird \textbf{Layer Normalization} angewendet, was die Konvergenz während des Trainings unterstützt.\\[0.2cm]
 %
 \textbf{7. Softmax Layer}\\
-Am Ende des Decoders steht eine \textbf{Softmax-Schicht}, die die Wahrscheinlichkeit für jedes Wort im Vokabular berechnet und das wahrscheinlichste Wort auswählt, um die Ausgabe zu erzeugen.\\
+Am Ende des Decoders steht eine \textbf{Softmax-Schicht}, die die Wahrscheinlichkeit für jedes Wort im Vokabular berechnet und das wahrscheinlichste Wort auswählt, um die Ausgabe zu erzeugen.
+%
 \subsubsection{Vorteile der Transformer-Architektur}
 \begin{itemize}
     \item \textbf{Parallelisierung}: Im Gegensatz zu RNNs, die sequenziell arbeiten, erlaubt der Transformer durch Self-Attention parallele Berechnungen, was das Training beschleunigt.
@@ -2746,7 +2754,7 @@ Am Ende des Decoders steht eine \textbf{Softmax-Schicht}, die die Wahrscheinlich
 
 \subsubsection{Anwendungen}
 Transformer-Modelle wie GPT (\textit{Generative Pre-trained Transformer}), BERT (\textit{Bidirectional Encoder Representations from Transformers}) und T5 (\textit{Text-To-Text Transfer Transformer}) haben bahnbrechende Ergebnisse in vielen NLP-Aufgaben erzielt, darunter maschinelle Übersetzung, Textklassifikation, Fragebeantwortung und Textgenerierung. \\[0.2cm] 
-**** Referenz: [Math for DL] ******** 
+**** Referenz: \textbf{[Math for DL]} ******** 
 \subsection{Mathematische Grundlagen von Faltungsnetzwerken}
 %
 Die mathematischen Grundlagen des {\color{blue}{Faltungsnetzwerke}}, Englisch auch oft {\color{blue}{Convolutional Neural Networks (CNN)}}\index{Convolutional Neural Network (CNN)} genannt, beruhen auf Konzepten aus linearen Algebra, partiellen Ableitungen und Faltung (Convolution). Ein CNN ist eine spezielle Art von neuronalem Netzwerk, das häufig in der Bild- und Sprachverarbeitung eingesetzt wird, aufgrund seiner Fähigkeit, räumliche Strukturen in Daten zu erkennen.
@@ -2757,7 +2765,7 @@ Hier sind die wichtigen mathematischen Grundlagen eines Convolutional Neural Net
 CNNs verwenden Matrizenoperationen, um Gewichte und Aktivierungen zu berechnen. Ein typischer Schritt in einem CNN ist die lineare Transformation, bei der Eingabedaten durch eine Gewichtsmatrix multipliziert und ein Bias addiert wird. Dies erzeugt die Aktivierungen der nächsten Schicht.\\[0.2cm]
 \textbf{2. Faltung (Convolution):}\\
 Die Faltung ist ein zentrales Konzept in CNNs. In einem CNN werden Filter (auch Kernel genannt) verwendet, um räumliche Merkmale aus den Eingabedaten zu extrahieren. Die Faltung erfolgt durch das Verschieben des Filters über die Eingabedaten und die Berechnung des Punktprodukts zwischen dem Filter und dem überlappenden Teil der Daten. Das Ergebnis ist ein sogenanntes Aktivierungsmuster oder Feature-Map, das die erkannten Merkmale anzeigt.\\[0.2cm]
-\textbf{3. Nichtlinearität (Aktivierungsfunktionen):}?\\
+\textbf{3. Nichtlinearität (Aktivierungsfunktionen):}\\
 Nach der Faltung wird in den meisten Schichten des CNN eine Nichtlinearität eingeführt, um die Expressivität des Netzwerks zu erhöhen. Eine Aktivierungsfunktion wie die ReLU (Rectified Linear Unit)\index{Rectified Linear Unit(ReLu)} \footnote{Eine ReLU (Rectified Linear Unit) ist eine Aktivierungsfunktion, die häufig in neuronalen Netzen verwendet wird, insbesondere in Deep Learning-Modellen. Die ReLU-Funktion gibt den Eingabewert zurück, wenn dieser positiv ist, und 0, wenn der Eingabewert negativ ist.} wird oft verwendet, um negative Werte zu eliminieren und nichtlineare Verzerrungen in den Daten zu erzeugen.\\[0.2cm]
 \textbf{4. Pooling:}\\
 Pooling ist ein weiterer wichtiger Schritt in CNNs, um die räumliche Dimension der Daten zu reduzieren und die Invarianz gegenüber leichten Translationen zu erreichen. Typischerweise wird Max-Pooling angewendet, bei dem der maximalste Wert aus einem kleinen Ausschnitt der Daten beibehalten wird.\\[0.2cm]
@@ -2765,7 +2773,7 @@ Pooling ist ein weiterer wichtiger Schritt in CNNs, um die räumliche Dimension 
 Wie bei anderen neuronalen Netzwerken werden CNNs mit dem Backpropagation-Algorithmus \index{Backpropagation} trainiert. Backpropagation verwendet die Kettenregel der partiellen Ableitungen, um die Gewichte des Netzwerks so anzupassen, dass der Fehler zwischen den vorhergesagten und tatsächlichen Ausgaben minimiert wird.\\[0.2cm]
 \textbf{6. Mehrschichtige Struktur:}\\
 CNNs bestehen aus mehreren Schichten, darunter Eingabeschicht, Faltungsschichten, Aktivierungsschichten, Pooling-Schichten und einer Ausgabeschicht.\\
-Die tieferen Schichten sind in der Lage, einfache Merkmale zu lernen, während die höheren Schichten komplexere Merkmale und Kombinationen von Merkmalen erfassen können.\\
+Die tieferen Schichten sind in der Lage, einfache Merkmale zu lernen, während die höheren Schichten komplexere Merkmale und Kombinationen von Merkmalen erfassen können.\\[0.3cm]
 Diese mathematischen Grundlagen ermöglichen es Convolutional Neural Networks, Merkmale aus Eingabedaten zu extrahieren und komplexe Muster zu lernen, was zu einer effektiven Verarbeitung von Bildern, Videos, Sprache und anderen räumlichen Daten führt.
 %
 \subsubsection{Mathematische Definition eines tiefen Neuronalen Netzes (DNN)}
@@ -3332,9 +3340,11 @@ Diese zufälligen Schwankungen können helfen, aus lokalen Minima herauszukommen
     \item \textit{RMSprop/Adam}: Diese Optimierungsalgorithmen passen die Lernrate dynamisch an, basierend auf den Gradientenverläufen, was oft zu einem effizienteren Auffinden von globalen Minima führt.
 \end{itemize}
 %
-\textbf{Anmerkung:}\\ 
-Die Lösung mit den SGD Verfahren soll in Übung 8.5 durchgeführt werden.\\
-
+\textbf{Anmerkung1:} Das Stochastic Gradient Descent (SGD) wird bei neuronalen Netzen gegenüber dem klassischen (Batch) Gradient Descent (GD) bevorzugt. \\
+GD führt bei jeden Schritt den Algorithmus über den gesamten Datensatz aus. Das ist bei sehr großen Datensätzen extrem rechenaufwändig und langsam. \\
+Im Gegensatz dazu verwendet SGD zufällig ausgewählte Minibatches (meist nur ein kleiner Teil der Daten), um bei jedem Schritt den Gradienten zu berechnen. Dadurch kann es häufiger Updates durchführen, was zu einer schnelleren Konvergenz führt.\\[0.3cm]
+%
+\textbf{Anmerkung2:} Die Lösung mit den SGD Verfahren soll für obiges Beispiel in Übung 8.5 durchgeführt werden.
 \subsubsection{Langsames Konvergieren}
 
 Backpropagation kann, besonders bei tieferen Netzwerken, sehr langsam konvergieren, da die Gewichtsaktualisierungen oft nur geringfügig sind. Dies führt zu langen Trainingszeiten, insbesondere bei großen und komplexen Datensätzen.\\
@@ -3423,26 +3433,25 @@ Beschreibe das Vorgehen für das Beispiel im Unterkapitel 8.4.3 mit einem Latex 
 \newpage
 
 
-\section{Anhänge\\}
+\section{Anhänge}
 
-In den Anhängen werden einige weitere Verfahren des Maschinellen Lernens der Vollständigkeit halber erwähnt - ohne zu sehr in die inhaltlich Tiefe zu gehen. Zukünftig können jedoch diesem Themen in einer erweiterten Version des Skriptes durchaus nochmals aufgegriffen werden.  \\[0.2cm]
-
+In den Anhängen werden einige weitere Verfahren des Maschinellen Lernens der Vollständigkeit halber erwähnt - ohne zu sehr in die inhaltliche Tiefe zu gehen. Zukünftig können jedoch diesem Themen in einer erweiterten Version des Skriptes durchaus nochmals aufgegriffen werden. 
 
 \subsection{Empfehlungssysteme "Recommender Systems" (LinAlgebra)}
-Die mathematischen Grundlagen von Recommender Systems (auch als Empfehlungssysteme bezeichnet) hängen von der spezifischen Art des Empfehlungssystems ab. Es gibt verschiedene Ansätze und Modelle, die in Recommender Systems verwendet werden, um Empfehlungen für Benutzer zu generieren.\\
-Hier sind einige der wichtigsten mathematischen Grundlagen:\\
-
+Die mathematischen Grundlagen von Recommender Systems (auch als Empfehlungssysteme bezeichnet) hängen von der spezifischen Art des Empfehlungssystems ab. Es gibt verschiedene Ansätze und Modelle, die in Recommender Systems verwendet werden, um Empfehlungen für Benutzer zu generieren. Hier sind einige der wichtigsten mathematischen Grundlagen:\\[0.3cm]
+%
 \textbf{1. Collaborative Filtering (Kollaborative Filterung):} Bei der kollaborativen Filterung werden Empfehlungen basierend auf der Ähnlichkeit zwischen Benutzern oder Objekten generiert. Diese Ähnlichkeit kann durch Berechnung von Ähnlichkeitsmetriken wie der Kosinusähnlichkeit oder der Pearson-Korrelation zwischen Benutzern oder Objekten ermittelt werden.\\
-
-\textbf{2. Matrix Factorization (Matrizenfaktorisierung):} Dies ist eine Technik, bei der die Bewertungen von Benutzern für Objekte in eine niedrigdimensionale latente Raum eingebettet werden. Diese Einbettung ermöglicht es, die Bewertungen als Produkte von latenten Benutzer- und Objektvektoren darzustellen. Die Matrix wird in zwei niedrigdimensionale Matrizen (Benutzermatrix und Objektmatrix) zerlegt, und Empfehlungen werden basierend auf den latenten Vektoren berechnet.\\
-
+%
+\textbf{2. Matrix Factorization (Matrizenfaktorisierung):} Dies ist eine Technik, bei der die Bewertungen von Benutzern für Objekte in einen niedrigdimensionalen latenten Raum eingebettet werden. Diese Einbettung ermöglicht es, die Bewertungen als Produkte von latenten Benutzer- und Objektvektoren darzustellen. Die Matrix wird in zwei niedrigdimensionalen Matrizen (Benutzermatrix und Objektmatrix) zerlegt, und Empfehlungen werden basierend auf den latenten Vektoren berechnet.\\
+%
 \textbf{3. Content-Based Filtering (Inhaltsbasierte Filterung):} Hier werden Empfehlungen basierend auf den Merkmalen (Eigenschaften) der Objekte und den Präferenzen der Benutzer generiert. Ähnlichkeiten zwischen Objekten werden durch Ähnlichkeitsmaße wie den Kosinusähnlichkeitswert der Merkmale berechnet.\\
+%
 \textbf{4. Singular Value Decomposition (SVD):} SVD ist eine Technik der linearen Algebra, die zur Dimensionsreduktion und Matrizenfaktorisierung verwendet wird. Im Zusammenhang mit Recommender Systems wird SVD häufig in der Matrixfaktorisierung für kollaborative Filterung angewendet.\\
-
-\textbf{5. ** Deep Learning **:} In den letzten Jahren haben Recommender Systems auch von den Fortschritten im Bereich des Deep Learning profitiert. Hier werden neuronale Netzwerke verwendet, um komplexe Muster in den Daten zu lernen und präzisere Empfehlungen zu generieren.\\
-
+%
+\textbf{5. Deep Learning:} In den letzten Jahren haben Recommender Systems auch von den Fortschritten im Bereich des Deep Learning profitiert. Hier werden neuronale Netzwerke verwendet, um komplexe Muster in den Daten zu lernen und präzisere Empfehlungen zu generieren.\\
+%
 \textbf{6. Evaluation Metrics (Auswertungsmetriken):} Um die Leistung von Recommender Systems zu bewerten, werden verschiedene Auswertungsmetriken verwendet, wie zum Beispiel Genauigkeit, Trefferquote, Mittlere absolute Fehler (MAE) oder Mittlere quadratische Abweichung (MSE).\\[0.2cm]
-
+%
 \textbf{Zusammenfassung:} Je nach Art des Recommender Systems können weitere mathematische Konzepte und Modelle involviert sein. Die Grundlagen der Mathematik und Statistik spielen jedoch eine entscheidende Rolle bei der Modellierung, Berechnung und Bewertung von Empfehlungssystemen, um nützliche und relevante Empfehlungen für die Benutzer zu generieren.\\
 
 
