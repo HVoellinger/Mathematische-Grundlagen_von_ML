@@ -97,7 +97,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.91 (Datum: 01.10.2024) ist nicht final!!! \\
+Diese Version V0.91 (Datum: 07.10.2024) ist nicht final!!! \\
 {\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.91.pdf} \\
@@ -160,13 +160,13 @@ Die Leser sollen befähigt werden, die Mathematik hinter den ML Anwendungen zu v
 
 \subsection{Brücke "DWH nach ML"im "3-Insel-Titelbild"}
 Neben der Brücke zwischen Mathematik und ML, die den Hauptfokus der Arbeit darstellt, ist jedoch auch die Brücke zwischen DWH/Data-Management und ML wichtig, die einen essentiellen Input für das Verständnis von ML Modellen liefert. Zu diesem Thema werde ich in diesem  Unterkapitel einige wichtige Anmerkungen und Aussagen machen.\\[0.1cm]
-Über diese Brücke fließen nicht nur Daten sondern auch Metadaten. Metadaten sind für das Verständnis eines DWH sehr wichtig. Siehe auch dazu die Vorlesung zu Thema DWH [HVö-LecDWH23].\\
+Über diese Brücke fließen nicht nur Daten sondern auch Metadaten. Metadaten sind für das Verständnis eines DWH sehr wichtig. Siehe auch dazu die Vorlesung zu Thema DWH, siehe \textbf{[HVö-LecDWH23]}.\\
 Diese Metadaten spielen jedoch auch ein wertvolle Rolle bei der Entwicklung von ML Algorithmen und Modellen. Insbesondere wenn wir hier an das Thema vom Aufbau grosser Sprachmodelle (aka LLM) denken. Die Idee besteht darin, das Wissen dieser Metadaten in die sogenannten "Knowledge Graphen" (KG) zu übertragen. Die KGs können LLMs verbessern, indem sie externes Wissen für Inferenz und Interpretierbarkeit zur Verfügung zu stellen. Siehe hierzu in Fig.1 auch das Thema "Domain-specific Knowledge" in [LLMsAndKGs]. Die Rolle von KGs und ihr Zusammenspiel mit LLMs ist sehr gut in der Referenz [LLMsAndKGs] beschrieben.\\
-KGs sind jedoch schwer zu konstruieren und entwickeln sich von Natur aus weiter, was eine Herausforderung für die bestehenden Methoden der KGs darstellt. Aus diesem Grund ist der Beitrag den die Metadaten des DWH/Data-Management leisten können so wichtig. \\
-Siehe hierzu auch das Kapitel im Anhang über LLM's (i.e. ChatGPT)\index{ChatGPT}.
-\\[0.2cm] 
-%
+KGs sind jedoch schwer zu konstruieren und entwickeln sich von Natur aus weiter, was eine Herausforderung für die bestehenden Methoden der KGs darstellt. Aus diesem Grund ist der Beitrag den die Metadaten des DWH/Data-Management leisten können so wichtig. Siehe hierzu auch das Kapitel im Anhang über LLM's (i.e. ChatGPT)\index{ChatGPT}. \\ 
 Wo stecken also diese Metadaten im DWH? Hier möchte ich beispielhaft zwei Werkzeuge erwähnen und zwar die Werkzeuge zur Datenmodellierung (z.B. Infosphere Data Architect -IDA) und Data Governance (z.B. Infosphere Governance Catalog - IGC). Beide Werkzeuge wurden ausführlich in der DWH Vorlesung (siehe [HVö-LecDWH23], Seite 25 und Seiten 130-132) besprochen. \\[0.1cm] 
+%
+Die Brücke zwischen DWH/Data-Management und ML kann jedoch auch in umgekehrter Richtung genutzt werden: Beispiele sind die Anwendung von KI zur Automatisierung oder Rationalisierung von Datenerfassung, Datenbereinigung, Datenanalyse, Datensicherheit und anderen Datenverwaltungsprozessen. Sowohl traditionelle, regelbasierte KI als auch fortschrittlichere generative KI-Modelle können bei der Datenverwaltung helfen.
+
 \subsubsection{Details zu IDA und IGC}
 \textbf{IDA:} IBM InfoSphere Data Architect ist eine kollaborative Lösung für die Modellierung und das Design von Unternehmensdaten, die das Integrationsdesign für Business Intelligence-, Master Data Management- und Service-orientierte Architekturinitiativen vereinfacht und beschleunigt. IDA ermöglicht die Zusammenarbeit mit Anwendern in jedem Schritt des Datendesignprozesses, vom Projektmanagement über das Anwendungsdesign bis hin zum Datendesign. Das Tool hilft dabei, Prozesse, Dienste, Anwendungen und Datenarchitekturen aufeinander abzustimmen. Sehen Sie in [DHBW-Moodle] das Video: 'Demo-Infosphere Data Architect (IDA).mp4'. \\
 Als weiteres Hilfsmittel zur Erstellung von Domänen spezifischen Datenmodellen bietet die Firma IBM auch eine Reihe von Industriemodellen an, siehe etwa "BDW" (Banking Data Warehouse) oder "IIW"  (Insurance Information Warehouse). Vergleiche hierzu auch die Referenz [BDW+IIW]. Weitere Industriemodelle gibt es aber auch für die Domänen "Financial Services (FSDM)", "Healthcare (HDM)", "Telecommunications (TDW)", "Retail (RDW)" und "Energy and Utilities" (EUDM). \\
@@ -2694,14 +2694,38 @@ Schreiben Sie den Python Code zur Generierung der zwei Hyperebenen im 2-dim. Bei
 
 \newpage
 
-\section{Neuronale Netzwerk, insbesondere Tiefe Neuronale Netzwerke }
+\section{Neuronale Netzwerke, insbesondere Tiefe Neuronale Netzwerke }
 
-\textbf{Neuronale Faltungsnetzwerke} sind eine spezielle Art von künstlichen neuronalen Netzwerken \footnote{Neuronale Netze sind dynamische Systeme, die aus einfach aufgebauten Einheiten, den Neuronen, bestehen, die über ein System von gerichteten Verbindungen miteinander wechselwirken. Sie wurden ursprünglich zur mehr oder weniger vereinfachten und idealisierten Modellierung biologischer Neuronenverbände entwickelt. Man spricht deshalb zur Unterscheidung von den natürlichen Systemen auch von künstlichen neuronalen Netzen, englisch Artificial Neural Networks}, die hauptsächlich für die Verarbeitung von strukturierten Daten wie Bildern oder anderen Gitterdaten entwickelt wurden. Sie sind besonders effektiv bei der Extraktion von Merkmalen aus solchen Daten, was sie ideal für Aufgaben wie Bilderkennung und Bildklassifikation macht.
-\\
-Der Name "Faltungsnetzwerke" leitet sich von der \textbf{Faltungsoperation} ab, die in diesen Netzwerken eine wichtige Rolle spielt. Diese Operation ermöglicht es, lokale Merkmale oder Muster in den Eingabedaten zu erkennen, indem sie über die Daten "geschoben" wird. Diese Merkmale werden dann auf höheren Ebenen des Netzwerks kombiniert, um komplexere Muster und Strukturen zu identifizieren.\\
-{\color{blue}{Faltungsnetzwerke)}}\index{Faltungsnetzwerke} sind eine spezielle Art von \textbf {Deep-Learning-Modellen}. Insgesamt bezieht sich "Deep Learning" auf den Einsatz von neuronalen Netzwerken mit mehreren Schichten (daher "tief") für das Lernen von Darstellungen und Mustern in Daten. Faltungsnetztwerke sind nur eine von vielen Architekturen im Bereich des Deep Learning.\\
-Ein DNN besteht neben dem Eingabe- und Ausgabe-Schicht noch aus sehr vielen weiteren "versteckten" Schichten ("Hidden Layers"). Jede Schicht(Layer) enthält eine bestimmte Anzahl von Neuronen oder Aktivierungseinheiten.\\
-DNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispiel in der Bilderkennung, Gesichtserkennung, medizinischen Bildverarbeitung und sogar in der natürlichen Sprachverarbeitung (mit Modellen wie den sogenannten "Convolutional Seq2Seq" Modellen) weit verbreitet.
+Neuronale Netzwerke sind eine spezielle Art von \textbf{künstlichen neuronalen Netzwerken (KNN)} \index{Künstliche Neuronale Netzwerke (KNN)} \footnote{Neuronale Netze sind dynamische Systeme, die aus einfach aufgebauten Einheiten, den Neuronen, bestehen, die über ein System von gerichteten Verbindungen miteinander wechselwirken. Sie wurden ursprünglich zur mehr oder weniger vereinfachten und idealisierten Modellierung biologischer Neuronenverbände entwickelt. Man spricht deshalb zur Unterscheidung von den natürlichen Systemen auch von künstlichen neuronalen Netzen, (Englisch: "Artificial Neural Networks")}.
+Ein \textbf{Deep Neural Network (DNN)} \index{Deep Neural Network (DNN)}ist ein allgemeiner Begriff, der für tiefe neuronale Netzwerke steht. Ein DNN besteht neben dem Eingabe- und Ausgabe-Schicht noch aus sehr vielen weiteren "versteckten" Schichten ("Hidden Layers"). Jede Schicht (Layer) enthält eine bestimmte Anzahl von Neuronen oder Aktivierungseinheiten. DNNs haben in den letzten Jahren große Fortschritte erzielt und sind zum Beispiel in der Bilderkennung, Gesichtserkennung, medizinischen Bildverarbeitung und sogar in der natürlichen Sprachverarbeitung (mit Modellen wie den sogenannten "Convolutional Seq2Seq" Modellen) weit verbreitet.\\
+Eine spezielle Art von DNN ist ein \textbf{Convolutional Neural Network (CNN)} \index{Convolutional Neural Network (CNN)} (in Deutsch "Faltungsnetz"), das insbesondere für Aufgaben wie die Bildverarbeitung entwickelt wurde. CNNs nutzen eine spezielle Schicht, die sogenannte Faltungsschicht (Convolutional Layer), um Muster in den Eingabedaten zu erkennen. Die Faltungsschichten extrahieren Merkmale aus Daten, indem sie kleine Filter verwenden, die über die Eingabedaten gleiten (falten), um Merkmale wie Kanten oder Texturen zu identifizieren. Sie sind besonders effektiv bei der Extraktion von Merkmalen aus solchen Daten, was sie ideal für Aufgaben wie Bilderkennung und Bildklassifikation macht.%
+\subsubsection{Kann ein KNN von der Struktur eines menschlichen Gehirns lernen?} 
+1. \textbf{Neuronen und Synapsen vs. Parameter}:
+   \begin{itemize}
+       \item Das menschliche Gehirn hat etwa \textbf{86 Milliarden Neuronen} und bis zu \textbf{1 Billiarde Synapsen}. Diese Synapsen sind Verbindungen, durch die Neuronen Signale senden und empfangen.
+       \item Ein großes KI-Modell wie GPT-3 hat \textbf{175 Milliarden Parameter}, was in etwa der Größenordnung von Neuronen im Gehirn entspricht. Diese Parameter stellen jedoch Gewichte in einem künstlichen neuronalen Netz dar und keine Verbindungen im biologischen Sinne.
+   \end{itemize}
+%
+2. \textbf{Flexibilität und Lernen}:
+   \begin{itemize}
+       \item Das menschliche Gehirn ist in der Lage, \textbf{dynamisch zu generalisieren}, zu lernen und sich an neue Informationen und Umgebungen anzupassen. Lernen im Gehirn basiert auf plastischen Veränderungen der Synapsen.
+       \item KI-Modelle wie GPT-3 \textbf{lernen nur während des Trainingsprozesses}. Nach dem Training sind die Parameter festgelegt, und das Modell passt sich nicht an neue Daten an, ohne erneut trainiert zu werden.
+   \end{itemize}
+%   
+3. \textbf{Energieeffizienz}:
+   \begin{itemize}
+       \item Das menschliche Gehirn ist extrem energieeffizient und verbraucht etwa \textbf{20 Watt}. Es kann mit einer geringen Energiemenge komplexe Aufgaben ausführen.
+       \item GPT-3 benötigt erhebliche Rechenressourcen und viel Energie, besonders während des Trainings.
+   \end{itemize}
+%   
+4. \textbf{Generalisation}:
+   \begin{itemize}
+       \item Das menschliche Gehirn hat eine natürliche Fähigkeit zur \textbf{Generalisation} und kann aus wenigen Beispielen lernen und dieses Wissen auf neue Situationen anwenden.
+       \item KI-Modelle generalisieren oft basierend auf großen Mengen von Trainingsdaten und können bei neuen oder seltenen Szenarien Schwierigkeiten haben.
+   \end{itemize}
+%
+Zusammengefasst übersteigen die Parameter von GPT-3 zwar die Anzahl der Neuronen im menschlichen Gehirn, aber die \textbf{Komplexität, Flexibilität und Lernfähigkeit} des menschlichen Gehirns sind weitaus fortschrittlicher und effizienter.
+%
 \subsection{Anwendung von DNN - "ChatGPT"}
 %
 {\color{blue}{ChatGPT}} \index{ChatGPT}ist eine der bekanntesten Anwendungen von DNN's mit erstaunlichen Ergebnissen.\\
