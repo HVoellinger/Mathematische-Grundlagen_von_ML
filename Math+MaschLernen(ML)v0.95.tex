@@ -2668,7 +2668,124 @@ Ein mögliches Ergebnis könnte wie folgt aussehen: \\[0.5cm]
   \caption{SVM Kernel-Trick(2D-3D) Beispiel}    
   \label{fig:SVM_2D-3D}
 \end{figure}
+
+\subsection{Mathematische Grundlagen der Support Vector
+Machines (SVM)}
+
+\textbf{1. Einführung:}\\
+Support Vector Machines (SVMs) sind ein überwacht lernendes Modell, das vor allem für Klassifizierungsprobleme verwendet wird, aber auch für Regression anwendbar ist. Das Ziel ist, eine Hyperebene zu finden, die zwei Klassen in einem hochdimensionalen Raum trennt. Die mathematische Grundlage von SVM basiert auf Konzepten aus der linearen Algebra, Optimierungstheorie und Statistik.\\[0.2cm]
 %
+\textbf{2. Lineare Klassifikatoren:}\\
+Gegeben eine Trainingsmenge bestehend aus Paaren \((x_i, y_i)\), wobei
+\[
+x_i \in \mathbb{R}^n \quad \text{und} \quad y_i \in \{-1, 1\}
+\]
+ist, besteht das Ziel darin, eine Hyperebene zu finden, die die Datenpunkte trennt. Eine Hyperebene in einem \(n\)-dimensionalen Raum wird durch
+\[
+w \cdot x + b = 0
+\]
+definiert, wobei \(w\) der Normalenvektor der Hyperebene ist und \(b\) der Bias. \\[0.2cm]
+%
+\textbf{3. Maximierung des Margins:}\\
+SVM strebt danach, den Abstand (Margin) zwischen den zwei Klassen zu maximieren. Der Margin wird als der Abstand zwischen der Hyperebene und den nächsten Punkten der beiden Klassen (Support-Vektoren) definiert. Für korrekt klassifizierte Punkte gilt:
+\[
+y_i (w \cdot x_i + b) \geq 1
+\]
+
+Das Ziel ist, die Norm des Vektors \(w\) zu minimieren, was zu folgendem Optimierungsproblem führt:
+\[
+\min_w \frac{1}{2} \|w\|^2
+\]
+unter der Nebenbedingung:
+\[
+y_i (w \cdot x_i + b) \geq 1 \quad \forall i
+\]\\
+\textbf{4. Der Lagrange-Ansatz und das Dualproblem:} \\
+Um das Problem zu lösen, werden Lagrange-Multiplikatoren \(\alpha_i\) eingeführt. Die Lagrange-Funktion lautet:
+\[
+L(w, b, \alpha) = \frac{1}{2} \|w\|^2 - \sum_{i=1}^N \alpha_i [y_i (w \cdot x_i + b) - 1]
+\]
+%
+Durch Optimierung der Lagrange-Funktion wird das Dualproblem:
+\[
+\max_{\alpha} \sum_{i=1}^N \alpha_i - \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j (x_i \cdot x_j)
+\]
+unter den Nebenbedingungen:
+\[
+\sum_{i=1}^N \alpha_i y_i = 0, \quad \alpha_i \geq 0
+\]
+%
+Die Lösung dieses Dualproblems liefert die Lagrange-Multiplikatoren \(\alpha_i\), und der optimale Gewichtsvektor \(w\) kann als Linearkombination der Support-Vektoren ausgedrückt werden.\\[0.2cm]
+%
+\textbf{5. Nicht-lineare Klassifikation: Der Kernel-Trick:}\\
+Für nicht linear trennbare Daten erweitert man das SVM durch den sogenannten **Kernel-Trick**. Hierbei werden die Eingabedaten in einen höherdimensionalen Raum abgebildet, in dem eine lineare Trennung möglich ist. Der Kernel \(K(x_i, x_j)\) berechnet das Skalarprodukt in diesem Raum:
+\[
+K(x_i, x_j) = \phi(x_i) \cdot \phi(x_j)
+\]
+%
+Gängige Kernel-Funktionen sind:
+\begin{itemize}
+    \item \textbf{Linear kernel:} \( K(x_i, x_j) = x_i \cdot x_j \)
+    \item \textbf{Polynomial kernel:} \( K(x_i, x_j) = (x_i \cdot x_j + 1)^d \)
+    \item \textbf{RBF (Gaussian) kernel:} \( K(x_i, x_j) = \exp(-\gamma \|x_i - x_j\|^2) \)
+\end{itemize}
+%
+Anmerkung: RBF = Radial-Basis-Funktion.\\[0.3cm]
+%
+\textbf{6. Soft Margin für nicht trennbare Daten:}\\
+Falls die Daten nicht perfekt trennbar sind, wird das Konzept des "Soft Margin" eingeführt. Hierbei werden sogenannte "Slack-Variablen" \(\xi_i\) für jedes Datenpunkt hinzugefügt, sodass auch Fehlklassifizierungen erlaubt sind:\\
+\[
+\min_w \frac{1}{2} \|w\|^2 + C \sum_{i=1}^N \xi_i
+\]
+unter der Nebenbedingung:
+\[
+y_i (w \cdot x_i + b) \geq 1 - \xi_i, \quad \xi_i \geq 0
+\]\\
+%
+Der Parameter \(C\) reguliert dabei den Kompromiss zwischen der Maximierung des Margins und der Minimierung der Fehlklassifikationen.\\[0.3cm]
+%
+\textbf{7. Support Vector Regression (SVR):}\\
+SVM kann auch für Regressionsprobleme verwendet werden, was als **Support Vector Regression (SVR)** bekannt ist. Dabei wird versucht, eine Funktion zu finden, die innerhalb eines Toleranzbereichs \(\epsilon\) von den Zielwerten abweicht. Das Optimierungsproblem lautet:\\
+\[
+\min_w \frac{1}{2} \|w\|^2 + C \sum_{i=1}^N (\xi_i + \xi_i^*)
+\]\\
+unter den Nebenbedingungen:
+\[
+y_i - (w \cdot x_i + b) \leq \epsilon + \xi_i
+\]
+\[
+(w \cdot x_i + b) - y_i \leq \epsilon + \xi_i^*, \quad \xi_i, \xi_i^* \geq 0
+\]\\
+%
+\textbf{8. Fazit:}\\
+SVM ist ein robustes Klassifikations- und Regressionsverfahren mit soliden mathematischen Grundlagen. Es basiert auf der Maximierung des Margins, der Verwendung von Lagrange-Multiplikatoren und dem Kernel-Trick, um nicht-lineare und nicht-trennbare Daten zu behandeln.
+%
+\subsection{Konkrete Beispiele für SVM}
+%
+
+\subsubsection{Lineare Trennbarkeit - Beispiel Irisblumen}
+%
+Beispiel: Klassifikation von zwei Iris-Blumenarten mit SVM
+Wir verwenden den bekannten Iris-Datensatz, der Informationen über drei Arten von Iris-Blumen enthält: Iris Setosa, Iris Versicolor und Iris Virginica. Jede Blume wird durch vier Merkmale beschrieben:\\
+%
+Sepallänge (in cm)\\
+Sepalbreite (in cm)\\
+Petallänge (in cm)\\
+Petalbreite (in cm)\\[0.2cm]
+%
+Zur Vereinfachung beschränken wir uns auf zwei Arten von Blumen (Iris Setosa und Iris Versicolor) und zwei Merkmale (Petallänge und Petalbreite).\\
+Hier kann man eine Lineare Trennbarkeit erreichen. Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Irisblume.pdf}} 
+%
+\subsubsection{Beispiel für Nutzung des Kernel-Tricks}
+%
+Ist eine Lineare Trennbarkeit nicht mehr erreichbar, nutzen wir den Kernel-Trick (siehe Kapitel über Mathematische Grundlagen des SVM).\\ 
+Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_RBF_Kernel.pdf}}\\[0.2cm] 
+
+
+
+ 
 \newpage
 
 \subsection{Übungen zum Kapitel 7}
