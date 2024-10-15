@@ -2587,14 +2587,12 @@ Unter den Bedingungen: $y_i \cdot (w \cdot x_i + b) \geq 1$ für alle Datenpunkt
 \end{center}
 \textbf{3. Kernel-Trick:}\\
 In Fällen, in denen die Daten nicht linear separierbar sind, kann der sogenannte  {\color{blue}{Kernel-Trick}} \index{Kernel-Trick} angewendet werden. Der Kernel-Trick ermöglicht es, die Daten in einen höherdimensionalen Raum zu transformieren, in dem sie linear separierbar werden. Beliebte Kernel-Funktionen sind beispielsweise der lineare Kernel, der polynomiale Kernel und der RBF (Radial Basis Function) Kernel.\\
-
+%
 \textbf{Anmerkung: Wie kommt es zu dem Namen "Kernel-Trick"?}\\
 Der Name "Kernel" kommt daher, dass in der mathematischen Darstellung der SVM die Funktion, die die Datenpunkte in den höherdimensionalen Raum transformiert, als Kernel-Funktion bezeichnet wird.\\
-
+%
 Dies sind die grundlegenden mathematischen Grundlagen der Support Vector Machine. SVM ist eine äußerst flexible und leistungsfähige Methode, die in vielen Anwendungen erfolgreich eingesetzt wird.\\
-
-*** Weitere Kapitel Texte *** 
-
+%
 \subsection{Funktionsweise im Detail}
 
 Ausgangsbasis für den Bau einer {\color{blue}{Support Vector Machine}} \index{Support Vector Machines}ist eine Menge von Trainingsobjekten, für die jeweils bekannt ist, welcher Klasse sie zugehören. Jedes Objekt wird durch einen Vektor in einem Vektorraum repräsentiert. Aufgabe der Support Vector Machine ist es, in diesen Raum eine Hyperebene einzupassen, die als Trennfläche fungiert und die Trainingsobjekte in zwei Klassen teilt. Der Abstand derjenigen Vektoren, die der Hyperebene am nächsten liegen, wird dabei maximiert. Dieser breite, leere Rand soll später dafür sorgen, dass auch Objekte, die nicht genau den Trainingsobjekten entsprechen, möglichst zuverlässig klassifiziert werden.
@@ -2621,10 +2619,10 @@ Sowohl lineare als auch nichtlineare Support Vector Machines lassen sich durch z
 Stellen wir uns ein einfaches und anschauliches Beispiel in $\mathbb{R}^2$ vor, bei dem die Datenpunkte im ursprünglichen Raum $(x_1,x_2)$ nicht linear trennbar sind.\\ 
 Gesucht ist dann eine Abbildung $\Phi:\mathbb{R}^2 \rightarrow\mathbb{R}^3$, so das die Datenpunkte im höherdimensionalen Raum $(x,y,z)\in  \mathbb{R}^3$ linear trennbar sind.\\ 
 Der Kernel-Trick ermöglicht es der SVM, die Entscheidungsgrenze in diesem höherdimensionalen Raum zu finden, ohne die zusätzlichen Merkmale $z$ tatsächlich berechnen zu müssen:\\ 
-\subsubsection{Definition des Kernel-Trick Beispieles}
+\subsubsection{Definition des Kernel-Trick Beispieles (geometrisch)}
 Gegeben sind die folgenden Datenpunkte: {\color{red}{Klasse +1: A(1,1), B(-1,1)}} und {\color{blue}{Klasse -1: C(2,1), D(1,-2) und E(-2,1)}}.\\
 In diesem Beispiel sind die Datenpunkte nicht linear trennbar (siehe auch nachfolgende Skizze). Es gibt keine gerade Linie, die die Punkte der {\color{red}{Klasse +1}} von den Punkten der {\color{blue}{Klasse -1}} perfekt trennen kann.\\
-Jetzt wenden wir den Kernel-Trick an, um die Daten in $\mathbb{R}^3$ zu transformieren. Hier verwenden wir den polynomiellen Kernel über die folgende Transformation an: 
+Jetzt wenden wir einen "geometrischen" Kernel-Trick an, um die Daten in $\mathbb{R}^3$ zu transformieren. Hier verwenden wir nicht den polynomiellen Kernel sondern eine geometrische Variante über die folgende Transformation an: 
 \begin{center}
  $\Phi:\mathbb{R}^2 \rightarrow\mathbb{R}^3$ definiert durch  $\Phi(x_1,x_2) = (x_1,x_2, x_1^2 + x_2^2)$. 
 \end{center} 
@@ -2777,15 +2775,43 @@ Zur Vereinfachung beschränken wir uns auf zwei Arten von Blumen (Iris Setosa un
 Hier kann man eine Lineare Trennbarkeit erreichen. Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Irisblume.pdf}} 
 %
-\subsubsection{Beispiel für Nutzung des Kernel-Tricks}
+\subsubsection{Polynom-Beispiel (Grad-2) für 2-dim. geometrisches Bsp.}
+%
+Ist eine lineare Trennbarkeit nicht mehr erreichbar, nutzen wir den Kernel-Trick (siehe Kapitel über Mathematische Grundlagen des SVM) zum Beispiel mit einem Polynom vom Grad d= 2: \( K(x_i, x_j) = (x_i \cdot x_j + 1)^d \)\\[0.2cm]
+%
+Der Kernel-Trick transformiert $ (x_1, x_2) \in \mathbb{R}^2$ zu Daten $ (z_1, z_2, z_3, z_4, z_5, z_6) \in \mathbb{R}^6$: 
+\begin{center}
+Die Transformation $\Phi:\mathbb{R}^3 \rightarrow\mathbb{R}^6$ ist definiert durch: \\[0.2cm]
+ $\Phi(x_1,x_2) = (x_1^2, x_2^2, \sqrt[2]{2} \cdot x_1 \cdot x_2, \sqrt[2]{2} \cdot x_1, \sqrt[2]{2} \cdot x_2, 1)$. 
+\end{center} 
+%
+Wenn wir die Hyperebene in den ursprünglichen 2D-Raum zurückprojizieren, erhalten wir eine nichtlineare Trennkurve.\\
+Durch das Einsetzen der neuen Merkmale in die ursprünglichen Variablen $ x_1, x_2 $ (durch Rücksubstitution von $ z_1, z_2,...,z_6$) ergibt sich eine quadratische Gleichung in $x_1,x_2$
+die eine Kurve beschreibt, wie eine Ellipse, Parabel oder Hyperbel:
+%
+\begin{center}
+$ w_1 \cdot x_1^2 + w_2 \cdot x_2^2 + w_3 \cdot \sqrt[2]{2} \cdot x_1 \cdot x_2 + w_4 \cdot \sqrt[2]{2} \cdot x_1 + w_5 \cdot \sqrt[2]{2} \cdot x_2 + w_6 $. 
+\end{center}
+%
+Diese quadratische Gleichung definiert die nichtlineare Trennkurve im ursprünglichen 2D-Raum.\\[0.2cm]
+%
+\textbf{Fazit:}
+\begin{itemize}
+    \item Der polynomiale Kernel der Ordnung 2 transformiert die Datenpunkte aus dem 2D-Raum in einen 6-dimensionalen Raum mit den neuen Koordinaten $ (z_1, ...z_6) $
+    \item Im 6D-Raum wird eine lineare Hyperebene gefunden, die die Daten trennt.
+    \item Bei der Rücktransformation in den ursprünglichen 2D-Raum entspricht diese lineare Hyperebene einer nichtlinearen Trennkurve, die durch obige quadratische Gleichung beschrieben wird.
+\end{itemize}
+%
+Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Trennlinie(2D).pdf}}\\[0.2cm] 
+
+\subsubsection{RBF-Beispiel für Nutzung des Kernel-Tricks}
 %
 Ist eine Lineare Trennbarkeit nicht mehr erreichbar, nutzen wir den Kernel-Trick (siehe Kapitel über Mathematische Grundlagen des SVM).\\ 
 Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_RBF_Kernel.pdf}}\\[0.2cm] 
 
 
-
- 
 \newpage
 
 \subsection{Übungen zum Kapitel 7}
