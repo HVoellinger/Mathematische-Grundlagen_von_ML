@@ -2593,6 +2593,8 @@ Der Name "Kernel" kommt daher, dass in der mathematischen Darstellung der SVM di
 %
 Dies sind die grundlegenden mathematischen Grundlagen der Support Vector Machine. SVM ist eine äußerst flexible und leistungsfähige Methode, die in vielen Anwendungen erfolgreich eingesetzt wird.\\
 %
+
+
 \subsection{Funktionsweise im Detail}
 
 Ausgangsbasis für den Bau einer {\color{blue}{Support Vector Machine}} \index{Support Vector Machines}ist eine Menge von Trainingsobjekten, für die jeweils bekannt ist, welcher Klasse sie zugehören. Jedes Objekt wird durch einen Vektor in einem Vektorraum repräsentiert. Aufgabe der Support Vector Machine ist es, in diesen Raum eine Hyperebene einzupassen, die als Trennfläche fungiert und die Trainingsobjekte in zwei Klassen teilt. Der Abstand derjenigen Vektoren, die der Hyperebene am nächsten liegen, wird dabei maximiert. Dieser breite, leere Rand soll später dafür sorgen, dass auch Objekte, die nicht genau den Trainingsobjekten entsprechen, möglichst zuverlässig klassifiziert werden.
@@ -2668,8 +2670,7 @@ Ein mögliches Ergebnis könnte wie folgt aussehen: \\[0.2cm]
   \label{fig:SVM_2D-3D}
 \end{figure}
 
-\subsection{Mathematische Grundlagen der Support Vector
-Machines (SVM)}
+\subsection{Mathematische Grundlagen der Support Vector Machines (SVM)}
 
 \textbf{1. Einführung:}\\
 Support Vector Machines (SVMs) sind ein überwacht lernendes Modell, das vor allem für Klassifizierungsprobleme verwendet wird, aber auch für Regression anwendbar ist. Das Ziel ist, eine Hyperebene zu finden, die zwei Klassen in einem hochdimensionalen Raum trennt. Die mathematische Grundlage von SVM basiert auf Konzepten aus der linearen Algebra, Optimierungstheorie und Statistik.\\[0.2cm]
@@ -2776,35 +2777,48 @@ Zur Vereinfachung beschränken wir uns auf zwei Arten von Blumen (Iris Setosa un
 Hier kann man eine Lineare Trennbarkeit erreichen. Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Irisblume.pdf}} 
 %
-\subsubsection{Polynom-Beispiel (Grad-2) für Kernel-Trick}
+\subsubsection{Beispiele für gängige Kernel-Funktionen}
 %
-Ist eine lineare Trennbarkeit nicht mehr erreichbar, nutzen wir den Kernel-Trick (siehe Kapitel über Mathematische Grundlagen des SVM) zum Beispiel mit einem Polynom vom Grad d= 2: \( K(x_i, x_j) = (x_i \cdot x_j + 1)^d \)\\[0.2cm]
+\textbf{1. Lineare Kernel-Fkt:}\\
+Ist eine lineare Trennbarkeit nicht mehr erreichbar, nutzen wir den Kernel-Trick (siehe Kapitel über Mathematische Grundlagen des SVM). Hier nutzen wir die Lineare Kernel-Fkt:  \( K(x_i, x_j) = x_i \cdot x_j \)\\
+Wie man leicht sieht ist die Trennlinie (in diesem Fall eine Gerade im 2D-Raum. Dies nicht ausreichend um unserer Ziel zu erreichen.\\[0.2cm]
+Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Trennlinie-LK.pdf}}\\[0.3cm]
 %
-% Der Kernel-Trick transformiert $ (x_1, x_2) \in \mathbb{R}^2$ zu  Daten $ (z_1, z_2, z_3, z_4, z_5, z_6) \in \mathbb{R}^6$: 
-% \begin{center}
-% Die Transformation $\Phi:\mathbb{R}^3 \rightarrow\mathbb{R}^6$ ist    % definiert durch: \\[0.2cm]
-% $\Phi(x_1,x_2) = (x_1^2, x_2^2, \sqrt[2]{2} \cdot x_1 \cdot x_2, \sqrt[2]{2} \cdot x_1, \sqrt[2]{2} \cdot x_2, 1)$. 
-% \end{center} 
+\textbf{2. Polynomale Kernel-Fkt vom Grad d=2:}\\
+Eine bessere lineare Trennbarkeit ist erreichbar, wenn wir Kernel-Trick mit einem Polynom vom Grad d= 2: \( K(x_i, x_j) = (x_i \cdot x_j + 1)^d \) nutzen:\\[0.2cm]
 %
-% Wenn wir die Hyperebene in den ursprünglichen 2D-Raum zurückprojizieren, erhalten wir eine nichtlineare Trennkurve.\\
-%Durch das Einsetzen der neuen Merkmale in die ursprünglichen Variablen $ x_1, x_2 $ (durch Rücksubstitution von $ z_1, z_2,...,z_6$) ergibt sich eine quadratische Gleichung in $x_1,x_2$
-% die eine Kurve beschreibt, wie eine Ellipse, Parabel oder Hyperbel:
+Der Kernel-Trick transformiert $ (x_1, x_2) \in \mathbb{R}^2$ zu  Daten $ (z_1, z_2, z_3, z_4, z_5, z_6) \in \mathbb{R}^6$: 
+\begin{center}
+ Die Transformation $\Phi:\mathbb{R}^3 \rightarrow\mathbb{R}^6$ ist definiert durch: \\[0.2cm]
+ $\Phi(x_1,x_2) = (x_1^2, x_2^2, \sqrt[2]{2} \cdot x_1 \cdot x_2, \sqrt[2]{2} \cdot x_1, \sqrt[2]{2} \cdot x_2, 1)$. 
+\end{center} 
 %
-% \begin{center}
-% $ w_1 \cdot x_1^2 + w_2 \cdot x_2^2 + w_3 \cdot \sqrt[2]{2} \cdot x_1 \cdot x_2 + w_4 \cdot \sqrt[2]{2} \cdot x_1 + w_5 \cdot \sqrt[2]{2} \cdot x_2 + w_6 $. 
-%\end{center}
+Wenn wir die Hyperebene in den ursprünglichen 2D-Raum zurückprojizieren, erhalten wir eine nichtlineare Trennkurve.\\
+Durch das Einsetzen der neuen Merkmale in die ursprünglichen Variablen $ x_1, x_2 $ (durch Rücksubstitution von $ z_1, z_2,...,z_6$) ergibt sich eine quadratische Gleichung in $x_1,x_2$
+die eine Kurve beschreibt, wie eine Ellipse, Parabel oder Hyperbel:
 %
-% Diese quadratische Gleichung definiert die nichtlineare Trennkurve im ursprünglichen 2D-Raum.\\[0.2cm]
+\begin{center}
+$ w_1 \cdot x_1^2 + w_2 \cdot x_2^2 + w_3 \cdot \sqrt[2]{2} \cdot x_1 \cdot x_2 + w_4 \cdot \sqrt[2]{2} \cdot x_1 + w_5 \cdot \sqrt[2]{2} \cdot x_2 + w_6 $. 
+\end{center}
 %
-% \textbf{Fazit:}
-% \begin{itemize}
-%    \item Der polynomiale Kernel der Ordnung 2 transformiert die Datenpunkte aus dem 2D-Raum in einen 6-dimensionalen Raum mit den neuen Koordinaten $ (z_1, ...z_6) $
-%    \item Im 6D-Raum wird eine lineare Hyperebene gefunden, die die Daten trennt.
-%    \item Bei der Rücktransformation in den ursprünglichen 2D-Raum entspricht diese lineare Hyperebene einer nichtlinearen Trennkurve, die durch obige quadratische Gleichung beschrieben wird.
-% \end{itemize}
+Diese quadratische Gleichung definiert die nichtlineare Trennkurve im ursprünglichen 2D-Raum.\\[0.2cm]
 %
-% Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
-% \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Trennlinie(2D).pdf}}\\[0.2cm] 
+\textbf{Fazit:}\\
+\begin{itemize}
+    \item Der polynomiale Kernel der Ordnung 2 transformiert die Datenpunkte aus dem 2D-Raum in einen 6-dimensionalen Raum mit den neuen Koordinaten $ (z_1, ...z_6) $
+    \item Im 6D-Raum wird eine lineare Hyperebene gefunden, die die Daten trennt.
+    \item Bei der Rücktransformation in den ursprünglichen 2D-Raum entspricht diese lineare Hyperebene einer nichtlinearen Trennkurve, die durch obige quadratische Gleichung beschrieben wird.
+   \item Die Trennlinie ist leider noch nicht optimal wie man im Plot des Python-Programmes sieht. 
+\end{itemize}
+%
+Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Trennlinie-PK(2)-5DP.pdf}}\\[0.3cm]
+\textbf{2. Polynomale Kernel-Fkt vom Grad d=3:}\\
+Eine bessere lineare Trennbarkeit ist erreichbar, wenn wir ein Polynom vom Grad d= 3: \( K(x_i, x_j) = (x_i \cdot x_j + 1)^d \) nutzen:\\[0.2cm]
+Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Trennlinie-PK(3)-5DP.pdf}}\\[0.4cm]
+
 
 \subsubsection{RBF-Beispiel für Nutzung des Kernel-Tricks}
 %
