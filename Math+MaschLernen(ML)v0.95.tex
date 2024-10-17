@@ -6,6 +6,11 @@
 	linkcolor=black]
 {hyperref}
 
+% Definiere 'Abbildung' als Alias für 'figure'
+\newenvironment{Abbildung}
+  {\begin{figure}} % Anfang der neuen Umgebung
+  {\end{figure}}   % Ende der neuen Umgebung
+
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \pagestyle{fancy}
@@ -55,7 +60,7 @@
 \usepackage{stackengine} % für \stackengine
 \usepackage{theorem}
 
-\usepackage{hyperref}  % Include the hyperref package
+% \usepackage{hyperref}  % Include the hyperref package
 \usepackage{makeidx}
 \makeindex 
 
@@ -99,7 +104,7 @@
    
 \begin{center}
 Diese Version V0.95 (Datum: 16.10.2024) ist nicht final!!! \\
-{\color{red}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
+{\color{blue}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.95.pdf} \\
 \vspace{0.4cm}
@@ -2628,22 +2633,22 @@ Jetzt wenden wir eine Transformation $ \Phi $ an, um die Daten in $\mathbb{R}^3$
 \begin{center}
  $\Phi:\mathbb{R}^2 \rightarrow\mathbb{R}^3$ definiert durch  $\Phi(x_1,x_2) = (x_1,x_2, x_1^2 + x_2^2)$. 
 \end{center} 
-Die transformierten Punkte A' = $\Phi(A)$ ....E' = $\Phi(A)$ werden dann berechnet als: {\color{red}{Klasse +1: A'(1,1,2), B'(-1,1,2)}} und {\color{blue}{Klasse -1: C'(2,1,5), D'(1,-2,5) und E'(-2,1,5)}}. Die roten Punkte liegen dabei alle auf der Höhe z=2 und die blauen Punkte auf z=5. Siehe dazu den folgenden Python Plot:\\[0.2cm]
-
-\newpage
-
+Die transformierten Punkte A' = $\Phi(A)$ ....E' = $\Phi(E)$ werden dann berechnet als: {\color{red}{Klasse +1: A'(1,1,2), B'(-1,1,2)}} und {\color{blue}{Klasse -1: C'(2,1,5), D'(1,-2,5) und E'(-2,1,5)}}. Die roten Punkte liegen dabei alle auf der Höhe z=2 und die blauen Punkte auf z=5. Siehe dazu den folgenden Python Plot:\\[5.2cm]
+%
 \begin{figure}[ht]
   \centering
   \hspace*{-0.5cm} 
   \includegraphics[width=0.9\textwidth]{Kernel-Hyperebene-Bild}
   \caption{Hyperebenen zum Kernel-Trick Beispiel}
   \label{fig:SVM_Ebenen}
-\end{figure}
+\end{figure}\\
 %
-Ein bewegtes Bild davon liegt in der Referenz \textbf{[HVö-GitML20]:} \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/hyperebenen_animation.gif}\\[0.2cm]
+Ein bewegtes Bild davon liegt in der Referenz \textbf{[HVö-GitML20]:}\\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/hyperebenen_animation.gif}\\[0.2cm]
 %
-Wie man leicht aus dem Plot sieht, lassen sich diese Punkte optimal durch eine Hyperebene ${H := \lbrace (x_1,x_2,z)| \cdot z=3.5 \rbrace}$ trennen. Der Normalenvektor dieser Ebene ist in z-Richtung also $(0,0,1) \in \mathbb{R}^3 $. Da alle Punkte A' bis E' den gleichen Abstand 1.5 zu dieser Hyperebene haben, sind diese alle "Stützvektoren im Sinne von SVM (siehe oben). \\ 
-Durch eine "Zurücktransformation" erhält man den \textbf{Kreis: $x_1^2+x_2^2=3,5$ } mit den Radius $r = \sqrt[2]{3,5} \approx 1.871 $.  Damit ergibt sich die visuelle Darstellung der Klassifikation-Trennlinie als Kreislinie. Wir lassen uns diesen Kreis via einem kleinem Python Programm zeichnen (siehe unten). \\
+Wie man leicht aus dem Plot sieht, lassen sich diese Punkte optimal durch eine Hyperebene ${H := \lbrace (x_1,x_2,z)| \cdot z=3.5 \rbrace}$ trennen. Das hier gesehene Vorgehen der Trennbarkeit in einem höher-dimensionalen Raum (als Zielbild der Abbildung $ \Phi $ ist eine bekannte Tatsache der Mathematik. Wir nutzen dies um den "Kernel-Trick" (siehe Kapitel: "Mathematische Grundlagen von SVM") dort zu formulieren. \\
+Der Normalenvektor dieser Ebene ist in z-Richtung also $(0,0,1) \in \mathbb{R}^3 $. Da alle Punkte A' bis E' den gleichen Abstand 1.5 zu dieser Hyperebene haben, sind diese alle "Stützvektoren" im Sinne von SVM (siehe oben). \\ 
+Durch eine "Zurücktransformation" erhält man den \textbf{Kreis: $ x_1^2 + x_2^2=3,5 $ } mit den Radius $r = \sqrt[2]{3,5} \approx 1.871 $.  Damit ergibt sich die visuelle Darstellung der Klassifikation-Trennlinie als Kreislinie. Wir lassen uns diesen Kreis via einem kleinem Python Programm zeichnen (siehe unten). \\
 Dieses kleine Beispiel bildet die anschauliche Basis für die spätere Definition des "Kernel-Tricks" der SVM: \\[0.2cm]
 \begin{figure}[tp]
   \centering
@@ -2691,7 +2696,7 @@ SVM strebt danach, den Abstand (Margin) zwischen den zwei Klassen zu maximieren.
 \[
 y_i (w \cdot x_i + b) \geq 1
 \]
-
+%
 Das Ziel ist, die Norm des Vektors \(w\) zu minimieren, was zu folgendem Optimierungsproblem führt:
 \[
 \min_w \frac{1}{2} \|w\|^2
@@ -2762,11 +2767,12 @@ SVM ist ein robustes Klassifikations- und Regressionsverfahren mit soliden mathe
 %
 \subsection{Konkrete Beispiele für SVM}
 %
+Ziel dieses Abschnitte ist es die mathematischen Formeln aus obigen Kapitel besser zu verstehen. Insbesondere für die 3 gängigen Kernel-Funktionen.\\
 
 \subsubsection{Lineare Trennbarkeit - Beispiel Irisblumen}
 %
-Beispiel: Klassifikation von zwei Iris-Blumenarten mit SVM
-Wir verwenden den bekannten Iris-Datensatz, der Informationen über drei Arten von Iris-Blumen enthält: Iris Setosa, Iris Versicolor und Iris Virginica. Jede Blume wird durch vier Merkmale beschrieben:\\
+Beispiel: Klassifikation von zwei Iris-Blumenarten mit SVM.\\
+In diesem Beispiel betrachten wir einen Datensatz der linear trennbar ist. Wir verwenden dszu den bekannten Iris-Datensatz, der Informationen über drei Arten von Iris-Blumen enthält: Iris Setosa, Iris Versicolor und Iris Virginica. Jede Blume wird durch vier Merkmale beschrieben:\\
 %
 Sepallänge (in cm)\\
 Sepalbreite (in cm)\\
@@ -2777,7 +2783,29 @@ Zur Vereinfachung beschränken wir uns auf zwei Arten von Blumen (Iris Setosa un
 Hier kann man eine Lineare Trennbarkeit erreichen. Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Irisblume.pdf}} 
 %
-\subsubsection{Beispiele für gängige Kernel-Funktionen}
+\subsubsection{Beispiele für drei gängige Kernel-Funktionen}
+%
+In diesem Kapitel betrachten wir den nicht-linearen Fall und untersuchen die 3 gängigen Kernel-Funktionen $ K(x_i,x_j) $.\\
+In den Python-Programmen betrachten wir wieder den bekannten Fall das wir 5 Datenpunkte in zwei unterschiedlichen Klassen haben: {\color{red}{Klasse +1: A(1,1), B(-1,1)}} und {\color{blue}{Klasse -1: C(2,1), D(1,-2) und E(-2,1)}} haben.\\[0.2cm]  
+%
+\textbf{0. Allgemeine Erläuterungen der mathematischen Definitionen:}\\[0.2cm]
+Im Kapitel über die Mathematik, sind folgende Definitionen wichtig:
+\begin{itemize}
+    \item \textbf{Kernel Matrix:} Der Ausdruck $ K(A,B) $ gibt an, wie "ähnlich" sich zwei Datenpunkte im transformierten Raum sind. Die Kernel-Matrix berechnet alle 25 Werte K(A,A)  bis K(E,E).
+    \item \textbf{Lagrange-Funktion:} Die Lagrange-Funktion in einem Support Vector Machine (SVM)-Problem kombiniert die Optimierungsziele der Maximierung des Abstands (Margins) zwischen den Klassen und der Minimierung von Fehlern. Diese Funktion wird unter Berücksichtigung der Nebenbedingungen (Constraints) optimiert, um die optimale Trennlinie zu finden.
+    \item \textbf{Wert der Lagrange Funktion:} Die Werte der Lagrange-Multiplikatoren       $ \alpha_i $ werden optimiert, um die maximale Margin-Trennlinie zu finden. Diese Optimierung erfolgt typischerweise mit einem quadratischen Programmierungsverfahren (QP). Die Lösung des dualen Problems liefert die optimalen $ \alpha_i $ und jene $ x_i $ für die $ \alpha_i > 0$  ist, sind die Support Vektoren.
+\end{itemize}
+%
+Siehe dazu die folgenden Python-Programme (Jupyter Notebook):\\[0.2cm]
+%
+\begin{itemize}
+    \item Linearer Kernel:\\ 
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_LagrangeFkt-linear-5DP.pdf}}
+    \item Polynom-Kernel (Grad = 2):\\
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_LagrangeFkt-Polynom(2)-5DP.pdf}} 
+    \item Polynom-Kernel (Grad = 3):\\
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_LagrangeFkt-Polynom(3)-5DP.pdf}}   
+\end{itemize}  
 %
 \textbf{1. Lineare Kernel-Fkt:}\\
 Ist eine lineare Trennbarkeit nicht mehr erreichbar, nutzen wir den Kernel-Trick (siehe Kapitel über Mathematische Grundlagen des SVM). Hier nutzen wir die Lineare Kernel-Fkt:  \( K(x_i, x_j) = x_i \cdot x_j \)\\
@@ -2785,7 +2813,7 @@ Wie man leicht sieht ist die Trennlinie (in diesem Fall eine Gerade im 2D-Raum. 
 Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Trennlinie-LK.pdf}}\\[0.3cm]
 %
-\textbf{2. Polynomale Kernel-Fkt vom Grad d=2:}\\
+\textbf{2. Polynom-Kernel vom Grad d=2:}\\
 Eine bessere lineare Trennbarkeit ist erreichbar, wenn wir Kernel-Trick mit einem Polynom vom Grad d= 2: \( K(x_i, x_j) = (x_i \cdot x_j + 1)^d \) nutzen:\\[0.2cm]
 %
 Der Kernel-Trick transformiert $ (x_1, x_2) \in \mathbb{R}^2$ zu  Daten $ (z_1, z_2, z_3, z_4, z_5, z_6) \in \mathbb{R}^6$: 
@@ -2814,7 +2842,7 @@ Diese quadratische Gleichung definiert die nichtlineare Trennkurve im ursprüngl
 %
 Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Trennlinie-PK(2)-5DP.pdf}}\\[0.3cm]
-\textbf{2. Polynomale Kernel-Fkt vom Grad d=3:}\\
+\textbf{3. Polynom-Kernel vom Grad d=3:}\\
 Eine bessere lineare Trennbarkeit ist erreichbar, wenn wir ein Polynom vom Grad d= 3: \( K(x_i, x_j) = (x_i \cdot x_j + 1)^d \) nutzen:\\[0.2cm]
 Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Trennlinie-PK(3)-5DP.pdf}}\\[0.4cm]
@@ -2989,9 +3017,7 @@ In den folgenden zwei Bildern sehen wir ein Beispiel für einer solche Kompositi
   \label{fig:def-DNN}
 \end{figure}\\
 %
-\newpage
-%
-{\color{red} {*****************************************************************\\
+{\color{blue} {*****************************************************************\\
 ab hier werden weitere mathematischen Grundlagen bald eingefügt werden\\
 ******************************************************************}}
 %
