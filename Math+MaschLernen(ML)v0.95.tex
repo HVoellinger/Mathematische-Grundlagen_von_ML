@@ -103,7 +103,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.95 (Datum: 18.10.2024) ist nicht final!!! \\
+Diese Version V0.95 (Datum: 20.10.2024) ist nicht final!!! \\
 {\color{blue}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.95.pdf} \\
@@ -2848,12 +2848,17 @@ Diese quadratische Gleichung definiert die nichtlineare Trennkurve im ursprüngl
 \end{itemize}
 %
 Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Trennlinie-PK(2)-5DP.pdf}}\\[0.3cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-PolyKernel(2)-5DP.pdf}}\\[0.3cm]
 \textbf{3. Polynom-Kernel vom Grad d=3:}\\
 Eine bessere lineare Trennbarkeit ist erreichbar, wenn wir ein Polynom vom Grad d= 3: \( K(x_i, x_j) = (x_i \cdot x_j + 1)^d \) nutzen:\\[0.2cm]
+Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\
+Der Kernel-Trick transformiert $ (x_1, x_2) \in \mathbb{R}^2$ zu  Daten $ (z_1, ... z_{10}) \in \mathbb{R}^{10} $: 
+\begin{center}
+ Die Transformation $\Phi:\mathbb{R}^2 \rightarrow\mathbb{R}^{10}$ ist definiert durch: \\[0.2cm]
+$\Phi(x_1,x_2) = (x_1^3, x_2^3, x_1^2 \cdot x_2, x_1 \cdot x_1^2, x_1^2, x_2^2, x_1 \cdot x_2, x_1, x_2, 1)$. 
+\end{center} 
 Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Trennlinie-PK(3)-5DP.pdf}}\\[0.4cm]
-
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-PolyKernel(3)-5DP.pdf}}
 
 \subsubsection{RBF-Beispiel für Nutzung des Kernel-Tricks}
 %
