@@ -103,7 +103,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.95 (Datum: 20.10.2024) ist nicht final!!! \\
+Diese Version V0.95 (Datum: 21.10.2024) ist nicht final!!! \\
 {\color{blue}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.95.pdf} \\
@@ -2710,13 +2710,13 @@ unter der Nebenbedingung:
 \[
 y_i (w \cdot x_i + b) \geq 1 \quad \forall i
 \]\\
-\textbf{4. Der Lagrange-Ansatz und das Dualproblem:} \\
+\textbf{4. Der Lagrange-Ansatz\footnote{Joseph-Louis Lagrange (1736–1813) war ein bedeutender italienisch-französischer Mathematiker und Physiker, der entscheidende Beiträge zu zahlreichen Gebieten der Mathematik und Physik leistete.} und das Dualproblem:} \\
 Um das Problem zu lösen, werden Lagrange-Multiplikatoren \(\alpha_i\) eingeführt. Die Lagrange-Funktion lautet:
 \[
 L(w, b, \alpha) = \frac{1}{2} \|w\|^2 - \sum_{i=1}^N \alpha_i [y_i (w \cdot x_i + b) - 1]
 \]
 %
-Durch Optimierung der Lagrange-Funktion wird das Dualproblem:
+Durch Optimierung der Lagrange-Funktion wird das Dualproblem\footnote{Das duale Problem ist eine Methode, um das ursprüngliche (primal) Optimierungsproblem in ein anderes Problem umzuwandeln, das oft einfacher zu lösen ist. Durch die Einführung von Lagrange-Multiplikatoren kann man sowohl die Zielfunktion als auch die Nebenbedingungen in eine kombinierte Funktion einbeziehen, die minimiert bzw. maximiert wird.}
 \[
 \max_{\alpha} \sum_{i=1}^N \alpha_i - \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j (x_i \cdot x_j)
 \]
@@ -2786,7 +2786,7 @@ Petalbreite (in cm)\\[0.2cm]
 %
 Zur Vereinfachung beschränken wir uns auf zwei Arten von Blumen (Iris Setosa und Iris Versicolor) und zwei Merkmale (Petallänge und Petalbreite).\\
 Für diese zwei Ausprägungen von Iris-Blumen erkennen wir eine Lineare Trennbarkeit. Wir nutzen die Lineare Kernel-Funktion dazu um die "Maximierung des Margins" (Punkt 3) zu berechnen.\\
-Wir erhalten eine Trennlinie: "Blütenbreite = -1.5 *Blütenlänge + 4" und bekommen 3 Support-Vektoren (1.9, 0.2), (1.7, 0.5) und (3, 1.1).\\[0.2cm]
+Wir erhalten eine Trennlinie: "Blütenbreite = -1.5 *Blütenlänge + 4" und bekommen drei Support-Vektoren (1.9, 0.2), (1.7, 0.5) und (3, 1.1).\\[0.2cm]
 Siehe dazu auch das folgende Python-Programm (Jupyter Notebook):\\
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Irisblume.pdf}} 
 %
@@ -2816,7 +2816,8 @@ Siehe dazu die folgenden Python-Programme (Jupyter Notebook):
 %
 \textbf{1. Lineare Kernel-Fkt:}\\
 Ist eine lineare Trennbarkeit nicht mehr erreichbar, nutzen wir den Kernel-Trick (siehe Kapitel über Mathematische Grundlagen des SVM). Hier nutzen wir die Lineare Kernel-Fkt:  \( K(x_i, x_j) = x_i \cdot x_j \)\\
-Wie man leicht sieht, ist die Trennlinie in diesem Fall eine Gerade im 2D-Raum. Dies ist nicht ausreichend um unserer Ziel zu erreichen, da die Trennlinie durch ein Polynom vom Grad $ d \geqslant 2 $ zu beschreiben ist.\\[0.2cm]
+Wie man leicht sieht, ist die Trennlinie in diesem Fall eine Gerade im 2D-Raum. Dies gilt  allgemein für den linearen Kernel-Trick, da hier keine nichtlineare Transformation der Daten in einen höherdimensionalen Raum erfolgt, bleibt die Trennlinie immer eine gerade Linie in 2D (oder eine Hyperebene in höheren Dimensionen).
+Um gekrümmte Trennlinien zu erhalten, muss man einen nichtlinearen Kernel verwenden, wie z. B. den polynomialen Kernel (siehe nächste Beispiele) oder den RBF-Kernel (Radial Basis Function), die die Datenpunkte in einen höherdimensionalen Raum projizieren, wo dann eine lineare Trennung möglich wird, die sich im ursprünglichen Raum als gekrümmte Trennlinie manifestiert.\\[0.2cm]
 Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Trennlinie-LK.pdf}}\\[0.3cm]
 %
