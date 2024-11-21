@@ -103,7 +103,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V0.95 (Datum: 21.10.2024) ist nicht final!!! \\
+Diese Version V0.95 (Datum: 21.11.2024) ist nicht final!!! \\
 {\color{blue}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v0.95.pdf} \\
@@ -2767,12 +2767,16 @@ y_i - (w \cdot x_i + b) \leq \epsilon + \xi_i
 (w \cdot x_i + b) - y_i \leq \epsilon + \xi_i^*, \quad \xi_i, \xi_i^* \geq 0
 \]\\
 %
+Für ein einfaches Beispiel betrachte das folgende Jupyter Notenbook (JB), dass eine Regression mit den drei 3 SVM-Verfahren (linear, RBF und Polynom(Grad=3)) durchführt:\\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVR_Example-JupyterNotebook.pdf}\\[0.2cm]
+Eine genaue Analyse der Ergebnisse soll als Übungsaufgabe 7.5 durchgeführt werden.\\[0.3cm]
+%
 \textbf{8. Fazit:}\\
-SVM ist ein robustes Klassifikations- und Regressionsverfahren mit soliden mathematischen Grundlagen. Es basiert auf der Maximierung des Margins, der Verwendung von Lagrange-Multiplikatoren und dem Kernel-Trick, um nicht-lineare und nicht-trennbare Daten zu behandeln.
+SVM ist ein robustes Klassifikations- und Regressionsverfahren mit soliden mathematischen Grundlagen. Es basiert auf der Maximierung des Margins, der Verwendung von Lagrange-Multiplikatoren und dem Kernel-Trick, um nicht-lineare und nicht-trennbare Daten zu behandeln.\\
 %
 \subsection{Konkrete Beispiele für SVM}
 %
-Ziel dieses Abschnitte ist es die mathematischen Formeln und Definitionen  aus obigen Kapitel besser zu verstehen. Insbesondere für die 3 gängigen Kernel-Funktionen.\\
+Ziel dieses Abschnitte ist es die mathematischen Formeln und Definitionen  aus obigen Kapitel besser zu verstehen. Insbesondere für die 3 gängigen Kernel-Funktionen.
 
 \subsubsection{Lineare Trennbarkeit - Beispiel Irisblumen}
 %
@@ -2894,7 +2898,9 @@ Gegen Sie die SVM-Trennlinie mit einer Polynom (Grad=d) an. Visualisieren Sie di
 In dieser Übung erstellen wir einen Datensatz mit Punkten, die konzentrische Kreise bilden, die im ursprünglichen Merkmalsraum nicht linear separierbar sind. Wir verwenden dann zwei SVM-Modelle: eines mit einem Polynom-Kernel und ein anderes mit einem RBF-Kernel (Radial Basis Function). Der RBF-Kernel wendet effektiv den Kernel-Trick an, indem er die Daten in einen höherdimensionalen Raum transformiert, in dem sie linear trennbar werden. Die Entscheidungsgrenzen und Datenpunkte werden grafisch dargestellt, um den Unterschied zwischen den beiden Kerneln zu verdeutlichen.\\
 Der RBF-Kernel wird in der Praxis häufig verwendet, um nicht linear trennbare Daten zu verarbeiten, und ist eine der wichtigsten Anwendungen des Kernel-Tricks in der SVM.
 
-
+\subsubsection{Übung 7.5 - SVR-Verfahren: Vergleich dreier Ansätze im Jupyter Notebook} 
+%
+In Kapitel "Mathematische Grundlagen von SVM" (Kap. 7.4) wurde auch die SVM Anwendung als mögliche Lösung für Regression-Aufgaben (SVR) beschrieben (siehe Punkt 7.). Im verlinkten entsprechenden Jupyter Notebook (JB) wurde ein Beispiel mit den SVM-Verfahren Linear, RBF und Polym(Grad=3) berechnet (siehe Plots am Ende des JB). Vergleiche die Ergebnisse und gibt eine fachliche Begründung.
 \newpage
 
 \section{Neuronale Netzwerke, insbesondere Tiefe Neuronale Netzwerke }
@@ -4062,7 +4068,9 @@ Hier ein Beispiel Notebook:\\[0.2cm]
 %
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-RBF+Polyn-Kernel.pdf}} 
 %
-
+\subsubsection{Lösungshinweise zu Übung 7.5}
+Wie nicht anders zu erwarten, ist das Lineare SVM Verfahren ungeeignet für die Regression. RBF und Polynom(Grad=3)passen aber vergleichbar gut als Lösung. Eine Abschätzung welches Verfahren final besser ist, ist mit bloßen Auge nicht erkennbar. Dazu sind die entsprechenden Regression Qualitätsparameter zu berechnen.\\[0.2cm]
+%
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 8}
@@ -4138,7 +4146,7 @@ Moderne Informationsstrukturen für brachenspezifische Lösungen"; Übersichtsar
 %
 \textbf{[SVM-Def]} - "Was ist eine Support Vector Machine?"; 06.11.2019; Autor, Redakteur: Dipl.-Ing. (FH) Stefan Luber / Nico Litzel; \url{https://www.bigdata-insider.de/was-ist-eine-support-vector-machine-a-880134/}\\[0.2cm] 
 %
-\textbf{[TK + SVM]} - Seminararbeit von Alena Tabea Geduldig: "Textklassifikation mit Support Vector Machines" im  Hauptseminar "Linguistic Software Engineering“ bei Prof. Dr. Jürgen Rolshoven (Uni Köln); WS 2014/2015; \url{https://docplayer.org/9656155-Textklassifikation-mit-support-vector-machines.html}\\[0.2cm] 
+\textbf{[TK + SVM]} - Seminararbeit von Alena Tabea Geduldig: "Textklassifikation mit Support Vector Machines" im  Hauptseminar "Linguistic Software Engineering“ bei Prof. Dr. Jürgen Rolshoven (Uni Köln); WS 2014/2015; \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Klassifikation.pdf}\\[0.2cm] 
 %
 \textbf{[BackP-Exam]} - "A Step by Step Backpropagation Example" by Matt Mazur (2018); \url{https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/}\\[0.2cm] 
 %
@@ -4148,7 +4156,7 @@ Moderne Informationsstrukturen für brachenspezifische Lösungen"; Übersichtsar
 %
 \textbf{[Wiki-ML]} - Wikipedia: "Machine Learning ML"; \url{https://en.wikipedia.org/wiki/Machine_learning}{Machine Learning}\\[0.2cm] 
 %
-\textbf{[Wiki-SVM]} - Wikipedia Support Vector Machine (SVM); \url{https://de.wikipedia.org/wiki/Support Vector Machine(SVM)} \\[0.2cm] 
+\textbf{[Wiki-SVM]} - Wikipedia Support Vector Machine (SVM); \url{https://de.wikipedia.org/wiki/Support_Vector_Machine}\\[0.2cm] 
 %
 \textbf{Anmerkungen:} Alle obigen Dokumente und Artikel, außer den direkten Links ins Internet, findet man auch in meiner GitHub: \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/tree/main/Quellen_Math-ML}.\\[0.2cm]  
 %
