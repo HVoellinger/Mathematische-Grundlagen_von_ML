@@ -2767,12 +2767,33 @@ y_i - (w \cdot x_i + b) \leq \epsilon + \xi_i
 (w \cdot x_i + b) - y_i \leq \epsilon + \xi_i^*, \quad \xi_i, \xi_i^* \geq 0
 \]\\
 %
-Für ein einfaches Beispiel betrachte das folgende Jupyter Notenbook (JB), dass eine Regression mit den drei 3 SVM-Verfahren (linear, RBF und Polynom(Grad=3)) durchführt:\\
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVR_Example-JupyterNotebook.pdf}\\[0.2cm]
-Eine genaue Analyse der Ergebnisse soll als Übungsaufgabe 7.5 durchgeführt werden.\\[0.3cm]
+\textbf{Hauptmerkmale:}
+\begin{itemize}
+    \item \textbf{Fehlertoleranz (\(\epsilon\)):} Punkte innerhalb des Toleranzbereichs (\(\epsilon\)-Tube) tragen nicht zur Optimierung der Funktion bei.
+    \item \textbf{Maximale Marginalisierung:} SVR maximiert die Marginalisierung ähnlich wie bei SVM, jedoch für eine Regressionsebene oder -funktion.
+    \item \textbf{Regularisierung (C):} Ein Hyperparameter \(C\) steuert den Kompromiss zwischen Modellgenauigkeit und Vermeidung von Überanpassung.
+    \item \textbf{Kerntrick:} Durch die Verwendung von Kernfunktionen (z.~B. lineare, polynomiale oder RBF-Kerne) kann SVR auch nichtlineare Beziehungen modellieren.
+\end{itemize}
+%
+\textbf{Vorteile:}
+\begin{itemize}
+    \item Gut geeignet für kleine, komplexe Datensätze.
+    \item Flexibel durch verschiedene Kernfunktionen.
+    \item Robust gegenüber Ausreißern, da diese oft außerhalb des \(\epsilon\)-Tubes liegen.
+\end{itemize}
+%
+\textbf{Nachteile:}
+\begin{itemize}
+    \item Sorgfältige Abstimmung der Hyperparameter (\(\epsilon\), \(C\), Kernparameter) erforderlich.
+    \item Rechenintensiv bei großen Datensätzen.
+\end{itemize}
+%
+Insgesamt eignet sich SVR besonders gut für präzise Vorhersagen in Szenarien mit nichtlinearen Beziehungen oder verrauschten Daten.\\
+\textbf{Hinweis:} einfache Beispiele mit den entsprechenden Jupyter Notenbooks (JB) findet man im nächsten Kapitel.\\
+
 %
 \textbf{8. Fazit:}\\
-SVM ist ein robustes Klassifikations- und Regressionsverfahren mit soliden mathematischen Grundlagen. Es basiert auf der Maximierung des Margins, der Verwendung von Lagrange-Multiplikatoren und dem Kernel-Trick, um nicht-lineare und nicht-trennbare Daten zu behandeln.\\
+SVM ist ein robustes Klassifikations- und Regressionsverfahren mit soliden mathematischen Grundlagen. Es basiert auf der Maximierung des Margins, der Verwendung von Lagrange-Multiplikatoren und dem Kernel-Trick, um nicht-lineare und nicht-trennbare Daten zu behandeln.\\[0.3cm]
 %
 \subsection{Konkrete Beispiele für SVM}
 %
@@ -2869,9 +2890,25 @@ Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
 %
 Ist eine Lineare Trennbarkeit nicht mehr erreichbar, nutzen wir den Kernel-Trick (siehe Kapitel über Mathematische Grundlagen des SVM).\\ 
 Siehe dazu das folgende Python-Programm (Jupyter Notebook):\\[0.2cm]
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_RBF_Kernel.pdf}}\\[0.2cm] 
-
-
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_RBF_Kernel.pdf}} 
+%
+\subsubsection{Einfaches Beispiel für Support Vector Regression (SVR)}
+Hier ist ein einfaches Beispiel, das zeigt, wie Support Vector Regression (SVR) funktioniert. Wir verwenden Python und die Bibliothek scikit-learn, um eine nichtlineare Funktion zu modellieren.\\
+\textbf{Beispiel: Vorhersage einer quadratischen Funktion}.\\
+Wir generieren Daten, die einer quadratischen Funktion $ y = x^2 $ folgen, fügen etwas Rauschen hinzu und verwenden SVR, um die Funktion zu approximieren.\\
+Das Rauschen in dem oben angegebenen Python-Programm wird mit der Funktion np.random.randn() erzeugt\\
+\textit{np.random.randn(50)}: erzeugt 50 Stichproben aus einer Standardnormalverteilung, d.h. einer Gauß-Verteilung mit Mittelwert $ \mu = 0 $ und Standardabweichung $ \sigma = 1$.\\
+Das erzeugte Rauschen wird dann skaliert (mit * 2), um die Amplitude des Rauschens zu erhöhen, und zu den ursprünglichen Werten der quadratischen Funktion $ y = x^2 $ addiert:
+\textit{np.random.randn(50) * 2}\\
+Das erzeugte Rauschen kann sowohl positive als auch negative Werte haben, was den Daten natürliche Schwankungen hinzufügt.\\
+Hier ist dieses Beispiel als Jupyter Notebook (JB) umgesetzt:\\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVR_SimExample-JupyterNotebook.pdf}\\[0.2cm]
+%
+\subsubsection{Vergleich von drei 3 unterschiedliche SVR Verfahren}
+Für einen einfachen Vergleich betrachte das folgende Jupyter Notenbook (JB), dass eine Regression mit den drei 3 SVM-Verfahren (linear, RBF und Polynom(Grad=3)) durchführt:\\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVR_Example-JupyterNotebook.pdf}\\[0.2cm]
+Eine genaue Analyse der Ergebnisse soll als Übungsaufgabe 7.5 durchgeführt werden.\\[0.3cm]
+%
 \newpage
 
 \subsection{Übungen zum Kapitel 7}
