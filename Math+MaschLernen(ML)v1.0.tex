@@ -2658,10 +2658,6 @@ Dieses kleine Beispiel bildet die anschauliche Basis für die spätere Definitio
   \caption{Python Code und Kernel-Trick Kreisbild}       
   \label{fig:SVM_Kreis}
 \end{figure}
-
-
-
-
 %
 \newpage
 \subsubsection{Berechnung per Jupyter Notebook}
@@ -2754,7 +2750,7 @@ y_i (w \cdot x_i + b) \geq 1 - \xi_i, \quad \xi_i \geq 0
 %
 Der Parameter \(C\) reguliert dabei den Kompromiss zwischen der Maximierung des Margins und der Minimierung der Fehlklassifikationen.\\[0.3cm]
 %
-\textbf{7. Support Vector Regression (SVR):}\\
+\textbf{7. Support Vector Regression (SVR):}\index{Support Vector Regression (SVR)}\\
 SVM kann auch für Regressionsprobleme verwendet werden, was als "Support Vector Regression (SVR)" bekannt ist. Dabei wird versucht, eine Funktion zu finden, die innerhalb eines Toleranzbereichs \(\epsilon\) von den Zielwerten abweicht. Das Optimierungsproblem lautet:\\
 \[
 \min_w \frac{1}{2} \|w\|^2 + C \sum_{i=1}^N (\xi_i + \xi_i^*)
@@ -2788,12 +2784,11 @@ y_i - (w \cdot x_i + b) \leq \epsilon + \xi_i
     \item Rechenintensiv bei großen Datensätzen.
 \end{itemize}
 %
-Insgesamt eignet sich SVR besonders gut für präzise Vorhersagen in Szenarien mit nichtlinearen Beziehungen oder verrauschten Daten.\\
-\textbf{Hinweis 1:} In der Übungsaufgabe einfache Beispiele mit den entsprechenden Jupyter Notenbooks (JB) findet man im nächsten Kapitel.\\
-\textbf{Hinweis 2:} einfache Beispiele mit den entsprechenden Jupyter Notenbooks (JB) findet man im nächsten Kapitel.\\
+Insgesamt eignet sich SVR \index{Support Vector Regression (SVR)}besonders gut für präzise Vorhersagen in Szenarien mit nichtlinearen Beziehungen oder verrauschten Daten.\\[0.2cm]
+\textbf{Hinweis:} In den Übungsaufgaben (letztes des Kapitel) findet man einfache Beispiele für SVR mit den entsprechenden Jupyter Notenbooks (JB)\\[0.2cm]
 %
 \textbf{8. Fazit:}\\
-SVM ist ein robustes Klassifikations- und Regressionsverfahren mit soliden mathematischen Grundlagen. Es basiert auf der Maximierung des Margins, der Verwendung von Lagrange-Multiplikatoren und dem Kernel-Trick, um nicht-lineare und nicht-trennbare Daten zu behandeln.\\[0.3cm]
+SVM ist ein robustes Klassifikations- und Regressionsverfahren mit soliden mathematischen Grundlagen. Es basiert auf der Maximierung des Margins, der Verwendung von Lagrange-Multiplikatoren und dem Kernel-Trick, um nicht-lineare und nicht-trennbare Daten zu behandeln.\\[0.2cm]
 %
 \subsection{Konkrete Beispiele für SVM}
 %
@@ -2935,7 +2930,7 @@ Gegen Sie die SVM-Trennlinie mit einer Polynom (Grad=d) an. Visualisieren Sie di
 In dieser Übung erstellen wir einen Datensatz mit Punkten, die konzentrische Kreise bilden, die im ursprünglichen Merkmalsraum nicht linear separierbar sind. Wir verwenden dann zwei SVM-Modelle: eines mit einem Polynom-Kernel und ein anderes mit einem RBF-Kernel (Radial Basis Function). Der RBF-Kernel wendet effektiv den Kernel-Trick an, indem er die Daten in einen höherdimensionalen Raum transformiert, in dem sie linear trennbar werden. Die Entscheidungsgrenzen und Datenpunkte werden grafisch dargestellt, um den Unterschied zwischen den beiden Kerneln zu verdeutlichen.\\
 Der RBF-Kernel wird in der Praxis häufig verwendet, um nicht linear trennbare Daten zu verarbeiten, und ist eine der wichtigsten Anwendungen des Kernel-Tricks in der SVM.
 
-\subsubsection{Übung 7.5 - SVR-Verfahren: Vergleich dreier Ansätze im Jupyter Notebook} 
+\subsubsection{Übung 7.5 - SVR-Verfahren: Vergleich dreier Ansätze im Jupyter Notebook} \index{Support Vector Regression (SVR)}
 %
 In Kapitel "Mathematische Grundlagen von SVM" (Kap. 7.4) wurde auch die SVM Anwendung als mögliche Lösung für Regression-Aufgaben (SVR) beschrieben (siehe Punkt 7.). Im verlinkten entsprechenden Jupyter Notebook (JB) wurde ein Beispiel mit den SVM-Verfahren Linear, RBF und Polym(Grad=3) berechnet (siehe Plots am Ende des JB). Vergleiche die Ergebnisse und gibt eine fachliche Begründung.
 
