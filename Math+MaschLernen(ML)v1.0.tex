@@ -962,11 +962,11 @@ Kapitel 7.2. “Prädiktive dynamische Prüfung”.
 %
 \newpage
 
-\section{Lineare Regression (LR) in ML \\}
+\section{Simple Regression (sR) und multiple Regressionen (mR) \\}
 
 \subsection{Allgemeine Einführung in Regressionsmodelle}
 
-Ein \textbf{Regressionsmodell im Machine Learning} ist ein statistisches Modell, das dazu verwendet wird, die Beziehung zwischen einer abhängigen (oder Ziel-) Variable ("Target") und einer oder mehreren unabhängigen (oder erklärenden) Variablen (Features") zu analysieren und zu beschreiben. Das Hauptziel der Regression besteht darin, Vorhersagen für die abhängige Variable zu treffen, basierend auf den Werten der unabhängigen Variablen.\\
+Ein \textbf{Regressionsmodell im Machine Learning} ist ein statistisches Modell, das dazu verwendet wird, die Beziehung zwischen einer abhängigen (oder Ziel-) Variable ("Target") und einer (simple Regression)oder mehreren unabhängigen (multiple Regression) (oder erklärenden) Variablen ("Features") zu analysieren und zu beschreiben. Das Hauptziel der Regression besteht darin, Vorhersagen für die abhängige Variable zu treffen, basierend auf den Werten der unabhängigen Variablen.\\
 Die Grundidee hinter einem Regression ist es, eine Funktion zu finden, die die bestmögliche Anpassung an die gegebenen Daten bietet. Je nach Art der Daten und der Beziehung zwischen den Variablen gibt es verschiedene Arten von Regressionsmodellen, darunter:\\[0.2cm] 
 % 
 1. \textbf{{\color{blue}{Lineare Regression}}}: \index{Lineare Regression} Hierbei handelt es sich um das einfachste Regressionsmodell, bei dem versucht wird, eine lineare Beziehung zwischen den unabhängigen und abhängigen Variablen zu finden.\\[0.2cm]
@@ -2296,14 +2296,12 @@ Nachdem die opt. Regressionsebene $z(x,y)$ berechnet ist, lassen sich auch die  
 
 \subsubsection{Python-Programm zur Berechnung eines mLR(k=2) Beispiels}
 
-{\color{red}
-{***** Weitere Kapitel Texte und Beispiele einfügen, siehe Vorlesung *****}}
-
-
 \includegraphics{ML5-MovingPicture_mLR}\\
 %
 Ein bewegtes Bild davon liegt in der Referenz [HVö-GitML20]: 
-{\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/ML5-QYuIc.gif}}
+{\url{https://github.com/HVoellinger/Lecture-Notes-to-ML-WS2020/blob/master/ML5-QYuIc.gif}}\\[0.2cm]
+%
+\textbf{Hinweis:} Im Kapitel 7 ("Support Vector Machines") werden wir ein weitere Methode kennenlernen mit der man Regressions-Kurven oder -Ebenen  bestimmen kann (siehe den Begriff "Support Vector Regression (SVR)" im Index-Verzeichnis. 
 
 \subsection{Übungen zum Kapitel 5}
  
@@ -2934,9 +2932,14 @@ Der RBF-Kernel wird in der Praxis häufig verwendet, um nicht linear trennbare D
 %
 In Kapitel "Mathematische Grundlagen von SVM" (Kap. 7.4) wurde auch die SVM Anwendung als mögliche Lösung für Regression-Aufgaben (SVR) beschrieben (siehe Punkt 7.). Im verlinkten entsprechenden Jupyter Notebook (JB) wurde ein Beispiel mit den SVM-Verfahren Linear, RBF und Polym(Grad=3) berechnet (siehe Plots am Ende des JB). Vergleiche die Ergebnisse und gibt eine fachliche Begründung.
 
-\subsubsection{Übung 7.6 - Vergleichbarkeit der Ergebnisse mit Kapitel 5 (Lineare Regression)} 
+\subsubsection{Übung 7.6 - Vergleichbarkeit der Ergebnisse mit Kapitel 5 (Simple Regression)} 
 %
-Im Kapitel 5 wird in der Übungsaufgabe (5.6)-Teil2  eine Lineare Regressionsgerade für 10 Datenpunkte berechnet. Berechne jetzt mit dem SVR-Verfahren für die gleichen Datenpunkte ebenfalls eine Regressionsgerade und zeige das die Ergebnisse vergleichbar sind.
+Im Kapitel 5 wird in der Übungsaufgabe (5.6)-Teil2  eine Simple  Regressionsgerade für 10 Datenpunkte berechnet. Eine simple oder einfache Regression ist dadurch definiert, dass der Zielparameter nur aus einem Feature bestimmt wird. Damit liegt die Regressionskurve (bei Aufgabe (5.6)-Teil2 ist dies eine Gerade) in einer Ebene. Bestimme jetzt mit dem SVR-Verfahren für die gleichen Datenpunkte ebenfalls eine entsprechende Regressions-Kurve (oder -Gerade) und zeige das die Ergebnisse vergleichbar sind.
+%
+\subsubsection{Übung 7.7 - Vergleichbarkeit der Ergebnisse mit Kapitel 5 (Multiple Regression)}
+%
+In Aufgabe (5.7) werden die Datenpunkte für eine multiple Regression angegeben. Bestimme die Regressionsebene mit dem SVR-Verfahren und vergleiche die Ergebnisse. 
+ 
 \newpage
 
 \section{Neuronale Netzwerke, insbesondere Tiefe Neuronale Netzwerke }
@@ -4106,13 +4109,16 @@ Hier ein Beispiel Notebook:\\[0.2cm]
 %
 \subsubsection{Lösungshinweise zu Übung 7.5}
 Wie nicht anders zu erwarten, ist das Lineare SVM Verfahren ungeeignet für die Regression. RBF und Polynom(Grad=3)passen aber vergleichbar gut als Lösung. Eine Abschätzung welches Verfahren final besser ist, ist mit bloßen Auge nicht erkennbar. Dazu sind die entsprechenden Regression Qualitätsparameter zu berechnen.\\[0.2cm]
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVR_Example-JupyterNotebook.pdf}} 
 %
 \subsubsection{Lösungshinweise zu Übung 7.6}
-Wie nicht anders zu erwarten, sind die Ergebnisse vergleichbar.
+Wie nicht anders zu erwarten, sind die Ergebnisse vergleichbar. Die richtige Methode ist SVR(Typ=linear). Typ RBF oder Polyn(Grad=3) passen nicht. 
 Hier die Ergebnisse als Jupyter Notebook:\\[0.2cm]
 %
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVR_ LinRegression-JupyterNotebook.pdf}} 
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVR_SimRegression-JupyterNotebook.pdf}} 
 %
+\subsubsection{Lösungshinweise zu Übung 7.7}
+Analog zu dem Lösungshinweis bei Übung (7.6),
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 8}
