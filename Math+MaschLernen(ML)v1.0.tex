@@ -103,7 +103,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V1.0 (Datum: 15.12.2024) ist nicht final!!! \\
+Diese Version V1.0 (Datum: 2.1.2025) ist nicht final!!! \\
 {\color{blue}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v1.0.pdf} \\
@@ -2350,7 +2350,9 @@ Finde eine "least square fit" Ebene  z = a + b*x + c*y für z:=erreichte Punktza
 Daten der Trainings-Sets $TS$: \\
 = $ \lbrace (x, y; z) | (exam vorb.[h], homework[h]; score[pt.])\rbrace = \lbrace(7,5;41 ),(3,4;27), \\
 (5,5;35), (3,3;26), (8,9;48), (7,8;45), (10,10;46), (3,5;27), (5,3;29), (3,3;19)\rbrace $ \\[0.2cm]
-Baue das Modell mLR(x,y;z). Vergleiche und prüfe das Ergebnis mit einem Python-Programm.\\[0.2cm]
+Baue das Modell mLR(x,y;z). Vergleiche und prüfe das Ergebnis mit einem Python-Programm.\\[0.1cm]
+\textbf{Hinweis:} Die gesuchte Hyperebene in $ \mathbb{R}^3 $ hat die folg. Darstellung:\\
+z = 13.264 +2.488*x +  1.382*y. Siehe auch Lösungshinweise\\[0.2cm]
 \textbf{Zusatz: Beantworte die folgenden Fragen:}\\ 
 Q1: Wie viele Punkte würde ein Student ohne Examens Vorbereitung und ohne Hausaufgabe Aufwand erreichen? \\
 Q2: Wie viele Punkte würde ein Student mit 10 Stunden für Examens Vorbereitung und auch mit 10 Std. Hausaufgabe Aufwand erreichen? \\ 
@@ -2933,11 +2935,11 @@ In Kapitel "Mathematische Grundlagen von SVM" (Kap. 7.4) wurde auch die SVM Anwe
 
 \subsubsection{Übung 7.6 - Vergleichbarkeit der Ergebnisse mit Kapitel 5 (Simple Lineare Regression)} 
 %
-Im Kapitel 5 wird in der Übungsaufgabe (5.6)-Teil2  eine Simple  Regressionsgerade für 10 Datenpunkte berechnet. Eine simple oder einfache Regression ist dadurch definiert, dass der Zielparameter nur aus einem Feature bestimmt wird. Damit liegt die Regressionskurve (bei Aufgabe (5.6)-Teil2 ist dies eine Gerade) in einer Ebene. Bestimme jetzt mit dem SVR-Verfahren für die gleichen Datenpunkte ebenfalls eine entsprechende Regressions-Kurve (oder -Gerade) und zeige, dass die Ergebnisse vergleichbar sind.
+Im Kapitel 5 wird in der Übungsaufgabe (5.6)-Teil2  eine Simple Lineare Regressionsgerade für 10 Datenpunkte berechnet. Eine simple oder einfache Regression ist dadurch definiert, dass der Zielparameter nur aus einem Feature bestimmt wird. Damit liegt die Regressionskurve (bei Aufgabe (5.6)-Teil2 ist dies eine Gerade) in einer Ebene. Bestimme jetzt mit dem SVR-Verfahren für die gleichen Datenpunkte ebenfalls eine entsprechende Regressions-Kurve (oder -Gerade) und zeige, dass die Ergebnisse vergleichbar sind.
 %
 \subsubsection{Übung 7.7 - Vergleichbarkeit der Ergebnisse mit Kapitel 5 (Multiple Lineare Regression)}
 %
-In Aufgabe (5.7) werden die Datenpunkte für eine multiple lineare Regression angegeben. Bestimme die Regressionsebene mit dem SVR-Verfahren und vergleiche die Ergebnisse. 
+In Aufgabe (5.7) werden die Datenpunkte für eine Multiple Lineare Regression angegeben. Bestimme die Regressionsebene mit dem SVR-Verfahren und vergleiche die Ergebnisse. 
  
 \newpage
 
@@ -3937,7 +3939,8 @@ Siehe auch konkrete Werte in der entsprechenden Tabelle im Skript.
 \subsubsection{Lösungshinweise zu Übung 5.6}
 %
 \textbf{Teil 1:}\\
-$\rightarrow$ opt. Regression-Gerade:  y =  14,117 + 3,7376*x \\[0.3cm]
+$\rightarrow$ opt. Regression-Gerade:  y =  14,117 + 3,7376*x \\[0.3cm]. Siehe Berechnung zur animierten Darstellung dieser Hyperebene: 
+
 $\rightarrow$ R² = 1 - Sum((yi-y(xi))²)/Sum((yi-M(y))²) = 1 -(134,2172/922,1) $\backsim $ 0,8544 \\[0.3cm]	
 %				
 \textbf{Teil 2:}\\
@@ -3961,7 +3964,12 @@ PDF zu Anschauen der Berechnungen: \url{https://github.com/HVoellinger/Mathemati
 
 \subsubsection{Lösungshinweise zu Übung 5.7}
 %
-$\rightarrow$ opt. mLR-Ebene :  z = 13,264 +  2,488*x +  1,382*y \\[0.2cm]				
+$\rightarrow$ opt. mLR-Ebene :  z = 13,264 +  2,488*x +  1,382*y \\[0.1cm]	
+Siehe Berechnung zur animierten Darstellung dieser Hyperebene:\\ \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Animation_Hyperebene-Aufg(5,7).pdf}}
+\\[0.2cm]
+%
+Ein bewegtes Bild davon liegt in der Referenz: 
+{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Images/hyperplane_animation1.gif}}\\[0.2cm]	
 $\rightarrow$ Adj.R²=  1 -(1-R²)*(9/7) $\backsim $ 0.8512  \\[0.3cm]				
 Question 1:  13,264 points.	\\[0.1cm]
 Question 2:  13,264 + 24,88 + 13,82 = 51,96 points.\\[0.1cm]
@@ -4114,10 +4122,11 @@ Wie nicht anders zu erwarten, ist das Lineare SVM Verfahren ungeeignet für die 
 Wie nicht anders zu erwarten, sind die Ergebnisse vergleichbar. Die richtige Methode ist SVR(Typ=linear). Typ RBF oder Polyn(Grad=3) passen nicht. 
 Hier die Ergebnisse als Jupyter Notebook:\\[0.2cm]
 %
-\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVR_SimRegression-JupyterNotebook.pdf}} 
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVR_SimLinRegression-JupyterNotebook.pdf}} 
 %
 \subsubsection{Lösungshinweise zu Übung 7.7}
-Analog zu dem Lösungshinweis bei Übung (7.6),
+Analog zu dem Lösungshinweis bei Übung (7.6)\\
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVR_MultLinRegression.pdf}} 
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 8}
