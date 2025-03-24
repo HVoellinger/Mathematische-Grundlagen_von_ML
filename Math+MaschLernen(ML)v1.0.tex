@@ -96,14 +96,14 @@
    \large   
    
    Dr. Hermann Völlinger, Mathematik und IT Architektur
-           \\ Stuttgart, Herbst 2024     
+           \\ Stuttgart, Frühjahr 2025     
 
    \vspace{0.6cm}
         
    \end{center}
    
 \begin{center}
-Diese Version V1.0 (Datum: 2.1.2025) ist nicht final!!! \\
+Diese Version V1.0 (Datum: 24.3.2025) ist nicht final!!! \\
 {\color{blue}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v1.0.pdf} \\
@@ -374,40 +374,31 @@ MacQueen führte mit dem Begriff k-Means einen anderen Algorithmus ein:
 
 \subsection{Beschreibung Python Programm zum k-Means-Clustering}
 %
-Hier ist die Beschreibung des M-Means-Algorithmus zur Klassifikation der Iris-Blumen.\\
+Hier ist die Beschreibung des k-Means-Algorithmus zur Klassifikation der Iris-Blumen.\\
 Der in diesem Beispiel verwendete Datensatz ist der berühmte {\color{blue}{IRIS-Blumen Datensatz}} \index{IRIS-Blumen Datensatz} Er besteht aus 150 Einträgen der Irisblume, die jeweils durch vier Merkmale beschrieben werden: Kelchblattlänge, Kelchblattbreite, Blütenblattlänge und
 Blütenblattbreite. \\[0.2cm]
 Zusätzlich ist der spezifische Typ der Irisblume angegeben. Es gibt drei Arten der Schwertlilienpflanze: Iris Setosa, Iris Versicolor und Iris Virginica.\\
 Jede Art ist mit mit 50 Einträgen im Datensatz vertreten. Die Merkmale sind in Zentimetern angegeben. Die Abbildung unten zeigt wie die Daten im Datenrahmen dargestellt werden. Der Datensatz wurde erstmals von Ronald Fisher, einem britischen Biologen, in einem Aufsatz aus dem Jahr 1936 vorgestellt. Er ist eines der am häufigsten verwendeten Beispiele für statistischen Klassifizierung-Algorithmen beim Maschinellen Lernen. \\
 Die Abbildung unten zeigt die ersten fünf Einträge des Datensatzes. Der Datensatz ist in der Python-Bibliothek scikit-learn enthalten.\\ 
 %
-Der \textbf{M-Means}-Algorithmus (oft als \textbf{K-Means} bezeichnet, wobei „K“ hier „M“ ist) ist ein gängiges unüberwachtes Lernverfahren zur Clusteranalyse, bei dem Datenpunkte in \( M \) Cluster unterteilt werden. In der Klassifikation der Iris-Blumen wird dieser Algorithmus verwendet, um die Blumen basierend auf ihren Merkmalen (z.B. Kelchblatt- und Kronblattlänge) in Gruppen zu unterteilen.
+Der \textbf{k-Means-Algorithmus}  ist ein gängiges unüberwachtes Lernverfahren zur Clusteranalyse, bei dem Datenpunkte in \(k \) Cluster unterteilt werden. In der Klassifikation der Iris-Blumen wird dieser Algorithmus verwendet, um die Blumen basierend auf ihren Merkmalen (z.B. Kelchblatt- und Kronblattlänge) in Gruppen zu unterteilen.
 
 \subsubsection{Laden der Iris-Daten}
 %
-Zuerst wird das Iris-Dataset geladen. Das Iris-Dataset ist ein klassisches Beispiel in der Datenanalyse und enthält vier Merkmale für drei Arten von Iris-Blumen: \textit{Iris Setosa}, \textit{Iris Versicolor} und \textit{Iris Virginica}: \\[0.2cm]
+Zuerst wird das Iris-Dataset geladen. Das Iris-Dataset ist ein klassisches Beispiel in der Datenanalyse und enthält vier Merkmale für drei Arten von Iris-Blumen: \textit{Iris Setosa}, \textit{Iris Versicolor} und \textit{Iris Virginica}: \\[0.1cm]
 %
 $ from\quad sklearn.datasets\quad import\quad load\_iris $ \\
-$ import \quad pandas \quad as \quad pd $ \\[0.2cm]
-%
-Laden der Iris-Daten:\\[0.2cm]
 $ iris = load\_iris()$ \\
 $df = pd.DataFrame(iris.data, columns=iris.feature\_names)$ 
 
 \subsubsection{Anwenden des k-Means-Algorithmus}
 %
-Nun wird der M-Means-Algorithmus angewendet. Hierbei wird der Wert M (Anzahl der Cluster) angegeben, um die Daten in entsprechende Gruppen zu unterteilen:\\[0.2cm]
+Nun wird der k-Means-Algorithmus initialisiert und angepasst. Hierbei wird der Wert k (Anzahl der Cluster) angegeben, um die Daten in entsprechende Gruppen zu unterteilen:\\[0.2cm]
 %
 $ from\quad sklearn.cluster\quad import\quad KMeans $ \\
-$ Anzahl\quad der\quad Cluster\quad M $ \\
-$ M = 3 $ \\[0.2cm]
-%
-M-Means (K-Means) initialisieren und anpassen:\\[0.2cm]
-$ kmeans = KMeans(n\_clusters = M, random\_state = 42) $\\
-$ kmeans.fit(df) $ \\[0.2cm]
-%
-Zuweisung der Clusterlabels zu den Datenpunkten:\\[0.2cm]
-$ df['Cluster'] = kmeans.labels\_ $
+$ Anzahl\quad der\quad Cluster\quad M $ ; $ M = 3 $ \\ 
+$ kmeans =kMeans(n\_clusters =k, random\_state = 42) $\\
+$ kmeans.fit(df) $ ; $ df['Cluster'] = kmeans.labels\_ $ 
 
 \subsubsection{Visualisierung der Cluster}
 %
@@ -415,8 +406,6 @@ Die resultierenden Cluster können visuell dargestellt werden, um die Verteilung
 %
 $ import\quad matplotlib.pyplot\quad as\quad plt $\\
 $ import\quad seaborn\quad as\quad sns $ \\[0.2cm]
-%
-Paarweise Visualisierung der Daten mit den Cluster-Zuweisungen: \\[0.2cm]
 $ sns.pairplot(df,\quad hue =\quad 'Cluster',\quad palette =\quad 'viridis') $\\
 $ plt.show()$
 
@@ -425,22 +414,19 @@ $ plt.show()$
 Die Ergebnisse können durch Vergleichen der Cluster mit den tatsächlichen Arten der Iris-Blumen validiert werden, die im Datensatz enthalten sind: \\[0.2cm]
 %
 $ from\quad sklearn.metrics\quad import\quad accuracy_score $\\
-$ from\quad scipy.stats\quad import\quad mode $ \\[0.2cm]
-%
-Cluster-Labels mit den tatsächlichen Labels vergleichen: \\[0.2cm]
-$ labels = kmeans.labels\_  $ \\
-$ true\_labels = iris.target $ \\[0.2cm]
-%
-Anpassung der Cluster-Labels an die tatsächlichen Labels (bei Bedarf): \\[0.2cm]
+$ from\quad scipy.stats\quad import\quad mode $ \\
+ Cluster-Labels mit den tatsächlichen Labels vergleichen:\\ 
+$ labels = kmeans.labels\_  $   \\
+$ true\_labels = iris.target $ \\
+Anpassung der Cluster-Labels an die tatsächlichen Labels (bei Bedarf): \\
 $ mapped\_labels =  [mode(true\_labels[labels == i])\quad [0]\quad [0]\quad for\quad i\quad in\quad range(M)] $ \\[0.2cm]
-%
-Accuracy berechnen:\\[0.2cm]
+Accuracy berechnen:\\
 $ accuracy = accuracy_score(true\_labels, [mapped\_labels[label]\quad for\quad label\quad in\quad labels]) $   \\
 $ print(f"Accuracy: {accuracy:.2f}")$ 
 
 \subsubsection{Zusammenfassung}
 
-Das Python-Programm zur Klassifikation der Iris-Blumen mit dem M-Means-Algorithmus umfasst das Laden der Daten, das Anwenden des Algorithmus mit einer definierten Cluster-Anzahl, die Visualisierung der Resultate und eine Evaluierung der Cluster-Genauigkeit. Der M-Means-Algorithmus klassifiziert die Blumen anhand ihrer Merkmale in Gruppen, die mit den drei Arten von Iris-Blumen korrespondieren.
+Das Python-Programm zum Clustering der Iris-Blumen mit dem k-Means-Algorithmus umfasst das Laden der Daten, das Anwenden des Algorithmus mit einer definierten Cluster-Anzahl, die Visualisierung der Resultate und eine Evaluierung der Cluster-Genauigkeit. Der k-Means-Algorithmus klassifiziert die Blumen anhand ihrer Merkmale in Gruppen, die mit den drei Arten von Iris-Blumen korrespondieren.
 \subsection{Manuelle Berechnung eines einfachen 3-Means-Clusters}
 %
 Für sehr einfache Situationen lässt sich der K-Means-Algorithmus auch manuell berechnen, indem  wir die entsprechenden Abstandsformeln (siehe oben) händisch berechned. \\
@@ -490,17 +476,85 @@ Wir möchten diese Punkte in k = 3 Cluster gruppieren. Diese Aufgabe wird in der
 
 \subsection{Python-Beispiel für k-Means-Clustering für IRIS Blumen}
 %
-Dieser Abschnitt beschreibt ein Code-Beispiele für den M-Means-Algorithmus zur Klassifikation der Iris-Blumen und enthält Python-Code für die Durchführung der Analyse. Es umfasst das Laden der Daten, die Anwendung des Algorithmus, die Visualisierung der Cluster und die Evaluierung der Ergebnisse.Siehe Lösungen in meinem Github:\\ 
+Dieser Abschnitt beschreibt ein Code-Beispiele für den k-Means-Algorithmus zur Klassifikation der Iris-Blumen und enthält Python-Code für die Durchführung der Analyse. Es umfasst das Laden der Daten, die Anwendung des Algorithmus, die Visualisierung der Cluster und die Evaluierung der Ergebnisse.Siehe Lösungen in meinem Github:\\ 
 %
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/k-means-HVoe.pdf} \\[0.2cm]
 %
-Die Konfusion-Matrix zeigt, dass alle 50 setosa-Blüten richtig klassifiziert wurden.\\ 48 versicolor-Blüten wurden richtig klassifiziert, aber 14 wurden falsch erkannt. \\ 36 virginica-Blüten wurden richtig beschriftet und 2 virginica-Blüten wurden fälschlicherweise als virginica-Blüten klassifiziert.\\[0.2cm]
+In obigen Programm wird auch die Confusion Matrix berechnet: \\[0.2cm]
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Tatsächlich \textbackslash\ Vorhergesagt} & \textbf{Cluster 1} & \textbf{Cluster 2} & \textbf{Cluster 3} \\
+        \hline
+        \textbf{Setosa} & 50 & 0 & 0 \\
+        \textbf{Versicolor} & 0 & 48 & 2 \\
+        \textbf{Virginica} & 0 & 14 & 36 \\
+        \hline
+    \end{tabular}
+    \caption{ Confusion Matrix des k-Means Clustering für Iris-Blumen}
+    \label{tab:confusion_matrix_kmeans}
+\end{table}
 %
-Insgesamt funktionieren  Clustering und Klassifizierung mit k-Means im {\color{blue}{IRIS-Blumen Datensatz}} \index{IRIS-Blumen Datensatz} gut. Mit einer Genauigkeit von 89 Prozent ist der Algorithmus ein gutes Hilfsmittel, um ein Modell für die Vorhersage der genauen Art der Irisblüte zu erstellen.\\
-Wie die Konfusion-Matrix zeigt, ist die Klassifikation zu 100\% genau
-für die Setosa-Blüten und über 94\% für die Versicolor-Arten. Es scheitert nur bei der genauen Virginica-Blüten mit einer Genauigkeit von "nur" 77\%.\\[0.2cm]
-Das Modell von k-Means kann jedoch noch weiter verbessert werden, wie andere  Implementierungen wie k-means++ zeigen. Es verbessert außerdem die Wahl der anfänglichen Zentren.
+Die Konfusion-Matrix zeigt, dass alle 50 setosa-Blüten richtig klassifiziert wurden.\\ 48 versicolor-Blüten wurden richtig klassifiziert, aber 2 wurden falsch erkannt. \\ 36 virginica-Blüten wurden richtig beschriftet und 14 virginica-Blüten wurden fälschlicherweise als versicolor-Blüten klassifiziert.\\[0.2cm]
 %
+Insgesamt funktionieren  Clustering und Klassifizierung mit k-Means im {\color{blue}{IRIS-Blumen Datensatz}} \index{IRIS-Blumen Datensatz} relativ gut. Mit einer Genauigkeit ('Accurancy') von 134/150= 89.3 Prozent ist der Algorithmus ein relativ gutes Hilfsmittel, um ein Modell für die Vorhersage der genauen Art der Irisblüte zu erstellen.\\
+Wie die Konfusion-Matrix zeigt, ist die Klassifikation zu 100\% genau für die Setosa-Blüten und über 94\% für die Versicolor-Arten. Es scheitert nur bei der genauen Virginica-Blüten mit einer Genauigkeit von "nur" 77\%.\\[0.2cm]
+Das Modell von k-Means kann jedoch noch weiter verbessert werden, wie andere  Implementierungen wie k-means++ zeigen. Es verbessert außerdem die Wahl der anfänglichen Zentren.\\
+Ein weiteres gutes Clusterimg Verfahren ist GMM ("Gaussian Mixture Model"), das die Accurancy auf 145/150=96,7  Prozent hochschraubt. Siehe dazu auch die Übung (3.4) mit dem entsprechenden Code und der Confusion Matrix: \\[0.2cm]
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Tatsächlich \textbackslash\ Vorhergesagt} & \textbf{Cluster 1} & \textbf{Cluster 2} & \textbf{Cluster 3} \\
+        \hline
+        \textbf{Setosa} & 50 & 0 & 0 \\
+        \textbf{Versicolor} & 0 & 45 & 5 \\
+        \textbf{Virginica} & 0 & 0 & 50 \\
+        \hline
+    \end{tabular}
+    \caption{ Confusion Matrix des QMM Clustering für Iris-Blumen}
+    \label{tab:confusion_matrix_QMM}
+\end{table}
+%
+\subsection{Python-Beispiel für QMM-Clustering für IRIS Blumen}
+%
+Das \textbf{Gaussian Mixture Model (GMM)} ist ein \textbf{Clustering-Verfahren}, das auf Wahrscheinlichkeitsmodellen basiert. Es ist eine \textbf{weich}-basierte Alternative zu k-Means, da es jedem Datenpunkt eine Wahrscheinlichkeit für verschiedene Cluster zuweist, anstatt ihn nur einem einzigen Cluster fest zuzuordnen.\\
+%
+\begin{itemize}
+    \item Es gruppiert Daten in \textbf{Cluster}, basierend auf mehreren überlappenden Normalverteilungen (Gauß’sche Mischverteilungen).
+    \item Es versucht, die \textbf{Datenverteilung zu modellieren}, indem es mehrere \textbf{Gauß-Verteilungen} mit unterschiedlichen Mittelwerten und Kovarianzen kombiniert.
+    \item Es wird oft mit dem \textbf{Expectation-Maximization (EM)-Algorithmus} trainiert, um die Parameter der Verteilungen zu optimieren.
+\end{itemize}
+%
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.2} % Erhöht Zeilenabstand für bessere Lesbarkeit
+    \begin{tabular}{|p{3.5cm}|p{5cm}|p{4.5cm}|} % Spaltenbreiten angepasst
+        \hline
+        \textbf{Merkmal} & \textbf{GMM} & \textbf{k-Means} \\
+        \hline
+        Cluster-Typ  & Wahrscheinlichkeitsbasierte Verteilungen & Harte Zuordnung \\
+        Form der Cluster & Kann elliptisch sein & Meist kreisförmig \\
+        Zuordnung & Weiche Zuordnung: Jeder Punkt gehört zu allen Clustern mit einer Wahrscheinlichkeit & Harte Zuordnung: Jeder Punkt gehört genau zu einem Cluster \\
+        Algorithmus & Erwartungs-Maximierungs-Algorithmus (EM) & Lloyd's Algorithmus \\
+        \hline
+    \end{tabular}
+    \caption{Vergleich von GMM und k-Means}
+    \label{tab:gmm_vs_kmeans}
+\end{table}
+%
+\textbf{Wann sollte man GMM statt k-Means verwenden?}
+\begin{itemize}
+    \item Wenn Cluster \textbf{überlappen} und eine \textbf{Gauß-artige Struktur} haben.
+    \item Wenn Cluster \textbf{unterschiedliche Größen oder Formen} haben.
+    \item Wenn eine \textbf{weiche Clusterzuordnung} (Probabilistik) gewünscht ist.
+\end{itemize}
+%
+.\\[0.2cm]
+\textbf{Zusammengefasst:} GMM ist ein weiteres \textbf{Clustering-Verfahren}, aber es arbeitet anders als k-Means und eignet sich besonders für komplexe Datenstrukturen. 
+
+
 \newpage
 
 \subsection{Übungen zum Kapitel 3}
