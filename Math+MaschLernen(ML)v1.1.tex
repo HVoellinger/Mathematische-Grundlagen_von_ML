@@ -103,10 +103,10 @@
    \end{center}
    
 \begin{center}
-Diese Version V1.0 (Datum: 24.3.2025) ist nicht final!!! \\
+Diese Version V1.0 (Datum: 07.4.2025) ist nicht final!!! \\
 {\color{blue}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
-\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v1.0.pdf} \\
+\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v1.1.pdf} \\
 \vspace{0.4cm}
 \begin{large}
 Dieses Skript wurde generiert mit \LaTeX\  
@@ -168,7 +168,18 @@ Die Leser sollen befähigt werden, die Mathematik hinter den ML Anwendungen zu v
 \subsection{Brücke "DWH nach ML" im "3-Insel-Titelbild"}
 Neben der Brücke zwischen Mathematik und ML, die den Hauptfokus der Arbeit darstellt, ist jedoch auch die Brücke zwischen DWH/Data-Management und ML wichtig, die einen essentiellen Input für das Verständnis von ML Modellen liefert. Zu diesem Thema mache ich in diesem  Unterkapitel einige wichtige Anmerkungen und Aussagen.\\[0.1cm]
 Über die Brücke "DWH nach ML" fließen nicht nur Daten sondern auch Metadaten. Metadaten sind für das Verständnis eines DWH sehr wichtig. Siehe auch dazu die Vorlesung zu Thema DWH, siehe \textbf{[HVö-LecDWH23]}.\\
-Diese Metadaten spielen jedoch auch ein wertvolle Rolle bei der Entwicklung von ML Algorithmen und Modellen. Insbesondere wenn wir hier an das Thema vom Aufbau grosser Sprachmodelle (aka LLM) denken. Die Idee besteht darin, das Wissen dieser Metadaten in die sogenannten "Knowledge Graphen" (KG) zu übertragen. Die KGs können LLMs verbessern, indem sie externes Wissen für Inferenz und Interpretierbarkeit zur Verfügung zu stellen. Siehe hierzu in Fig.1 auch das Thema "Domain-specific Knowledge" in [LLMsAndKGs]. Die Rolle von KGs und ihr Zusammenspiel mit LLMs ist sehr gut in der Referenz [LLMsAndKGs] beschrieben.\\
+Diese Metadaten spielen jedoch auch ein wertvolle Rolle bei der Entwicklung von ML Algorithmen und Modellen. Insbesondere wenn wir hier an das Thema vom Aufbau großer Sprachmodelle (aka LLM) denken. Die Idee besteht darin, das Wissen dieser Metadaten in die sogenannten "Knowledge Graphen" (KG) \index{Knowledge Graphen (KG)} zu übertragen. Siehe dazu das folgende einfache Beispiel aus dem Gesundheitswesen:\\[0.5cm]
+%
+\begin{figure}[htp]
+  \centering
+  \hspace*{-0.3cm} 
+  \includegraphics[width=1.1\textwidth]{KG-Gesundheitswesen}
+  \caption{Beispiel für Knowledge Graphen aus Gesundheitswesen}
+  \label{fig:KG-Gesundheit}
+\end{figure}
+\\[0.6cm] 
+%
+Die KGs können LLMs verbessern, indem sie externes Wissen für Inferenz und Interpretierbarkeit zur Verfügung zu stellen. Siehe hierzu in Fig.1 auch das Thema "Domain-specific Knowledge" in [LLMsAndKGs]. Die Rolle von KGs und ihr Zusammenspiel mit LLMs ist sehr gut in der Referenz [LLMsAndKGs] beschrieben.\\
 KGs sind jedoch schwer zu konstruieren und entwickeln sich von Natur aus weiter, was eine Herausforderung für die bestehenden Methoden der KGs darstellt. Aus diesem Grund ist der Beitrag den die Metadaten des DWH/Data-Management leisten können so wichtig. Siehe hierzu auch das Kapitel im Anhang über LLM's (i.e. ChatGPT)\index{ChatGPT}. \\ 
 Wo stecken also diese Metadaten im DWH? Hier möchte ich beispielhaft zwei Werkzeuge erwähnen und zwar die Werkzeuge zur Datenmodellierung (z.B. Infosphere Data Architect -IDA) und Data Governance (z.B. Infosphere Governance Catalog - IGC). Beide Werkzeuge wurden ausführlich in der DWH Vorlesung (siehe [HVö-LecDWH23], Seite 25 und Seiten 130-132) besprochen. \\[0.1cm] 
 %
@@ -186,7 +197,7 @@ Diese Datenmodelle sind darauf ausgelegt, die spezifischen fachlichen Anforderun
   \caption{Beispiel für ein Datamart Modell mit Hilfe des Tools IDA}
   \label{fig:IDA-Datamart}
 \end{figure}
-\\[4.2cm] 
+\\[0.6cm] 
 %
 \textbf{IGC:} IBM InfoSphere Information Governance Catalog (IGC) ist ein interaktives, webbasiertes Tool, mit dem Benutzer ein Unternehmensvokabular und ein Klassifizierungssystem in einem zentralen Katalog erstellen, verwalten und gemeinsam nutzen können. Es hilft den Anwendern, die geschäftliche Bedeutung ihrer technischen Assets zu verstehen und bietet Such-, Browse- und Abfragefunktionen. Darüber hinaus können die Benutzer Asset-Sammlungen erstellen und Berichte über den Datenfluss zwischen Assets erstellen. Siehe in [DHBW-Moodle] die folgenden Dokumente und Videos:
 'Geführte IGC Demo.pdf'; Geführte IGC Demo - Deutsch.pdf'; 'Demo-IGC-Teil1.mp4'; 'Demo-IGC-Teil2.mp4' und 'Demo Qutput-IGC-Teil2-Data Lineage.pdf'. \\
@@ -316,7 +327,7 @@ Am Ende kommt noch ein Kapitel Anhang in den sechs weitere ML-Verfahren der Voll
 \section{Mathematik zum "k-Means-Algorithmus" \\}
 
 Ein {\color{blue}{k-Means-Algorithmus}}\index{k-Means-Algorithmus} ist ein Verfahren der Euklidischen Geometrie. Dabei wird aus einer Menge von ähnlichen Objekten eine vorher bekannte Anzahl von k Gruppen ("Clustern") gebildet.\\
-Der Algorithmus ist eine der am häufigsten verwendeten Techniken zur Gruppierung von Objekten, da er schnell die Zentren der Cluster findet. Dabei bevorzugt der Algorithmus Gruppen mit geringer Varianz und ähnlicher Größe.\\
+Der Algorithmus ist eine der am häufigsten verwendeten Techniken zur Gruppierung (Englisch: "Clustering"\index{Clustering}) von Objekten, da er schnell die Zentren der Cluster findet. Clustering ist ein Verfahren des unüberwachten Lernens (unsupervised learning\index{Unsupervised Learning}) in der Datenanalyse und im maschinellen Lernen. Dabei werden Datenpunkte in Gruppen (Cluster) eingeteilt – ohne dass es vorher bekannte Labels oder Kategorien gibt.Dabei bevorzugt der Algorithmus Gruppen mit geringer Varianz und ähnlicher Größe.\\
 Der Algorithmus hat starke Ähnlichkeiten mit dem "Erwartungs-Maximierungs-Algorithmus (EM-Algorithmus)" und zeichnet sich durch seine Einfachheit aus.\\
 Erweiterungen sind der $"k-Median-Algorithmus"$ und der $"k-Means++ Algorithmus" $.\\
 
@@ -501,7 +512,7 @@ Insgesamt funktionieren  Clustering und Klassifizierung mit k-Means im {\color{b
 Wie die Konfusion-Matrix zeigt, ist die Klassifikation zu 100\% genau für die Setosa-Blüten und über 94\% für die Versicolor-Arten. Es scheitert nur bei der genauen Virginica-Blüten mit einer Genauigkeit von "nur" 77\%.\\[0.1cm]
 Das k-Means-Clusterung ist für den Iris-Datensatz nicht optimal, weil sie einige grundlegende Annahmen macht, die mit der Struktur der Daten nicht gut übereinstimmen. Zum Beispiel enthalten Iris-Daten elliptische Cluster (und nicht runde wie bei k-Means angenommen wird). Besonders Versicolor und Virginica überlappen stark und haben eine gestreckte Verteilung.\\
 Das Modell von k-Means kann jedoch noch weiter verbessert werden, wie andere  Implementierungen wie k-means++ zeigen. Es verbessert außerdem die Wahl der anfänglichen Zentren.\\
-Ein weiteres gutes Clusterimg Verfahren ist GMM ("Gaussian Mixture Model") \index{Gaussian Mixture Model (GMM)} , das die Accurancy auf 145/150=96,7  Prozent hochschraubt. Siehe dazu auch die Übung (3.4) mit dem entsprechenden Code und der Confusion Matrix\index{Confusion Matrix}: \\[0.1cm]
+Ein weiteres gutes Clusterimg Verfahren ist \textbf{GMM (" Model")} \index{Gaussian Mixture Model (GMM)} , das die Accurancy auf 145/150=96,7  Prozent hochschraubt. Siehe dazu auch die Übung (3.4) mit dem entsprechenden Code und der Confusion Matrix\index{Confusion Matrix}: \\[0.1cm]
 \begin{table}[h]
     \centering
     \begin{tabular}{|c|c|c|c|}
@@ -2621,7 +2632,9 @@ Definiere einen Algorithmus in Python (benutze Jupyter Notebook) um obige Berech
 %
 *** Referenzen: [Wiki-SVM]; [SVM-Def] und  [TK + SVM]*****\\
 %
+SVM ist ein klassisches Verfahren der Klassifikation (Englisch: "classification"\index{Classification}). Classification (deutsch: Klassifikation) ist ein Verfahren im überwachten maschinellen Lernen (Englisch: "supervised learning"\index {Supervised Learning}, bei dem ein Modell lernt, Eingaben in vordefinierte Kategorien (Klassen) einzuordnen. Das Modell wird dabei mit einem Trainingsdatensatz trainiert, bei dem die Eingabedaten bereits mit den korrekten Labels (also Klassen) versehen sind. \\
 Wichtig zum Verständnis von {\color{blue}{Support Vector Machines (SVM)}}\index{Support Vector Machines} ist die Beschreibung einiger mathematischen Grundlagen der SVM.\\
+%
 Diese sind in der Tat traditionelle Lineare Algebra und keine "Rocket Science". Es geht bei diesem Klassifikationsproblem darum optimale Hyperebenen zu finden die die Klassen "gut" trennen.
 Dies kann man etwa auch gut am Beispiel von Text-Klassifikationen sehen. Text-Klassifikatiion hat sehr viel mit SVM zu tun. Vergleichen Sie dazu die Beispiele die in der Referenz [TK + SVM] zu sehen sind.
 \subsection{Grundlegende mathematische Funktionsweise}
@@ -2849,10 +2862,10 @@ SVM ist ein robustes Klassifikations- und Regressionsverfahren mit soliden mathe
 %
 Ziel dieses Abschnitte ist es die mathematischen Formeln und Definitionen  aus obigen Kapitel besser zu verstehen. Insbesondere für die 3 gängigen Kernel-Funktionen.
 
-\subsubsection{Lineare Trennbarkeit - Beispiel Irisblumen}
+\subsubsection{Lineare Trennbarkeit - Beispiel mit zwei Typen von Irisblumen}
 %
 Beispiel: Klassifikation von zwei Iris-Blumenarten mit SVM.\\
-In diesem Beispiel betrachten wir einen Datensatz der linear trennbar ist. Wir verwenden dazu den bekannten Iris-Datensatz, der Informationen über drei Arten von Iris-Blumen enthält: Iris Setosa, Iris Versicolor und Iris Virginica. Jede Blume wird durch vier Merkmale beschrieben:\\
+In diesem trivialen Beispiel betrachten wir einen Datensatz der linear trennbar ist. Wir verwenden dazu den bekannten Iris-Datensatz, der Informationen über drei Arten von Iris-Blumen enthält: Iris Setosa, Iris Versicolor und Iris Virginica. Jede Blume wird durch vier Merkmale beschrieben:\\
 %
 Sepallänge (in cm)\\
 Sepalbreite (in cm)\\
@@ -2864,6 +2877,14 @@ Für diese zwei Ausprägungen von Iris-Blumen erkennen wir eine Lineare Trennbar
 Wir erhalten eine Trennlinie: "Blütenbreite = -1.5 *Blütenlänge + 4" und bekommen drei Support-Vektoren (1.9, 0.2), (1.7, 0.5) und (3, 1.1).\\[0.2cm]
 Siehe dazu auch das folgende Python-Programm (Jupyter Notebook):\\
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM_Irisblume.pdf}} 
+%
+\subsubsection{RBF (Gaussian) Trennbarkeit - Beispiel mit allen  Irisblumen}
+%
+Beispiel: Klassifikation von allen Typen von Irisblumen mit SVM-RBF Kernel.\\
+In diesem etwas komplexeren Beispiel betrachten wir den kompletten Datensatz der Irisblumen, mit allen 3 Typen: Iris Setosa, Iris Versicolor und Iris Virginica (Beschreibung siehe oben). Wir splitten den Datensatz im Verhätnis 80 Prozent Trainingsdaten zu 20 Prozent Testdaten.\\
+Wir erhalten dabei eine Genauigkeit (Englisch: "Accurancy" ) von 100 Prozemn (siehe auch "Confusion Matrix" \index{Confusion Matrix}).\\[0.2cm]
+Siehe dazu auch das folgende Python-Programm (Jupyter Notebook):\\
+\textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVM-RBF-IRIS.pdf}} 
 %
 \subsubsection{Beispiele für drei gängige Kernel-Funktionen}
 %
@@ -4224,10 +4245,8 @@ Lösungsansatz mit Python: \\[0.1cm]
 
 \newpage
 
- \section{Referenzen}
+\section{Referenzen}
 
-\textbf{Liste der Referenzen:} \\[0.3cm] 
-%
 \textbf{[HVö-LecDWH23]} - Hermann Völlinger: Script of the Lecture "Introduction to Data Warehousing"; DHBW Stuttgart; WS2023; \url{http://www.dhbw-stuttgart.de/~hvoellin/}\\[0.2cm] 
 %
 \textbf{[HVö-ExcDWH23]} - Hermann Völlinger and Other: Exercises and Solutions of the Lecture "Introduction to Data Warehousing"; DHBW Stuttgart; WS2023; \url{http://www.dhbw-stuttgart.de/~hvoellin/}\\[0.2cm] 
@@ -4272,11 +4291,12 @@ Moderne Informationsstrukturen für brachenspezifische Lösungen"; Übersichtsar
 %
 \textbf{[KS-GitHub]} Karl Stroetmann: "Lecture Notes on Artificial Intelligence"-  GitHub/Artificial-Intelligence; \url{https://github.com/karlstroetmann/Artificial-Intelligence}, 2019\\[0.2cm]  
 %
-\textbf{[Wiki-ML]} - Wikipedia: "Machine Learning ML"; \url{https://en.wikipedia.org/wiki/Machine_learning}{Machine Learning}\\[0.2cm] 
+\textbf{[Wiki-ML]} - Wikipedia: "Machine Learning ML"; \url{https://en.wikipedia.org/wiki/Machine_learning}\\[0.2cm] 
 %
-\textbf{[Wiki-SVM]} - Wikipedia Support Vector Machine (SVM); \url{https://de.wikipedia.org/wiki/Support_Vector_Machine}\\[0.2cm] 
+\textbf{[Wiki-SVM]} - Wikipedia Support Vector Machine (SVM); \url{https://de.wikipedia.org/wiki/Support_Vector_Machine}\\[0.4cm] 
 %
 \textbf{Anmerkungen:} Alle obigen Dokumente und Artikel, außer den direkten Links ins Internet, findet man auch in meiner GitHub: \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/tree/main/Quellen_Math-ML}.\\[0.2cm]  
+\newpage
 %
 %\section{Indexverzeichnis}
 %
