@@ -103,7 +103,7 @@
    \end{center}
    
 \begin{center}
-Diese Version V1.0 (Datum: 07.4.2025) ist nicht final!!! \\
+Diese Version V1.1 (Datum: 07.4.2025) ist nicht final!!! \\
 {\color{blue}{(Beachte: ************ Kommentare *********)}} \\[0.3cm]
 Aktuelle Versionen findet man in meinem GitHub\\[0.1cm]
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Math+MaschLernen(ML)v1.1.pdf} \\
@@ -167,7 +167,7 @@ Die Leser sollen befähigt werden, die Mathematik hinter den ML Anwendungen zu v
 
 \subsection{Brücke "DWH nach ML" im "3-Insel-Titelbild"}
 Neben der Brücke zwischen Mathematik und ML, die den Hauptfokus der Arbeit darstellt, ist jedoch auch die Brücke zwischen DWH/Data-Management und ML wichtig, die einen essentiellen Input für das Verständnis von ML Modellen liefert. Zu diesem Thema mache ich in diesem  Unterkapitel einige wichtige Anmerkungen und Aussagen.\\[0.1cm]
-Über die Brücke "DWH nach ML" fließen nicht nur Daten sondern auch Metadaten. Metadaten sind für das Verständnis eines DWH sehr wichtig. Siehe auch dazu die Vorlesung zu Thema DWH, siehe \textbf{[HVö-LecDWH23]}.\\
+Über die Brücke "DWH nach ML" fließen nicht nur Daten sondern auch Metadaten. Metadaten sind für das Verständnis eines DWH sehr wichtig. Siehe auch dazu die Vorlesung zu Thema DWH, siehe \textbf{[HVö-LecDWH25]}.\\
 Diese Metadaten spielen jedoch auch ein wertvolle Rolle bei der Entwicklung von ML Algorithmen und Modellen. Insbesondere wenn wir hier an das Thema vom Aufbau großer Sprachmodelle (aka LLM) denken. Die Idee besteht darin, das Wissen dieser Metadaten in die sogenannten "Knowledge Graphen" (KG) \index{Knowledge Graphen (KG)} zu übertragen. Siehe dazu das folgende einfache Beispiel aus dem Gesundheitswesen:\\[0.5cm]
 %
 \begin{figure}[htp]
@@ -181,14 +181,14 @@ Diese Metadaten spielen jedoch auch ein wertvolle Rolle bei der Entwicklung von 
 %
 Die KGs können LLMs verbessern, indem sie externes Wissen für Inferenz und Interpretierbarkeit zur Verfügung zu stellen. Siehe hierzu in Fig.1 auch das Thema "Domain-specific Knowledge" in [LLMsAndKGs]. Die Rolle von KGs und ihr Zusammenspiel mit LLMs ist sehr gut in der Referenz [LLMsAndKGs] beschrieben.\\
 KGs sind jedoch schwer zu konstruieren und entwickeln sich von Natur aus weiter, was eine Herausforderung für die bestehenden Methoden der KGs darstellt. Aus diesem Grund ist der Beitrag den die Metadaten des DWH/Data-Management leisten können so wichtig. Siehe hierzu auch das Kapitel im Anhang über LLM's (i.e. ChatGPT)\index{ChatGPT}. \\ 
-Wo stecken also diese Metadaten im DWH? Hier möchte ich beispielhaft zwei Werkzeuge erwähnen und zwar die Werkzeuge zur Datenmodellierung (z.B. Infosphere Data Architect -IDA) und Data Governance (z.B. Infosphere Governance Catalog - IGC). Beide Werkzeuge wurden ausführlich in der DWH Vorlesung (siehe [HVö-LecDWH23], Seite 25 und Seiten 130-132) besprochen. \\[0.1cm] 
+Wo stecken also diese Metadaten im DWH? Hier möchte ich beispielhaft zwei Werkzeuge erwähnen und zwar die Werkzeuge zur Datenmodellierung (z.B. Infosphere Data Architect -IDA) und Data Governance (z.B. Infosphere Governance Catalog - IGC). Beide Werkzeuge wurden ausführlich in der DWH Vorlesung (siehe [HVö-LecDWH25], Seite 25-27 und Seiten 132-134) besprochen. Arbeitet man mit der IBM Cloud so findet man das Tool IGC dort unter den Namen "Watson Knowledge Catalog.\\[0.1cm] 
 %
 Die Brücke zwischen DWH/Data-Management und ML kann jedoch auch in umgekehrter Richtung genutzt werden: Beispiele sind die Anwendung von KI zur Automatisierung oder Rationalisierung von Datenerfassung, Datenbereinigung, Datenanalyse, Datensicherheit und anderen Datenverwaltungsprozessen. Sowohl traditionelle, regelbasierte KI als auch fortschrittlichere generative KI-Modelle können bei der Datenverwaltung helfen.
 
 \subsubsection{Details zu IDA und IGC}
 \textbf{IDA:} IBM InfoSphere Data Architect ist eine kollaborative Lösung für die Modellierung und das Design von Unternehmensdaten, die das Integrationsdesign für Business Intelligence-, Master Data Management- und Service-orientierte Architekturinitiativen vereinfacht und beschleunigt. IDA ermöglicht die Zusammenarbeit mit Anwendern in jedem Schritt des Datendesignprozesses, vom Projektmanagement über das Anwendungsdesign bis hin zum Datendesign. Das Tool hilft dabei, Prozesse, Dienste, Anwendungen und Datenarchitekturen aufeinander abzustimmen. Sehen Sie in [DHBW-Moodle] das Video: 'Demo-Infosphere Data Architect (IDA).mp4'. \\
 Als weiteres Hilfsmittel zur Erstellung von Domänen spezifischen Datenmodellen bietet die Firma IBM auch eine Reihe von Industriemodellen an, siehe etwa "BDW" (Banking Data Warehouse) oder "IIW"  (Insurance Information Warehouse). Vergleiche hierzu auch die Referenz [BDW+IIW]. Weitere Industriemodelle gibt es aber auch für die Domänen "Financial Services (FSDM)", "Healthcare (HDM)", "Telecommunications (TDW)", "Retail (RDW)" und "Energy and Utilities" (EUDM). \\
-Diese Datenmodelle sind darauf ausgelegt, die spezifischen fachlichen Anforderungen der jeweiligen Branche zu erfüllen und bieten vordefinierte Datenstrukturen, die die Implementierung und Anpassung beschleunigen können. Sie unterstützen auch die Einhaltung von Branchenstandards und gesetzlichen Anforderungen, was für Unternehmen von großer Bedeutung ist. Siehe [GIM-BFMDM].\\[0.2cm]
+Diese Datenmodelle sind darauf ausgelegt, die spezifischen fachlichen Anforderungen der jeweiligen Branche zu erfüllen und bieten vordefinierte Datenstrukturen, die die Implementierung und Anpassung beschleunigen können. Sie unterstützen auch die Einhaltung von Branchenstandards und gesetzlichen Anforderungen, was für Unternehmen von großer Bedeutung ist. Siehe [GIM-BFMDM]. Unter der IBM Cloud heißen die Industriemodelle "Knowledge Accelerators".\\[0.8cm]
 %
 \begin{figure}[htp]
   \centering
@@ -197,7 +197,7 @@ Diese Datenmodelle sind darauf ausgelegt, die spezifischen fachlichen Anforderun
   \caption{Beispiel für ein Datamart Modell mit Hilfe des Tools IDA}
   \label{fig:IDA-Datamart}
 \end{figure}
-\\[0.6cm] 
+\\[2.0cm] 
 %
 \textbf{IGC:} IBM InfoSphere Information Governance Catalog (IGC) ist ein interaktives, webbasiertes Tool, mit dem Benutzer ein Unternehmensvokabular und ein Klassifizierungssystem in einem zentralen Katalog erstellen, verwalten und gemeinsam nutzen können. Es hilft den Anwendern, die geschäftliche Bedeutung ihrer technischen Assets zu verstehen und bietet Such-, Browse- und Abfragefunktionen. Darüber hinaus können die Benutzer Asset-Sammlungen erstellen und Berichte über den Datenfluss zwischen Assets erstellen. Siehe in [DHBW-Moodle] die folgenden Dokumente und Videos:
 'Geführte IGC Demo.pdf'; Geführte IGC Demo - Deutsch.pdf'; 'Demo-IGC-Teil1.mp4'; 'Demo-IGC-Teil2.mp4' und 'Demo Qutput-IGC-Teil2-Data Lineage.pdf'. \\
@@ -852,7 +852,7 @@ Diese Wahl führt zur Bevorzugung von Attributen mit vielen Wahlmöglichkeiten u
 Siehe auch folgenden Weblink:\\
 \url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/Homework_H4.5-DecTree_ID3_Praesentation.pdf}\\[0.2cm]
 %
-\subsubsection{Zusammenfassung: Algorithmus zum Endropie Verfahren}
+\subsubsection{Zusammenfassung: Algorithmus zum Entropie Verfahren}
 %
 Der Algorithmus setzt sich aus den folgenden drei Schritten zusammen:\\
 \textbf{1. Entropie}\\
@@ -913,7 +913,7 @@ Als nächstes sehen wir ein \textbf{Python-Beispiel} für eine Anwendung dieses 
 Wir führen nun die beiden Verfahren an einem Datensatz "Playing Tennis Game" durch. Wir  wollen zeigen, dass mit diesen Testdaten identische Ergebnisse erzielt werden.\\
 %
 Bei den Trainingsdaten handelt es sich um einen berühmten Datensatz aus der Welt des maschinellen Lernens, nämlich den Wetterdatensatz "Playing Tennis Game". Die Entscheidung (Spiel Y oder N) ist dabei  basierend auf den Wetterbedingungen. Wir bauen einen entsprechenden  Entscheidungsbaum auf.\\
-In der ersten Zeile stehen die entsprechenden {\color{red}{vier Bedingungen ("Features"): OUTLOOK, TEMP, HUMIDITY und WINDY}} \index{Bedingungen ("Features")}  und die {\color{blue}{Zielvariable ("Label")}} \index{Zielvariable ("Label")} {\color{blue}{PLAY}}.\\
+In der ersten Zeile stehen die entsprechenden {\color{red}{vier Bedingungen ("Features"): OUTLOOK, TEMP, HUMIDITY und WINDY}} \index{Bedingungen ("Features")}  und die {\color{blue}{Zielvariable ("Label")}} \index{Zielvariable (Label)} {\color{blue}{PLAY}}.\\
 In den anschließenden 14 Zeilen stehen die Trainingsdaten.\\[0.2cm]
 %
 \renewcommand{\arraystretch}{1.2} % Zusätzlicher vertikaler Abstand in der Tabelle
@@ -2632,21 +2632,20 @@ Definiere einen Algorithmus in Python (benutze Jupyter Notebook) um obige Berech
 %
 *** Referenzen: [Wiki-SVM]; [SVM-Def] und  [TK + SVM]*****\\
 %
-SVM ist ein klassisches Verfahren der Klassifikation (Englisch: "classification"\index{Classification}). Classification (deutsch: Klassifikation) ist ein Verfahren im überwachten maschinellen Lernen (Englisch: "supervised learning"\index {Supervised Learning}, bei dem ein Modell lernt, Eingaben in vordefinierte Kategorien (Klassen) einzuordnen. Das Modell wird dabei mit einem Trainingsdatensatz trainiert, bei dem die Eingabedaten bereits mit den korrekten Labels (also Klassen) versehen sind. \\
+SVM ist ein klassisches Verfahren der Klassifikation (Englisch: "classification") \index{Classification}. Classification (deutsch: Klassifikation) ist ein Verfahren im überwachten maschinellen Lernen (Englisch: "supervised learning"), \index{Supervised Learning} bei dem ein Modell lernt, Eingaben in vordefinierte Kategorien (Klassen) einzuordnen. Das Modell wird dabei mit einem Trainingsdatensatz trainiert, bei dem die Eingabedaten bereits mit den korrekten Labels (also Klassen) versehen sind. \\
 Wichtig zum Verständnis von {\color{blue}{Support Vector Machines (SVM)}}\index{Support Vector Machines} ist die Beschreibung einiger mathematischen Grundlagen der SVM.\\
 %
 Diese sind in der Tat traditionelle Lineare Algebra und keine "Rocket Science". Es geht bei diesem Klassifikationsproblem darum optimale Hyperebenen zu finden die die Klassen "gut" trennen.
 Dies kann man etwa auch gut am Beispiel von Text-Klassifikationen sehen. Text-Klassifikatiion hat sehr viel mit SVM zu tun. Vergleichen Sie dazu die Beispiele die in der Referenz [TK + SVM] zu sehen sind.
 \subsection{Grundlegende mathematische Funktionsweise}
 Das Hauptziel der SVM besteht darin, eine optimale Trennung (Klassifikation) zwischen zwei Klassen von Datenpunkten in einem mehrdimensionalen Raum zu finden. Die SVM sucht eine Hyperebene, die die beiden Klassen maximal voneinander trennt, wobei der Abstand zwischen der Hyperebene und den nächsten Datenpunkten (den sogenannten Support-Vektoren) maximiert wird.
-\\
+\\[0.2cm]
 \textbf{Mathematische Schreibweise:}
-\\Angenommen, wir haben eine Menge von Trainingsdatenpunkten: ${(x_1, y_1), (x_2, y_2),... , (x_n, y_n)}$, wobei $x_i \in \mathbb{R}^n$ der Eingabevektor und $y_i$ als Klasse von Datenpunkten nur die Werte +1 oder -1 annehmen kann.\\
-Für eine lineare SVM ist die mathematische Darstellung der Hyperebene dann gegeben durch:
+\\Angenommen, wir haben eine Menge von Trainingsdatenpunkten: ${(x_1, y_1), (x_2, y_2),... , (x_n, y_n)}$, wobei $x_i \in \mathbb{R}^n$ der Eingabevektor und $y_i$ als Klasse von Datenpunkten nur die Werte +1 oder -1 annehmen kann. Für eine lineare SVM ist die mathematische Darstellung der Hyperebene dann gegeben durch:
 \begin{center}
 \begin{large} \textbf{$w \cdot x + b = 0$} \end{large} 
 \end{center}
-Hier ist "$w$" der Gewichtsvektor, der senkrecht zur Hyperebene zeigt und die Richtung der Trennung bestimmt. "$b$" ist der Bias (auch Verschiebungsparameter genannt), der die Verschiebung der Hyperebene entlang der "$w$"-Achse steuert. Es gelten dabei die folgenden \textbf{matematischen Bedingungen}\\
+Hier ist "$w$" der Gewichtsvektor, der senkrecht zur Hyperebene zeigt und die Richtung der Trennung bestimmt. "$b$" ist der Bias (auch Verschiebungsparameter genannt), der die Verschiebung der Hyperebene entlang der "$w$"-Achse steuert. Es gelten dabei die folgenden \textbf{mathematischen Bedingungen}\\[0.3cm]
 \textbf{1. Lineare Trennbarkeit:}\\
 Die {\color{blue}{SVM}} \index{Support Vector Machines} hat bestimmte Trennbedingungen, die während des Trainingsprozesses erfüllt werden sollen:
 Die Punkte jeder Klasse müssen auf unterschiedlichen Seiten der Hyperebene liegen.\\
@@ -2666,7 +2665,6 @@ Der Name "Kernel" kommt daher, dass in der mathematischen Darstellung der SVM di
 %
 Dies sind die grundlegenden mathematischen Grundlagen der Support Vector Machine. SVM ist eine äußerst flexible und leistungsfähige Methode, die in vielen Anwendungen erfolgreich eingesetzt wird.\\
 %
-
 
 \subsection{Funktionsweise im Detail}
 
@@ -4247,9 +4245,9 @@ Lösungsansatz mit Python: \\[0.1cm]
 
 \section{Referenzen}
 
-\textbf{[HVö-LecDWH23]} - Hermann Völlinger: Script of the Lecture "Introduction to Data Warehousing"; DHBW Stuttgart; WS2023; \url{http://www.dhbw-stuttgart.de/~hvoellin/}\\[0.2cm] 
+\textbf{[HVö-LecDWH25]} - Hermann Völlinger: Script of the Lecture "Introduction to Data Warehousing"; DHBW Stuttgart; SS2025; \url{http://www.dhbw-stuttgart.de/~hvoellin/}\\[0.2cm] 
 %
-\textbf{[HVö-ExcDWH23]} - Hermann Völlinger and Other: Exercises and Solutions of the Lecture "Introduction to Data Warehousing"; DHBW Stuttgart; WS2023; \url{http://www.dhbw-stuttgart.de/~hvoellin/}\\[0.2cm] 
+\textbf{[HVö-ExcDWH25]} - Hermann Völlinger and Other: Exercises and Solutions of the Lecture "Introduction to Data Warehousing"; DHBW Stuttgart; WS2025; \url{http://www.dhbw-stuttgart.de/~hvoellin/}\\[0.2cm] 
 %
 \textbf{[HVö-ExcML20]} - Hermann Völlinger and Other: Exercises and Solutions of the Lecture ”Machine Learning: Concepts and Algorithms"; DHBW Stuttgart; WS2020; \url{http://www.dhbw-stuttgart.de/~hvoellin/}\\[0.2cm] 
 %
