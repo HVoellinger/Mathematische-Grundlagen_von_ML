@@ -3017,8 +3017,11 @@ Im Kapitel 5 wird in der Übungsaufgabe (5.6)-Teil2  eine Simple Lineare Regress
 %
 \subsubsection{Übung 7.7 - Vergleichbarkeit der Ergebnisse mit Kapitel 5 (Multiple Lineare Regression)}
 %
-In Aufgabe (5.7) werden die Datenpunkte für eine Multiple Lineare Regression angegeben. Bestimme die Regressionsebene mit dem SVR-Verfahren und vergleiche die Ergebnisse. 
- 
+In Aufgabe (5.7) werden die Datenpunkte für eine Multiple Lineare Regression angegeben. Bestimme die Regressionsebene mit dem SVR-Verfahren und vergleiche die Ergebnisse.
+% 
+ \subsubsection{Übung 7.8 - SVM- Klassifikation für Iris Blumen)}
+%
+Berechne ein Ergebnis (Confusion Matrix), wenn man eine Klassifikation mit dem SVM-Verfahren für die IRIS Blumen macht mit der Einteilung: Training : Test = 70:30 oder 80:20. Führe die Berechnung mit dem Linearen Kernel durch.
 \newpage
 
 \section{Neuronale Netzwerke, insbesondere Tiefe Neuronale Netzwerke }
@@ -4211,6 +4214,48 @@ Hier die Ergebnisse als Jupyter Notebook:\\[0.2cm]
 \subsubsection{Lösungshinweise zu Übung 7.7}
 Analog zu dem Lösungshinweis bei Übung (7.6)\\
 \textbf{\url{https://github.com/HVoellinger/Mathematische-Grundlagen_von_ML/blob/main/Quellen_Math-ML/SVR_MultLinRegression.pdf}} 
+%
+\subsubsection{Lösungshinweise zu Übung 7.8}
+\textbf{SVM-Klassifikation des IRIS-Datensatzes}\\
+%
+Für die Klassifikation des IRIS-Datensatzes wurde eine Support Vector Machine (SVM) mit linearem Kernel verwendet. Der Datensatz wurde in Trainings- und Testdaten aufgeteilt. Es wurden zwei Split-Verhältnisse betrachtet: 70:30 und 80:20.\\[0.2cm]
+%
+\textbf{Split-Verhältnis 70:30}\\
+%
+Die Confusion Matrix für den Testdatensatz (\(45\) Instanzen) ergibt sich zu:
+
+\[
+\begin{bmatrix}
+15 & 0 & 0 \\
+0 & 13 & 2 \\
+0 & 1 & 14 \\
+\end{bmatrix}
+\]
+
+\begin{itemize}
+    \item \textbf{Genauigkeit:} \( \approx 95{,}6\,\% \)
+    \item \textbf{Perfekte Klassifikation} der Klasse \textit{Setosa}
+    \item Kleine Verwechslungen zwischen \textit{Versicolor} und \textit{Virginica}
+\end{itemize}
+%
+\textbf{Split-Verhältnis 80:20}\\
+%
+Die Confusion Matrix für den Testdatensatz (\(30\) Instanzen) ergibt sich zu:
+
+\[
+\begin{bmatrix}
+10 & 0 & 0 \\
+0 & 9 & 1 \\
+0 & 0 & 10 \\
+\end{bmatrix}
+\]
+
+\begin{itemize}
+    \item \textbf{Genauigkeit:} \( \approx 96{,}7\,\% \)
+    \item \textbf{Keine Fehlklassifikation} von \textit{Setosa} oder \textit{Virginica}
+    \item Nur eine Verwechslung zwischen \textit{Versicolor} und \textit{Virginica}
+\end{itemize}
+
 \newpage
 
 \subsection{Lösungshinweise zu Übungen Kapitel 8}
